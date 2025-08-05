@@ -300,7 +300,6 @@ class TennisQuiz {
         const container = document.getElementById('answers-container');
         container.innerHTML = `
             <div class="tiebreaker-container">
-                <p class="tiebreaker-hint">💡 Ledtråd: ${question.hint}</p>
                 <div class="tiebreaker-input-wrapper">
                     <input type="number" id="tiebreaker-answer" class="tiebreaker-input" 
                            placeholder="Skriv ditt svar här..." 
@@ -351,7 +350,7 @@ class TennisQuiz {
         if (isCorrect) {
             feedbackEl.innerHTML = `
                 <div class="correct-feedback">
-                    ✅ Rätt svar! Det korrekta svaret är ${correctAnswer}.
+                    ✅ Rätt svar!
                 </div>
             `;
             this.score++;
@@ -461,7 +460,13 @@ class TennisQuiz {
     }
 
     showFeedback(message, type) {
-        // Create temporary feedback element
+        // Remove any existing feedback
+        const existingFeedback = document.querySelector('.question-feedback');
+        if (existingFeedback) {
+            existingFeedback.remove();
+        }
+        
+        // Create feedback element
         const feedback = document.createElement('div');
         feedback.className = `question-feedback ${type}`;
         feedback.textContent = message;
@@ -477,7 +482,9 @@ class TennisQuiz {
             animation: slideIn 0.3s ease;
         `;
         
-        document.querySelector('.question-container').appendChild(feedback);
+        // Insert after the answers container
+        const answersContainer = document.getElementById('answers-container');
+        answersContainer.parentNode.insertBefore(feedback, answersContainer.nextSibling);
         
         // Remove after delay
         setTimeout(() => {

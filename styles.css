@@ -1201,17 +1201,6 @@ body {
     text-align: center;
 }
 
-.tiebreaker-hint {
-    background: var(--light-bg);
-    padding: 15px 20px;
-    border-radius: 10px;
-    margin-bottom: 25px;
-    font-size: 1rem;
-    color: var(--text-dark);
-    border: 2px solid var(--accent-yellow);
-    font-weight: 500;
-}
-
 .tiebreaker-input-wrapper {
     display: flex;
     gap: 12px;
@@ -1278,7 +1267,7 @@ body {
 }
 
 .correct-feedback {
-    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
     color: #2e7d32;
     border: 2px solid var(--success);
 }
@@ -1287,6 +1276,21 @@ body {
     background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
     color: #c62828;
     border: 2px solid var(--error);
+}
+
+/* Mobile optimization for tiebreaker */
+@media (max-width: 600px) {
+    .tiebreaker-input-wrapper {
+        flex-direction: column;
+    }
+    
+    .tiebreaker-input {
+        font-size: 1rem;
+    }
+    
+    .submit-tiebreaker-btn {
+        width: 100%;
+    }
 }
 
 /* Responsive Design - Mobile First */
