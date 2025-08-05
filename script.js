@@ -505,67 +505,50 @@ class TennisQuiz {
     }
 
     showResults() {
-        this.showScreen('results-screen');
-        this.displayResults();
-    }
-
-    displayResults() {
         const percentage = Math.round((this.score / this.totalQuestions) * 100);
         
-        // Update score display
-        document.getElementById('final-score').textContent = this.score;
+        document.getElementById('final-score').textContent = `${this.score}/${this.totalQuestions}`;
         document.getElementById('score-percentage').textContent = `${percentage}%`;
+        document.getElementById('difficulty-completed').textContent = 
+            `Svårighetsgrad: ${this.selectedDifficulty.charAt(0).toUpperCase() + this.selectedDifficulty.slice(1)}`;
         
-        // Get score message and split it into parts
-        const fullMessage = this.getScoreMessage(percentage);
-        const messageParts = fullMessage.split('\n\n');
-        
-        // Create formatted HTML for the message
-        let messageHTML = '';
-        messageParts.forEach((part, index) => {
-            if (part.includes('www.tennisresor.net')) {
-                // Make the URL clickable
-                const urlMatch = part.match(/(www\.tennisresor\.net[^\s]*)/);
-                if (urlMatch) {
-                    const url = urlMatch[1];
-                    const textBefore = part.substring(0, part.indexOf(url));
-                    const formattedPart = `${textBefore}<a href="https://${url}" target="_blank" style="color: var(--accent-green); font-weight: 600; text-decoration: underline;">${url}</a>`;
-                    messageHTML += `<p style="margin: 8px 0;">${formattedPart}</p>`;
-                } else {
-                    messageHTML += `<p style="margin: 8px 0;">${part}</p>`;
-                }
-            } else if (part.includes('🏆 Rekord:')) {
-                messageHTML += `<p style="margin: 12px 0; font-weight: 600; color: var(--accent-yellow);">${part}</p>`;
-            } else {
-                messageHTML += `<p style="margin: 8px 0;">${part}</p>`;
-            }
-        });
-        
-        document.getElementById('score-message').innerHTML = messageHTML;
-        
-        // Update difficulty display
-        const difficultyNames = {
-            'easy': 'Lätt',
-            'medium': 'Medel', 
-            'hard': 'Svår',
-            'expert': 'Expert'
-        };
-        document.getElementById('completed-difficulty').textContent = difficultyNames[this.selectedDifficulty];
-        
-        // Update trophy color based on score
-        this.updateTrophyDisplay(percentage);
-        
-        // Show newsletter signup if not already subscribed
-        if (!document.getElementById('privacy-consent').checked) {
-            document.getElementById('mailchimp-signup').style.display = 'block';
-            document.getElementById('newsletter-email').value = this.userEmail;
+        // Show trophy animation based on score
+        const trophyIcon = document.getElementById('trophy-icon');
+        if (percentage >= 90) {
+            trophyIcon.className = 'fas fa-trophy';
+            trophyIcon.style.color = '#FFD700';
+        } else if (percentage >= 70) {
+            trophyIcon.className = 'fas fa-medal';
+            trophyIcon.style.color = '#C0C0C0';
+        } else if (percentage >= 50) {
+            trophyIcon.className = 'fas fa-award';
+            trophyIcon.style.color = '#CD7F32';
+        } else {
+            trophyIcon.className = 'fas fa-thumbs-up';
+            trophyIcon.style.color = '#7cb342';
         }
         
-        // Store result for sharing
-        this.storeResult();
+        // Update score message with links
+        const scoreMessage = this.getScoreMessage(percentage);
+        document.getElementById('score-message').innerHTML = scoreMessage;
         
-        // Send result to server
-        this.sendResultToServer();
+        // Setup sharing functionality
+        this.setupSocialSharing(percentage);
+        
+        this.showScreen('results-screen');
+        
+        // Save result to localStorage
+        const result = {
+            score: this.score,
+            total: this.totalQuestions,
+            percentage: percentage,
+            difficulty: this.selectedDifficulty,
+            timestamp: new Date().toISOString()
+        };
+        localStorage.setItem('tennisQuizResult', JSON.stringify(result));
+        
+        // Log result to server
+        this.logResult(result);
     }
 
     getScoreMessage(percentage) {
@@ -768,6 +751,146 @@ class TennisQuiz {
             // Scroll to top
             window.scrollTo(0, 0);
         }, 100);
+    }
+
+    setupSocialSharing(percentage) {
+        const difficultyNames = {
+            easy: 'Lätt',
+            medium: 'Medel', 
+            hard: 'Svår',
+            expert: 'Expert'
+        };
+        
+        const baseMessage = `Jag fick ${this.score}/${this.totalQuestions} rätt (${percentage}%) i Tennisresor.net QUIZ på ${difficultyNames[this.selectedDifficulty]} nivå! 🎾`;
+        const encouragement = "Hur många rätt får du? Testa ditt tennis-kunnande! 💪";
+        const url = "https://tennisresorquiz-production.up.railway.app";
+        
+        // Create sharing buttons if they don't exist
+        this.createSharingButtons();
+        
+        // Facebook sharing
+        const facebookBtn = document.getElementById('share-facebook');
+        if (facebookBtn) {
+            facebookBtn.onclick = () => {
+                const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(baseMessage + ' ' + encouragement)}`;
+                window.open(facebookUrl, '_blank', 'width=600,height=400');
+            };
+        }
+        
+        // WhatsApp sharing
+        const whatsappBtn = document.getElementById('share-whatsapp');
+        if (whatsappBtn) {
+            whatsappBtn.onclick = () => {
+                const whatsappMessage = `${baseMessage}\n\n${encouragement}\n\n${url}`;
+                const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappMessage)}`;
+                window.open(whatsappUrl, '_blank');
+            };
+        }
+        
+        // Messenger sharing
+        const messengerBtn = document.getElementById('share-messenger');
+        if (messengerBtn) {
+            messengerBtn.onclick = () => {
+                const messengerUrl = `https://m.me/?text=${encodeURIComponent(baseMessage + '\n\n' + encouragement + '\n\n' + url)}`;
+                window.open(messengerUrl, '_blank');
+            };
+        }
+        
+        // Copy link functionality
+        const copyBtn = document.getElementById('copy-link');
+        if (copyBtn) {
+            copyBtn.onclick = () => {
+                const textToCopy = `${baseMessage}\n\n${encouragement}\n\n${url}`;
+                
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        this.showCopyFeedback(copyBtn);
+                    });
+                } else {
+                    // Fallback for older browsers
+                    const textArea = document.createElement('textarea');
+                    textArea.value = textToCopy;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    this.showCopyFeedback(copyBtn);
+                }
+            };
+        }
+    }
+    
+    createSharingButtons() {
+        const actionButtons = document.querySelector('.action-buttons');
+        if (!actionButtons) return;
+        
+        // Remove old buttons except play again
+        const existingShares = actionButtons.querySelectorAll('.share-btn');
+        existingShares.forEach(btn => btn.remove());
+        
+        // Create new sharing section
+        const sharingSection = document.createElement('div');
+        sharingSection.className = 'sharing-section';
+        sharingSection.innerHTML = `
+            <h4 class="sharing-title">🎾 Dela ditt resultat!</h4>
+            <div class="sharing-buttons">
+                <button id="share-facebook" class="share-btn facebook-btn">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Facebook</span>
+                </button>
+                <button id="share-whatsapp" class="share-btn whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </button>
+                <button id="share-messenger" class="share-btn messenger-btn">
+                    <i class="fab fa-facebook-messenger"></i>
+                    <span>Messenger</span>
+                </button>
+                <button id="copy-link" class="share-btn copy-btn">
+                    <i class="fas fa-link"></i>
+                    <span>Kopiera</span>
+                </button>
+            </div>
+        `;
+        
+        // Insert before play again button
+        const playAgainBtn = actionButtons.querySelector('.play-again-btn');
+        if (playAgainBtn) {
+            actionButtons.insertBefore(sharingSection, playAgainBtn);
+        } else {
+            actionButtons.appendChild(sharingSection);
+        }
+    }
+    
+    showCopyFeedback(button) {
+        const originalContent = button.innerHTML;
+        button.innerHTML = '<i class="fas fa-check"></i><span>Kopierat!</span>';
+        button.style.background = 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)';
+        
+        setTimeout(() => {
+            button.innerHTML = originalContent;
+            button.style.background = '';
+        }, 2000);
+    }
+
+    async logResult(result) {
+        try {
+            const response = await fetch('/api/log-quiz-result', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(result)
+            });
+
+            if (response.ok) {
+                console.log('Result logged successfully');
+            } else {
+                console.error('Failed to log result:', response.status);
+            }
+        } catch (error) {
+            console.error('Network error logging result:', error);
+        }
     }
 }
 
