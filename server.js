@@ -9,10 +9,15 @@ const https = require('https');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Mailchimp configuration
-const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY || 'a92b3e89090f4c2ba1aec92673eb34ae-us17';
-const MAILCHIMP_LIST_ID = process.env.MAILCHIMP_LIST_ID || '31fd865c9a'; // Updated with actual list ID
-const MAILCHIMP_SERVER_PREFIX = 'us17';
+// Mailchimp configuration - Environment variables only for security
+const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY;
+const MAILCHIMP_LIST_ID = process.env.MAILCHIMP_LIST_ID;
+const MAILCHIMP_SERVER_PREFIX = process.env.MAILCHIMP_DATA_CENTER || 'us17';
+
+// Validate required environment variables
+if (!MAILCHIMP_API_KEY || !MAILCHIMP_LIST_ID) {
+    console.warn('⚠️  Warning: Mailchimp API key or List ID not configured. Newsletter features will be disabled.');
+}
 
 // Security middleware
 app.use(helmet({
@@ -68,6 +73,10 @@ function getMailchimpSubscriberHash(email) {
 }
 
 async function mailchimpRequest(endpoint, method, data) {
+    if (!MAILCHIMP_API_KEY) {
+        throw new Error('Mailchimp API key not configured');
+    }
+    
     const auth = Buffer.from(`anystring:${MAILCHIMP_API_KEY}`).toString('base64');
     
     const options = {
@@ -155,6 +164,14 @@ app.post('/api/submit-result', (req, res) => {
 
 // Mailchimp subscription endpoint
 app.post('/api/mailchimp/subscribe', async (req, res) => {
+    // Check if Mailchimp is configured
+    if (!MAILCHIMP_API_KEY || !MAILCHIMP_LIST_ID) {
+        return res.status(503).json({ 
+            error: 'Service unavailable',
+            message: 'Newsletter service is not configured'
+        });
+    }
+    
     try {
         const { email, tags, merge_fields } = req.body;
         
@@ -212,6 +229,14 @@ app.post('/api/mailchimp/subscribe', async (req, res) => {
 
 // Mailchimp update tags endpoint
 app.post('/api/mailchimp/update-tags', async (req, res) => {
+    // Check if Mailchimp is configured
+    if (!MAILCHIMP_API_KEY || !MAILCHIMP_LIST_ID) {
+        return res.status(503).json({ 
+            error: 'Service unavailable',
+            message: 'Newsletter service is not configured'
+        });
+    }
+    
     try {
         const { email, tags, merge_fields } = req.body;
         
@@ -283,7 +308,9 @@ app.get('/health', (req, res) => {
         timestamp: new Date().toISOString(),
         version: '1.0.0',
         mailchimp: {
-            configured: !!MAILCHIMP_API_KEY && !!MAILCHIMP_LIST_ID
+            configured: !!(MAILCHIMP_API_KEY && MAILCHIMP_LIST_ID),
+            listId: MAILCHIMP_LIST_ID ? 'Set' : 'Not set',
+            apiKey: MAILCHIMP_API_KEY ? 'Set' : 'Not set'
         }
     });
 });
@@ -327,7 +354,11 @@ app.listen(PORT, '0.0.0.0', () => {
     console.log(`🎾 Tennis Quiz server running on port ${PORT}`);
     console.log(`🌐 Environment: ${process.env.NODE_ENV || 'development'}`);
     console.log(`📱 Access at: http://localhost:${PORT}`);
-    console.log(`📧 Mailchimp: ${MAILCHIMP_API_KEY && MAILCHIMP_LIST_ID ? 'Configured' : 'Not configured'}`);
+    console.log(`📧 Mailchimp: ${MAILCHIMP_API_KEY && MAILCHIMP_LIST_ID ? '✅ Configured' : '❌ Not configured'}`);
+    
+    if (!MAILCHIMP_API_KEY || !MAILCHIMP_LIST_ID) {
+        console.log('💡 Set MAILCHIMP_API_KEY and MAILCHIMP_LIST_ID environment variables to enable newsletter features');
+    }
 });
 
 // Graceful shutdown

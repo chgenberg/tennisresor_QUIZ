@@ -11,9 +11,9 @@ class TennisQuiz {
         this.userAnswers = [];
         this.timePerQuestion = 30000; // 30 seconds
         this.questionTimer = null;
-        this.mailchimpApiKey = 'a92b3e89090f4c2ba1aec92673eb34ae-us17';
-        this.mailchimpListId = '31fd865c9a'; // Updated with actual list ID
-        this.mailchimpDataCenter = 'us17';
+        
+        // Note: Mailchimp configuration is now handled securely on the backend
+        // No API keys or sensitive data in frontend code
         
         this.initializeEventListeners();
         this.showScreen('hero-screen');
@@ -183,7 +183,7 @@ class TennisQuiz {
         this.userEmail = document.getElementById('email').value.trim();
         this.selectedDifficulty = document.querySelector('input[name="difficulty"]:checked').value;
         
-        // Subscribe to Mailchimp if consent given
+        // Subscribe to Mailchimp if consent given (handled securely via backend)
         if (document.getElementById('privacy-consent').checked) {
             await this.subscribeEmailToMailchimp(this.userEmail);
         }
@@ -208,8 +208,7 @@ class TennisQuiz {
 
     async subscribeEmailToMailchimp(email) {
         try {
-            // Note: In production, this should be done through your backend server
-            // Direct API calls from frontend expose your API key
+            // All Mailchimp communication is now handled securely through backend API
             const response = await fetch('/api/mailchimp/subscribe', {
                 method: 'POST',
                 headers: {
@@ -227,6 +226,9 @@ class TennisQuiz {
 
             if (response.ok) {
                 console.log('Successfully subscribed to newsletter');
+            } else if (response.status === 503) {
+                console.log('Newsletter service not configured');
+                // Continue with quiz even if newsletter service is not available
             }
         } catch (error) {
             console.error('Failed to subscribe to newsletter:', error);
@@ -504,7 +506,7 @@ class TennisQuiz {
             if (response.ok) {
                 console.log('Result submitted successfully');
                 
-                // Update Mailchimp with quiz results
+                // Update Mailchimp with quiz results (handled securely via backend)
                 await this.updateMailchimpTags(result);
             }
         } catch (error) {
@@ -514,7 +516,7 @@ class TennisQuiz {
 
     async updateMailchimpTags(result) {
         try {
-            await fetch('/api/mailchimp/update-tags', {
+            const response = await fetch('/api/mailchimp/update-tags', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -531,6 +533,10 @@ class TennisQuiz {
                     }
                 })
             });
+
+            if (response.status === 503) {
+                console.log('Newsletter service not configured - skipping tag update');
+            }
         } catch (error) {
             console.error('Failed to update Mailchimp tags:', error);
         }
@@ -563,6 +569,8 @@ class TennisQuiz {
             if (response.ok) {
                 this.showNotification('Tack för din prenumeration! Kolla din e-post för bekräftelse.', 'success');
                 document.getElementById('mailchimp-signup').style.display = 'none';
+            } else if (response.status === 503) {
+                this.showNotification('Nyhetsbrev-tjänsten är inte tillgänglig just nu.', 'error');
             } else {
                 this.showNotification('Något gick fel. Försök igen senare.', 'error');
             }
