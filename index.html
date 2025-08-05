@@ -180,46 +180,54 @@
 
         <!-- Results Screen -->
         <div id="results-screen" class="screen">
-            <div class="results-left">
-                <div class="results-animation">
-                    <i class="fas fa-trophy" id="trophy-icon"></i>
-                </div>
-                
-                <div class="score-circle">
-                    <span id="final-score">0</span>
-                    <span class="score-total">/ 10</span>
-                </div>
-            </div>
-            
-            <div class="results-right">
-                <h2 class="results-title">Quiz Slutfört!</h2>
-                
-                <div class="score-details">
-                    <p class="score-percentage" id="score-percentage">0%</p>
-                    <p class="score-message" id="score-message"></p>
-                    <p class="difficulty-completed">Svårighetsgrad: <span id="completed-difficulty"></span></p>
-                </div>
-                
-                <div class="action-buttons">
-                    <button id="share-facebook" class="share-btn facebook">
-                        <i class="fab fa-facebook-f"></i>
-                        Dela resultat
-                    </button>
+            <div class="results-container">
+                <div class="results-card">
+                    <div class="results-header">
+                        <i class="fas fa-trophy trophy-icon" id="trophy-icon"></i>
+                        <h2 class="results-title">Quiz Slutfört!</h2>
+                    </div>
+                    
+                    <div class="score-display">
+                        <div class="score-circle">
+                            <span id="final-score" class="final-score">0</span>
+                            <span class="score-total">/15</span>
+                        </div>
+                        <div class="score-percentage" id="score-percentage">0%</div>
+                    </div>
+                    
+                    <div class="score-details">
+                        <p class="score-message" id="score-message"></p>
+                        <div class="difficulty-badge-result">
+                            <span id="completed-difficulty"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="share-section">
+                        <h3 class="share-title">🎾 Dela ditt resultat!</h3>
+                        <div class="share-buttons">
+                            <button id="share-facebook" class="share-btn facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                Facebook
+                            </button>
+                            <button id="share-whatsapp" class="share-btn whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                                WhatsApp
+                            </button>
+                            <button id="share-messenger" class="share-btn messenger">
+                                <i class="fab fa-facebook-messenger"></i>
+                                Messenger
+                            </button>
+                            <button id="share-copy" class="share-btn copy">
+                                <i class="fas fa-link"></i>
+                                Kopiera
+                            </button>
+                        </div>
+                    </div>
                     
                     <button id="play-again" class="play-again-btn">
-                        <i class="fas fa-redo"></i>
-                        Spela igen
+                        <i class="fas fa-play"></i>
+                        SPELA IGEN
                     </button>
-                </div>
-                
-                <!-- Mailchimp Newsletter Signup -->
-                <div class="mailchimp-section" id="mailchimp-signup" style="display: none;">
-                    <h3>Få exklusiva tenniserbjudanden!</h3>
-                    <p>Registrera dig för nyhetsbrev från Tennisresor</p>
-                    <form id="newsletter-form" class="newsletter-form">
-                        <input type="email" id="newsletter-email" placeholder="din@email.se" required>
-                        <button type="submit">Prenumerera</button>
-                    </form>
                 </div>
             </div>
         </div>
