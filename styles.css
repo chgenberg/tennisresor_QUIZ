@@ -771,27 +771,39 @@ body {
 }
 
 /* Tiebreaker Input */
-.tiebreaker-input-container {
+.tiebreaker-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  width: 100%;
+}
+
+.tiebreaker-input-wrapper {
   display: flex;
   gap: 1rem;
   align-items: center;
-  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 400px;
 }
 
 .tiebreaker-input {
   flex: 1;
-  padding: 1rem;
+  padding: 1.2rem;
   border: 2px solid #e5e7eb;
-  border-radius: 6px;
-  font-size: 1.1rem;
+  border-radius: 10px;
+  font-size: 1.2rem;
   text-align: center;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .tiebreaker-input:focus {
   outline: none;
   border-color: var(--primary-color);
   box-shadow: 0 0 0 3px rgba(28, 56, 70, 0.1);
+  transform: translateY(-1px);
 }
 
 .submit-tiebreaker {
@@ -800,7 +812,7 @@ body {
   color: white;
   border: none;
   border-radius: 10px;
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -810,6 +822,7 @@ body {
   gap: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 
 .submit-tiebreaker i {
@@ -925,10 +938,41 @@ body {
 }
 
 .score-message {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--text-dark);
   margin: 0 0 1rem 0;
-  line-height: 1.6;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.score-message .emoji {
+  font-size: 1.3rem;
+  display: inline-block;
+  margin: 0 0.2rem;
+}
+
+.score-message .record-line {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.score-message .cta-line {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.score-message a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.score-message a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
 }
 
 .difficulty-badge-result {
@@ -1687,18 +1731,19 @@ html, body {
 
   
   /* Tiebreaker Mobile */
-  .tiebreaker-input-container {
+  .tiebreaker-input-wrapper {
     flex-direction: column;
-    gap: 0.75rem;
-    margin-top: 1rem;
+    gap: 1rem;
   }
   
   .tiebreaker-input {
-    padding: 0.8rem;
-    font-size: 1rem;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
   }
   
   .submit-tiebreaker {
+    width: 100%;
     padding: 1rem 2rem;
     font-size: 0.95rem;
     border-radius: 8px;

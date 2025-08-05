@@ -566,21 +566,25 @@ class TennisQuiz {
     }
 
     getScoreMessage(percentage) {
-        const recordInfo = "\n\n🏆 Rekord: Jens Bryntesson & Andrés Ruiz Jansson - 14/15 på alla nivåer!";
+        const recordInfo = '<span class="record-line"><span class="emoji">🏆</span> Rekord: Jens Bryntesson & Andrés Ruiz Jansson - 14/15 på alla nivåer!</span>';
+        const ctaInfo = '<span class="cta-line"><span class="emoji">🎾</span> <a href="https://www.tennisresor.net/pages/resor" target="_blank">Boka din tennisresa här!</a></span>';
         
+        let mainMessage = '';
         if (percentage >= 90) {
-            return `Fantastiskt! Du är en sann tennisexpert! 🏆 Du är nästan lika bra som Jens & Andrés!${recordInfo}\n\n🎾 Boka din nästa tennisresa på www.tennisresor.net/pages/resor`;
+            mainMessage = 'Fantastiskt! Du är en sann tennisexpert! <span class="emoji">🏆</span> Du är nästan lika bra som Jens & Andrés!';
         } else if (percentage >= 80) {
-            return `Mycket bra! Du har utmärkta tenniskunskaper! 🥇${recordInfo}\n\n🎾 Utveckla ditt spel på våra tennisresor - www.tennisresor.net/pages/resor`;
+            mainMessage = 'Mycket bra! Du har utmärkta tenniskunskaper! <span class="emoji">🥇</span>';
         } else if (percentage >= 70) {
-            return `Bra jobbat! Du vet mycket om tennis! 🥈${recordInfo}\n\n🎾 Förbättra ditt spel med Tennisresor - www.tennisresor.net/pages/resor`;
+            mainMessage = 'Bra jobbat! Du vet mycket om tennis! <span class="emoji">🥈</span>';
         } else if (percentage >= 60) {
-            return `Hyfsigt! Du har grundläggande tenniskunskaper! 🥉${recordInfo}\n\n🎾 Lär dig mer på våra tennisresor - www.tennisresor.net/pages/resor`;
+            mainMessage = 'Hyfsigt! Du har grundläggande tenniskunskaper! <span class="emoji">🥉</span>';
         } else if (percentage >= 40) {
-            return `Okej resultat! Kanske dags för en tennisresa? 📚${recordInfo}\n\n🎾 Boka din tennisresa på www.tennisresor.net/pages/resor`;
+            mainMessage = 'Okej resultat! Kanske dags för en tennisresa? <span class="emoji">📚</span>';
         } else {
-            return `Övning ger färdighet! 📺${recordInfo}\n\n🎾 Börja din tennisresa med oss - www.tennisresor.net/pages/resor`;
+            mainMessage = 'Övning ger färdighet! <span class="emoji">📺</span>';
         }
+        
+        return `${mainMessage}${recordInfo}${ctaInfo}`;
     }
 
     updateTrophyDisplay(percentage) {
