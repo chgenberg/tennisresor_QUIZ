@@ -3,88 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tennis Quiz - Testa dina kunskaper!</title>
+    <title>Tennis Quiz - Testa dina kunskaper | Tennisresor</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <meta property="og:title" content="Tennis Quiz - Testa dina kunskaper!">
-    <meta property="og:description" content="Utmana dig själv med vårt interaktiva tennisquiz!">
+    <meta property="og:description" content="Utmana dig själv med vårt interaktiva tennisquiz från Tennisresor!">
     <meta property="og:type" content="website">
 </head>
 <body>
     <div class="container">
         <!-- Welcome Screen -->
         <div id="welcome-screen" class="screen active">
-            <div class="tennis-animation">
-                <i class="fas fa-tennis-ball"></i>
-            </div>
-            <h1 class="main-title">
-                <i class="fas fa-tennis-ball"></i>
-                Tennis Quiz
-            </h1>
-            <p class="subtitle">Testa dina kunskaper om tennisvärlden!</p>
-            
-            <form id="start-form" class="start-form">
-                <div class="input-group">
-                    <label for="email">E-postadress</label>
-                    <input type="email" id="email" required placeholder="din@email.se">
-                    <i class="fas fa-envelope input-icon"></i>
+            <div class="welcome-left">
+                <div class="tennis-logo">
+                    <i class="fas fa-tennis-ball"></i>
                 </div>
-                
-                <div class="difficulty-selector">
-                    <h3>Välj svårighetsgrad</h3>
-                    <div class="difficulty-options">
-                        <label class="difficulty-option">
-                            <input type="radio" name="difficulty" value="easy" required>
-                            <div class="option-card easy">
-                                <i class="fas fa-seedling"></i>
-                                <span>Lätt</span>
-                                <p>Grundläggande tenniskunskap</p>
-                            </div>
-                        </label>
-                        
-                        <label class="difficulty-option">
-                            <input type="radio" name="difficulty" value="medium" required>
-                            <div class="option-card medium">
-                                <i class="fas fa-chart-line"></i>
-                                <span>Medel</span>
-                                <p>Allmän tenniskultur</p>
-                            </div>
-                        </label>
-                        
-                        <label class="difficulty-option">
-                            <input type="radio" name="difficulty" value="hard" required>
-                            <div class="option-card hard">
-                                <i class="fas fa-fire"></i>
-                                <span>Svår</span>
-                                <p>Avancerade kunskaper</p>
-                            </div>
-                        </label>
-                        
-                        <label class="difficulty-option">
-                            <input type="radio" name="difficulty" value="expert" required>
-                            <div class="option-card expert">
-                                <i class="fas fa-crown"></i>
-                                <span>Expert</span>
-                                <p>Tennisexpertens utmaning</p>
-                            </div>
+                <h1 class="main-title">Tennis Quiz</h1>
+                <p class="subtitle">Testa dina kunskaper om tennisvärlden och vinn fantastiska priser från Tennisresor!</p>
+            </div>
+            
+            <div class="welcome-right">
+                <form id="start-form" class="start-form">
+                    <div class="form-header">
+                        <h2>Börja ditt quiz</h2>
+                        <p>Välj svårighetsgrad och utmana dig själv!</p>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="email">E-postadress</label>
+                        <div class="input-wrapper">
+                            <input type="email" id="email" required placeholder="din@email.se">
+                            <i class="fas fa-envelope input-icon"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="difficulty-selector">
+                        <h3>Välj svårighetsgrad</h3>
+                        <div class="difficulty-options">
+                            <label class="difficulty-option">
+                                <input type="radio" name="difficulty" value="easy" required>
+                                <div class="option-card easy">
+                                    <i class="fas fa-seedling"></i>
+                                    <span>Lätt</span>
+                                    <p>Grundläggande tennis</p>
+                                </div>
+                            </label>
+                            
+                            <label class="difficulty-option">
+                                <input type="radio" name="difficulty" value="medium" required>
+                                <div class="option-card medium">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Medel</span>
+                                    <p>Allmän tenniskultur</p>
+                                </div>
+                            </label>
+                            
+                            <label class="difficulty-option">
+                                <input type="radio" name="difficulty" value="hard" required>
+                                <div class="option-card hard">
+                                    <i class="fas fa-fire"></i>
+                                    <span>Svår</span>
+                                    <p>Avancerad kunskap</p>
+                                </div>
+                            </label>
+                            
+                            <label class="difficulty-option">
+                                <input type="radio" name="difficulty" value="expert" required>
+                                <div class="option-card expert">
+                                    <i class="fas fa-crown"></i>
+                                    <span>Expert</span>
+                                    <p>Tennisexpertens nivå</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="privacy-consent">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="privacy-consent" required>
+                            <span class="checkmark"></span>
+                            <span>Jag godkänner <a href="#" id="privacy-link">integritetsvillkoren</a> och vill få nyhetsbrev från Tennisresor</span>
                         </label>
                     </div>
-                </div>
-                
-                <div class="privacy-consent">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="privacy-consent" required>
-                        <span class="checkmark"></span>
-                        Jag godkänner <a href="#" id="privacy-link">integritetsvillkoren</a>
-                    </label>
-                </div>
-                
-                <button type="submit" class="start-btn">
-                    <i class="fas fa-play"></i>
-                    Starta Quiz
-                </button>
-            </form>
+                    
+                    <button type="submit" class="start-btn">
+                        <i class="fas fa-play"></i>
+                        Starta Quiz
+                    </button>
+                </form>
+            </div>
         </div>
 
         <!-- Quiz Screen -->
@@ -118,18 +126,19 @@
 
         <!-- Results Screen -->
         <div id="results-screen" class="screen">
-            <div class="results-container">
+            <div class="results-left">
                 <div class="results-animation">
                     <i class="fas fa-trophy" id="trophy-icon"></i>
                 </div>
                 
-                <h2 class="results-title">Quiz Slutfört!</h2>
-                <div class="score-display">
-                    <div class="score-circle">
-                        <span id="final-score">0</span>
-                        <span class="score-total">/ 10</span>
-                    </div>
+                <div class="score-circle">
+                    <span id="final-score">0</span>
+                    <span class="score-total">/ 10</span>
                 </div>
+            </div>
+            
+            <div class="results-right">
+                <h2 class="results-title">Quiz Slutfört!</h2>
                 
                 <div class="score-details">
                     <p class="score-percentage" id="score-percentage">0%</p>
@@ -140,13 +149,23 @@
                 <div class="action-buttons">
                     <button id="share-facebook" class="share-btn facebook">
                         <i class="fab fa-facebook-f"></i>
-                        Dela på Facebook
+                        Dela resultat
                     </button>
                     
                     <button id="play-again" class="play-again-btn">
                         <i class="fas fa-redo"></i>
                         Spela igen
                     </button>
+                </div>
+                
+                <!-- Mailchimp Newsletter Signup -->
+                <div class="mailchimp-section" id="mailchimp-signup" style="display: none;">
+                    <h3>Få exklusiva tenniserbjudanden!</h3>
+                    <p>Registrera dig för nyhetsbrev från Tennisresor</p>
+                    <form id="newsletter-form" class="newsletter-form">
+                        <input type="email" id="newsletter-email" placeholder="din@email.se" required>
+                        <button type="submit">Prenumerera</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -162,15 +181,19 @@
                     <h4>Hantering av personuppgifter</h4>
                     <p>Vi samlar in din e-postadress för att:</p>
                     <ul>
+                        <li>Skicka ditt quizresultat</li>
+                        <li>Informera om exklusiva erbjudanden från Tennisresor</li>
+                        <li>Bjuda in till tennisevent och resor</li>
                         <li>Förbättra användarupplevelsen</li>
-                        <li>Skicka quizresultat (valfritt)</li>
-                        <li>Statistik och analys av quizanvändning</li>
                     </ul>
+                    
+                    <h4>Nyhetsbrev via Mailchimp</h4>
+                    <p>Vi använder Mailchimp för att hantera våra nyhetsbrev. Din e-postadress kommer att lagras säkert hos Mailchimp enligt deras integritetspolicy.</p>
                     
                     <h4>Dina rättigheter</h4>
                     <p>Du har rätt att:</p>
                     <ul>
-                        <li>Ta tillbaka ditt samtycke när som helst</li>
+                        <li>Avregistrera dig från nyhetsbrevet när som helst</li>
                         <li>Begära radering av dina uppgifter</li>
                         <li>Få information om hur vi använder dina uppgifter</li>
                     </ul>

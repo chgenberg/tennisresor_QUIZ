@@ -3,9 +3,16 @@ const path = require('path');
 const cors = require('cors');
 const helmet = require('helmet');
 const compression = require('compression');
+const crypto = require('crypto');
+const https = require('https');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Mailchimp configuration
+const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY || 'a92b3e89090f4c2ba1aec92673eb34ae-us17';
+const MAILCHIMP_LIST_ID = process.env.MAILCHIMP_LIST_ID || 'YOUR_LIST_ID'; // Replace with actual list ID
+const MAILCHIMP_SERVER_PREFIX = 'us17';
 
 // Security middleware
 app.use(helmet({
@@ -15,7 +22,7 @@ app.use(helmet({
             styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://cdnjs.cloudflare.com"],
             fontSrc: ["'self'", "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
             scriptSrc: ["'self'", "'unsafe-inline'"],
-            connectSrc: ["'self'", "https://www.facebook.com"],
+            connectSrc: ["'self'", "https://www.facebook.com", `https://${MAILCHIMP_SERVER_PREFIX}.api.mailchimp.com`],
             imgSrc: ["'self'", "data:", "https:"],
             frameSrc: ["https://www.facebook.com"]
         }
@@ -25,7 +32,7 @@ app.use(helmet({
 // CORS configuration
 app.use(cors({
     origin: process.env.NODE_ENV === 'production' 
-        ? ['https://your-domain.railway.app', 'https://your-custom-domain.com']
+        ? ['https://your-domain.railway.app', 'https://your-custom-domain.com', 'https://www.tennisresor.net']
         : ['http://localhost:3000', 'http://127.0.0.1:3000'],
     credentials: true
 }));
@@ -49,6 +56,58 @@ app.use((req, res, next) => {
     console.log(`${new Date().toISOString()} - ${req.method} ${req.url} - ${req.ip}`);
     next();
 });
+
+// Mailchimp Helper Functions
+function getMailchimpSubscriberHash(email) {
+    return crypto.createHash('md5').update(email.toLowerCase()).digest('hex');
+}
+
+async function mailchimpRequest(endpoint, method, data) {
+    const auth = Buffer.from(`anystring:${MAILCHIMP_API_KEY}`).toString('base64');
+    
+    const options = {
+        hostname: `${MAILCHIMP_SERVER_PREFIX}.api.mailchimp.com`,
+        path: `/3.0${endpoint}`,
+        method: method,
+        headers: {
+            'Authorization': `Basic ${auth}`,
+            'Content-Type': 'application/json'
+        }
+    };
+
+    return new Promise((resolve, reject) => {
+        const req = https.request(options, (res) => {
+            let body = '';
+            
+            res.on('data', (chunk) => {
+                body += chunk;
+            });
+            
+            res.on('end', () => {
+                try {
+                    const response = JSON.parse(body);
+                    if (res.statusCode >= 200 && res.statusCode < 300) {
+                        resolve(response);
+                    } else {
+                        reject(response);
+                    }
+                } catch (error) {
+                    reject(error);
+                }
+            });
+        });
+
+        req.on('error', (error) => {
+            reject(error);
+        });
+
+        if (data) {
+            req.write(JSON.stringify(data));
+        }
+
+        req.end();
+    });
+}
 
 // API Routes
 app.post('/api/submit-result', (req, res) => {
@@ -89,6 +148,108 @@ app.post('/api/submit-result', (req, res) => {
     }
 });
 
+// Mailchimp subscription endpoint
+app.post('/api/mailchimp/subscribe', async (req, res) => {
+    try {
+        const { email, tags, merge_fields } = req.body;
+        
+        if (!email) {
+            return res.status(400).json({ error: 'Email is required' });
+        }
+
+        const subscriberHash = getMailchimpSubscriberHash(email);
+        
+        // First, try to update existing subscriber
+        try {
+            const updateData = {
+                email_address: email,
+                status: 'subscribed',
+                merge_fields: merge_fields || {},
+                tags: tags || []
+            };
+
+            const response = await mailchimpRequest(
+                `/lists/${MAILCHIMP_LIST_ID}/members/${subscriberHash}`,
+                'PUT',
+                updateData
+            );
+
+            res.json({ success: true, message: 'Successfully subscribed', data: response });
+        } catch (error) {
+            // If subscriber doesn't exist, create new
+            if (error.status === 404) {
+                const createData = {
+                    email_address: email,
+                    status: 'subscribed',
+                    merge_fields: merge_fields || {},
+                    tags: tags || []
+                };
+
+                const response = await mailchimpRequest(
+                    `/lists/${MAILCHIMP_LIST_ID}/members`,
+                    'POST',
+                    createData
+                );
+
+                res.json({ success: true, message: 'Successfully subscribed', data: response });
+            } else {
+                throw error;
+            }
+        }
+    } catch (error) {
+        console.error('Mailchimp subscription error:', error);
+        res.status(500).json({ 
+            error: 'Failed to subscribe', 
+            message: error.detail || error.message || 'An error occurred'
+        });
+    }
+});
+
+// Mailchimp update tags endpoint
+app.post('/api/mailchimp/update-tags', async (req, res) => {
+    try {
+        const { email, tags, merge_fields } = req.body;
+        
+        if (!email) {
+            return res.status(400).json({ error: 'Email is required' });
+        }
+
+        const subscriberHash = getMailchimpSubscriberHash(email);
+        
+        // Update subscriber tags and merge fields
+        const updateData = {
+            merge_fields: merge_fields || {}
+        };
+
+        const response = await mailchimpRequest(
+            `/lists/${MAILCHIMP_LIST_ID}/members/${subscriberHash}`,
+            'PATCH',
+            updateData
+        );
+
+        // Add tags if provided
+        if (tags && tags.length > 0) {
+            const tagData = {
+                tags: tags.map(tag => ({ name: tag, status: 'active' }))
+            };
+
+            await mailchimpRequest(
+                `/lists/${MAILCHIMP_LIST_ID}/members/${subscriberHash}/tags`,
+                'POST',
+                tagData
+            );
+        }
+
+        res.json({ success: true, message: 'Tags updated successfully' });
+    } catch (error) {
+        console.error('Mailchimp update error:', error);
+        res.status(500).json({ 
+            error: 'Failed to update tags', 
+            message: error.detail || error.message || 'An error occurred'
+        });
+    }
+});
+
 // API endpoint to get quiz statistics (optional)
 app.get('/api/stats', (req, res) => {
     // In a real application, you would fetch this from a database
@@ -115,7 +276,10 @@ app.get('/health', (req, res) => {
     res.json({ 
         status: 'OK', 
         timestamp: new Date().toISOString(),
-        version: '1.0.0'
+        version: '1.0.0',
+        mailchimp: {
+            configured: !!MAILCHIMP_API_KEY && !!MAILCHIMP_LIST_ID
+        }
     });
 });
 
@@ -158,6 +322,7 @@ app.listen(PORT, '0.0.0.0', () => {
     console.log(`🎾 Tennis Quiz server running on port ${PORT}`);
     console.log(`🌐 Environment: ${process.env.NODE_ENV || 'development'}`);
     console.log(`📱 Access at: http://localhost:${PORT}`);
+    console.log(`📧 Mailchimp: ${MAILCHIMP_API_KEY && MAILCHIMP_LIST_ID ? 'Configured' : 'Not configured'}`);
 });
 
 // Graceful shutdown

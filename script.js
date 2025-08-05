@@ -1,4 +1,4 @@
-// Tennis Quiz Application
+// Tennis Quiz Application with Mailchimp Integration
 class TennisQuiz {
     constructor() {
         this.currentScreen = 'welcome';
@@ -11,6 +11,9 @@ class TennisQuiz {
         this.userAnswers = [];
         this.timePerQuestion = 30000; // 30 seconds
         this.questionTimer = null;
+        this.mailchimpApiKey = 'a92b3e89090f4c2ba1aec92673eb34ae-us17';
+        this.mailchimpListId = 'YOUR_LIST_ID'; // Replace with actual list ID
+        this.mailchimpDataCenter = 'us17';
         
         this.initializeEventListeners();
         this.showScreen('welcome-screen');
@@ -56,6 +59,12 @@ class TennisQuiz {
         // Facebook share button
         document.getElementById('share-facebook').addEventListener('click', () => {
             this.shareOnFacebook();
+        });
+
+        // Newsletter form
+        document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            this.subscribeToNewsletter();
         });
 
         // Difficulty selection visual feedback
@@ -133,7 +142,7 @@ class TennisQuiz {
             position: fixed;
             top: 20px;
             right: 20px;
-            background: ${type === 'error' ? '#f44336' : '#4CAF50'};
+            background: ${type === 'error' ? '#e53935' : '#4caf50'};
             color: white;
             padding: 15px 20px;
             border-radius: 8px;
@@ -161,13 +170,18 @@ class TennisQuiz {
         }, 3000);
     }
 
-    startQuiz() {
+    async startQuiz() {
         if (!this.validateForm()) {
             return;
         }
 
         this.userEmail = document.getElementById('email').value.trim();
         this.selectedDifficulty = document.querySelector('input[name="difficulty"]:checked').value;
+        
+        // Subscribe to Mailchimp if consent given
+        if (document.getElementById('privacy-consent').checked) {
+            await this.subscribeEmailToMailchimp(this.userEmail);
+        }
         
         // Generate random questions for selected difficulty
         this.generateQuestions();
@@ -185,6 +199,34 @@ class TennisQuiz {
         
         // Load first question
         this.loadQuestion();
+    }
+
+    async subscribeEmailToMailchimp(email) {
+        try {
+            // Note: In production, this should be done through your backend server
+            // Direct API calls from frontend expose your API key
+            const response = await fetch('/api/mailchimp/subscribe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email,
+                    tags: ['tennis-quiz'],
+                    merge_fields: {
+                        QUIZ_DATE: new Date().toISOString(),
+                        DIFFICULTY: this.selectedDifficulty
+                    }
+                })
+            });
+
+            if (response.ok) {
+                console.log('Successfully subscribed to newsletter');
+            }
+        } catch (error) {
+            console.error('Failed to subscribe to newsletter:', error);
+            // Don't block the quiz if subscription fails
+        }
     }
 
     generateQuestions() {
@@ -342,16 +384,6 @@ class TennisQuiz {
     startQuestionTimer() {
         // Optional: Add timer functionality
         // For now, we'll skip the automatic timer
-        /*
-        this.questionTimer = setTimeout(() => {
-            // Auto-select random answer if no answer given
-            const randomIndex = Math.floor(Math.random() * 4);
-            const randomButton = document.querySelector(`[data-index="${randomIndex}"]`);
-            if (randomButton && !randomButton.classList.contains('disabled')) {
-                this.selectAnswer(randomIndex, randomButton);
-            }
-        }, this.timePerQuestion);
-        */
     }
 
     nextQuestion() {
@@ -387,23 +419,32 @@ class TennisQuiz {
         // Update trophy color based on score
         this.updateTrophyDisplay(percentage);
         
+        // Show newsletter signup if not already subscribed
+        if (!document.getElementById('privacy-consent').checked) {
+            document.getElementById('mailchimp-signup').style.display = 'block';
+            document.getElementById('newsletter-email').value = this.userEmail;
+        }
+        
         // Store result for sharing
         this.storeResult();
+        
+        // Send result to server
+        this.sendResultToServer();
     }
 
     getScoreMessage(percentage) {
         if (percentage >= 90) {
-            return "Fantastiskt! Du är en sann tennisexpert! 🏆";
+            return "Fantastiskt! Du är en sann tennisexpert! 🏆 Besök Tennisresor.net för exklusiva erbjudanden!";
         } else if (percentage >= 80) {
-            return "Mycket bra! Du har utmärkta tenniskunskaper! 🥇";
+            return "Mycket bra! Du har utmärkta tenniskunskaper! 🥇 Kolla in våra tennisresor på Tennisresor.net!";
         } else if (percentage >= 70) {
-            return "Bra jobbat! Du vet mycket om tennis! 🥈";
+            return "Bra jobbat! Du vet mycket om tennis! 🥈 Utveckla ditt spel med Tennisresor!";
         } else if (percentage >= 60) {
-            return "Hyfsigt! Du har grundläggande tenniskunskaper! 🥉";
+            return "Hyfsigt! Du har grundläggande tenniskunskaper! 🥉 Lär dig mer på våra tennisresor!";
         } else if (percentage >= 40) {
-            return "Okej resultat, men det finns utrymme för förbättring! 📚";
+            return "Okej resultat! Kanske dags för en tennisresa? 📚 Besök Tennisresor.net!";
         } else {
-            return "Kanske dags att titta mer på tennis? 📺";
+            return "Övning ger färdighet! 📺 Börja din tennisresa med oss på Tennisresor.net!";
         }
     }
 
@@ -434,9 +475,96 @@ class TennisQuiz {
         
         // Store in localStorage for this session
         localStorage.setItem('tennisQuizResult', JSON.stringify(result));
+    }
+
+    async sendResultToServer() {
+        const result = {
+            email: this.userEmail,
+            difficulty: this.selectedDifficulty,
+            score: this.score,
+            totalQuestions: this.totalQuestions,
+            percentage: Math.round((this.score / this.totalQuestions) * 100),
+            date: new Date().toISOString()
+        };
         
-        // Here you could also send to a backend server
-        // this.sendResultToServer(result);
+        try {
+            const response = await fetch('/api/submit-result', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(result)
+            });
+            
+            if (response.ok) {
+                console.log('Result submitted successfully');
+                
+                // Update Mailchimp with quiz results
+                await this.updateMailchimpTags(result);
+            }
+        } catch (error) {
+            console.error('Failed to submit result:', error);
+        }
+    }
+
+    async updateMailchimpTags(result) {
+        try {
+            await fetch('/api/mailchimp/update-tags', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: result.email,
+                    tags: [
+                        `quiz-${result.difficulty}`,
+                        `score-${result.percentage >= 80 ? 'high' : result.percentage >= 50 ? 'medium' : 'low'}`
+                    ],
+                    merge_fields: {
+                        LAST_QUIZ: new Date().toISOString(),
+                        QUIZ_SCORE: result.percentage
+                    }
+                })
+            });
+        } catch (error) {
+            console.error('Failed to update Mailchimp tags:', error);
+        }
+    }
+
+    async subscribeToNewsletter() {
+        const email = document.getElementById('newsletter-email').value.trim();
+        
+        if (!this.isValidEmail(email)) {
+            this.showNotification('Vänligen ange en giltig e-postadress', 'error');
+            return;
+        }
+
+        try {
+            const response = await fetch('/api/mailchimp/subscribe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email,
+                    tags: ['tennis-quiz', 'post-quiz-signup'],
+                    merge_fields: {
+                        QUIZ_DATE: new Date().toISOString(),
+                        QUIZ_SCORE: Math.round((this.score / this.totalQuestions) * 100)
+                    }
+                })
+            });
+
+            if (response.ok) {
+                this.showNotification('Tack för din prenumeration! Kolla din e-post för bekräftelse.', 'success');
+                document.getElementById('mailchimp-signup').style.display = 'none';
+            } else {
+                this.showNotification('Något gick fel. Försök igen senare.', 'error');
+            }
+        } catch (error) {
+            console.error('Newsletter subscription error:', error);
+            this.showNotification('Kunde inte prenumerera just nu. Försök igen senare.', 'error');
+        }
     }
 
     shareOnFacebook() {
@@ -448,7 +576,7 @@ class TennisQuiz {
             'expert': 'Expert'
         };
         
-        const shareText = `Jag fick ${this.score}/${this.totalQuestions} (${percentage}%) på Tennis Quiz (${difficultyNames[this.selectedDifficulty]})! Kan du slå mitt resultat?`;
+        const shareText = `Jag fick ${this.score}/${this.totalQuestions} (${percentage}%) på Tennisresors Quiz (${difficultyNames[this.selectedDifficulty]})! Kan du slå mitt resultat?`;
         const shareUrl = window.location.href;
         
         const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText)}`;
@@ -471,6 +599,9 @@ class TennisQuiz {
             card.classList.remove('selected');
         });
         
+        // Hide newsletter signup
+        document.getElementById('mailchimp-signup').style.display = 'none';
+        
         // Show welcome screen
         this.showScreen('welcome-screen');
     }
@@ -481,35 +612,18 @@ class TennisQuiz {
             screen.classList.remove('active');
         });
         
-        // Show selected screen
-        const targetScreen = document.getElementById(screenId);
-        if (targetScreen) {
-            targetScreen.classList.add('active');
-        }
-        
-        this.currentScreen = screenId;
-        
-        // Scroll to top
-        window.scrollTo(0, 0);
-    }
-
-    // Optional: Send results to server
-    async sendResultToServer(result) {
-        try {
-            const response = await fetch('/api/submit-result', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(result)
-            });
-            
-            if (response.ok) {
-                console.log('Result submitted successfully');
+        // Show selected screen with delay for animation
+        setTimeout(() => {
+            const targetScreen = document.getElementById(screenId);
+            if (targetScreen) {
+                targetScreen.classList.add('active');
             }
-        } catch (error) {
-            console.error('Failed to submit result:', error);
-        }
+            
+            this.currentScreen = screenId;
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }, 100);
     }
 }
 
@@ -533,10 +647,6 @@ document.addEventListener('DOMContentLoaded', () => {
             animation: slideIn 0.3s ease;
         }
         
-        .notification {
-            font-family: 'Poppins', sans-serif;
-        }
-        
         .notification-content {
             display: flex;
             align-items: center;
@@ -547,24 +657,41 @@ document.addEventListener('DOMContentLoaded', () => {
             transition: all 0.3s ease;
         }
         
-        .answer-option:hover:not(.disabled) {
-            transform: translateX(5px);
+        .tennis-logo {
+            position: relative;
         }
         
-        .screen {
-            min-height: 600px;
-        }
-        
-        @media (max-width: 768px) {
-            .notification {
-                left: 20px;
-                right: 20px;
-                top: 20px;
-                transform: translateY(-100%);
+        /* Horizontal layout optimizations */
+        @media (max-aspect-ratio: 4/3) {
+            .welcome-left, .results-left {
+                flex: 0.8;
             }
             
-            .notification.show {
-                transform: translateY(0);
+            .welcome-right, .results-right {
+                flex: 1.2;
+            }
+        }
+        
+        /* iFrame optimizations */
+        @media (max-height: 600px) {
+            .screen {
+                padding: 20px;
+            }
+            
+            .form-header {
+                margin-bottom: 15px;
+            }
+            
+            .difficulty-options {
+                gap: 8px;
+            }
+            
+            .option-card {
+                padding: 12px;
+            }
+            
+            .option-card p {
+                display: none;
             }
         }
     `;
@@ -578,29 +705,29 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function addInteractiveElements() {
-    // Add tennis ball animation on page load
-    const tennisAnimation = document.querySelector('.tennis-animation i');
-    if (tennisAnimation) {
-        tennisAnimation.addEventListener('animationiteration', () => {
-            // Add bounce effect randomly
-            if (Math.random() > 0.7) {
-                tennisAnimation.style.animation = 'bounce 0.6s ease, spin 3s linear infinite';
-                setTimeout(() => {
-                    tennisAnimation.style.animation = 'spin 3s linear infinite';
-                }, 600);
-            }
+    // Add tennis ball hover effect
+    const tennisLogo = document.querySelector('.tennis-logo');
+    if (tennisLogo) {
+        tennisLogo.addEventListener('mouseenter', () => {
+            const ball = tennisLogo.querySelector('i');
+            ball.style.animation = 'bounce-slow 0.5s ease';
+            setTimeout(() => {
+                ball.style.animation = 'bounce-slow 3s ease-in-out infinite';
+            }, 500);
         });
     }
     
     // Add hover effects to difficulty cards
     document.querySelectorAll('.option-card').forEach(card => {
         card.addEventListener('mouseenter', () => {
-            card.style.transform = 'translateY(-5px) scale(1.02)';
+            if (!card.classList.contains('selected')) {
+                card.style.transform = 'translateY(-3px)';
+            }
         });
         
         card.addEventListener('mouseleave', () => {
-            if (!card.parentElement.querySelector('input').checked) {
-                card.style.transform = 'translateY(0) scale(1)';
+            if (!card.classList.contains('selected')) {
+                card.style.transform = 'translateY(0)';
             }
         });
     });
@@ -617,13 +744,22 @@ function addInteractiveElements() {
         if (e.key === 'Escape') {
             window.tennisQuiz.hidePrivacyModal();
         }
+        
+        // Answer selection with number keys
+        if (window.tennisQuiz.currentScreen === 'quiz-screen' && e.key >= '1' && e.key <= '4') {
+            const answerIndex = parseInt(e.key) - 1;
+            const answerButton = document.querySelector(`.answer-option[data-index="${answerIndex}"]`);
+            if (answerButton && !answerButton.classList.contains('disabled')) {
+                answerButton.click();
+            }
+        }
     });
 }
 
 // Preload images and resources
 function preloadResources() {
     // Preload FontAwesome icons
-    const icons = ['fa-tennis-ball', 'fa-trophy', 'fa-play', 'fa-facebook-f', 'fa-redo'];
+    const icons = ['fa-tennis-ball', 'fa-trophy', 'fa-play', 'fa-facebook-f', 'fa-redo', 'fa-seedling', 'fa-chart-line', 'fa-fire', 'fa-crown'];
     icons.forEach(icon => {
         const element = document.createElement('i');
         element.className = `fas ${icon}`;
