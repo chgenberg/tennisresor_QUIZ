@@ -1192,52 +1192,33 @@ body {
 }
 
 /* =============================
-   ABSOLUT SISTA CSS-OVERRIDE (TOTAL RESET)
+   FUNGERANDE LAYOUT-FIX (BEHÅLLER STYLING)
    ============================= */
 html, body {
   margin: 0 !important;
   padding: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  overflow-x: hidden !important;
 }
 
 .container {
-  display: block !important;
   width: 100vw !important;
-  min-height: 100vh !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  max-width: none !important;
   margin: 0 !important;
   padding: 0 !important;
-  max-width: none !important;
   border-radius: 0 !important;
   box-shadow: none !important;
+  /* BEHÅLL ursprunglig display och bakgrund */
 }
 
 .screen {
   width: 100% !important;
-  min-height: 100vh !important;
+  height: 100% !important;
+  max-width: none !important;
   margin: 0 !important;
-  padding: 0 !important;
   border-radius: 0 !important;
   box-shadow: none !important;
-  max-width: none !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-#hero-screen {
-  background: var(--primary-color) !important;
-  position: relative !important;
-}
-
-#welcome-screen {
-  background: var(--primary-color) !important;
-}
-
-.hero-content, .welcome-content, .quiz-container, .results-container {
-  width: 100% !important;
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 2rem !important;
+  /* BEHÅLL ursprunglig padding och styling */
 }
