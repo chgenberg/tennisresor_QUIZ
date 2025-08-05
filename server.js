@@ -29,7 +29,15 @@ app.use(helmet({
             scriptSrc: ["'self'", "'unsafe-inline'"],
             connectSrc: ["'self'", "https://www.facebook.com", `https://${MAILCHIMP_SERVER_PREFIX}.api.mailchimp.com`],
             imgSrc: ["'self'", "data:", "https:", "Public/"],
-            frameSrc: ["https://www.facebook.com"]
+            frameSrc: ["https://www.facebook.com"],
+            frameAncestors: [
+                "'self'", 
+                "https://*.myshopify.com", 
+                "https://*.shopifypreview.com",
+                "https://www.tennisresor.net",
+                "https://tennisresor.net",
+                "https://*.shopify.com"
+            ]
         }
     }
 }));
