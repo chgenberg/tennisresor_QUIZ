@@ -308,7 +308,6 @@ class TennisQuiz {
                         Svara
                     </button>
                 </div>
-                <div id="tiebreaker-feedback" class="tiebreaker-feedback"></div>
             </div>
         `;
         
@@ -345,23 +344,21 @@ class TennisQuiz {
         document.getElementById('tiebreaker-answer').disabled = true;
         document.getElementById('submit-tiebreaker').disabled = true;
         
-        // Show feedback
-        const feedbackEl = document.getElementById('tiebreaker-feedback');
+        // Update score and visual feedback
+        const inputEl = document.getElementById('tiebreaker-answer');
+        const submitBtn = document.getElementById('submit-tiebreaker');
+        
         if (isCorrect) {
-            feedbackEl.innerHTML = `
-                <div class="correct-feedback">
-                    ✅ Rätt svar!
-                </div>
-            `;
             this.score++;
+            // Show success with green styling
+            inputEl.style.borderColor = '#22c55e';
+            inputEl.style.backgroundColor = '#f0fdf4';
+            submitBtn.style.background = 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)';
         } else {
-            const distance = Math.abs(userAnswer - correctAnswer);
-            feedbackEl.innerHTML = `
-                <div class="incorrect-feedback">
-                    ❌ Fel svar. Det korrekta svaret är ${correctAnswer}.
-                    <br>Du var ${distance} ifrån.
-                </div>
-            `;
+            // Show error with red styling
+            inputEl.style.borderColor = '#ef4444';
+            inputEl.style.backgroundColor = '#fef2f2';
+            submitBtn.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
         }
         
         // Store answer
@@ -453,46 +450,10 @@ class TennisQuiz {
         // Update score
         if (selectedIndex === question.correct) {
             this.score++;
-            this.showFeedback('Rätt svar!', 'success');
-        } else {
-            this.showFeedback(`Fel svar. Rätt svar var: ${question.answers[question.correct]}`, 'error');
         }
     }
 
-    showFeedback(message, type) {
-        // Remove any existing feedback
-        const existingFeedback = document.querySelector('.question-feedback');
-        if (existingFeedback) {
-            existingFeedback.remove();
-        }
-        
-        // Create feedback element
-        const feedback = document.createElement('div');
-        feedback.className = `question-feedback ${type}`;
-        feedback.textContent = message;
-        feedback.style.cssText = `
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 8px;
-            background: ${type === 'success' ? '#e8f5e8' : '#ffebee'};
-            color: ${type === 'success' ? '#2e7d32' : '#c62828'};
-            border: 1px solid ${type === 'success' ? '#4CAF50' : '#f44336'};
-            font-weight: 500;
-            text-align: center;
-            animation: slideIn 0.3s ease;
-        `;
-        
-        // Insert after the answers container
-        const answersContainer = document.getElementById('answers-container');
-        answersContainer.parentNode.insertBefore(feedback, answersContainer.nextSibling);
-        
-        // Remove after delay
-        setTimeout(() => {
-            if (feedback.parentNode) {
-                feedback.parentNode.removeChild(feedback);
-            }
-        }, 3000);
-    }
+
 
     startQuestionTimer() {
         // Optional: Add timer functionality

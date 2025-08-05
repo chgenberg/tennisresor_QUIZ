@@ -679,29 +679,7 @@ body {
   opacity: 0.7;
 }
 
-/* Feedback - Premium style */
-.feedback {
-  padding: 1rem 1.5rem;
-  border-radius: 10px;
-  margin: 1.5rem 0;
-  font-weight: 600;
-  text-align: center;
-  animation: slideIn 0.3s ease;
-  font-size: 0.95rem;
-  backdrop-filter: blur(10px);
-}
 
-.feedback.correct {
-  background: rgba(34, 197, 94, 0.1);
-  color: #16a34a;
-  border: 1.5px solid rgba(34, 197, 94, 0.3);
-}
-
-.feedback.incorrect {
-  background: rgba(239, 68, 68, 0.1);
-  color: #dc2626;
-  border: 1.5px solid rgba(239, 68, 68, 0.3);
-}
 
 /* Next Button - Premium gradient */
 #next-question {
@@ -1475,12 +1453,7 @@ html, body {
     border-radius: 8px;
   }
   
-  /* Feedback Mobile */
-  .feedback {
-    padding: 0.8rem 1rem;
-    font-size: 0.9rem;
-    margin: 1rem 0;
-  }
+
   
   /* Tiebreaker Mobile */
   .tiebreaker-input-container {
