@@ -52,7 +52,7 @@ class TennisQuiz {
         });
 
         // Next button
-        document.getElementById('next-btn').addEventListener('click', () => {
+        document.getElementById('next-question').addEventListener('click', () => {
             this.nextQuestion();
         });
 
@@ -290,7 +290,7 @@ class TennisQuiz {
         }
         
         // Hide next button
-        document.getElementById('next-btn').style.display = 'none';
+        document.getElementById('next-question').style.display = 'none';
         
         // Start timer (optional)
         this.startQuestionTimer();
@@ -375,7 +375,7 @@ class TennisQuiz {
         
         // Show next button after delay
         setTimeout(() => {
-            document.getElementById('next-btn').style.display = 'flex';
+            document.getElementById('next-question').style.display = 'block';
         }, 2000);
     }
 
@@ -432,7 +432,7 @@ class TennisQuiz {
         
         // Show next button after a delay
         setTimeout(() => {
-            document.getElementById('next-btn').style.display = 'flex';
+            document.getElementById('next-question').style.display = 'block';
         }, 1500);
     }
 
