@@ -318,8 +318,22 @@ app.get('/health', (req, res) => {
         mailchimp: {
             configured: !!(MAILCHIMP_API_KEY && MAILCHIMP_LIST_ID),
             listId: MAILCHIMP_LIST_ID ? 'Set' : 'Not set',
-            apiKey: MAILCHIMP_API_KEY ? 'Set' : 'Not set'
+            apiKey: MAILCHIMP_API_KEY ? 'Set' : 'Not set',
+            dataCenter: MAILCHIMP_SERVER_PREFIX
         }
+    });
+});
+
+// Debug endpoint to check Mailchimp configuration
+app.get('/api/debug/mailchimp', (req, res) => {
+    res.json({
+        api_key_present: !!MAILCHIMP_API_KEY,
+        list_id_present: !!MAILCHIMP_LIST_ID,
+        data_center: MAILCHIMP_SERVER_PREFIX,
+        api_key_preview: MAILCHIMP_API_KEY ? MAILCHIMP_API_KEY.substring(0, 8) + '...' : 'Not set',
+        list_id: MAILCHIMP_LIST_ID || 'Not set',
+        fully_configured: !!(MAILCHIMP_API_KEY && MAILCHIMP_LIST_ID),
+        help: 'Set MAILCHIMP_API_KEY and MAILCHIMP_LIST_ID environment variables in Railway dashboard'
     });
 });
 
