@@ -1191,41 +1191,53 @@ body {
   box-shadow: none !important;
 }
 
-/* === KILL ALL PADDINGS / MAX-WIDTHS (ABSOLUT SISTA) === */
+/* =============================
+   ABSOLUT SISTA CSS-OVERRIDE (TOTAL RESET)
+   ============================= */
 html, body {
-  margin:0!important;
-  padding:0!important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow-x: hidden !important;
 }
 
 .container {
-  display:block!important;        /* slopa centrerande flex */
+  display: block !important;
+  width: 100vw !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
-#hero-screen, #welcome-screen,
-#quiz-screen, #results-screen {
-  width:100%!important;
-  height:auto!important;
-  min-height: 100vh;
-  min-height: 100dvh;
-  margin:0!important;
-  padding:2rem !important; /* Lägg till lite padding inuti för att undvika att texten klistras mot kanten */
-  border-radius:0!important;
-  box-shadow:none!important;
+.screen {
+  width: 100% !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  max-width: none !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
 }
 
-.hero-content, .welcome-content,
-.quiz-container, .results-container {
-  width:100%!important;
-  max-width:1200px!important; /* Behåll en max-bredd för läsbarhet */
-  padding:0!important;
+#hero-screen {
+  background: var(--primary-color) !important;
+  position: relative !important;
 }
 
-/* ta bort ev. vit spalt till vänster i frågelayouten */
-.question-container {
-  margin:0 0 2rem 0 !important;
-  border-radius:20px !important;
+#welcome-screen {
+  background: var(--primary-color) !important;
+}
+
+.hero-content, .welcome-content, .quiz-container, .results-container {
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
   padding: 2rem !important;
 }
