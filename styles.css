@@ -345,6 +345,19 @@ body {
   box-shadow: 0 0 0 3px rgba(28, 56, 70, 0.1);
 }
 
+/* Touch-optimerad för mobil */
+@media (max-width: 768px) {
+  .input-wrapper input[type="email"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  
+  .input-wrapper input[type="email"]:focus {
+    box-shadow: 0 0 0 4px rgba(28, 56, 70, 0.15);
+  }
+}
+
 .input-icon {
   position: absolute;
   left: 0.8rem;
@@ -1416,13 +1429,96 @@ body {
     width: 100%;
   }
   
+  /* Förbättrad mobildesign för formulär */
+  .welcome-form {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+  
+  .welcome-form-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .input-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .input-group label {
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .input-wrapper input[type="email"] {
+    padding: 1rem 1rem 1rem 3rem;
+    font-size: 1rem;
+    border-radius: 12px;
+    height: 52px;
+  }
+  
+  .input-icon {
+    left: 1rem;
+    font-size: 1.1rem;
+  }
+  
+  /* Större och tydligare checkbox */
+  .privacy-consent {
+    margin-bottom: 1.5rem;
+  }
+  
+  .checkbox-label {
+    padding: 1rem;
+    gap: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    border-radius: 12px;
+    min-height: 60px;
+  }
+  
+  .checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    transform: scale(1);
+  }
+  
+  /* Svårighetsgrad med bättre spacing */
+  .difficulty-selection {
+    margin-bottom: 1.5rem;
+  }
+  
   .difficulty-grid {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
   }
   
   .difficulty-btn {
-    padding: 0.8rem;
+    padding: 1rem;
+    min-height: 80px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  
+  .difficulty-name {
+    font-size: 1rem;
+  }
+  
+  .difficulty-desc {
+    font-size: 0.75rem;
+    line-height: 1.2;
+  }
+  
+  /* Större startknapp */
+  .start-btn {
+    padding: 1.2rem 2rem;
+    font-size: 1.05rem;
+    border-radius: 14px;
+    min-height: 56px;
   }
   
   /* Quiz screen mobile */
@@ -1531,6 +1627,31 @@ body {
   
   .welcome-subtitle {
     display: none;
+  }
+  
+  /* Formulär på små skärmar */
+  .welcome-right {
+    padding: 1rem;
+  }
+  
+  .welcome-form {
+    padding: 1.2rem;
+  }
+  
+  /* Email input responsiv */
+  .input-wrapper input[type="email"] {
+    font-size: 16px; /* Förhindrar zoom på iOS */
+  }
+  
+  /* Svårighetsgrad i en kolumn på små skärmar */
+  .difficulty-grid {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+  
+  .difficulty-btn {
+    min-height: 70px;
+    padding: 0.8rem;
   }
   
   .question-text {
