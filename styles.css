@@ -513,14 +513,14 @@ body {
 }
 
 .difficulty-badge {
-  padding: 0.5rem 1.2rem;
+  padding: 0.4rem 1rem;
   background-color: var(--primary-color);
   color: white;
-  border-radius: 25px;
+  border-radius: 6px;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .score-display {
@@ -532,18 +532,18 @@ body {
 /* Progress Bar */
 .progress-container {
   width: 100%;
-  height: 6px;
-  background-color: #e9ecef;
-  border-radius: 3px;
-  margin-bottom: 1rem;
+  height: 4px;
+  background-color: rgba(28, 56, 70, 0.1);
+  border-radius: 2px;
+  margin-bottom: 0.5rem;
   overflow: hidden;
 }
 
 .progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, var(--success-color) 0%, #1db954 100%);
+  background-color: var(--primary-color);
   transition: width var(--transition-slow);
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 /* Question Container */
@@ -624,46 +624,50 @@ body {
 
 /* Feedback */
 .feedback {
-  padding: 1rem;
-  border-radius: 10px;
-  margin-top: 1rem;
-  font-weight: 600;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+  font-weight: 500;
   text-align: center;
   animation: slideIn var(--transition-normal);
+  font-size: 0.9rem;
 }
 
 .feedback.correct {
-  background-color: rgba(34, 197, 94, 0.1);
+  background-color: rgba(34, 197, 94, 0.05);
   color: var(--success-color);
-  border: 2px solid var(--success-color);
+  border: 1px solid rgba(34, 197, 94, 0.2);
 }
 
 .feedback.incorrect {
-  background-color: rgba(239, 68, 68, 0.1);
+  background-color: rgba(239, 68, 68, 0.05);
   color: var(--error-color);
-  border: 2px solid var(--error-color);
+  border: 1px solid rgba(239, 68, 68, 0.2);
 }
 
 /* Next Button */
 #next-question {
   display: block;
-  margin: 1.5rem auto 0;
-  padding: 0.8rem 1.5rem;
-  background-color: var(--success-color);
+  margin: 1.5rem auto;
+  padding: 1rem 2.5rem;
+  background-color: var(--primary-color);
   color: white;
   border: none;
-  border-radius: 25px;
-  font-size: 0.95rem;
+  border-radius: 6px;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all var(--transition-normal);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 2px 8px rgba(28, 56, 70, 0.2);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 #next-question:hover {
-  background-color: #1db954;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  background-color: var(--secondary-color);
+  transform: translateX(-50%) translateY(-1px);
+  box-shadow: 0 4px 12px rgba(28, 56, 70, 0.25);
 }
 
 /* Tiebreaker Input */
