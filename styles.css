@@ -328,15 +328,16 @@ body {
   position: relative;
 }
 
-.input-wrapper input[type="email"] {
-  width: 100%;
+.input-wrapper input[type="email"],
+.input-wrapper input {
+  width: 100% !important;
   padding: 1.5rem 1rem 1.5rem 2.5rem !important;
   border: 3px solid var(--primary-color) !important;
   border-radius: 15px !important;
   font-size: 18px !important;
   transition: all var(--transition-fast);
   background-color: #f0f8ff !important;
-  box-sizing: border-box;
+  box-sizing: border-box !important;
   min-height: 65px !important;
   height: 65px !important;
 }
@@ -423,7 +424,8 @@ body {
   margin-bottom: 0.8rem;
 }
 
-.difficulty-btn {
+.difficulty-btn,
+.difficulty-option {
   padding: 1.5rem !important;
   border: 3px solid var(--primary-color) !important;
   border-radius: 15px !important;
@@ -2032,6 +2034,94 @@ html, body {
   html .welcome-form .difficulty-btn {
     min-height: 90px !important;
     padding: 1.4rem !important;
+  }
+}
+
+/* =============================
+   RÄTTAR MOBILFIX - Korrekta HTML-klasser
+   ============================= */
+
+/* Start form på welcome screen */
+.start-form .input-wrapper input {
+  width: 100% !important;
+  padding: 1.5rem 1rem 1.5rem 2.5rem !important;
+  border: 3px solid var(--primary-color) !important;
+  border-radius: 15px !important;
+  font-size: 18px !important;
+  background-color: #f0f8ff !important;
+  box-sizing: border-box !important;
+  min-height: 65px !important;
+  height: 65px !important;
+}
+
+/* Difficulty options på welcome screen */
+.difficulty-options .difficulty-option {
+  padding: 1.5rem !important;
+  border: 3px solid var(--primary-color) !important;
+  border-radius: 15px !important;
+  background-color: #f0f8ff !important;
+  cursor: pointer !important;
+  min-height: 90px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Privacy consent */
+.privacy-consent .checkbox-label {
+  padding: 1.5rem !important;
+  border: 3px solid var(--primary-color) !important;
+  border-radius: 15px !important;
+  background-color: #f0f8ff !important;
+  min-height: 75px !important;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+}
+
+/* Start button */
+.start-form button,
+.start-form .start-btn,
+#start-quiz {
+  padding: 1.8rem 2rem !important;
+  border-radius: 18px !important;
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+  min-height: 70px !important;
+  background-color: var(--success-color) !important;
+}
+
+/* MOBIL SPECIFIK CSS */
+@media screen and (max-width: 768px) {
+  .welcome-right,
+  .start-form {
+    padding: 1rem !important;
+  }
+  
+  .start-form .input-wrapper input {
+    height: 70px !important;
+    min-height: 70px !important;
+    font-size: 16px !important;
+    padding: 1.8rem 1rem 1.8rem 3rem !important;
+  }
+  
+  .difficulty-options .difficulty-option {
+    min-height: 95px !important;
+    padding: 1.8rem !important;
+  }
+  
+  .privacy-consent .checkbox-label {
+    min-height: 80px !important;
+    padding: 1.8rem !important;
+  }
+  
+  #start-quiz,
+  .start-btn {
+    min-height: 75px !important;
+    padding: 2rem !important;
+    font-size: 1.4rem !important;
   }
 }
 
