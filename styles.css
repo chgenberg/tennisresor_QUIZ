@@ -1401,3 +1401,137 @@ html, body {
   color: #e5f4ff;
   opacity: 0.9;
 }
+
+/* =============================
+   PREMIUM QUIZ MOBILE RESPONSIVE
+   ============================= */
+@media (max-width: 768px) {
+  /* Quiz Screen Mobile */
+  #quiz-screen {
+    padding: 1rem;
+    background-color: #f8f9fa;
+  }
+  
+  .quiz-container {
+    gap: 1rem;
+  }
+  
+  /* Quiz Header Mobile - Stack vertically */
+  .quiz-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+  
+  .progress-container {
+    justify-content: center;
+    order: 2;
+  }
+  
+  .progress-bar {
+    max-width: none;
+    height: 6px;
+  }
+  
+  .difficulty-badge {
+    text-align: center;
+    order: 1;
+    align-self: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  /* Question Container Mobile */
+  .question-container {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+  
+  .question-text {
+    font-size: clamp(1.1rem, 4vw, 1.3rem);
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Answer Grid Mobile - Single column */
+  .answers-container {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .answer-option {
+    min-height: 70px;
+    padding: 1rem;
+    font-size: 0.95rem;
+    border-radius: 8px;
+  }
+  
+  /* Next Button Mobile */
+  #next-question {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
+  
+  /* Feedback Mobile */
+  .feedback {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    margin: 1rem 0;
+  }
+  
+  /* Tiebreaker Mobile */
+  .tiebreaker-input-container {
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+  
+  .tiebreaker-input {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+  
+  .submit-tiebreaker {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small screens */
+  #quiz-screen {
+    padding: 0.5rem;
+  }
+  
+  .quiz-header {
+    padding: 0.8rem;
+    gap: 0.8rem;
+  }
+  
+  .question-container {
+    padding: 1rem;
+  }
+  
+  .question-text {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .answer-option {
+    min-height: 60px;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .answers-container {
+    gap: 0.5rem;
+  }
+  
+  #next-question {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
