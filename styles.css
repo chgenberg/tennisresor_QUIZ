@@ -1247,3 +1247,71 @@ html, body {
   padding: 1rem !important;
   box-sizing: border-box !important;
 }
+
+/* =============================
+   Difficulty Option Cards (NEW)
+   ============================= */
+.difficulty-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.difficulty-option {
+  display: block;
+  cursor: pointer;
+}
+
+.difficulty-option input[type="radio"] {
+  display: none;
+}
+
+.option-card {
+  border: 2px solid var(--background-dark);
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  background-color: white;
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.option-card i {
+  font-size: 1.4rem;
+  margin-bottom: 0.25rem;
+  color: var(--primary-color);
+}
+
+.option-card p {
+  font-size: 0.75rem;
+  color: var(--text-dark);
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* Hover */
+.difficulty-option:hover .option-card {
+  border-color: var(--primary-color);
+  background-color: var(--background-light);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Selected state */
+.difficulty-option input[type="radio"]:checked + .option-card {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+}
+
+.difficulty-option input[type="radio"]:checked + .option-card i {
+  color: #fff;
+}
+
+.difficulty-option input[type="radio"]:checked + .option-card p {
+  color: #e5f4ff;
+  opacity: 0.9;
+}
