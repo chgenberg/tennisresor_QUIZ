@@ -1,7 +1,7 @@
 // Tennis Quiz Application with Mailchimp Integration
 class TennisQuiz {
     constructor() {
-        this.currentScreen = 'welcome';
+        this.currentScreen = 'hero';
         this.selectedDifficulty = null;
         this.userEmail = '';
         this.currentQuestions = [];
@@ -12,14 +12,19 @@ class TennisQuiz {
         this.timePerQuestion = 30000; // 30 seconds
         this.questionTimer = null;
         this.mailchimpApiKey = 'a92b3e89090f4c2ba1aec92673eb34ae-us17';
-        this.mailchimpListId = 'YOUR_LIST_ID'; // Replace with actual list ID
+        this.mailchimpListId = '31fd865c9a'; // Updated with actual list ID
         this.mailchimpDataCenter = 'us17';
         
         this.initializeEventListeners();
-        this.showScreen('welcome-screen');
+        this.showScreen('hero-screen');
     }
 
     initializeEventListeners() {
+        // Hero CTA button
+        document.getElementById('start-quiz-hero').addEventListener('click', () => {
+            this.showScreen('welcome-screen');
+        });
+
         // Start form submission
         document.getElementById('start-form').addEventListener('submit', (e) => {
             e.preventDefault();
@@ -602,8 +607,8 @@ class TennisQuiz {
         // Hide newsletter signup
         document.getElementById('mailchimp-signup').style.display = 'none';
         
-        // Show welcome screen
-        this.showScreen('welcome-screen');
+        // Show hero screen
+        this.showScreen('hero-screen');
     }
 
     showScreen(screenId) {
@@ -705,6 +710,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function addInteractiveElements() {
+    // Add hero image parallax effect
+    const heroImage = document.querySelector('.hero-image');
+    if (heroImage) {
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 20;
+            const y = (e.clientY / window.innerHeight - 0.5) * 20;
+            heroImage.style.transform = `scale(1.1) translate(${x}px, ${y}px)`;
+        });
+    }
+
     // Add tennis ball hover effect
     const tennisLogo = document.querySelector('.tennis-logo');
     if (tennisLogo) {
@@ -758,8 +773,12 @@ function addInteractiveElements() {
 
 // Preload images and resources
 function preloadResources() {
+    // Preload hero image
+    const heroImage = new Image();
+    heroImage.src = 'Public/AndresJens.jpg';
+    
     // Preload FontAwesome icons
-    const icons = ['fa-tennis-ball', 'fa-trophy', 'fa-play', 'fa-facebook-f', 'fa-redo', 'fa-seedling', 'fa-chart-line', 'fa-fire', 'fa-crown'];
+    const icons = ['fa-tennis-ball', 'fa-trophy', 'fa-play', 'fa-facebook-f', 'fa-redo', 'fa-seedling', 'fa-chart-line', 'fa-fire', 'fa-crown', 'fa-brain', 'fa-layer-group', 'fa-gift'];
     icons.forEach(icon => {
         const element = document.createElement('i');
         element.className = `fas ${icon}`;

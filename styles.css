@@ -86,6 +86,216 @@ body {
     opacity: 1;
 }
 
+/* Hero Screen Styles */
+.hero-screen {
+    position: relative;
+    background: var(--primary-dark);
+    padding: 0;
+    overflow: hidden;
+}
+
+.hero-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(28, 56, 70, 0.95) 0%,
+        rgba(28, 56, 70, 0.85) 40%,
+        rgba(28, 56, 70, 0.7) 100%
+    );
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 60px;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.hero-badge i {
+    font-size: 1.2rem;
+    color: var(--accent-green);
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    max-width: 600px;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.hero-features {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 50px;
+    animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.feature-item i {
+    font-size: 2rem;
+    color: var(--accent-green);
+    margin-bottom: 5px;
+}
+
+.feature-item span {
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.hero-cta-button {
+    background: linear-gradient(135deg, var(--accent-green) 0%, #689f38 100%);
+    color: white;
+    border: none;
+    padding: 20px 50px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 10px 30px rgba(124, 179, 66, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: fadeInUp 0.8s ease-out 0.8s both, pulse 2s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.hero-cta-button:hover::before {
+    left: 100%;
+}
+
+.hero-cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(124, 179, 66, 0.4);
+}
+
+.hero-cta-button:active {
+    transform: translateY(-1px);
+}
+
+.hero-cta-button i {
+    transition: transform 0.3s ease;
+}
+
+.hero-cta-button:hover i {
+    transform: translateX(5px);
+}
+
+.hero-disclaimer {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    animation: fadeInUp 0.8s ease-out 1s both;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
 /* Welcome Screen - Horizontal Layout */
 #welcome-screen {
     flex-direction: row;
@@ -282,6 +492,14 @@ body {
     gap: 12px;
 }
 
+.difficulty-option {
+    cursor: pointer;
+}
+
+.difficulty-option input[type="radio"] {
+    display: none;
+}
+
 .option-card {
     background: var(--light-bg);
     border: 2px solid var(--gray-light);
@@ -358,6 +576,10 @@ body {
     cursor: pointer;
     font-size: 0.9rem;
     color: var(--text-dark);
+}
+
+.checkbox-label input[type="checkbox"] {
+    display: none;
 }
 
 .checkmark {
@@ -896,11 +1118,37 @@ body {
     .welcome-right, .results-right {
         padding: 40px;
     }
+    
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    
+    .hero-features {
+        gap: 30px;
+    }
 }
 
 @media (max-width: 900px) {
     #welcome-screen, #results-screen {
         flex-direction: column;
+    }
+    
+    .hero-screen {
+        height: 100vh;
+        max-height: none;
+    }
+    
+    .hero-content {
+        padding: 40px;
+    }
+    
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .hero-features {
+        flex-direction: column;
+        gap: 20px;
     }
     
     .welcome-left, .results-left {
@@ -937,6 +1185,23 @@ body {
         padding: 0;
     }
     
+    .hero-content {
+        padding: 30px;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-cta-button {
+        padding: 16px 30px;
+        font-size: 1rem;
+    }
+    
     #quiz-screen {
         padding: 20px;
     }
@@ -960,6 +1225,27 @@ body {
 @media (max-height: 650px) {
     .screen {
         max-height: 100vh;
+    }
+    
+    .hero-screen {
+        padding: 0;
+    }
+    
+    .hero-content {
+        padding: 40px;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .hero-subtitle {
+        margin-bottom: 30px;
+    }
+    
+    .hero-features {
+        margin-bottom: 30px;
     }
     
     .welcome-left, .results-left {

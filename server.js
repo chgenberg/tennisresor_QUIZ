@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 
 // Mailchimp configuration
 const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY || 'a92b3e89090f4c2ba1aec92673eb34ae-us17';
-const MAILCHIMP_LIST_ID = process.env.MAILCHIMP_LIST_ID || 'YOUR_LIST_ID'; // Replace with actual list ID
+const MAILCHIMP_LIST_ID = process.env.MAILCHIMP_LIST_ID || '31fd865c9a'; // Updated with actual list ID
 const MAILCHIMP_SERVER_PREFIX = 'us17';
 
 // Security middleware
@@ -23,7 +23,7 @@ app.use(helmet({
             fontSrc: ["'self'", "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
             scriptSrc: ["'self'", "'unsafe-inline'"],
             connectSrc: ["'self'", "https://www.facebook.com", `https://${MAILCHIMP_SERVER_PREFIX}.api.mailchimp.com`],
-            imgSrc: ["'self'", "data:", "https:"],
+            imgSrc: ["'self'", "data:", "https:", "Public/"],
             frameSrc: ["https://www.facebook.com"]
         }
     }
@@ -49,6 +49,11 @@ app.use(express.static(path.join(__dirname), {
     maxAge: process.env.NODE_ENV === 'production' ? '1d' : '0',
     etag: true,
     lastModified: true
+}));
+
+// Serve Public directory for images
+app.use('/Public', express.static(path.join(__dirname, 'Public'), {
+    maxAge: process.env.NODE_ENV === 'production' ? '7d' : '0',
 }));
 
 // Logging middleware
