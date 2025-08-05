@@ -1,0 +1,1779 @@
+{
+  "total": 241,
+  "needsCorrection": 116,
+  "errors": 0,
+  "corrections": [
+    {
+      "type": "regular",
+      "difficulty": "easy",
+      "index": 1,
+      "original": {
+        "question": "Hur många set måste man vinna för att vinna en match i Grand Slam-turneringar för herrar?",
+        "answers": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. I Grand Slam-turneringar för herrar måste man vinna 3 set för att vinna en match.\nSVÅRIGHETSGRAD: Nivån \"easy\" passar för denna fråga.\nFÖRSLAG: \n\nFRÅGA: \"Hur många set måste man vinna för att vinna en match i Grand Slam-turneringar för herrar?\"\nSVAR: [\"2\", \"3\", \"4\", \"5\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "easy",
+      "index": 2,
+      "original": {
+        "question": "Vad heter det område som spelaren måste stå inom när hen servar?",
+        "answers": [
+          "Baslinjen",
+          "Servicerutan",
+          "Nätområdet",
+          "Servicelinjen"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Spelaren måste stå bakom baslinjen när hen servar, inte inom servicerutan.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"easy\".\nFÖRSLAG: \n\nFRÅGA: \"Vad heter det område som spelaren måste stå inom när hen servar?\"\nSVAR: [\"Baslinjen\", \"Servicerutan\", \"Nätområdet\", \"Servicelinjen\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "easy",
+      "index": 9,
+      "original": {
+        "question": "Hur bred är en tennisbana?",
+        "answers": [
+          "8,23 meter",
+          "10,97 meter",
+          "12,8 meter",
+          "15 meter"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är inte korrekt. En standard tennisbana för singelspel är 8,23 meter bred.\nSVÅRIGHETSGRAD: Frågan kan anses vara lätt för någon med grundläggande kunskap om tennis.\nFÖRSLAG: \n\nFRÅGA: \"Hur bred är en tennisbana för singelspel?\"\nSVAR: [\"8,23 meter\", \"10,97 meter\", \"12,8 meter\", \"15 meter\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "easy",
+      "index": 22,
+      "original": {
+        "question": "Vilken spelarinna vann Wimbledon 2023?",
+        "answers": [
+          "Serena Williams",
+          "Marketa Vondrousova",
+          "Ons Jabeur",
+          "Elena Rybakina"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det går inte att verifiera fakta eftersom året 2023 ännu inte har inträffat.\nSVÅRIGHETSGRAD: Frågan kan inte klassificeras som \"easy\" eftersom det inte finns några kända fakta att basera svaret på.\nFÖRSLAG: \n\nFRÅGA: \"Vilken spelarinna vann Wimbledon 2019?\"\nSVAR: [\"Serena Williams\", \"Marketa Vondrousova\", \"Ons Jabeur\", \"Elena Rybakina\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "easy",
+      "index": 30,
+      "original": {
+        "question": "Vad heter det när man vinner motstånandarens serve?",
+        "answers": [
+          "Hold",
+          "Break",
+          "Ace",
+          "Winner"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan innehåller ett grammatiskt fel. \"Motstånandarens\" bör vara \"motståndarens\".\nFAKTA: Det markerade svaret är korrekt. När man vinner motståndarens serve kallas det för \"break\" inom tennis.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"easy\" eftersom det är en grundläggande term inom tennis.\nFÖRSLAG: Korrigera grammatikfelet i frågan.\n\nKORRIGERAD VERSION:\nFRÅGA: \"Vad heter det när man vinner motståndarens serve?\"\nSVAR: [\"Hold\", \"Break\", \"Ace\", \"Winner\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "easy",
+      "index": 32,
+      "original": {
+        "question": "Vad kallas den mjuka bollen som används på lägre nivåer?",
+        "answers": [
+          "Training ball",
+          "Junior ball",
+          "Practice ball",
+          "Low compression ball"
+        ],
+        "correct": 3
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Alternativ 1, 3 och 4 är inte på svenska.\nFAKTA: Det markerade svaret är korrekt. Lågkompressionsbollar används ofta på lägre nivåer för att göra spelet lättare för nybörjare.\nSVÅRIGHETSGRAD: Frågan kan vara för svår för nivån \"easy\" eftersom det kräver specifik kunskap om tennisutrustning.\nFÖRSLAG: \n\nFRÅGA: \"Vad kallas den mjuka bollen som används på lägre nivåer?\"\nSVAR: [\"Träningsboll\", \"Juniorboll\", \"Övningsboll\", \"Lågkompressionsboll\"]\nRÄTT: 3 (för alternativ 4, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "easy",
+      "index": 36,
+      "original": {
+        "question": "Vad kallas det när bollen går utanför banan?",
+        "answers": [
+          "Fel",
+          "Out",
+          "Fault",
+          "Miss"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt, men det markerade rätta svaret är på engelska, inte svenska.\nFAKTA: Det markerade svaret är korrekt på engelska, men inte på svenska.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"easy\".\nFÖRSLAG: Frågan och svaren bör vara på samma språk. \n\nKorrigerad version:\nFRÅGA: \"Vad kallas det när bollen går utanför banan?\"\nSVAR: [\"Fel\", \"Ute\", \"Fault\", \"Miss\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "easy",
+      "index": 37,
+      "original": {
+        "question": "Vilken spelare vann US Open herrar 2023?",
+        "answers": [
+          "Carlos Alcaraz",
+          "Novak Djokovic",
+          "Daniil Medvedev",
+          "Jannik Sinner"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det är omöjligt att verifiera fakta eftersom året 2023 ännu inte har inträffat.\nSVÅRIGHETSGRAD: Frågan kan inte klassificeras som \"easy\" eftersom den handlar om en framtida händelse som ingen kan veta svaret på.\nFÖRSLAG: \n\nFRÅGA: \"Vilken spelare vann US Open herrar 2020?\"\nSVAR: [\"Dominic Thiem\", \"Novak Djokovic\", \"Daniil Medvedev\", \"Rafael Nadal\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "easy",
+      "index": 38,
+      "original": {
+        "question": "Vad heter det område mellan servicelinjerna?",
+        "answers": [
+          "No man's land",
+          "Service box",
+          "Forecourt",
+          "Midcourt"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är inte korrekt. Området mellan servicelinjerna kallas för \"service box\".\nSVÅRIGHETSGRAD: Frågan kan anses vara lätt för någon med grundläggande kunskap om tennis.\nFÖRSLAG: \n\nFRÅGA: \"Vad heter det område mellan servicelinjerna?\"\nSVAR: [\"No man's land\", \"Service box\", \"Forecourt\", \"Midcourt\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "easy",
+      "index": 39,
+      "original": {
+        "question": "Hur många linjedomare kan det maximalt finnas i en match?",
+        "answers": [
+          "6",
+          "9",
+          "12",
+          "15"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är inte korrekt. I en professionell tennis match kan det finnas upp till 10 linjedomare.\nSVÅRIGHETSGRAD: Frågan kan vara lite svår för nivån \"easy\". Detta är mer en medelhård fråga.\nFÖRSLAG: \n\nFRÅGA: \"Hur många linjedomare kan det maximalt finnas i en professionell tennis match?\"\nSVAR: [\"6\", \"9\", \"10\", \"15\"]\nRÄTT: 2 (för alternativ 3, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "easy",
+      "index": 40,
+      "original": {
+        "question": "Vad kallas det när man träffar bollen på racketets kant?",
+        "answers": [
+          "Frame shot",
+          "Edge shot",
+          "Rim shot",
+          "Side shot"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan och svaren är inte korrekt svenska. Svaret \"Frame shot\" är på engelska, inte svenska.\nFAKTA: Det markerade svaret är korrekt på engelska, men inte på svenska.\nSVÅRIGHETSGRAD: Frågan kan vara lätt för någon som är bekant med tennis, men kan vara svår för någon som inte är det.\nFÖRSLAG: \n\nFRÅGA: \"Vad kallas det när man träffar bollen på racketets kant?\"\nSVAR: [\"Ramträff\", \"Kantträff\", \"Ringträff\", \"Sidträff\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "easy",
+      "index": 41,
+      "original": {
+        "question": "Vilken Grand Slam-turnering har mest prestigelöst priskupa för damer?",
+        "answers": [
+          "Venus Rosewater Dish",
+          "Daphne Akhurst Memorial Cup",
+          "Suzanne Lenglen Cup",
+          "US Open Trophy"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är inte korrekt formulerad på svenska. \"Prestigelöst\" betyder att det saknar prestige, vilket inte är vad frågan försöker fråga. \nFAKTA: Det markerade svaret, Venus Rosewater Dish, är korrekt i den meningen att det är priset som ges till damernas singelvinnare i Wimbledon. Men frågan om vilket pris som har mest prestige är subjektiv och kan inte objektivt besvaras.\nSVÅRIGHETSGRAD: Frågan är inte lätt, eftersom den kräver specifik kunskap om tennispriser.\nSVARSALTERNATIV: Alla alternativ är trovärdiga distraktorer eftersom de alla är verkliga tennispriser.\n\nFÖRSLAG:\nFRÅGA: \"Vilken Grand Slam-turnering ger Venus Rosewater Dish till damernas singelvinnare?\"\nSVAR: [\"Wimbledon\", \"US Open\", \"Australian Open\", \"French Open\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "easy",
+      "index": 43,
+      "original": {
+        "question": "Hur många bollar får man använda under en match innan de byts ut?",
+        "answers": [
+          "6",
+          "7",
+          "9",
+          "12"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är inte korrekt. I professionell tennis byts bollarna ut efter de första sju spelen och därefter efter varje nionde spel, men det är inte antalet bollar som används i en match. Varje match börjar med en ny uppsättning bollar, vanligtvis bestående av sex bollar.\nSVÅRIGHETSGRAD: Frågan kan vara förvirrande för en \"easy\" nivå eftersom den kräver specifik kunskap om tennisregler.\nSVARSALTERNATIV: Alla alternativ är trovärdiga distraktorer.\n\nFÖRSLAG:\nFRÅGA: \"Hur många bollar används vanligtvis i början av en professionell tennismatch?\"\nSVAR: [\"6\", \"7\", \"9\", \"12\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "easy",
+      "index": 46,
+      "original": {
+        "question": "Hur många chanser får man om man begär Hawk-Eye på Wimbledon?",
+        "answers": [
+          "2",
+          "3",
+          "4",
+          "Obegränsat"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. En spelare får tre utmaningar per set plus en extra om setet går till tiebreak i Wimbledon.\nSVÅRIGHETSGRAD: Frågan kan vara lämplig för nivån \"easy\" om det rätta svaret är med.\nFÖRSLAG: \n\nFRÅGA: \"Hur många chanser får man om man begär Hawk-Eye på Wimbledon?\"\nSVAR: [\"2\", \"3\", \"4\", \"Obegränsat\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "easy",
+      "index": 49,
+      "original": {
+        "question": "Vad kallas mötesplatsen för alla fyra Grand Slam-turneringarna?",
+        "answers": [
+          "Tennis Majors",
+          "Grand Slam Circuit",
+          "Major Tours",
+          "Big Four"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan och svaren är korrekt svenska.\nFAKTA: Det markerade svaret är inte korrekt. Det finns ingen officiell term som kallas \"Grand Slam Circuit\" för alla fyra Grand Slam-turneringarna. De fyra Grand Slam-turneringarna är separata evenemang som äger rum på olika platser runt om i världen.\nSVÅRIGHETSGRAD: Frågan är inte lätt eftersom den innehåller felaktig information.\nFÖRSLAG: \n\nFRÅGA: \"Vilka är de fyra Grand Slam-turneringarna i tennis?\"\nSVAR: [\"Wimbledon, French Open, US Open, Australian Open\", \"Wimbledon, French Open, Davis Cup, Australian Open\", \"Wimbledon, French Open, ATP Finals, Australian Open\", \"Wimbledon, French Open, Monte Carlo Masters, Australian Open\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "medium",
+      "index": 6,
+      "original": {
+        "question": "Vem vann den första öppna Wimbledon 1968?",
+        "answers": [
+          "Ken Rosewall",
+          "Rod Laver",
+          "Arthur Ashe",
+          "John Newcombe"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Den första öppna Wimbledon 1968 vanns av Rod Laver på herrsidan och Billie Jean King på damsidan.\nSVÅRIGHETSGRAD: Passar för nivån \"medium\".\nFÖRSLAG: Frågan bör specificera om det gäller herr- eller damklassen. \n\nKorrigerad version:\nFRÅGA: \"Vem vann den första öppna Wimbledon 1968 i herrklassen?\"\nSVAR: [\"Ken Rosewall\", \"Rod Laver\", \"Arthur Ashe\", \"John Newcombe\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "medium",
+      "index": 8,
+      "original": {
+        "question": "Hur många Grand Slam-singeltitlar vann Björn Borg?",
+        "answers": [
+          "9",
+          "11",
+          "13",
+          "15"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan och svaren är korrekt svenska.\nFAKTA: Det markerade svaret är inte rätt. Björn Borg vann 11 Grand Slam-titlar totalt, men bara 6 av dem var i singel.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"medium\".\nFÖRSLAG: \n\nFRÅGA: \"Hur många Grand Slam-singeltitlar vann Björn Borg?\"\nSVAR: [\"5\", \"6\", \"7\", \"8\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "medium",
+      "index": 12,
+      "original": {
+        "question": "Vem var den första spelaren att tjäna över 1 miljon dollar på tennis?",
+        "answers": [
+          "Chris Evert",
+          "Billie Jean King",
+          "Virginia Wade",
+          "Martina Navratilova"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Den första spelaren att tjäna över 1 miljon dollar på tennis var Billie Jean King.\nSVÅRIGHETSGRAD: Nivån \"medium\" passar bra för denna fråga.\nFÖRSLAG: \n\nFRÅGA: \"Vem var den första spelaren att tjäna över 1 miljon dollar på tennis?\"\nSVAR: [\"Chris Evert\", \"Billie Jean King\", \"Virginia Wade\", \"Martina Navratilova\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "medium",
+      "index": 14,
+      "original": {
+        "question": "Vem designade den ursprungliga Wimbledon-pokalen för herrar?",
+        "answers": [
+          "Mappin & Webb",
+          "Elkington & Co",
+          "Asprey",
+          "Garrard"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Den ursprungliga Wimbledon-pokalen för herrar designades av Mappin & Webb.\nSVÅRIGHETSGRAD: Passar för nivån \"medium\" eftersom det kräver specifik kunskap om tennisens historia.\nFÖRSLAG: \n\nFRÅGA: \"Vem designade den ursprungliga Wimbledon-pokalen för herrar?\"\nSVAR: [\"Mappin & Webb\", \"Elkington & Co\", \"Asprey\", \"Garrard\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "medium",
+      "index": 15,
+      "original": {
+        "question": "Vilken spelare vann sin första Grand Slam-titel vid 17 års ålder?",
+        "answers": [
+          "Maria Sharapova",
+          "Martina Hingis",
+          "Monica Seles",
+          "Arantxa Sánchez Vicario"
+        ],
+        "correct": 2
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Monica Seles vann sin första Grand Slam-titel vid 16 års ålder, inte 17. Martina Hingis vann sin första Grand Slam-titel vid 16 års ålder också. Men det är Maria Sharapova som vann sin första Grand Slam-titel vid 17 års ålder.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"medium\".\nFÖRSLAG: \n\nFRÅGA: \"Vilken spelare vann sin första Grand Slam-titel vid 17 års ålder?\"\nSVAR: [\"Maria Sharapova\", \"Martina Hingis\", \"Monica Seles\", \"Arantxa Sánchez Vicario\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "medium",
+      "index": 18,
+      "original": {
+        "question": "Vilken spelare hade flest aces under en Grand Slam-turnering?",
+        "answers": [
+          "John Isner",
+          "Ivo Karlovic",
+          "Kevin Anderson",
+          "Goran Ivanišević"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Goran Ivanišević håller rekordet för flest aces under en Grand Slam-turnering.\nSVÅRIGHETSGRAD: Nivån \"medium\" passar bra för denna fråga.\nFÖRSLAG: \n\nFRÅGA: \"Vilken spelare hade flest aces under en Grand Slam-turnering?\"\nSVAR: [\"John Isner\", \"Ivo Karlovic\", \"Kevin Anderson\", \"Goran Ivanišević\"]\nRÄTT: 3 (för alternativ 4, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "medium",
+      "index": 19,
+      "original": {
+        "question": "Vem vann den längsta matchen i tennis-historien?",
+        "answers": [
+          "John Isner",
+          "Nicolas Mahut",
+          "Kevin Anderson",
+          "John Millman"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är inte helt rätt. Både John Isner och Nicolas Mahut deltog i den längsta matchen i tennis-historien, så båda borde vara rätt svar.\nSVÅRIGHETSGRAD: Passar för nivån \"medium\".\nFÖRSLAG: Frågan bör omformuleras för att undvika förvirring.\n\nFRÅGA: \"Vilka två spelare deltog i den längsta matchen i tennis-historien?\"\nSVAR: [\"John Isner och Nicolas Mahut\", \"John Isner och Kevin Anderson\", \"Nicolas Mahut och Kevin Anderson\", \"John Isner och John Millman\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "medium",
+      "index": 20,
+      "original": {
+        "question": "Vilken kvinnlig spelare har vunnit flest French Open-titlar?",
+        "answers": [
+          "Steffi Graf",
+          "Monica Seles",
+          "Chris Evert",
+          "Justine Henin"
+        ],
+        "correct": 2
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är inte korrekt. Den kvinnliga spelare som har vunnit flest French Open-titlar är Chris Evert och Steffi Graf, båda med 7 titlar.\nSVÅRIGHETSGRAD: Passar för nivån \"medium\".\nFÖRSLAG: Lägg till Steffi Graf som ett korrekt svar.\n\nFRÅGA: \"Vilken kvinnlig spelare har vunnit flest French Open-titlar?\"\nSVAR: [\"Steffi Graf\", \"Monica Seles\", \"Chris Evert\", \"Justine Henin\"]\nRÄTT: 0, 2 (för alternativ 1 och 3, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "medium",
+      "index": 21,
+      "original": {
+        "question": "Vad heter världsrankingen för herrarna?",
+        "answers": [
+          "ATP Rankings",
+          "FedEx ATP Rankings",
+          "Emirates ATP Rankings",
+          "Pepperstone ATP Rankings"
+        ],
+        "correct": 3
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan och svaren är korrekt svenska.\nFAKTA: Det markerade svaret är inte korrekt. Världsrankingen för herrarna heter ATP Rankings.\nSVÅRIGHETSGRAD: Frågan kan anses vara av medium svårighetsgrad för en person med genomsnittlig kunskap om tennis.\nFÖRSLAG: \n\nFRÅGA: \"Vad heter världsrankingen för herrarna?\"\nSVAR: [\"ATP Rankings\", \"FedEx ATP Rankings\", \"Emirates ATP Rankings\", \"Pepperstone ATP Rankings\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "medium",
+      "index": 22,
+      "original": {
+        "question": "Vem var den siste amatörspelaren som vann Wimbledon?",
+        "answers": [
+          "Rod Laver",
+          "John Newcombe",
+          "Ken Rosewall",
+          "Arthur Ashe"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Den siste amatörspelaren som vann Wimbledon var faktiskt Rod Laver.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"medium\".\nFÖRSLAG: \n\nFRÅGA: \"Vem var den siste amatörspelaren som vann Wimbledon?\"\nSVAR: [\"Rod Laver\", \"John Newcombe\", \"Ken Rosewall\", \"Arthur Ashe\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "medium",
+      "index": 24,
+      "original": {
+        "question": "Vem uppfann det moderna racket-strängsystemet?",
+        "answers": [
+          "Babolat",
+          "Prince",
+          "Wilson",
+          "Head"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan och svaren är korrekt svenska.\nFAKTA: Det markerade svaret är inte korrekt. Det var faktiskt Babolat som uppfann det moderna racket-strängsystemet.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"medium\".\nFÖRSLAG: \n\nFRÅGA: \"Vem uppfann det moderna racket-strängsystemet?\"\nSVAR: [\"Babolat\", \"Prince\", \"Wilson\", \"Head\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "medium",
+      "index": 25,
+      "original": {
+        "question": "Vilken spelare vann Australian Open när det fortfarande spelades på gräs?",
+        "answers": [
+          "Rod Laver",
+          "Ken Rosewall",
+          "Stefan Edberg",
+          "Pat Rafter"
+        ],
+        "correct": 2
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Australian Open spelades på gräs fram till 1987, men Stefan Edberg vann aldrig turneringen under den perioden. Rod Laver och Ken Rosewall vann båda Australian Open när det fortfarande spelades på gräs.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"medium\".\nFÖRSLAG: \n\nFRÅGA: \"Vilken spelare vann Australian Open när det fortfarande spelades på gräs?\"\nSVAR: [\"Rod Laver\", \"Ken Rosewall\", \"Stefan Edberg\", \"Pat Rafter\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat) eller 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "medium",
+      "index": 26,
+      "original": {
+        "question": "Vad heter den årliga prisutdelningen för tennis?",
+        "answers": [
+          "ITF World Champions",
+          "ATP Awards",
+          "Tennis Hall of Fame",
+          "Golden Racket"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är inte korrekt. Den årliga prisutdelningen för tennis är ATP Awards, inte ITF World Champions.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"medium\".\nFÖRSLAG: \n\nFRÅGA: \"Vad heter den årliga prisutdelningen för tennis?\"\nSVAR: [\"ITF World Champions\", \"ATP Awards\", \"Tennis Hall of Fame\", \"Golden Racket\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "medium",
+      "index": 28,
+      "original": {
+        "question": "Vilken spelare introducerade 'tweener'-slaget?",
+        "answers": [
+          "Guillermo Vilas",
+          "Yannick Noah",
+          "Gael Monfils",
+          "Roger Federer"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är inte rätt. 'Tweener'-slaget, även kallat 'gran-willy', populariserades av Guillermo Vilas.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"medium\".\nFÖRSLAG: \n\nFRÅGA: \"Vilken spelare introducerade 'tweener'-slaget?\"\nSVAR: [\"Guillermo Vilas\", \"Yannick Noah\", \"Gael Monfils\", \"Roger Federer\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "medium",
+      "index": 29,
+      "original": {
+        "question": "Vad heter den berömda tennisklubben i Queen's Club?",
+        "answers": [
+          "Queen's Club Championships",
+          "Stella Artois Championships",
+          "cinch Championships",
+          "Aegon Championships"
+        ],
+        "correct": 2
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan och svaren är korrekt svenska.\nFAKTA: Det markerade svaret är inte korrekt. Queen's Club är namnet på klubben, inte turneringen. Turneringen har haft olika namn genom åren beroende på sponsorer, inklusive Stella Artois Championships, Aegon Championships och nuvarande cinch Championships. Men frågan är missvisande eftersom den frågar efter klubbens namn, inte turneringens.\nSVÅRIGHETSGRAD: Frågan kan vara medium eller svår beroende på hur väl insatt man är i tennis, men frågan är missvisande vilket gör den svårare.\nFÖRSLAG: \n\nFRÅGA: \"Vad heter den berömda tennisturneringen som hålls i Queen's Club?\"\nSVAR: [\"Queen's Club Championships\", \"Stella Artois Championships\", \"cinch Championships\", \"Aegon Championships\"]\nRÄTT: 2 (för alternativ 3, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "medium",
+      "index": 30,
+      "original": {
+        "question": "Vem var den första spelaren att använda grafitracket i professionell tennis?",
+        "answers": [
+          "Arthur Ashe",
+          "Jimmy Connors",
+          "Björn Borg",
+          "John McEnroe"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Det var Jimmy Connors som var den första spelaren att använda grafitracket i professionell tennis.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"medium\".\nFÖRSLAG: \n\nFRÅGA: \"Vem var den första spelaren att använda grafitracket i professionell tennis?\"\nSVAR: [\"Arthur Ashe\", \"Jimmy Connors\", \"Björn Borg\", \"John McEnroe\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "medium",
+      "index": 35,
+      "original": {
+        "question": "Vem höll rekordet för flest aces i en match innan Hawk-Eye?",
+        "answers": [
+          "Goran Ivanišević",
+          "Mark Philippoussis",
+          "Richard Krajicek",
+          "Greg Rusedski"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Goran Ivanišević höll inte rekordet för flest aces i en match innan Hawk-Eye. Det var faktiskt Richard Krajicek som gjorde det.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"medium\".\nFÖRSLAG: \n\nFRÅGA: \"Vem höll rekordet för flest aces i en match innan Hawk-Eye?\"\nSVAR: [\"Goran Ivanišević\", \"Mark Philippoussis\", \"Richard Krajicek\", \"Greg Rusedski\"]\nRÄTT: 2 (för alternativ 3, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "medium",
+      "index": 42,
+      "original": {
+        "question": "Vilken stad har arrangerat flest Davis Cup-finaler?",
+        "answers": [
+          "Paris",
+          "London",
+          "New York",
+          "Melbourne"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Staden som har arrangerat flest Davis Cup-finaler är Melbourne, inte London.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"medium\".\nFÖRSLAG: \n\nFRÅGA: \"Vilken stad har arrangerat flest Davis Cup-finaler?\"\nSVAR: [\"Paris\", \"London\", \"New York\", \"Melbourne\"]\nRÄTT: 3 (för alternativ 4, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "medium",
+      "index": 45,
+      "original": {
+        "question": "Vad heter den berömda tennismatcher-dokumentären från 2017?",
+        "answers": [
+          "Borg vs McEnroe",
+          "The Final Match",
+          "Tennis Legends",
+          "Court Warriors"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan bör ändras till \"Vad heter den berömda dokumentären om en tennismatch från 2017?\" för att vara mer grammatiskt korrekt.\nFAKTA: Det markerade svaret är korrekt. \"Borg vs McEnroe\" är en film från 2017 som skildrar den berömda tennismatchen mellan Björn Borg och John McEnroe.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"medium\" eftersom den kräver viss kunskap om tennis och populärkultur.\nFÖRSLAG: \n\nFRÅGA: \"Vad heter den berömda dokumentären om en tennismatch från 2017?\"\nSVAR: [\"Borg vs McEnroe\", \"The Final Match\", \"Tennis Legends\", \"Court Warriors\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "medium",
+      "index": 47,
+      "original": {
+        "question": "Vilken organisation ansvarar för dopingkontroller i tennis?",
+        "answers": [
+          "ITF",
+          "ATP",
+          "WTA",
+          "WADA"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Det är WADA (World Anti-Doping Agency) som ansvarar för dopingkontroller i alla sporter, inklusive tennis.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"medium\".\nFÖRSLAG: \n\nFRÅGA: \"Vilken organisation ansvarar för dopingkontroller i tennis?\"\nSVAR: [\"ITF\", \"ATP\", \"WTA\", \"WADA\"]\nRÄTT: 3 (för alternativ 4, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "medium",
+      "index": 48,
+      "original": {
+        "question": "Vem var den första spelaren att använda en sportagent i tennis?",
+        "answers": [
+          "Arthur Ashe",
+          "Donald Dell",
+          "Mark McCormack",
+          "Björn Borg"
+        ],
+        "correct": 2
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är inte korrekt. Donald Dell var den första sportagenten i tennis, inte Mark McCormack.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"medium\".\nFÖRSLAG: \n\nFRÅGA: \"Vem var den första spelaren att använda en sportagent i tennis?\"\nSVAR: [\"Arthur Ashe\", \"Donald Dell\", \"Mark McCormack\", \"Björn Borg\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 0,
+      "original": {
+        "question": "Vem vann den första ATP Tour-matchen någonsin 1990?",
+        "answers": [
+          "Stefan Edberg",
+          "Ivan Lendl",
+          "Andre Agassi",
+          "Pete Sampras"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är inte korrekt. ATP Tour startade officiellt 1990, men det är inte känt vem som vann den allra första matchen. \nSVÅRIGHETSGRAD: Frågan är svår, men eftersom det inte finns ett klart svar är den mer vilseledande än svår.\nFÖRSLAG: Frågan bör ändras till en mer specifik händelse där svaret är känt. \n\nKorrigerad version:\nFRÅGA: \"Vem vann herrsingeln i Wimbledon 1990?\"\nSVAR: [\"Stefan Edberg\", \"Ivan Lendl\", \"Andre Agassi\", \"Pete Sampras\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 5,
+      "original": {
+        "question": "Vad hette den berömda rivaliteten mellan Chris Evert och Martina Navratilova?",
+        "answers": [
+          "The Greatest Rivalry",
+          "Fire and Ice",
+          "The Golden Era",
+          "The Battle"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan och svaren är på korrekt svenska, men det markerade rätta svaret är på engelska vilket kan vara förvirrande.\nFAKTA: Det markerade svaret är korrekt. Rivaliteten mellan Chris Evert och Martina Navratilova kallas ofta för \"Fire and Ice\".\nSVÅRIGHETSGRAD: Frågan passar för nivån \"hard\" eftersom det kräver specifik kunskap om tennisens historia.\nFÖRSLAG: Översätt det rätta svaret till svenska för att undvika förvirring.\n\nKORRIGERAD VERSION:\nFRÅGA: \"Vad kallades den berömda rivaliteten mellan Chris Evert och Martina Navratilova?\"\nSVAR: [\"Den Största Rivaliteten\", \"Eld och Is\", \"Den Gyllene Eran\", \"Slaget\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 8,
+      "original": {
+        "question": "Vem introducerade det första kolfiber-racketet?",
+        "answers": [
+          "Prince",
+          "Head",
+          "Dunlop",
+          "Yonex"
+        ],
+        "correct": 2
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Det var Head som introducerade det första kolfiber-racketet, inte Dunlop.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"hard\" eftersom det kräver specifik kunskap om tennisutrustningens historia.\nFÖRSLAG: Korrigerad version:\n\nFRÅGA: \"Vem introducerade det första kolfiber-racketet?\"\nSVAR: [\"Prince\", \"Head\", \"Dunlop\", \"Yonex\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 13,
+      "original": {
+        "question": "Vem var den första kvinnliga linjedomaren på Wimbledon?",
+        "answers": [
+          "Margaret Osborne duPont",
+          "Pauline Betz",
+          "Dorothy Round",
+          "Nora Gordon"
+        ],
+        "correct": 3
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan och svaren är korrekt svenska.\nFAKTA: Det markerade svaret är inte korrekt. Det finns ingen tillgänglig information om att Nora Gordon var den första kvinnliga linjedomaren på Wimbledon. \nSVÅRIGHETSGRAD: Frågan kan anses vara svår, men eftersom det korrekta svaret inte finns med bland alternativen, är frågan missvisande.\nFÖRSLAG: Eftersom det inte finns någon tillgänglig information om vem den första kvinnliga linjedomaren på Wimbledon var, föreslår jag att frågan ändras till en annan tennisrelaterad fråga.\n\nFRÅGA: \"Vem var den första kvinnan att vinna en Grand Slam-titel i singel, dubbel och mixed dubbel under samma kalenderår?\"\nSVAR: [\"Margaret Osborne duPont\", \"Pauline Betz\", \"Dorothy Round\", \"Nora Gordon\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 15,
+      "original": {
+        "question": "Vad hette den första professionella tennisturneringen 1926?",
+        "answers": [
+          "US Pro",
+          "French Pro",
+          "Wembley Pro",
+          "World Championship"
+        ],
+        "correct": 2
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Den första professionella tennisturneringen 1926 var US Pro.\nSVÅRIGHETSGRAD: Passar för nivån \"hard\" eftersom det är en detaljerad historisk fråga.\nFÖRSLAG: \n\nFRÅGA: \"Vad hette den första professionella tennisturneringen 1926?\"\nSVAR: [\"US Pro\", \"French Pro\", \"Wembley Pro\", \"World Championship\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 16,
+      "original": {
+        "question": "Vem var den första spelaren att använda Wilson Pro Staff-racketet?",
+        "answers": [
+          "John McEnroe",
+          "Jimmy Connors",
+          "Ivan Lendl",
+          "Chris Evert"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Den första spelaren att använda Wilson Pro Staff-racketet var faktiskt Pete Sampras, inte Jimmy Connors.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"hard\" eftersom det kräver specifik kunskap om tennisutrustning och dess historia.\nFÖRSLAG: \n\nFRÅGA: \"Vem var den första spelaren att använda Wilson Pro Staff-racketet?\"\nSVAR: [\"John McEnroe\", \"Jimmy Connors\", \"Ivan Lendl\", \"Pete Sampras\"]\nRÄTT: 3 (för alternativ 4, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 17,
+      "original": {
+        "question": "Vilken exakt hastighet hade Andy Rodddicks rekordserve 2004?",
+        "answers": [
+          "249,4 km/h",
+          "249,3 km/h",
+          "249,5 km/h",
+          "249,2 km/h"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Andy Roddicks rekordserve 2004 var 249,4 km/h.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"hard\" eftersom det kräver specifik kunskap om en händelse.\nFÖRSLAG: \n\nFRÅGA: \"Vilken exakt hastighet hade Andy Rodddicks rekordserve 2004?\"\nSVAR: [\"249,4 km/h\", \"249,3 km/h\", \"249,5 km/h\", \"249,2 km/h\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 18,
+      "original": {
+        "question": "Vem var den första spelaren att vinna samma Grand Slam fem gånger i rad?",
+        "answers": [
+          "Björn Borg",
+          "Rafael Nadal",
+          "Roger Federer",
+          "Pete Sampras"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Det var faktiskt Rafael Nadal som var den första spelaren att vinna samma Grand Slam (French Open) fem gånger i rad.\nSVÅRIGHETSGRAD: Nivån \"hard\" passar bra för denna fråga.\nFÖRSLAG: \n\nFRÅGA: \"Vem var den första spelaren att vinna samma Grand Slam fem gånger i rad?\"\nSVAR: [\"Björn Borg\", \"Rafael Nadal\", \"Roger Federer\", \"Pete Sampras\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 20,
+      "original": {
+        "question": "Vem var den första spelaren att förlora en Grand Slam-final efter att ha lett med 2-0 i set?",
+        "answers": [
+          "Ivan Lendl",
+          "John McEnroe",
+          "Jimmy Connors",
+          "Guillermo Vilas"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Det var faktiskt Guillermo Vilas som var den första spelaren att förlora en Grand Slam-final efter att ha lett med 2-0 i set. Detta hände i Franska öppna 1975 mot Björn Borg.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"hard\" eftersom det kräver specifik och detaljerad kunskap om tennisens historia.\nFÖRSLAG: \n\nFRÅGA: \"Vem var den första spelaren att förlora en Grand Slam-final efter att ha lett med 2-0 i set?\"\nSVAR: [\"Ivan Lendl\", \"John McEnroe\", \"Jimmy Connors\", \"Guillermo Vilas\"]\nRÄTT: 3 (för alternativ 4, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 22,
+      "original": {
+        "question": "Vem var den första spelaren att använda oversize-racketet i professionell tennis?",
+        "answers": [
+          "Pam Shriver",
+          "Gene Mayer",
+          "Howard Schoenfield",
+          "Prince Manufacturing"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är inte korrekt. Den första spelaren att använda oversize-racketet i professionell tennis var faktiskt Pam Shriver.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"hard\" eftersom det är en detaljerad fråga om tennisens historia.\nFÖRSLAG: \n\nFRÅGA: \"Vem var den första spelaren att använda oversize-racketet i professionell tennis?\"\nSVAR: [\"Pam Shriver\", \"Gene Mayer\", \"Howard Schoenfield\", \"Prince Manufacturing\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 26,
+      "original": {
+        "question": "Vilken exakt vikt hade den ursprungliga tennisbollen 1870?",
+        "answers": [
+          "56-58 gram",
+          "57-58 gram",
+          "56-59 gram",
+          "57-59 gram"
+        ],
+        "correct": 2
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är inte korrekt. Enligt International Tennis Federation (ITF) ska en tennisboll väga mellan 56.0 och 59.4 gram. Det är dock osäkert om detta var standarden redan 1870.\nSVÅRIGHETSGRAD: Frågan är svår, men kan vara missvisande eftersom det är oklart om standarden för tennisbollens vikt var densamma 1870.\nFÖRSLAG: \n\nFRÅGA: \"Vad är vikten på en standard tennisboll enligt dagens regler?\"\nSVAR: [\"56-58 gram\", \"57-58 gram\", \"56-59.4 gram\", \"57-59 gram\"]\nRÄTT: 2 (för alternativ 3, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 27,
+      "original": {
+        "question": "Vem designade det första modernt stringade racketet 1875?",
+        "answers": [
+          "Walter Wingfield",
+          "Spencer Gore",
+          "William Renshaw",
+          "Harry Gem"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan och svaren är korrekt svenska, men det finns ett litet fel. \"Stringade\" är inte ett ord på svenska, det korrekta ordet är \"strängade\".\nFAKTA: Walter Wingfield är känd för att ha populariserat spelet \"lawn tennis\" men det finns ingen information som tyder på att han designade det första moderna strängade racketet. \nSVÅRIGHETSGRAD: Frågan kan anses vara svår, men eftersom det markerade svaret är felaktigt, är det svårt att bedöma svårighetsgraden korrekt.\nFÖRSLAG: Frågan bör ändras till att handla om vem som populariserade \"lawn tennis\", vilket är en korrekt och verifierbar fakta om Walter Wingfield.\n\nFRÅGA: \"Vem populariserade spelet 'lawn tennis' 1875?\"\nSVAR: [\"Walter Wingfield\", \"Spencer Gore\", \"William Renshaw\", \"Harry Gem\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 28,
+      "original": {
+        "question": "Vilken stad arrangerade den första inomhus-tennisturneringen?",
+        "answers": [
+          "London",
+          "Paris",
+          "Boston",
+          "New York"
+        ],
+        "correct": 2
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Den första inomhus-tennisturneringen arrangerades i New York.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"hard\" eftersom det är en detaljerad historisk fakta.\nFÖRSLAG: \n\nFRÅGA: \"Vilken stad arrangerade den första inomhus-tennisturneringen?\"\nSVAR: [\"London\", \"Paris\", \"Boston\", \"New York\"]\nRÄTT: 3 (för alternativ 4, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 31,
+      "original": {
+        "question": "Vem var den första spelaren att tjäna miljoner på tennis före öppna eran?",
+        "answers": [
+          "Rod Laver",
+          "Ken Rosewall",
+          "Pancho Gonzales",
+          "Tony Trabert"
+        ],
+        "correct": 2
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Det finns ingen officiell information om vem som var den första spelaren att tjäna miljoner på tennis före öppna eran. Detta beror på att spelare inte officiellt kunde tjäna pengar på tennis före öppna eran.\nSVÅRIGHETSGRAD: Frågan är svår, men eftersom den är baserad på felaktig information, är den missvisande.\nFÖRSLAG: Frågan bör ändras till en mer korrekt och verifierbar fråga. \n\nKorrigerad version:\nFRÅGA: \"Vem var den första spelaren att tjäna miljoner på tennis i öppna eran?\"\nSVAR: [\"Rod Laver\", \"Ken Rosewall\", \"Pancho Gonzales\", \"Tony Trabert\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 32,
+      "original": {
+        "question": "Vilken teknisk innovation introducerades först 1877 på Wimbledon?",
+        "answers": [
+          "Net posts",
+          "Baseline markers",
+          "Service lines",
+          "Centre mark"
+        ],
+        "correct": 2
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan och svaren är korrekt svenska.\nFAKTA: Det markerade svaret är inte korrekt. Den tekniska innovation som introducerades först 1877 på Wimbledon var Centre mark.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"hard\" eftersom det kräver specifik kunskap om tennisens historia.\nFÖRSLAG: \n\nFRÅGA: \"Vilken teknisk innovation introducerades först 1877 på Wimbledon?\"\nSVAR: [\"Net posts\", \"Baseline markers\", \"Service lines\", \"Centre mark\"]\nRÄTT: 3 (för alternativ 4, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 33,
+      "original": {
+        "question": "Vem var den första kvinnliga spelaren som blev professionell 1959?",
+        "answers": [
+          "Karol Fageros",
+          "Althea Gibson",
+          "Maureen Connolly",
+          "Angela Mortimer"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Den första kvinnliga spelaren som blev professionell var Althea Gibson, inte Karol Fageros.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"hard\" eftersom det är en detaljerad historisk fråga.\nFÖRSLAG: \n\nFRÅGA: \"Vem var den första kvinnliga spelaren som blev professionell 1959?\"\nSVAR: [\"Karol Fageros\", \"Althea Gibson\", \"Maureen Connolly\", \"Angela Mortimer\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 34,
+      "original": {
+        "question": "Vilken exakt höjd hade det ursprungliga tennsnätet 1874?",
+        "answers": [
+          "0,99 meter",
+          "1,07 meter",
+          "1,22 meter",
+          "1,52 meter"
+        ],
+        "correct": 3
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Det ursprungliga tennsnätet 1874 hade en höjd av 1,07 meter i mitten.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"hard\" eftersom det kräver specifik kunskap om tennisens historia.\nFÖRSLAG: \n\nFRÅGA: \"Vilken exakt höjd hade det ursprungliga tennsnätet 1874?\"\nSVAR: [\"0,99 meter\", \"1,07 meter\", \"1,22 meter\", \"1,52 meter\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 35,
+      "original": {
+        "question": "Vem var den första spelaren att använda metal strings?",
+        "answers": [
+          "Rod Laver",
+          "Ken Rosewall",
+          "Pancho Gonzales",
+          "Victor Seixas"
+        ],
+        "correct": 3
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan bör ändras till \"Vem var den första spelaren att använda metallsträngar?\" istället för \"metal strings\".\nFAKTA: Det finns ingen tillgänglig information om att Victor Seixas var den första att använda metallsträngar i tennis. Det är svårt att verifiera vem som var den första spelaren att använda metallsträngar.\nSVÅRIGHETSGRAD: Frågan kan anses vara svår, men eftersom det inte finns någon tydlig information om vem som var den första att använda metallsträngar, kan det vara missvisande att inkludera den i ett quiz.\nFÖRSLAG: Frågan bör ändras till en mer verifierbar fakta om tennis.\n\nKorrigerad version:\nFRÅGA: \"Vem vann flest Grand Slam-titlar på herrsidan under 1960-talet?\"\nSVAR: [\"Rod Laver\", \"Ken Rosewall\", \"Pancho Gonzales\", \"Victor Seixas\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 36,
+      "original": {
+        "question": "Vilken organisation skapade det första officiella rankingsystemet 1973?",
+        "answers": [
+          "ATP",
+          "Computer Ranking System",
+          "ILTF",
+          "WCT"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Det var ATP (Association of Tennis Professionals) som skapade det första officiella rankingsystemet 1973.\nSVÅRIGHETSGRAD: Passar för nivån \"hard\" eftersom det kräver specifik kunskap om tennisens historia.\nFÖRSLAG: \n\nFRÅGA: \"Vilken organisation skapade det första officiella rankingsystemet 1973?\"\nSVAR: [\"ATP\", \"Computer Ranking System\", \"ILTF\", \"WCT\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 38,
+      "original": {
+        "question": "Vilken stad arrangerade den första 'tie-break' matchen 1965?",
+        "answers": [
+          "Newport",
+          "Forest Hills",
+          "Wimbledon",
+          "Roland Garros"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är korrekt formulerad på svenska.\nFAKTA: Det markerade svaret är inte korrekt. Den första tie-break matchen spelades i Forest Hills, inte i Newport.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"hard\" eftersom det kräver specifik kunskap om tennisens historia.\nFÖRSLAG: \n\nFRÅGA: \"Vilken stad arrangerade den första 'tie-break' matchen 1965?\"\nSVAR: [\"Newport\", \"Forest Hills\", \"Wimbledon\", \"Roland Garros\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 39,
+      "original": {
+        "question": "Vem var den första spelaren att använda en dubbelsträngad racket?",
+        "answers": [
+          "Werner Fischer",
+          "Ilie Năstase",
+          "Stan Smith",
+          "Arthur Ashe"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är inte korrekt. Den första spelaren att använda en dubbelsträngad racket var faktiskt Ilie Năstase.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"hard\" eftersom det är en detaljerad och specifik fråga om tennisens historia.\nFÖRSLAG: \n\nFRÅGA: \"Vem var den första spelaren att använda en dubbelsträngad racket?\"\nSVAR: [\"Werner Fischer\", \"Ilie Năstase\", \"Stan Smith\", \"Arthur Ashe\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 42,
+      "original": {
+        "question": "Vilken exakt längd hade den ursprungliga tennisbanan 1877?",
+        "answers": [
+          "23,77 meter",
+          "23,76 meter",
+          "78 fot",
+          "78,5 fot"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är inte korrekt. Den ursprungliga tennisbanan 1877 var 78 fot lång, vilket motsvarar ungefär 23,77 meter. Men det är viktigt att notera att detta är en omvandling och inte den ursprungliga mätningen. \nSVÅRIGHETSGRAD: Passar för nivån \"hard\" eftersom det kräver specifik kunskap om tennisbanans historia.\nFÖRSLAG: Frågan bör ändras för att reflektera att den ursprungliga mätningen var i fot, inte meter.\n\nKorrigerad version:\nFRÅGA: \"Vilken exakt längd hade den ursprungliga tennisbanan 1877 i fot?\"\nSVAR: [\"78 fot\", \"78,5 fot\", \"23,77 meter\", \"23,76 meter\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 48,
+      "original": {
+        "question": "Vilken organisation introducerade det första elektroniska rankingsystemet?",
+        "answers": [
+          "ATP",
+          "WTA",
+          "ITF",
+          "Computer Tennis Ranking"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är inte korrekt. Det var ITF (International Tennis Federation) som introducerade det första elektroniska rankingsystemet.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"hard\" eftersom det kräver specifik kunskap om tennisens historia.\nFÖRSLAG: \n\nFRÅGA: \"Vilken organisation introducerade det första elektroniska rankingsystemet?\"\nSVAR: [\"ATP\", \"WTA\", \"ITF\", \"Computer Tennis Ranking\"]\nRÄTT: 2 (för alternativ 3, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "hard",
+      "index": 49,
+      "original": {
+        "question": "Vem var den första kvinnliga spelaren att tjäna över 10 miljoner dollar?",
+        "answers": [
+          "Steffi Graf",
+          "Martina Navratilova",
+          "Chris Evert",
+          "Monica Seles"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Den första kvinnliga spelaren att tjäna över 10 miljoner dollar var Steffi Graf.\nSVÅRIGHETSGRAD: Passar för nivån \"hard\".\nFÖRSLAG: \n\nFRÅGA: \"Vem var den första kvinnliga spelaren att tjäna över 10 miljoner dollar?\"\nSVAR: [\"Steffi Graf\", \"Martina Navratilova\", \"Chris Evert\", \"Monica Seles\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 1,
+      "original": {
+        "question": "Vilken exakt datum spelades den första Wimbledon-finalen?",
+        "answers": [
+          "19 juli 1877",
+          "21 juli 1877",
+          "18 juli 1877",
+          "20 juli 1877"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är korrekt formulerad på svenska.\nFAKTA: Det markerade svaret är felaktigt. Den första Wimbledon-finalen spelades den 19 juli 1877.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"expert\" eftersom det krävs djup kunskap om tennisens historia för att kunna svara på den.\nFÖRSLAG: \n\nFRÅGA: \"Vilket exakt datum spelades den första Wimbledon-finalen?\"\nSVAR: [\"19 juli 1877\", \"21 juli 1877\", \"18 juli 1877\", \"20 juli 1877\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 5,
+      "original": {
+        "question": "Vilken exakt hastighet hade Sabine Lisickis rekordserve 2014?",
+        "answers": [
+          "210,8 km/h",
+          "211,0 km/h",
+          "210,6 km/h",
+          "210,9 km/h"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Sabine Lisickis rekordserve 2014 var 210,8 km/h.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"expert\" eftersom den kräver specifik kunskap om en specifik händelse.\nFÖRSLAG: \n\nFRÅGA: \"Vilken exakt hastighet hade Sabine Lisickis rekordserve 2014?\"\nSVAR: [\"210,8 km/h\", \"211,0 km/h\", \"210,6 km/h\", \"210,9 km/h\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 6,
+      "original": {
+        "question": "Vem designade den allra första tennis-strängningsmasinen 1922?",
+        "answers": [
+          "Pierre Babolat",
+          "Walter Merkel",
+          "Henri Cochet",
+          "René Lacoste"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det finns ingen information tillgänglig som bekräftar att Walter Merkel designade den första tennis-strängningsmaskinen 1922. \nSVÅRIGHETSGRAD: Frågan kan vara för svår eftersom den innehåller felaktig information.\nSVARSALTERNATIV: Alla alternativ är trovärdiga distraktorer, men det korrekta svaret saknas.\n\nFÖRSLAG: \nFRÅGA: \"Vem grundade företaget som tillverkade den första tennis-strängningsmaskinen?\"\nSVAR: [\"Pierre Babolat\", \"Walter Merkel\", \"Henri Cochet\", \"René Lacoste\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 7,
+      "original": {
+        "question": "Vilken organisation etablerade det första World Computer Rankings 1973?",
+        "answers": [
+          "Commercial Union Assurance",
+          "Pepsi-Cola",
+          "Marlboro",
+          "Volvo"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är inte korrekt. Det var ATP (Association of Tennis Professionals) som etablerade det första World Computer Rankings 1973.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"expert\" eftersom det kräver specifik kunskap om tennisens historia.\nFÖRSLAG: \n\nFRÅGA: \"Vilken organisation etablerade det första World Computer Rankings 1973?\"\nSVAR: [\"ATP\", \"Commercial Union Assurance\", \"Pepsi-Cola\", \"Marlboro\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 8,
+      "original": {
+        "question": "Vem var den första spelaren att använda 'spaghetti strings' i professionell tennis?",
+        "answers": [
+          "Mike Fishbach",
+          "Georges Goven",
+          "Ilie Năstase",
+          "Werner Fischer"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Det var Werner Fischer som först använde 'spaghetti strings' i professionell tennis.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"expert\" eftersom det är en detaljerad och specifik fråga om tennisens historia.\nFÖRSLAG: \n\nFRÅGA: \"Vem var den första spelaren att använda 'spaghetti strings' i professionell tennis?\"\nSVAR: [\"Mike Fishbach\", \"Georges Goven\", \"Ilie Năstase\", \"Werner Fischer\"]\nRÄTT: 3 (för alternativ 4, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 9,
+      "original": {
+        "question": "Vilken exakt vikt hade Rod Lavers racket under hans Grand Slam-år 1969?",
+        "answers": [
+          "395 gram",
+          "390 gram",
+          "385 gram",
+          "400 gram"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det finns ingen tillgänglig information om den exakta vikten på Rod Lavers racket under hans Grand Slam-år 1969. \nSVÅRIGHETSGRAD: Frågan är för svår även för en expertnivå eftersom den efterfrågar en mycket specifik och obskyr detalj.\nFÖRSLAG: Ändra frågan till något mer allmänt och mindre obskyrt.\n\nKorrigerad version:\nFRÅGA: \"Vilket år vann Rod Laver sin andra Grand Slam?\"\nSVAR: [\"1962\", \"1965\", \"1969\", \"1971\"]\nRÄTT: 2 (för alternativ 3, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 10,
+      "original": {
+        "question": "Vem var den första kvinnliga spelaren att använda metal racket i Wimbledon-final?",
+        "answers": [
+          "Billie Jean King",
+          "Chris Evert",
+          "Virginia Wade",
+          "Evonne Goolagong"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är grammatiskt korrekt men kan formuleras bättre för att vara mer tydlig.\nFAKTA: Det markerade svaret är felaktigt. Det var faktiskt Jimmy Connors som var den första att använda en metallracket i en Grand Slam-final, men han är inte en kvinnlig spelare. Det finns ingen allmänt tillgänglig information om vilken kvinnlig spelare som först använde en metallracket i en Wimbledon-final.\nSVÅRIGHETSGRAD: Frågan är svår men eftersom det rätta svaret inte är känt, är det inte en rättvis fråga.\nFÖRSLAG: Frågan bör ändras till en annan, där svaret är känt och verifierbart.\n\nKorrigerad version:\nFRÅGA: \"Vem var den första kvinnliga spelaren att vinna en Grand Slam-titel med en grafitskräddarsydd racket?\"\nSVAR: [\"Martina Navratilova\", \"Chris Evert\", \"Billie Jean King\", \"Virginia Wade\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 12,
+      "original": {
+        "question": "Vem var den första spelaren att tjäna över 1 miljon dollar på WCT-touren?",
+        "answers": [
+          "John McEnroe",
+          "Jimmy Connors",
+          "Björn Borg",
+          "Ivan Lendl"
+        ],
+        "correct": 2
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Den första spelaren att tjäna över 1 miljon dollar på WCT-touren var faktiskt Jimmy Connors.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"expert\" eftersom den kräver specifik kunskap om tennisens historia.\nFÖRSLAG: \n\nFRÅGA: \"Vem var den första spelaren att tjäna över 1 miljon dollar på WCT-touren?\"\nSVAR: [\"John McEnroe\", \"Jimmy Connors\", \"Björn Borg\", \"Ivan Lendl\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 13,
+      "original": {
+        "question": "Vilken exakt tid tog den kortaste Grand Slam-finalen i öppna eran?",
+        "answers": [
+          "47 minuter",
+          "49 minuter",
+          "51 minuter",
+          "53 minuter"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan och svaren är korrekt svenska.\nFAKTA: Det markerade svaret är inte korrekt. Den kortaste Grand Slam-finalen i öppna eran varade i 32 minuter.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"expert\" eftersom det krävs djupgående kunskap om tennis för att kunna svara på den.\nFÖRSLAG: \n\nFRÅGA: \"Vilken exakt tid tog den kortaste Grand Slam-finalen i öppna eran?\"\nSVAR: [\"30 minuter\", \"32 minuter\", \"34 minuter\", \"36 minuter\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 14,
+      "original": {
+        "question": "Vem var the första spelaren att vinna huvudtävlingen efter att ha gått igenom kvalificering på alla fyra Grand Slams?",
+        "answers": [
+          "Vladimir Voltchkov",
+          "Nicolas Escudé",
+          "Nicolas Lapentti",
+          "Alex Radulescu"
+        ],
+        "correct": 3
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan innehåller en grammatisk fel. \"The\" bör inte vara med i frågan.\nFAKTA: Det markerade svaret är felaktigt. Det är faktiskt Nicolas Escudé som var den första spelaren att vinna huvudtävlingen efter att ha gått igenom kvalificering på alla fyra Grand Slams.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"expert\" eftersom det kräver djup kunskap om tennis och dess historia.\nFÖRSLAG: \n\nFRÅGA: \"Vem var den första spelaren att vinna huvudtävlingen efter att ha gått igenom kvalificering på alla fyra Grand Slams?\"\nSVAR: [\"Vladimir Voltchkov\", \"Nicolas Escudé\", \"Nicolas Lapentti\", \"Alex Radulescu\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 16,
+      "original": {
+        "question": "Vem var den första spelaren att använda Prince Graphite racketet 1980?",
+        "answers": [
+          "Pam Shriver",
+          "Gene Mayer",
+          "Jose Luis Clerc",
+          "Vitas Gerulaitis"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Det var Vitas Gerulaitis som var den första spelaren att använda Prince Graphite racketet 1980.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"expert\" eftersom det krävs djupgående kunskap om tennis och dess historia för att kunna svara på den.\nFÖRSLAG: \n\nFRÅGA: \"Vem var den första spelaren att använda Prince Graphite racketet 1980?\"\nSVAR: [\"Pam Shriver\", \"Gene Mayer\", \"Jose Luis Clerc\", \"Vitas Gerulaitis\"]\nRÄTT: 3 (för alternativ 4, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 19,
+      "original": {
+        "question": "Vilken organisation skapade det första live-TV-sändningsmöjligheter för tennis 1979?",
+        "answers": [
+          "CBS Sports",
+          "NBC Sports",
+          "ABC Sports",
+          "ESPN"
+        ],
+        "correct": 3
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är inte korrekt formulerad på svenska. \nFAKTA: Faktainformationen är korrekt. ESPN började sända tennis live 1979.\nSVÅRIGHETSGRAD: Frågan kan anses vara på expertnivå eftersom den kräver specifik kunskap om tennisens historia.\nFÖRSLAG: \n\nFRÅGA: \"Vilken organisation började med live-TV-sändningar av tennis 1979?\"\nSVAR: [\"CBS Sports\", \"NBC Sports\", \"ABC Sports\", \"ESPN\"]\nRÄTT: 3 (för alternativ 4, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 21,
+      "original": {
+        "question": "Vilken exakt yta täcker en tennisbana inklusive körzoner?",
+        "answers": [
+          "648 m²",
+          "668 m²",
+          "688 m²",
+          "708 m²"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan och svaren är korrekt svenska, men termen \"körzoner\" är inte korrekt i detta sammanhang. Det korrekta uttrycket är \"utrymmet runt banan\" eller \"säkerhetszoner\".\nFAKTA: Det markerade svaret är inte korrekt. En standard tennisbana mäter 23,77 m x 8,23 m vilket ger en yta på 195,5 m². Om man inkluderar säkerhetszonerna (6,4 m på varje ände och 3,7 m på varje sida) blir totala ytan 648 m².\nSVÅRIGHETSGRAD: Frågan passar för nivån \"expert\" eftersom den kräver specifik kunskap om tennisbanans dimensioner.\nFÖRSLAG: \n\nFRÅGA: \"Vilken exakt yta täcker en tennisbana inklusive säkerhetszoner?\"\nSVAR: [\"648 m²\", \"668 m²\", \"688 m²\", \"708 m²\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 22,
+      "original": {
+        "question": "Vem grundade den första Independent Players Association 1972?",
+        "answers": [
+          "Arthur Ashe",
+          "Charlie Pasarell",
+          "Donald Dell",
+          "Jack Kramer"
+        ],
+        "correct": 2
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Det var Jack Kramer som grundade Association of Tennis Professionals (ATP) 1972, inte Donald Dell.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"expert\" eftersom den kräver djup kunskap om tennisens historia.\nFÖRSLAG: \n\nFRÅGA: \"Vem grundade den första Independent Players Association 1972?\"\nSVAR: [\"Arthur Ashe\", \"Charlie Pasarell\", \"Donald Dell\", \"Jack Kramer\"]\nRÄTT: 3 (för alternativ 4, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 23,
+      "original": {
+        "question": "Vilken organisation introducerade det första Challenger-systemet 1978?",
+        "answers": [
+          "Men's International Professional Tennis Council",
+          "ATP",
+          "ITF",
+          "Grand Prix"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är inte korrekt. Det var ATP (Association of Tennis Professionals) som introducerade Challenger-systemet 1978.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"expert\" eftersom det kräver djup kunskap om tennisens historia.\nFÖRSLAG: \n\nFRÅGA: \"Vilken organisation introducerade det första Challenger-systemet 1978?\"\nSVAR: [\"Men's International Professional Tennis Council\", \"ATP\", \"ITF\", \"Grand Prix\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 25,
+      "original": {
+        "question": "Vilken exakt hastighet hade den snabbaste kvinnliga servicen före Lisicki?",
+        "answers": [
+          "209 km/h",
+          "208 km/h",
+          "207 km/h",
+          "206 km/h"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är inte korrekt. Den snabbaste serven före Sabine Lisicki var Brenda Schultz-McCarthy's serve på 209 km/h.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"expert\" eftersom det kräver specifik kunskap om tennisrekord.\nFÖRSLAG: \n\nFRÅGA: \"Vilken exakt hastighet hade den snabbaste kvinnliga servicen före Lisicki?\"\nSVAR: [\"209 km/h\", \"208 km/h\", \"207 km/h\", \"206 km/h\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 26,
+      "original": {
+        "question": "Vem var den första spelaren att vinna over 50 Challenger-titlar?",
+        "answers": [
+          "Guillermo Cañas",
+          "Tommy Robredo",
+          "Nicolas Mahut",
+          "Ivo Karlovic"
+        ],
+        "correct": 2
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan och svaren är korrekt svenska, men det finns ett stavfel i ordet \"över\".\nFAKTA: Det markerade svaret är inte korrekt. Den första spelaren att vinna över 50 Challenger-titlar var faktiskt Luigi Borfiga.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"expert\" eftersom det krävs djup kunskap om tennis för att kunna svara på den.\nFÖRSLAG: \n\nFRÅGA: \"Vem var den första spelaren att vinna över 50 Challenger-titlar?\"\nSVAR: [\"Guillermo Cañas\", \"Tommy Robredo\", \"Nicolas Mahut\", \"Luigi Borfiga\"]\nRÄTT: 3 (för alternativ 4, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 28,
+      "original": {
+        "question": "Vem var den första spelaren att vinna över 1000 ATP-poäng i en enda turnering?",
+        "answers": [
+          "Ilie Năstase",
+          "Jimmy Connors",
+          "Björn Borg",
+          "John McEnroe"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Frågan är faktamässigt felaktig. ATP-poängsystemet tillåter inte en spelare att tjäna över 1000 poäng i en enda turnering. \nSVÅRIGHETSGRAD: Frågan är inte relevant eftersom den är baserad på felaktig information.\nFÖRSLAG: Frågan bör ändras till en korrekt och relevant fråga om tennis.\n\nKorrigerad version:\nFRÅGA: \"Vem var den första spelaren att vinna över 100 ATP-titlar?\"\nSVAR: [\"Ilie Năstase\", \"Jimmy Connors\", \"Björn Borg\", \"John McEnroe\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 29,
+      "original": {
+        "question": "Vilken exakt höjd hade det första tennis-nätet 1870 vid posterna?",
+        "answers": [
+          "1,37 meter",
+          "1,52 meter",
+          "1,67 meter",
+          "1,83 meter"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Det första tennisnätet 1870 var 1,27 meter högt vid posterna och 0,914 meter i mitten.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"expert\" eftersom det kräver specifik kunskap om tennisens historia.\nFÖRSLAG: \n\nFRÅGA: \"Vilken exakt höjd hade det första tennis-nätet 1870 vid posterna?\"\nSVAR: [\"1,27 meter\", \"1,52 meter\", \"1,67 meter\", \"1,83 meter\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 30,
+      "original": {
+        "question": "Vem var den första spelaren att använda natural gut strings med polyester hybrid?",
+        "answers": [
+          "Carlos Moyá",
+          "Gustavo Kuerten",
+          "Patrick Rafter",
+          "Lleyton Hewitt"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är grammatiskt korrekt men kan formuleras bättre för att vara mer tydlig.\nFAKTA: Det markerade svaret är felaktigt. Det var Gustavo Kuerten som var den första spelaren att använda natural gut strings med polyester hybrid.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"expert\" eftersom det kräver specifik kunskap om tennisutrustning och dess historia.\nFÖRSLAG: \n\nFRÅGA: \"Vilken spelare var den första att använda en kombination av natural gut strings och polyester i sin racket?\"\nSVAR: [\"Carlos Moyá\", \"Gustavo Kuerten\", \"Patrick Rafter\", \"Lleyton Hewitt\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 31,
+      "original": {
+        "question": "Vilken organisation finansierade det första Grand Prix-systemet 1970?",
+        "answers": [
+          "Pepsi-Cola",
+          "Commercial Union Assurance",
+          "Marlboro",
+          "Grand Prix Motors"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Det var inte Commercial Union Assurance som finansierade det första Grand Prix-systemet 1970, det var Marlboro.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"expert\" eftersom det krävs djup kunskap om tennisens historia för att kunna svara på den.\nFÖRSLAG: \n\nFRÅGA: \"Vilken organisation finansierade det första Grand Prix-systemet 1970?\"\nSVAR: [\"Pepsi-Cola\", \"Commercial Union Assurance\", \"Marlboro\", \"Grand Prix Motors\"]\nRÄTT: 2 (för alternativ 3, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 32,
+      "original": {
+        "question": "Vem var den första spelaren att vinna Davis Cup för fem olika länder som kapten?",
+        "answers": [
+          "Neale Fraser",
+          "Harry Hopman",
+          "Niki Pilić",
+          "Ilie Năstase"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Det är Niki Pilić som var den första spelaren att vinna Davis Cup för fem olika länder som kapten.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"expert\" eftersom det krävs djup kunskap om tennis för att kunna svara på den.\nFÖRSLAG: \n\nFRÅGA: \"Vem var den första spelaren att vinna Davis Cup för fem olika länder som kapten?\"\nSVAR: [\"Neale Fraser\", \"Harry Hopman\", \"Niki Pilić\", \"Ilie Năstase\"]\nRÄTT: 2 (för alternativ 3, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 33,
+      "original": {
+        "question": "Vilken exakt längd har en tennis racket grip enligt ITF maximumregler?",
+        "answers": [
+          "32 cm",
+          "35 cm",
+          "37 cm",
+          "40 cm"
+        ],
+        "correct": 2
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är grammatiskt korrekt men kan formuleras bättre för att vara tydligare.\nFAKTA: ITF:s regler specificerar inte en maximal längd på racketens grepp. Därför är frågan missvisande.\nSVÅRIGHETSGRAD: Frågan är inte lämplig för nivån \"expert\" eftersom den baseras på felaktig information.\nFÖRSLAG: Frågan bör omformuleras för att reflektera korrekta fakta. \n\nKorrigerad version:\nFRÅGA: \"Vilken är den maximala längden på en tennisracket enligt ITF:s regler?\"\nSVAR: [\"68.5 cm\", \"70 cm\", \"72.5 cm\", \"75 cm\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 34,
+      "original": {
+        "question": "Vem var den första spelaren att använda pre-stretching på natural gut strings?",
+        "answers": [
+          "René Lacoste",
+          "Henri Cochet",
+          "Jean Borotra",
+          "Jacques Brugnon"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är korrekt formulerad på svenska, men svaret bör vara mer specifikt.\nFAKTA: Det finns ingen tillgänglig information som bekräftar att René Lacoste var den första spelaren att använda pre-stretching på natural gut strings. \nSVÅRIGHETSGRAD: Frågan passar för nivån \"expert\" eftersom den kräver djup kunskap om tennisens historia och tekniska aspekter.\nFÖRSLAG: Eftersom det inte finns någon tillgänglig information om vem som var den första att använda denna teknik, föreslår jag att frågan ändras till något mer verifierbart.\n\nKORRIGERAD FRÅGA: \"Vilken av följande spelare var känd för att använda natural gut strings i sina racketar?\"\nSVAR: [\"René Lacoste\", \"Henri Cochet\", \"Jean Borotra\", \"Jacques Brugnon\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 37,
+      "original": {
+        "question": "Vilken exakt spänning hade standard gut strings på 1920-talet?",
+        "answers": [
+          "45-50 pounds",
+          "50-55 pounds",
+          "55-60 pounds",
+          "60-65 pounds"
+        ],
+        "correct": 2
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan och svaren är inte korrekt svenska. \"Standard gut strings\" bör översättas till svenska. \nFAKTA: Det är svårt att verifiera det exakta svaret eftersom spänningen i tennisracketar kan variera mycket och det finns ingen standardiserad spänning, särskilt inte på 1920-talet.\nSVÅRIGHETSGRAD: Frågan kan anses vara på expertnivå, eftersom den kräver mycket specifik kunskap om tennisutrustningens historia.\nFÖRSLAG: \n\nFRÅGA: \"Vilken var den ungefärliga spänningen i standard tarmsträngar för tennisracketar på 1920-talet?\"\nSVAR: [\"45-50 pund\", \"50-55 pund\", \"55-60 pund\", \"60-65 pund\"]\nRÄTT: 2 (för alternativ 3, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 38,
+      "original": {
+        "question": "Vem var den första spelaren att använda damping system på racket strings?",
+        "answers": [
+          "René Lacoste",
+          "Gottfried von Cramm",
+          "Fred Perry",
+          "Don Budge"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är grammatiskt korrekt men kan förtydligas.\nFAKTA: Det finns ingen tillgänglig information som bekräftar att René Lacoste var den första att använda ett dämpningssystem på racketsträngar. \nSVÅRIGHETSGRAD: Frågan kan vara för svår eftersom det inte finns tillräckligt med information tillgänglig för att bekräfta svaret.\nFÖRSLAG: Frågan bör ändras till en mer verifierbar fråga.\n\nKorrigerad version:\nFRÅGA: \"Vem var känd för att ha introducerat metallracket i tennis?\"\nSVAR: [\"René Lacoste\", \"Gottfried von Cramm\", \"Fred Perry\", \"Don Budge\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 39,
+      "original": {
+        "question": "Vilken organisation skapade det första officiella ranking-systemet för juniorer 1977?",
+        "answers": [
+          "ITF Junior Circuit",
+          "Junior Tennis Foundation",
+          "World Junior Tennis",
+          "International Junior Rankings"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är inte korrekt. ITF (International Tennis Federation) skapade det första officiella ranking-systemet för juniorer 1977, inte ITF Junior Circuit.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"expert\" eftersom det kräver specifik kunskap om tennisens historia.\nFÖRSLAG: \n\nFRÅGA: \"Vilken organisation skapade det första officiella ranking-systemet för juniorer 1977?\"\nSVAR: [\"International Tennis Federation\", \"Junior Tennis Foundation\", \"World Junior Tennis\", \"International Junior Rankings\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 41,
+      "original": {
+        "question": "Vilken exakt yta täcker servicerutorna på en tennisbana tillsammans?",
+        "answers": [
+          "195,04 m²",
+          "185,04 m²",
+          "175,04 m²",
+          "165,04 m²"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. En serviceruta på en tennisbana är 6,4 m lång och 4,115 m bred, vilket ger en yta på 26,336 m². Eftersom det finns fyra servicerutor på en tennisbana, blir den totala ytan 105,344 m².\nSVÅRIGHETSGRAD: Frågan passar för nivån \"expert\" eftersom den kräver specifik kunskap om tennisbanans dimensioner.\nFÖRSLAG: \n\nFRÅGA: \"Vilken exakt yta täcker servicerutorna på en tennisbana tillsammans?\"\nSVAR: [\"105,344 m²\", \"115,344 m²\", \"125,344 m²\", \"135,344 m²\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 42,
+      "original": {
+        "question": "Vem var den första spelaren att använda lead tape för racket-anpassning?",
+        "answers": [
+          "Pancho Gonzales",
+          "Ken Rosewall",
+          "Lew Hoad",
+          "Tony Trabert"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan och svaren är korrekt svenska, men det finns ett litet fel i frågan. Det bör vara \"racketanpassning\" istället för \"racket-anpassning\".\nFAKTA: Det finns ingen tillgänglig information som bekräftar att Pancho Gonzales var den första spelaren att använda lead tape för racketanpassning. Detta är en mycket specifik detalj som kan vara svår att verifiera.\nSVÅRIGHETSGRAD: Om informationen var korrekt, skulle frågan passa för nivån \"expert\" eftersom det är en mycket specifik och detaljerad fråga.\nFÖRSLAG: Eftersom det inte finns någon tillgänglig information om vem som var den första att använda lead tape för racketanpassning, föreslår jag att frågan ändras till något mer verifierbart.\n\nKorrigerad version:\nFRÅGA: \"Vem var den första spelaren att vinna Grand Slam i öppen era?\"\nSVAR: [\"Rod Laver\", \"Ken Rosewall\", \"Lew Hoad\", \"Tony Trabert\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 43,
+      "original": {
+        "question": "Vilken organisation introducerade det första Live Electronic Line Calling 2003?",
+        "answers": [
+          "US Open",
+          "Hawk-Eye Innovations",
+          "USTA",
+          "IBM"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Faktan är inte korrekt. Hawk-Eye Innovations utvecklade tekniken, men det var US Open som först introducerade den 2004, inte 2003.\nSVÅRIGHETSGRAD: Passar för nivån \"expert\".\nFÖRSLAG: \n\nFRÅGA: \"Vilken organisation introducerade först Live Electronic Line Calling 2004?\"\nSVAR: [\"US Open\", \"Hawk-Eye Innovations\", \"USTA\", \"IBM\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 44,
+      "original": {
+        "question": "Vem var den första spelaren att vinna över 300 weeks som världsetta i två olika epoker?",
+        "answers": [
+          "Jimmy Connors",
+          "Ivan Lendl",
+          "Pete Sampras",
+          "Roger Federer"
+        ],
+        "correct": 3
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är inte helt korrekt formulerad. \"Weeks\" bör översättas till \"veckor\" och \"epoker\" är inte det mest lämpliga ordet i detta sammanhang.\nFAKTA: Det markerade svaret är korrekt. Roger Federer var den första spelaren att vara världsetta i över 300 veckor totalt, men det var inte i två olika \"epoker\". \nSVÅRIGHETSGRAD: Frågan passar för nivån \"expert\" eftersom den kräver djup kunskap om tennis.\nFÖRSLAG: \n\nFRÅGA: \"Vem var den första spelaren att vara världsetta i över 300 veckor totalt?\"\nSVAR: [\"Jimmy Connors\", \"Ivan Lendl\", \"Pete Sampras\", \"Roger Federer\"]\nRÄTT: 3 (för alternativ 4, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 45,
+      "original": {
+        "question": "Vilken exakt tryckhöjd testas tennisbollar på enligt ITF-standard?",
+        "answers": [
+          "1,219 meter",
+          "1,524 meter",
+          "1,829 meter",
+          "2,134 meter"
+        ],
+        "correct": 1
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är felaktigt. Tennisbollar testas inte för tryckhöjd enligt ITF-standard.\nSVÅRIGHETSGRAD: Frågan är inte relevant för tennis, så svårighetsgraden kan inte bedömas.\nFÖRSLAG: Frågan bör ändras till en mer relevant tennisfråga.\n\nExempel på korrigering:\nFRÅGA: \"Vilken är den minsta tillåtna diametern på en tennisboll enligt ITF-standard?\"\nSVAR: [\"6,35 cm\", \"6,54 cm\", \"6,86 cm\", \"7,00 cm\"]\nRÄTT: 1 (för alternativ 2, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 46,
+      "original": {
+        "question": "Vem var den första spelaren att använda cross-court serve strategy systematiskt?",
+        "answers": [
+          "Bill Tilden",
+          "René Lacoste",
+          "Henri Cochet",
+          "Jean Borotra"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är grammatiskt korrekt men terminologin är inte helt korrekt. \"Cross-court serve strategy\" är inte en vedertagen term inom tennis. \nFAKTA: Det är svårt att verifiera om Bill Tilden var den första att systematiskt använda en specifik serve-strategi, eftersom det inte finns tillräckligt med dokumentation om detta. \nSVÅRIGHETSGRAD: Frågan är svår men på grund av oklarhet i terminologi och fakta, kan det vara förvirrande snarare än utmanande.\nFÖRSLAG: \n\nFRÅGA: \"Vem var den första spelaren att systematiskt använda en serve-and-volley-strategi?\"\nSVAR: [\"Bill Tilden\", \"René Lacoste\", \"Henri Cochet\", \"Jean Borotra\"]\nRÄTT: 0 (för alternativ 1, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 47,
+      "original": {
+        "question": "Vilken organisation skapade det första miljardollar-TV-kontraktet för tennis?",
+        "answers": [
+          "ESPN",
+          "NBC Sports",
+          "CBS Sports",
+          "ATP Media"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är inte korrekt. Det var ATP Media som skapade det första miljarddollar-TV-kontraktet för tennis.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"expert\" eftersom det kräver specifik kunskap om tennisindustrins historia.\nFÖRSLAG: \n\nFRÅGA: \"Vilken organisation skapade det första miljarddollar-TV-kontraktet för tennis?\"\nSVAR: [\"ESPN\", \"NBC Sports\", \"CBS Sports\", \"ATP Media\"]\nRÄTT: 3 (för alternativ 4, 0-indexerat)"
+    },
+    {
+      "type": "regular",
+      "difficulty": "expert",
+      "index": 49,
+      "original": {
+        "question": "Vilken exakt densitet har en modern tennisboll enligt ITF-specifikationer?",
+        "answers": [
+          "0,365-0,400 g/cm³",
+          "0,355-0,390 g/cm³",
+          "0,375-0,410 g/cm³",
+          "0,385-0,420 g/cm³"
+        ],
+        "correct": 0
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Språket är korrekt.\nFAKTA: Det markerade svaret är inte korrekt. Enligt ITF:s specifikationer ska en tennisboll ha en massa på 56,0-59,4 gram, men det finns ingen specifik densitet angiven. Densiteten skulle variera beroende på bollens exakta storlek, vilket också kan variera inom vissa gränser enligt ITF:s regler.\nSVÅRIGHETSGRAD: Frågan är för svår, eftersom den begär en exakt densitet som inte specificeras av ITF.\nSVARSALTERNATIV: Alla alternativ är trovärdiga distraktorer, men de är inte korrekta eftersom ITF inte specificerar en exakt densitet.\n\nFÖRSLAG:\nFRÅGA: \"Vilken är den exakta massan för en modern tennisboll enligt ITF-specifikationer?\"\nSVAR: [\"50,0-53,4 gram\", \"54,0-57,4 gram\", \"56,0-59,4 gram\", \"58,0-61,4 gram\"]\nRÄTT: 2 (för alternativ 3, 0-indexerat)"
+    },
+    {
+      "type": "tiebreaker",
+      "difficulty": "easy",
+      "index": 2,
+      "original": {
+        "question": "Vilket år vann Stefan Edberg sin första Wimbledon-titel?",
+        "answer": 1988,
+        "tolerance": 2,
+        "hint": "Sent 80-tal"
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är korrekt formulerad på svenska.\nFAKTA: Svaret är korrekt, Stefan Edberg vann sin första Wimbledon-titel 1988.\nTOLERANS: Toleransen är inte rimlig. Detta är en faktuell fråga med ett specifikt år som svar, det finns ingen plats för tolerans.\nSVÅRIGHETSGRAD: Frågan kan anses vara lätt för en person med grundläggande kunskap om tennis, men kan vara svår för någon utan denna kunskap. Detta är subjektivt.\nFÖRSLAG: Ta bort toleransen. Korrigerad version:\n\nFRÅGA: \"Vilket år vann Stefan Edberg sin första Wimbledon-titel?\"\nRÄTT SVAR: 1988\nSVÅRIGHETSGRAD: easy"
+    },
+    {
+      "type": "tiebreaker",
+      "difficulty": "easy",
+      "index": 3,
+      "original": {
+        "question": "Hur många veckor var Pete Sampras nummer 1 i världen totalt?",
+        "answer": 286,
+        "tolerance": 10,
+        "hint": "Mellan 270-300"
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är korrekt formulerad på svenska.\nFAKTA: Svaret är korrekt. Pete Sampras var nummer 1 i världen totalt 286 veckor.\nTOLERANS: Toleransen är inte rimlig. Det är en specifik statistik och det bör inte finnas någon tolerans.\nSVÅRIGHETSGRAD: Frågan är inte lätt. Det är en specifik och detaljerad statistik som inte alla tennisfans kan veta.\nFÖRSLAG: \n\nFRÅGA: \"Hur många veckor var Pete Sampras nummer 1 i världen totalt?\"\nRÄTT SVAR: 286\nTOLERANS: ±0\nSVÅRIGHETSGRAD: medium"
+    },
+    {
+      "type": "tiebreaker",
+      "difficulty": "easy",
+      "index": 5,
+      "original": {
+        "question": "Hur många gånger har Sverige vunnit Davis Cup?",
+        "answer": 7,
+        "tolerance": 1,
+        "hint": "Mellan 5-8"
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är korrekt formulerad på svenska.\nFAKTA: Svaret är inte korrekt. Sverige har vunnit Davis Cup 7 gånger.\nTOLERANS: Toleransen är inte rimlig eftersom antalet vinster är exakt och inte kan variera.\nSVÅRIGHETSGRAD: Frågan kan anses vara lätt för en person med grundläggande kunskap om tennis, men kan vara svår för en person utan denna kunskap.\nFÖRSLAG: \n\nFRÅGA: \"Hur många gånger har Sverige vunnit Davis Cup?\"\nRÄTT SVAR: 7\nTOLERANS: ±0\nSVÅRIGHETSGRAD: medium"
+    },
+    {
+      "type": "tiebreaker",
+      "difficulty": "easy",
+      "index": 7,
+      "original": {
+        "question": "Hur många matcher i rad vann Novak Djokovic 2011?",
+        "answer": 43,
+        "tolerance": 3,
+        "hint": "Mellan 40-45"
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är korrekt formulerad på svenska.\nFAKTA: Svaret är korrekt. Novak Djokovic vann 43 matcher i rad under 2011.\nTOLERANS: Toleransen är inte rimlig. I sportrelaterade frågor, särskilt de som rör rekord, bör det inte finnas någon tolerans eftersom siffrorna är exakta.\nSVÅRIGHETSGRAD: Frågan är inte lätt. Det är en specifik fråga som kräver detaljerad kunskap om tennis och Novak Djokovic's karriär.\nFÖRSLAG: \n\nFRÅGA: \"Hur många matcher i rad vann Novak Djokovic 2011?\"\nRÄTT SVAR: 43\nTOLERANS: ±0\nSVÅRIGHETSGRAD: medium"
+    },
+    {
+      "type": "tiebreaker",
+      "difficulty": "easy",
+      "index": 9,
+      "original": {
+        "question": "Hur många ace slog John Isner i den längsta tennismatchen någonsin?",
+        "answer": 113,
+        "tolerance": 10,
+        "hint": "Mellan 100-125"
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är korrekt på svenska.\nFAKTA: Svaret är inte korrekt. John Isner slog 113 aces i en match, men i den längsta tennismatchen någonsin slog han 112 aces.\nTOLERANS: Toleransen är rimlig, men bör justeras för att matcha det korrekta svaret.\nSVÅRIGHETSGRAD: Frågan är inte lätt. Det är en mycket specifik fråga som kräver detaljerad kunskap om en specifik händelse i tennisens historia. Den bör klassificeras som \"svår\".\n\nFÖRSLAG: \nFRÅGA: \"Hur många ace slog John Isner i den längsta tennismatchen någonsin?\"\nRÄTT SVAR: 112\nTOLERANS: ±10\nSVÅRIGHETSGRAD: hard"
+    },
+    {
+      "type": "tiebreaker",
+      "difficulty": "medium",
+      "index": 0,
+      "original": {
+        "question": "Vilket år vann Mats Wilander sitt första French Open?",
+        "answer": 1982,
+        "tolerance": 2,
+        "hint": "Tidigt 80-tal"
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är korrekt formulerad på svenska.\nFAKTA: Svaret är korrekt, Mats Wilander vann sitt första French Open 1982.\nTOLERANS: Toleransen är inte rimlig eftersom det exakta året är en faktisk händelse och kan inte variera.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"medium\" eftersom det kräver viss kunskap om tennis och dess historia.\nFÖRSLAG: \n\nFRÅGA: \"Vilket år vann Mats Wilander sitt första French Open?\"\nRÄTT SVAR: 1982\nTOLERANS: ±0\nSVÅRIGHETSGRAD: medium"
+    },
+    {
+      "type": "tiebreaker",
+      "difficulty": "medium",
+      "index": 1,
+      "original": {
+        "question": "Hur många poäng får man för att vinna en Challenger-turnering?",
+        "answer": 125,
+        "tolerance": 10,
+        "hint": "Mellan 100-150"
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är korrekt formulerad på svenska.\nFAKTA: Svaret är inte korrekt. Antalet poäng man får för att vinna en Challenger-turnering kan variera beroende på turneringens kategori. Det kan vara 80, 90, 100, 110 eller 125.\nTOLERANS: Toleransen är inte rimlig eftersom det korrekta svaret kan variera.\nSVÅRIGHETSGRAD: Frågan kan anses vara av medium svårighetsgrad för en tennisentusiast.\nFÖRSLAG: \n\nFRÅGA: \"Hur många poäng kan man maximalt få för att vinna en Challenger-turnering?\"\nRÄTT SVAR: 125\nTOLERANS: ±0\nSVÅRIGHETSGRAD: medium"
+    },
+    {
+      "type": "tiebreaker",
+      "difficulty": "medium",
+      "index": 3,
+      "original": {
+        "question": "Hur många km/h var Andy Roddicks snabbaste serve?",
+        "answer": 249,
+        "tolerance": 5,
+        "hint": "Runt 250 km/h"
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är korrekt formulerad på svenska.\nFAKTA: Svaret är inte korrekt. Andy Roddicks snabbaste serve var 263 km/h.\nTOLERANS: Toleransen är rimlig för frågan.\nFÖRSLAG: Korrigerad version:\n\nFRÅGA: \"Hur många km/h var Andy Roddicks snabbaste serve?\"\nRÄTT SVAR: 263\nTOLERANS: ±5\nSVÅRIGHETSGRAD: medium"
+    },
+    {
+      "type": "tiebreaker",
+      "difficulty": "medium",
+      "index": 4,
+      "original": {
+        "question": "Vilket år vann Robin Söderling sin första ATP-titel?",
+        "answer": 2004,
+        "tolerance": 2,
+        "hint": "Tidigt 2000-tal"
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är korrekt formulerad på svenska.\nFAKTA: Svaret är inte korrekt. Robin Söderling vann sin första ATP-titel 2008, inte 2004.\nTOLERANS: Toleransen är inte rimlig i detta fall eftersom det är ett specifikt år som efterfrågas, inte ett intervall.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"medium\" då den kräver specifik kunskap om en spelares karriär.\nFÖRSLAG: \n\nFRÅGA: \"Vilket år vann Robin Söderling sin första ATP-titel?\"\nRÄTT SVAR: 2008\nTOLERANS: ±0\nSVÅRIGHETSGRAD: medium"
+    },
+    {
+      "type": "tiebreaker",
+      "difficulty": "medium",
+      "index": 6,
+      "original": {
+        "question": "Vilket år började Magnus Norman sin proffskarriär?",
+        "answer": 1991,
+        "tolerance": 2,
+        "hint": "Tidigt 90-tal"
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är korrekt formulerad på svenska.\nFAKTA: Svaret är inte korrekt. Magnus Norman började sin proffskarriär 1995.\nTOLERANS: Toleransen ±2 är rimlig för denna typ av fråga.\nFÖRSLAG: Korrigerad version:\n\nFRÅGA: \"Vilket år började Magnus Norman sin proffskarriär?\"\nRÄTT SVAR: 1995\nTOLERANS: ±2\nSVÅRIGHETSGRAD: medium"
+    },
+    {
+      "type": "tiebreaker",
+      "difficulty": "medium",
+      "index": 8,
+      "original": {
+        "question": "Vilket år vann Steffi Graf Golden Slam?",
+        "answer": 1988,
+        "tolerance": 1,
+        "hint": "Sent 80-tal"
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är korrekt formulerad på svenska.\nFAKTA: Svaret är korrekt. Steffi Graf vann Golden Slam 1988.\nTOLERANS: Toleransen är inte rimlig. Årtal bör vara exakta och inte ha en tolerans.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"medium\".\nFÖRSLAG: \n\nFRÅGA: \"Vilket år vann Steffi Graf Golden Slam?\"\nRÄTT SVAR: 1988\nTOLERANS: Ingen\nSVÅRIGHETSGRAD: medium"
+    },
+    {
+      "type": "tiebreaker",
+      "difficulty": "hard",
+      "index": 3,
+      "original": {
+        "question": "Hur många game vann Vicki Nelson mot Jean Hepner i deras 6 timmar långa match 1984?",
+        "answer": 643,
+        "tolerance": 20,
+        "hint": "Mellan 620-660"
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är korrekt formulerad på svenska.\nFAKTA: Svaret är inte korrekt. Vicki Nelson och Jean Hepner spelade den längsta matchen i professionell tennis i termer av tid på 1984 Virginia Slims Championships i Richmond, Virginia. Matchen varade i 6 timmar och 31 minuter, men antalet game som spelades var inte 643. Det faktiska antalet game var 29.\nTOLERANS: Med tanke på det faktiska svaret, är en tolerans på ±20 inte rimlig.\nSVÅRIGHETSGRAD: Frågan kan anses vara svår eftersom den kräver specifik kunskap om en historisk tennis händelse.\nFÖRSLAG: \n\nFRÅGA: \"Hur många game vann Vicki Nelson mot Jean Hepner i deras 6 timmar långa match 1984?\"\nRÄTT SVAR: 29\nTOLERANS: ±2\nSVÅRIGHETSGRAD: hard"
+    },
+    {
+      "type": "tiebreaker",
+      "difficulty": "hard",
+      "index": 4,
+      "original": {
+        "question": "Vilket år vann Yannick Noah French Open?",
+        "answer": 1983,
+        "tolerance": 2,
+        "hint": "Tidigt 80-tal"
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är korrekt formulerad på svenska.\nFAKTA: Svaret 1983 är korrekt. Yannick Noah vann French Open det året.\nTOLERANS: Toleransen ±2 är inte rimlig i detta sammanhang. Det är ett specifikt år som efterfrågas, så det bör inte finnas någon tolerans.\nSVÅRIGHETSGRAD: Frågan kan anses vara \"hard\" eftersom den kräver specifik kunskap om en historisk händelse inom tennis.\nFÖRSLAG: \n\nFRÅGA: \"Vilket år vann Yannick Noah French Open?\"\nRÄTT SVAR: 1983\nTOLERANS: 0\nSVÅRIGHETSGRAD: hard"
+    },
+    {
+      "type": "tiebreaker",
+      "difficulty": "hard",
+      "index": 7,
+      "original": {
+        "question": "Hur många procent av sina första serve-poäng vann Michael Chang i karriären?",
+        "answer": 75,
+        "tolerance": 3,
+        "hint": "Mellan 72-78%"
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är korrekt formulerad på svenska.\nFAKTA: Det är svårt att verifiera det exakta procentantalet av första serve-poäng som Michael Chang vann i sin karriär. Detta beror på att ATP inte tillhandahåller denna specifika statistik. \nTOLERANS: Toleransen kan vara rimlig om det korrekta svaret kan verifieras.\nFÖRSLAG: Om du vill ha en fråga om Michael Chang, föreslår jag följande: \"Vilket år vann Michael Chang sin enda Grand Slam-titel i singel?\" Rätt svar: 1989. Tolerans: 0. Svårighetsgrad: medium."
+    },
+    {
+      "type": "tiebreaker",
+      "difficulty": "hard",
+      "index": 8,
+      "original": {
+        "question": "Vilket år vann Boris Becker Wimbledon som 17-åring?",
+        "answer": 1985,
+        "tolerance": 1,
+        "hint": "Mitten av 80-talet"
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är korrekt formulerad på svenska.\nFAKTA: Svaret är korrekt, Boris Becker vann Wimbledon 1985 som 17-åring.\nTOLERANS: Toleransen ±1 är inte rimlig i detta sammanhang eftersom det är ett specifikt år som efterfrågas. Det finns inget utrymme för variation.\nSVÅRIGHETSGRAD: Frågan passar för nivån \"hard\" eftersom det kräver specifik kunskap om tennisens historia.\nFÖRSLAG: \n\nFRÅGA: \"Vilket år vann Boris Becker Wimbledon som 17-åring?\"\nRÄTT SVAR: 1985\nTOLERANS: 0\nSVÅRIGHETSGRAD: hard"
+    },
+    {
+      "type": "tiebreaker",
+      "difficulty": "hard",
+      "index": 9,
+      "original": {
+        "question": "Hur många ATP-poäng hade Marcelo Ríos när han blev nummer 1?",
+        "answer": 5785,
+        "tolerance": 100,
+        "hint": "Mellan 5600-5900"
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är korrekt formulerad på svenska.\nFAKTA: Det är svårt att verifiera det exakta antalet ATP-poäng Marcelo Ríos hade när han blev nummer 1, eftersom ATP inte offentliggör historiska rankingpoäng. \nTOLERANS: Toleransen kan vara rimlig om det korrekta svaret kan verifieras.\nFÖRSLAG: Ändra frågan till något som kan verifieras, till exempel \"Vilket år blev Marcelo Ríos rankad som nummer 1 i världen?\" med svaret \"1998\"."
+    },
+    {
+      "type": "tiebreaker",
+      "difficulty": "expert",
+      "index": 0,
+      "original": {
+        "question": "Vilket år vann René Lacoste sin första Wimbledon-titel?",
+        "answer": 1925,
+        "tolerance": 2,
+        "hint": "Mitten av 20-talet"
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är korrekt formulerad på svenska.\nFAKTA: Svaret är inte korrekt. René Lacoste vann sin första Wimbledon-titel 1928.\nTOLERANS: Toleransen ±2 är rimlig för denna typ av fråga.\nFÖRSLAG: Korrigerad version:\n\nFRÅGA: \"Vilket år vann René Lacoste sin första Wimbledon-titel?\"\nRÄTT SVAR: 1928\nTOLERANS: ±2\nSVÅRIGHETSGRAD: expert"
+    },
+    {
+      "type": "tiebreaker",
+      "difficulty": "expert",
+      "index": 1,
+      "original": {
+        "question": "Hur många game spelades i den längsta setet någonsin (Isner-Mahut)?",
+        "answer": 138,
+        "tolerance": 5,
+        "hint": "Mellan 130-145"
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är nästan korrekt, men det bör vara \"längsta setet\" istället för \"längsta setet någonsin\".\nFAKTA: Ja, svaret 138 är korrekt. Det var totalt 138 game i det femte och avgörande setet mellan John Isner och Nicolas Mahut i Wimbledon 2010.\nTOLERANS: Toleransen ±5 verkar rimlig, eftersom det är en mycket specifik och svår fråga.\nFÖRSLAG: Korrigerad version av frågan: \"Hur många game spelades i det längsta setet i en tennismatch (Isner-Mahut)?\""
+    },
+    {
+      "type": "tiebreaker",
+      "difficulty": "expert",
+      "index": 3,
+      "original": {
+        "question": "Hur många minuter varade den kortaste Grand Slam-finalen någonsin (Trabert-Rosewall)?",
+        "answer": 58,
+        "tolerance": 3,
+        "hint": "Under en timme"
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är korrekt formulerad på svenska.\nFAKTA: Det finns ingen tillgänglig information om att den kortaste Grand Slam-finalen (Trabert-Rosewall) varade i 58 minuter. Detta behöver verifieras.\nTOLERANS: Toleransen kan vara rimlig om den faktiska matchtiden varierar något i olika källor, men det beror på den korrekta matchtiden.\nFÖRSLAG: Verifiera den faktiska längden på den kortaste Grand Slam-finalen och justera frågan och svaret därefter. Om 58 minuter är korrekt, kan frågan förbli oförändrad."
+    },
+    {
+      "type": "tiebreaker",
+      "difficulty": "expert",
+      "index": 5,
+      "original": {
+        "question": "Hur många procent av alla poäng vann John McEnroe i sin karriär?",
+        "answer": 54.8,
+        "tolerance": 1,
+        "hint": "Mellan 53-56%"
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är korrekt formulerad på svenska.\nFAKTA: Det är svårt att verifiera om svaret 54.8 är korrekt eftersom det inte finns tillgänglig statistik som visar exakt hur många procent av alla poäng John McEnroe vann i sin karriär.\nTOLERANS: Toleransen ±1 verkar rimlig för denna typ av fråga.\nFÖRSLAG: Omformulera frågan till en mer verifierbar statistik. Till exempel: \"Hur många Grand Slam-titlar vann John McEnroe i sin karriär?\" Rätt svar: 7. Tolerans: ±0. Svårighetsgrad: expert."
+    },
+    {
+      "type": "tiebreaker",
+      "difficulty": "expert",
+      "index": 7,
+      "original": {
+        "question": "Hur många rankingpoäng krävdes för att vara topp-100 1990?",
+        "answer": 372,
+        "tolerance": 20,
+        "hint": "Mellan 350-400"
+      },
+      "verification": "STATUS: KORRIGERA\nSVENSKA: Frågan är korrekt formulerad på svenska.\nFAKTA: Det är svårt att verifiera svaret eftersom ATP (Association of Tennis Professionals) inte offentligt tillhandahåller historiska rankingpoäng. Dessutom varierar poängen för topp-100 spelare från år till år.\nTOLERANS: Toleransen kan vara rimlig om svaret är korrekt, men det är svårt att verifiera.\nFÖRSLAG: Ändra frågan till en mer verifierbar fråga, till exempel: \"Vilken spelare toppade ATP-rankingen vid slutet av 1990?\" (Svar: Stefan Edberg)"
+    }
+  ]
+}
