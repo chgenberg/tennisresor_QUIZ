@@ -498,10 +498,6 @@ body {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  background-color: white;
-  border-radius: 15px;
-  padding: 2rem;
-  box-shadow: var(--shadow-lg);
 }
 
 .quiz-header {
@@ -551,10 +547,10 @@ body {
 
 /* Question Container */
 .question-container {
-  background-color: var(--background-light);
+  background-color: white;
   padding: 1.5rem;
-  border-radius: 12px;
-  border: 2px solid var(--background-dark);
+  border-radius: 15px;
+  box-shadow: var(--shadow-lg);
   margin-bottom: 1.5rem;
 }
 
@@ -645,13 +641,13 @@ body {
 /* Next Button */
 #next-question {
   display: block;
-  margin: 2rem auto 0;
-  padding: 1rem 2rem;
-  background-color: var(--primary-color);
+  margin: 1.5rem auto 0;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--success-color);
   color: white;
   border: none;
-  border-radius: 50px;
-  font-size: 1rem;
+  border-radius: 25px;
+  font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
   transition: all var(--transition-normal);
@@ -659,7 +655,7 @@ body {
 }
 
 #next-question:hover {
-  background-color: var(--secondary-color);
+  background-color: #1db954;
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
