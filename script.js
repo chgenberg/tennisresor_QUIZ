@@ -14,7 +14,6 @@ class TennisQuiz {
         this.questionTimer = null;
         this.answerConfirmed = false;
         this.currentSelection = null;
-        this.selectionTimer = null;
         
         // Note: Mailchimp configuration is now handled securely on the backend
         // No API keys or sensitive data in frontend code
@@ -301,10 +300,6 @@ class TennisQuiz {
         // Reset answer state for new question
         this.answerConfirmed = false;
         this.currentSelection = null;
-        if (this.selectionTimer) {
-            clearTimeout(this.selectionTimer);
-            this.selectionTimer = null;
-        }
         
         // Hide next button
         document.getElementById('next-question').style.display = 'none';
@@ -425,25 +420,11 @@ class TennisQuiz {
             return;
         }
         
-        // Clear previous selections
-        document.querySelectorAll('.answer-option').forEach(btn => {
-            btn.classList.remove('selected');
-        });
-        
-        // Mark current selection
-        buttonElement.classList.add('selected');
-        
-        // Store current selection (not final yet)
+        // Mark this as the final selection
         this.currentSelection = selectedIndex;
         
-        // Auto-confirm after 2 seconds or wait for user to select another
-        if (this.selectionTimer) {
-            clearTimeout(this.selectionTimer);
-        }
-        
-        this.selectionTimer = setTimeout(() => {
-            this.confirmAnswer();
-        }, 2000);
+        // Confirm answer immediately
+        this.confirmAnswer();
     }
     
     confirmAnswer() {

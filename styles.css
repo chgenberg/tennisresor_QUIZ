@@ -720,14 +720,7 @@ body {
   opacity: 0.05;
 }
 
-.answer-option.selected {
-  border-color: var(--primary-color);
-  background: rgba(28, 56, 70, 0.05);
-  color: var(--primary-color);
-  font-weight: 600;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(28, 56, 70, 0.2);
-}
+
 
 .answer-option.correct {
   background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
