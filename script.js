@@ -512,7 +512,6 @@ class TennisQuiz {
 
     nextQuestion() {
         this.currentQuestionIndex++;
-        console.log(`Next question: ${this.currentQuestionIndex} of ${this.currentQuestions.length}`);
         this.loadQuestion();
     }
 
@@ -521,8 +520,8 @@ class TennisQuiz {
         
         document.getElementById('final-score').textContent = `${this.score}/${this.totalQuestions}`;
         document.getElementById('score-percentage').textContent = `${percentage}%`;
-        document.getElementById('difficulty-completed').textContent = 
-            `Svårighetsgrad: ${this.selectedDifficulty.charAt(0).toUpperCase() + this.selectedDifficulty.slice(1)}`;
+        document.getElementById('completed-difficulty').textContent = 
+            this.selectedDifficulty.charAt(0).toUpperCase() + this.selectedDifficulty.slice(1);
         
         // Show trophy animation based on score
         const trophyIcon = document.getElementById('trophy-icon');
