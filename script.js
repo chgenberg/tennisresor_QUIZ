@@ -316,7 +316,8 @@ class TennisQuiz {
                     <input type="number" id="tiebreaker-answer" class="tiebreaker-input" 
                            placeholder="Skriv ditt svar här..." 
                            autocomplete="off">
-                    <button id="submit-tiebreaker" class="submit-tiebreaker-btn">
+                    <button id="submit-tiebreaker" class="submit-tiebreaker">
+                        <i class="fas fa-check"></i>
                         Svara
                     </button>
                 </div>
@@ -511,6 +512,7 @@ class TennisQuiz {
 
     nextQuestion() {
         this.currentQuestionIndex++;
+        console.log(`Next question: ${this.currentQuestionIndex} of ${this.currentQuestions.length}`);
         this.loadQuestion();
     }
 

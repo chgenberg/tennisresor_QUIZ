@@ -795,21 +795,34 @@ body {
 }
 
 .submit-tiebreaker {
-  padding: 1rem 2rem;
-  background-color: var(--primary-color);
+  padding: 1.2rem 2.5rem;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #2a5a70 100%);
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(28, 56, 70, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.submit-tiebreaker i {
+  font-size: 1.1rem;
 }
 
 .submit-tiebreaker:hover {
-  background-color: var(--secondary-color);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(28, 56, 70, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(28, 56, 70, 0.4);
+}
+
+.submit-tiebreaker:active {
+  transform: translateY(0);
 }
 
 /* Results Screen */
@@ -1540,8 +1553,9 @@ html, body {
   }
   
   .submit-tiebreaker {
-    padding: 0.8rem 1.5rem;
+    padding: 1rem 2rem;
     font-size: 0.95rem;
+    border-radius: 8px;
   }
 }
 
