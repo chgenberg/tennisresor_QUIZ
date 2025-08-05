@@ -7,7 +7,7 @@ class TennisQuiz {
         this.currentQuestions = [];
         this.currentQuestionIndex = 0;
         this.score = 0;
-        this.totalQuestions = 10;
+        this.totalQuestions = 15;
         this.userAnswers = [];
         this.timePerQuestion = 30000; // 30 seconds
         this.questionTimer = null;
@@ -239,7 +239,7 @@ class TennisQuiz {
     generateQuestions() {
         const allQuestions = questionsDB[this.selectedDifficulty];
         const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
-        this.currentQuestions = shuffled.slice(0, this.totalQuestions - 1); // 9 regular questions
+        this.currentQuestions = shuffled.slice(0, this.totalQuestions - 1); // 14 regular questions
         
         // Add one random tiebreaker question as the last question
         const tiebreakers = tiebreakerQuestions[this.selectedDifficulty];
@@ -569,7 +569,7 @@ class TennisQuiz {
     }
 
     getScoreMessage(percentage) {
-        const recordInfo = "\n\n🏆 Rekord: Jens Bryntesson & Andrés Ruiz Jansson - 9/10 på alla nivåer!";
+        const recordInfo = "\n\n🏆 Rekord: Jens Bryntesson & Andrés Ruiz Jansson - 14/15 på alla nivåer!";
         
         if (percentage >= 90) {
             return `Fantastiskt! Du är en sann tennisexpert! 🏆 Du är nästan lika bra som Jens & Andrés!${recordInfo}\n\n🎾 Boka din nästa tennisresa på www.tennisresor.net/pages/resor`;
