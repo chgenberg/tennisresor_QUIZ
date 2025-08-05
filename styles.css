@@ -1169,19 +1169,23 @@ body {
 }
 
 /* =============================
-   FINAL OVERRIDES – ensure full-width layout
+   ABSOLUTE FINAL OVERRIDES (must be last in file)
    ============================= */
-.container {
+.container,
+.container .screen {
   width: 100vw !important;
   max-width: none !important;
   height: 100vh !important;
   height: 100dvh !important;
   padding: 0 !important;
+  margin: 0 !important;
   border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 .screen {
   width: 100% !important;
+  max-width: none !important;
   height: 100% !important;
   border-radius: 0 !important;
   box-shadow: none !important;
