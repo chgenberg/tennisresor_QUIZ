@@ -239,7 +239,12 @@ class TennisQuiz {
     generateQuestions() {
         const allQuestions = questionsDB[this.selectedDifficulty];
         const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
-        this.currentQuestions = shuffled.slice(0, this.totalQuestions);
+        this.currentQuestions = shuffled.slice(0, this.totalQuestions - 1); // 9 regular questions
+        
+        // Add one random tiebreaker question as the last question
+        const tiebreakers = tiebreakerQuestions[this.selectedDifficulty];
+        const randomTiebreaker = tiebreakers[Math.floor(Math.random() * tiebreakers.length)];
+        this.currentQuestions.push(randomTiebreaker);
     }
 
     updateDifficultyDisplay() {
@@ -261,6 +266,7 @@ class TennisQuiz {
         }
 
         const question = this.currentQuestions[this.currentQuestionIndex];
+        const isTiebreaker = question.hasOwnProperty('answer');
         
         // Update progress
         this.updateProgress();
@@ -270,16 +276,108 @@ class TennisQuiz {
         document.getElementById('current-question').textContent = this.currentQuestionIndex + 1;
         
         // Set question text
-        document.getElementById('question-text').textContent = question.question;
+        let questionText = question.question;
+        if (isTiebreaker) {
+            questionText = `🎯 UTSLAGSFRÅGA: ${question.question}`;
+        }
+        document.getElementById('question-text').textContent = questionText;
         
-        // Create answer options
-        this.createAnswerOptions(question.answers);
+        // Create answer options or input field
+        if (isTiebreaker) {
+            this.createTiebreakerInput(question);
+        } else {
+            this.createAnswerOptions(question.answers);
+        }
         
         // Hide next button
         document.getElementById('next-btn').style.display = 'none';
         
         // Start timer (optional)
         this.startQuestionTimer();
+    }
+
+    createTiebreakerInput(question) {
+        const container = document.getElementById('answers-container');
+        container.innerHTML = `
+            <div class="tiebreaker-container">
+                <p class="tiebreaker-hint">💡 Ledtråd: ${question.hint}</p>
+                <div class="tiebreaker-input-wrapper">
+                    <input type="number" id="tiebreaker-answer" class="tiebreaker-input" 
+                           placeholder="Skriv ditt svar här..." 
+                           autocomplete="off">
+                    <button id="submit-tiebreaker" class="submit-tiebreaker-btn">
+                        Svara
+                    </button>
+                </div>
+                <div id="tiebreaker-feedback" class="tiebreaker-feedback"></div>
+            </div>
+        `;
+        
+        // Add event listeners
+        const input = document.getElementById('tiebreaker-answer');
+        const submitBtn = document.getElementById('submit-tiebreaker');
+        
+        const submitAnswer = () => {
+            const userAnswer = parseFloat(input.value);
+            if (!isNaN(userAnswer)) {
+                this.checkTiebreakerAnswer(userAnswer, question);
+            } else {
+                this.showNotification('Vänligen ange ett giltigt nummer', 'error');
+            }
+        };
+        
+        submitBtn.addEventListener('click', submitAnswer);
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                submitAnswer();
+            }
+        });
+        
+        // Focus on input
+        setTimeout(() => input.focus(), 100);
+    }
+
+    checkTiebreakerAnswer(userAnswer, question) {
+        const correctAnswer = question.answer;
+        const tolerance = question.tolerance;
+        const isCorrect = Math.abs(userAnswer - correctAnswer) <= tolerance;
+        
+        // Disable input
+        document.getElementById('tiebreaker-answer').disabled = true;
+        document.getElementById('submit-tiebreaker').disabled = true;
+        
+        // Show feedback
+        const feedbackEl = document.getElementById('tiebreaker-feedback');
+        if (isCorrect) {
+            feedbackEl.innerHTML = `
+                <div class="correct-feedback">
+                    ✅ Rätt svar! Det korrekta svaret är ${correctAnswer}.
+                </div>
+            `;
+            this.score++;
+        } else {
+            const distance = Math.abs(userAnswer - correctAnswer);
+            feedbackEl.innerHTML = `
+                <div class="incorrect-feedback">
+                    ❌ Fel svar. Det korrekta svaret är ${correctAnswer}.
+                    <br>Du var ${distance} ifrån.
+                </div>
+            `;
+        }
+        
+        // Store answer
+        this.userAnswers[this.currentQuestionIndex] = {
+            selectedAnswer: userAnswer,
+            correct: isCorrect,
+            question: question.question,
+            correctAnswer: correctAnswer,
+            isTiebreaker: true
+        };
+        
+        // Show next button after delay
+        setTimeout(() => {
+            document.getElementById('next-btn').style.display = 'flex';
+        }, 2000);
     }
 
     updateProgress() {
@@ -321,7 +419,8 @@ class TennisQuiz {
             correct: selectedIndex === question.correct,
             question: question.question,
             selectedAnswer: question.answers[selectedIndex],
-            correctAnswer: question.answers[question.correct]
+            correctAnswer: question.answers[question.correct],
+            isTiebreaker: false
         };
         
         // Clear timer
@@ -410,9 +509,32 @@ class TennisQuiz {
         document.getElementById('final-score').textContent = this.score;
         document.getElementById('score-percentage').textContent = `${percentage}%`;
         
-        // Set score message based on performance
-        const message = this.getScoreMessage(percentage);
-        document.getElementById('score-message').textContent = message;
+        // Get score message and split it into parts
+        const fullMessage = this.getScoreMessage(percentage);
+        const messageParts = fullMessage.split('\n\n');
+        
+        // Create formatted HTML for the message
+        let messageHTML = '';
+        messageParts.forEach((part, index) => {
+            if (part.includes('www.tennisresor.net')) {
+                // Make the URL clickable
+                const urlMatch = part.match(/(www\.tennisresor\.net[^\s]*)/);
+                if (urlMatch) {
+                    const url = urlMatch[1];
+                    const textBefore = part.substring(0, part.indexOf(url));
+                    const formattedPart = `${textBefore}<a href="https://${url}" target="_blank" style="color: var(--accent-green); font-weight: 600; text-decoration: underline;">${url}</a>`;
+                    messageHTML += `<p style="margin: 8px 0;">${formattedPart}</p>`;
+                } else {
+                    messageHTML += `<p style="margin: 8px 0;">${part}</p>`;
+                }
+            } else if (part.includes('🏆 Rekord:')) {
+                messageHTML += `<p style="margin: 12px 0; font-weight: 600; color: var(--accent-yellow);">${part}</p>`;
+            } else {
+                messageHTML += `<p style="margin: 8px 0;">${part}</p>`;
+            }
+        });
+        
+        document.getElementById('score-message').innerHTML = messageHTML;
         
         // Update difficulty display
         const difficultyNames = {
@@ -440,18 +562,20 @@ class TennisQuiz {
     }
 
     getScoreMessage(percentage) {
+        const recordInfo = "\n\n🏆 Rekord: Jens Bryntesson & Andrés Ruiz Jansson - 9/10 på alla nivåer!";
+        
         if (percentage >= 90) {
-            return "Fantastiskt! Du är en sann tennisexpert! 🏆 Besök Tennisresor.net för exklusiva erbjudanden!";
+            return `Fantastiskt! Du är en sann tennisexpert! 🏆 Du är nästan lika bra som Jens & Andrés!${recordInfo}\n\n🎾 Boka din nästa tennisresa på www.tennisresor.net/pages/resor`;
         } else if (percentage >= 80) {
-            return "Mycket bra! Du har utmärkta tenniskunskaper! 🥇 Kolla in våra tennisresor på Tennisresor.net!";
+            return `Mycket bra! Du har utmärkta tenniskunskaper! 🥇${recordInfo}\n\n🎾 Utveckla ditt spel på våra tennisresor - www.tennisresor.net/pages/resor`;
         } else if (percentage >= 70) {
-            return "Bra jobbat! Du vet mycket om tennis! 🥈 Utveckla ditt spel med Tennisresor!";
+            return `Bra jobbat! Du vet mycket om tennis! 🥈${recordInfo}\n\n🎾 Förbättra ditt spel med Tennisresor - www.tennisresor.net/pages/resor`;
         } else if (percentage >= 60) {
-            return "Hyfsigt! Du har grundläggande tenniskunskaper! 🥉 Lär dig mer på våra tennisresor!";
+            return `Hyfsigt! Du har grundläggande tenniskunskaper! 🥉${recordInfo}\n\n🎾 Lär dig mer på våra tennisresor - www.tennisresor.net/pages/resor`;
         } else if (percentage >= 40) {
-            return "Okej resultat! Kanske dags för en tennisresa? 📚 Besök Tennisresor.net!";
+            return `Okej resultat! Kanske dags för en tennisresa? 📚${recordInfo}\n\n🎾 Boka din tennisresa på www.tennisresor.net/pages/resor`;
         } else {
-            return "Övning ger färdighet! 📺 Börja din tennisresa med oss på Tennisresor.net!";
+            return `Övning ger färdighet! 📺${recordInfo}\n\n🎾 Börja din tennisresa med oss - www.tennisresor.net/pages/resor`;
         }
     }
 

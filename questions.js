@@ -1015,7 +1015,259 @@ const questionsDB = {
     ]
 };
 
+// Tiebreaker questions (guess year/number) - one random will be selected for each quiz
+const tiebreakerQuestions = {
+    easy: [
+        {
+            question: "Vilket år föddes Roger Federer?",
+            answer: 1981,
+            tolerance: 2,
+            hint: "Tidigt 80-tal"
+        },
+        {
+            question: "Hur många Grand Slam-titlar har Björn Borg vunnit totalt?",
+            answer: 11,
+            tolerance: 1,
+            hint: "Mellan 10-12"
+        },
+        {
+            question: "Vilket år vann Stefan Edberg sin första Wimbledon-titel?",
+            answer: 1988,
+            tolerance: 2,
+            hint: "Sent 80-tal"
+        },
+        {
+            question: "Hur många veckor var Pete Sampras nummer 1 i världen totalt?",
+            answer: 286,
+            tolerance: 10,
+            hint: "Mellan 270-300"
+        },
+        {
+            question: "Vilket år startade Davis Cup?",
+            answer: 1900,
+            tolerance: 5,
+            hint: "Runt sekelskiftet 1900"
+        },
+        {
+            question: "Hur många gånger har Sverige vunnit Davis Cup?",
+            answer: 7,
+            tolerance: 1,
+            hint: "Mellan 5-8"
+        },
+        {
+            question: "Vilket år föddes Serena Williams?",
+            answer: 1981,
+            tolerance: 2,
+            hint: "Tidigt 80-tal"
+        },
+        {
+            question: "Hur många matcher i rad vann Novak Djokovic 2011?",
+            answer: 43,
+            tolerance: 3,
+            hint: "Mellan 40-45"
+        },
+        {
+            question: "Vilket år infördes tie-break i tennis?",
+            answer: 1970,
+            tolerance: 3,
+            hint: "Runt 1970"
+        },
+        {
+            question: "Hur många ace slog John Isner i den längsta tennismatchen någonsin?",
+            answer: 113,
+            tolerance: 10,
+            hint: "Mellan 100-125"
+        }
+    ],
+    medium: [
+        {
+            question: "Vilket år vann Mats Wilander sitt första French Open?",
+            answer: 1982,
+            tolerance: 2,
+            hint: "Tidigt 80-tal"
+        },
+        {
+            question: "Hur många poäng får man för att vinna en Challenger-turnering?",
+            answer: 125,
+            tolerance: 10,
+            hint: "Mellan 100-150"
+        },
+        {
+            question: "Vilket år introducerades Hawk-Eye officiellt i tennis?",
+            answer: 2006,
+            tolerance: 2,
+            hint: "Mitten av 2000-talet"
+        },
+        {
+            question: "Hur många km/h var Andy Roddicks snabbaste serve?",
+            answer: 249,
+            tolerance: 5,
+            hint: "Runt 250 km/h"
+        },
+        {
+            question: "Vilket år vann Robin Söderling sin första ATP-titel?",
+            answer: 2004,
+            tolerance: 2,
+            hint: "Tidigt 2000-tal"
+        },
+        {
+            question: "Hur många ATP-titlar vann Thomas Johansson totalt?",
+            answer: 9,
+            tolerance: 1,
+            hint: "Mellan 8-10"
+        },
+        {
+            question: "Vilket år började Magnus Norman sin proffskarriär?",
+            answer: 1991,
+            tolerance: 2,
+            hint: "Tidigt 90-tal"
+        },
+        {
+            question: "Hur många veckor var Ivan Lendl nummer 1 i världen?",
+            answer: 270,
+            tolerance: 10,
+            hint: "Mellan 260-280"
+        },
+        {
+            question: "Vilket år vann Steffi Graf Golden Slam?",
+            answer: 1988,
+            tolerance: 1,
+            hint: "Sent 80-tal"
+        },
+        {
+            question: "Hur många ATP-titlar har Lleyton Hewitt vunnit?",
+            answer: 30,
+            tolerance: 2,
+            hint: "Runt 30"
+        }
+    ],
+    hard: [
+        {
+            question: "Vilket år vann Ken Rosewall sin sista Grand Slam-titel?",
+            answer: 1972,
+            tolerance: 2,
+            hint: "Tidigt 70-tal"
+        },
+        {
+            question: "Hur många dubbeltitlar vann Jonas Björkman totalt i Grand Slam?",
+            answer: 9,
+            tolerance: 1,
+            hint: "Mellan 8-10"
+        },
+        {
+            question: "Vilket år rankades Thomas Muster som nummer 1 första gången?",
+            answer: 1996,
+            tolerance: 1,
+            hint: "Mitten av 90-talet"
+        },
+        {
+            question: "Hur många game vann Vicki Nelson mot Jean Hepner i deras 6 timmar långa match 1984?",
+            answer: 643,
+            tolerance: 20,
+            hint: "Mellan 620-660"
+        },
+        {
+            question: "Vilket år vann Yannick Noah French Open?",
+            answer: 1983,
+            tolerance: 2,
+            hint: "Tidigt 80-tal"
+        },
+        {
+            question: "Hur många titlar vann Jimmy Connors totalt i sin karriär?",
+            answer: 109,
+            tolerance: 3,
+            hint: "Mellan 105-112"
+        },
+        {
+            question: "Vilket år spelade Arthur Ashe sin sista professionella match?",
+            answer: 1980,
+            tolerance: 2,
+            hint: "Runt 1980"
+        },
+        {
+            question: "Hur många procent av sina första serve-poäng vann Michael Chang i karriären?",
+            answer: 75,
+            tolerance: 3,
+            hint: "Mellan 72-78%"
+        },
+        {
+            question: "Vilket år vann Boris Becker Wimbledon som 17-åring?",
+            answer: 1985,
+            tolerance: 1,
+            hint: "Mitten av 80-talet"
+        },
+        {
+            question: "Hur många ATP-poäng hade Marcelo Ríos när han blev nummer 1?",
+            answer: 5785,
+            tolerance: 100,
+            hint: "Mellan 5600-5900"
+        }
+    ],
+    expert: [
+        {
+            question: "Vilket år vann René Lacoste sin första Wimbledon-titel?",
+            answer: 1925,
+            tolerance: 2,
+            hint: "Mitten av 20-talet"
+        },
+        {
+            question: "Hur många game spelades i den längsta setet någonsin (Isner-Mahut)?",
+            answer: 138,
+            tolerance: 5,
+            hint: "Mellan 130-145"
+        },
+        {
+            question: "Vilket år grundades International Tennis Federation (ITF)?",
+            answer: 1913,
+            tolerance: 3,
+            hint: "Strax före första världskriget"
+        },
+        {
+            question: "Hur många minuter varade den kortaste Grand Slam-finalen någonsin (Trabert-Rosewall)?",
+            answer: 58,
+            tolerance: 3,
+            hint: "Under en timme"
+        },
+        {
+            question: "Vilket år infördes Open Era i tennis?",
+            answer: 1968,
+            tolerance: 1,
+            hint: "Sent 60-tal"
+        },
+        {
+            question: "Hur många procent av alla poäng vann John McEnroe i sin karriär?",
+            answer: 54.8,
+            tolerance: 1,
+            hint: "Mellan 53-56%"
+        },
+        {
+            question: "Vilket år dog Arthur Ashe?",
+            answer: 1993,
+            tolerance: 1,
+            hint: "Tidigt 90-tal"
+        },
+        {
+            question: "Hur många rankingpoäng krävdes för att vara topp-100 1990?",
+            answer: 372,
+            tolerance: 20,
+            hint: "Mellan 350-400"
+        },
+        {
+            question: "Vilket år vann Rod Laver sin andra Grand Slam?",
+            answer: 1969,
+            tolerance: 1,
+            hint: "Året efter Open Era började"
+        },
+        {
+            question: "Hur många matcher spelade Guillermo Vilas under sin 46-matchers vinstsvit 1977?",
+            answer: 46,
+            tolerance: 0,
+            hint: "Exakt antal i vinstsviten"
+        }
+    ]
+};
+
 // Export for use in main script
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = questionsDB;
+    module.exports = { questionsDB, tiebreakerQuestions };
 } 
