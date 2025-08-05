@@ -12,6 +12,9 @@ class TennisQuiz {
         this.userAnswers = [];
         this.timePerQuestion = 30000; // 30 seconds
         this.questionTimer = null;
+        this.answerConfirmed = false;
+        this.currentSelection = null;
+        this.selectionTimer = null;
         
         // Note: Mailchimp configuration is now handled securely on the backend
         // No API keys or sensitive data in frontend code
@@ -295,6 +298,14 @@ class TennisQuiz {
             this.createAnswerOptions(question.answers);
         }
         
+        // Reset answer state for new question
+        this.answerConfirmed = false;
+        this.currentSelection = null;
+        if (this.selectionTimer) {
+            clearTimeout(this.selectionTimer);
+            this.selectionTimer = null;
+        }
+        
         // Hide next button
         document.getElementById('next-question').style.display = 'none';
         
@@ -409,6 +420,11 @@ class TennisQuiz {
     }
 
     selectAnswer(selectedIndex, buttonElement) {
+        // Don't allow selection if answer is already confirmed
+        if (this.answerConfirmed) {
+            return;
+        }
+        
         // Clear previous selections
         document.querySelectorAll('.answer-option').forEach(btn => {
             btn.classList.remove('selected');
@@ -417,7 +433,28 @@ class TennisQuiz {
         // Mark current selection
         buttonElement.classList.add('selected');
         
-        // Store answer
+        // Store current selection (not final yet)
+        this.currentSelection = selectedIndex;
+        
+        // Auto-confirm after 2 seconds or wait for user to select another
+        if (this.selectionTimer) {
+            clearTimeout(this.selectionTimer);
+        }
+        
+        this.selectionTimer = setTimeout(() => {
+            this.confirmAnswer();
+        }, 2000);
+    }
+    
+    confirmAnswer() {
+        if (this.answerConfirmed || this.currentSelection === null) {
+            return;
+        }
+        
+        this.answerConfirmed = true;
+        const selectedIndex = this.currentSelection;
+        
+        // Store final answer
         const question = this.currentQuestions[this.currentQuestionIndex];
         this.userAnswers[this.currentQuestionIndex] = {
             selectedIndex: selectedIndex,
@@ -433,7 +470,7 @@ class TennisQuiz {
             clearTimeout(this.questionTimer);
         }
         
-        // Show correct/incorrect immediately
+        // Show correct/incorrect
         this.revealAnswer(selectedIndex);
         
         // Show next button after a delay
