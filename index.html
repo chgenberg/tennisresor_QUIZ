@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tennis Quiz - Testa dina kunskaper!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta property="og:title" content="Tennis Quiz - Testa dina kunskaper!">
+    <meta property="og:description" content="Utmana dig själv med vårt interaktiva tennisquiz!">
+    <meta property="og:type" content="website">
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <div class="tennis-animation">
+                <i class="fas fa-tennis-ball"></i>
+            </div>
+            <h1 class="main-title">
+                <i class="fas fa-tennis-ball"></i>
+                Tennis Quiz
+            </h1>
+            <p class="subtitle">Testa dina kunskaper om tennisvärlden!</p>
+            
+            <form id="start-form" class="start-form">
+                <div class="input-group">
+                    <label for="email">E-postadress</label>
+                    <input type="email" id="email" required placeholder="din@email.se">
+                    <i class="fas fa-envelope input-icon"></i>
+                </div>
+                
+                <div class="difficulty-selector">
+                    <h3>Välj svårighetsgrad</h3>
+                    <div class="difficulty-options">
+                        <label class="difficulty-option">
+                            <input type="radio" name="difficulty" value="easy" required>
+                            <div class="option-card easy">
+                                <i class="fas fa-seedling"></i>
+                                <span>Lätt</span>
+                                <p>Grundläggande tenniskunskap</p>
+                            </div>
+                        </label>
+                        
+                        <label class="difficulty-option">
+                            <input type="radio" name="difficulty" value="medium" required>
+                            <div class="option-card medium">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Medel</span>
+                                <p>Allmän tenniskultur</p>
+                            </div>
+                        </label>
+                        
+                        <label class="difficulty-option">
+                            <input type="radio" name="difficulty" value="hard" required>
+                            <div class="option-card hard">
+                                <i class="fas fa-fire"></i>
+                                <span>Svår</span>
+                                <p>Avancerade kunskaper</p>
+                            </div>
+                        </label>
+                        
+                        <label class="difficulty-option">
+                            <input type="radio" name="difficulty" value="expert" required>
+                            <div class="option-card expert">
+                                <i class="fas fa-crown"></i>
+                                <span>Expert</span>
+                                <p>Tennisexpertens utmaning</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="privacy-consent">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="privacy-consent" required>
+                        <span class="checkmark"></span>
+                        Jag godkänner <a href="#" id="privacy-link">integritetsvillkoren</a>
+                    </label>
+                </div>
+                
+                <button type="submit" class="start-btn">
+                    <i class="fas fa-play"></i>
+                    Starta Quiz
+                </button>
+            </form>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen">
+            <div class="quiz-header">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <span class="progress-text">Fråga <span id="current-question">1</span> av <span id="total-questions">10</span></span>
+                </div>
+                <div class="difficulty-badge">
+                    <span id="current-difficulty">Lätt</span>
+                </div>
+            </div>
+            
+            <div class="question-container">
+                <div class="question-number">Fråga <span id="question-num">1</span></div>
+                <h2 id="question-text" class="question-text"></h2>
+                
+                <div id="answers-container" class="answers-container">
+                    <!-- Answers will be dynamically inserted here -->
+                </div>
+                
+                <button id="next-btn" class="next-btn" style="display: none;">
+                    Nästa fråga
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <div class="results-container">
+                <div class="results-animation">
+                    <i class="fas fa-trophy" id="trophy-icon"></i>
+                </div>
+                
+                <h2 class="results-title">Quiz Slutfört!</h2>
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span id="final-score">0</span>
+                        <span class="score-total">/ 10</span>
+                    </div>
+                </div>
+                
+                <div class="score-details">
+                    <p class="score-percentage" id="score-percentage">0%</p>
+                    <p class="score-message" id="score-message"></p>
+                    <p class="difficulty-completed">Svårighetsgrad: <span id="completed-difficulty"></span></p>
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="share-facebook" class="share-btn facebook">
+                        <i class="fab fa-facebook-f"></i>
+                        Dela på Facebook
+                    </button>
+                    
+                    <button id="play-again" class="play-again-btn">
+                        <i class="fas fa-redo"></i>
+                        Spela igen
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Privacy Modal -->
+        <div id="privacy-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Integritetsvillkor</h3>
+                    <span class="close-modal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <h4>Hantering av personuppgifter</h4>
+                    <p>Vi samlar in din e-postadress för att:</p>
+                    <ul>
+                        <li>Förbättra användarupplevelsen</li>
+                        <li>Skicka quizresultat (valfritt)</li>
+                        <li>Statistik och analys av quizanvändning</li>
+                    </ul>
+                    
+                    <h4>Dina rättigheter</h4>
+                    <p>Du har rätt att:</p>
+                    <ul>
+                        <li>Ta tillbaka ditt samtycke när som helst</li>
+                        <li>Begära radering av dina uppgifter</li>
+                        <li>Få information om hur vi använder dina uppgifter</li>
+                    </ul>
+                    
+                    <p><strong>Vi delar aldrig dina uppgifter med tredje part utan ditt uttryckliga samtycke.</strong></p>
+                </div>
+                <div class="modal-footer">
+                    <button class="close-modal-btn">Stäng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
