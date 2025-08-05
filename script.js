@@ -782,7 +782,7 @@ class TennisQuiz {
         
         const baseMessage = `Jag fick ${this.score}/${this.totalQuestions} rätt (${percentage}%) i Tennisresor.net QUIZ på ${difficultyNames[this.selectedDifficulty]} nivå! 🎾`;
         const encouragement = "Hur många rätt får du? Testa ditt tennis-kunnande! 💪";
-        const url = "https://tennisresorquiz-production.up.railway.app";
+        const url = "https://www.tennisresor.net";
         
         // Create sharing buttons if they don't exist
         this.createSharingButtons();
