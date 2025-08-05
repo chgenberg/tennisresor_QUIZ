@@ -606,7 +606,7 @@ const questionsDB = {
             correct: 3
         },
         {
-            question: "Vem var den första spilledaren att förlora en Grand Slam-final efter att ha lett med 2-0 i set?",
+            question: "Vem var den första spelaren att förlora en Grand Slam-final efter att ha lett med 2-0 i set?",
             answers: ["Ivan Lendl", "John McEnroe", "Jimmy Connors", "Guillermo Vilas"],
             correct: 0
         },
@@ -671,7 +671,7 @@ const questionsDB = {
             correct: 2
         },
         {
-            question: "Vem var den första kvinnliga spredaren som blev professionell 1959?",
+            question: "Vem var den första kvinnliga spelaren som blev professionell 1959?",
             answers: ["Karol Fageros", "Althea Gibson", "Maureen Connolly", "Angela Mortimer"],
             correct: 0
         },
@@ -768,7 +768,7 @@ const questionsDB = {
             correct: 0
         },
         {
-            question: "Vem var den första spillearen att vinna 'Super Slam' (alla Grand Slams plus OS och Tour Finals samma år)?",
+            question: "Vem var den första spelaren att vinna 'Super Slam' (alla Grand Slams plus OS och Tour Finals samma år)?",
             answers: ["Steffi Graf", "Novak Djokovic", "Rafael Nadal", "Serena Williams"],
             correct: 0
         },
@@ -808,7 +808,7 @@ const questionsDB = {
             correct: 0
         },
         {
-            question: "Vem var den första kvinnliga spillearen att använda metal racket i Wimbledon-final?",
+            question: "Vem var den första kvinnliga spelaren att använda metal racket i Wimbledon-final?",
             answers: ["Billie Jean King", "Chris Evert", "Virginia Wade", "Evonne Goolagong"],
             correct: 1
         },
@@ -818,7 +818,7 @@ const questionsDB = {
             correct: 1
         },
         {
-            question: "Vem var den första spillearen att tjäna över 1 miljon dollar på WCT-touren?",
+            question: "Vem var den första spelaren att tjäna över 1 miljon dollar på WCT-touren?",
             answers: ["John McEnroe", "Jimmy Connors", "Björn Borg", "Ivan Lendl"],
             correct: 2
         },
@@ -828,7 +828,7 @@ const questionsDB = {
             correct: 1
         },
         {
-            question: "Vem var the första spillearen att vinna huvudtävlingen efter att ha gått igenom kvalificering på alla fyra Grand Slams?",
+            question: "Vem var the första spelaren att vinna huvudtävlingen efter att ha gått igenom kvalificering på alla fyra Grand Slams?",
             answers: ["Vladimir Voltchkov", "Nicolas Escudé", "Nicolas Lapentti", "Alex Radulescu"],
             correct: 3
         },
@@ -838,7 +838,7 @@ const questionsDB = {
             correct: 0
         },
         {
-            question: "Vem var den första spillearen att använda Prince Graphite racketet 1980?",
+            question: "Vem var den första spelaren att använda Prince Graphite racketet 1980?",
             answers: ["Pam Shriver", "Gene Mayer", "Jose Luis Clerc", "Vitas Gerulaitis"],
             correct: 0
         },
@@ -848,7 +848,7 @@ const questionsDB = {
             correct: 0
         },
         {
-            question: "Vem var den första spillearen att vinna WCT Finals tre gånger i rad?",
+            question: "Vem var den första spelaren att vinna WCT Finals tre gånger i rad?",
             answers: ["John McEnroe", "Björn Borg", "Jimmy Connors", "Ivan Lendl"],
             correct: 0
         },
@@ -858,7 +858,7 @@ const questionsDB = {
             correct: 3
         },
         {
-            question: "Vem var den första spillearen att använda synthetiska strings professionellt?",
+            question: "Vem var den första spelaren att använda synthetiska strings professionellt?",
             answers: ["Rod Laver", "Ken Rosewall", "John Alexander", "Tony Roche"],
             correct: 2
         },
@@ -878,7 +878,7 @@ const questionsDB = {
             correct: 0
         },
         {
-            question: "Vem var den första spillearen att använda kevlar-strings?",
+            question: "Vem var den första spelaren att använda kevlar-strings?",
             answers: ["Stefan Edberg", "Michael Chang", "Alberto Berasategui", "Sergi Bruguera"],
             correct: 2
         },
@@ -888,7 +888,7 @@ const questionsDB = {
             correct: 1
         },
         {
-            question: "Vem var den första spillearen att vinna over 50 Challenger-titlar?",
+            question: "Vem var den första spelaren att vinna over 50 Challenger-titlar?",
             answers: ["Guillermo Cañas", "Tommy Robredo", "Nicolas Mahut", "Ivo Karlovic"],
             correct: 2
         },
@@ -898,7 +898,7 @@ const questionsDB = {
             correct: 1
         },
         {
-            question: "Vem var den första spillearen att vinna över 1000 ATP-poäng i en enda turnering?",
+            question: "Vem var den första spelaren att vinna över 1000 ATP-poäng i en enda turnering?",
             answers: ["Ilie Năstase", "Jimmy Connors", "Björn Borg", "John McEnroe"],
             correct: 0
         },
@@ -908,7 +908,7 @@ const questionsDB = {
             correct: 1
         },
         {
-            question: "Vem var den första spillearen att använda natural gut strings med polyester hybrid?",
+            question: "Vem var den första spelaren att använda natural gut strings med polyester hybrid?",
             answers: ["Carlos Moyá", "Gustavo Kuerten", "Patrick Rafter", "Lleyton Hewitt"],
             correct: 0
         },
@@ -918,7 +918,7 @@ const questionsDB = {
             correct: 1
         },
         {
-            question: "Vem var den första spillearen att vinna Davis Cup för fem olika länder som kapten?",
+            question: "Vem var den första spelaren att vinna Davis Cup för fem olika länder som kapten?",
             answers: ["Neale Fraser", "Harry Hopman", "Niki Pilić", "Ilie Năstase"],
             correct: 1
         },
@@ -928,7 +928,7 @@ const questionsDB = {
             correct: 2
         },
         {
-            question: "Vem var den första spillearen att använda pre-stretching på natural gut strings?",
+            question: "Vem var den första spelaren att använda pre-stretching på natural gut strings?",
             answers: ["René Lacoste", "Henri Cochet", "Jean Borotra", "Jacques Brugnon"],
             correct: 0
         },
@@ -938,7 +938,7 @@ const questionsDB = {
             correct: 1
         },
         {
-            question: "Vem var den första spillearen att vinna over 200 ATP-matcher på fem olika underlag?",
+            question: "Vem var den första spelaren att vinna over 200 ATP-matcher på fem olika underlag?",
             answers: ["Andre Agassi", "Roger Federer", "David Ferrer", "Tommy Haas"],
             correct: 1
         },
@@ -948,7 +948,7 @@ const questionsDB = {
             correct: 2
         },
         {
-            question: "Vem var den första spillearen att använda damping system på racket strings?",
+            question: "Vem var den första spelaren att använda damping system på racket strings?",
             answers: ["René Lacoste", "Gottfried von Cramm", "Fred Perry", "Don Budge"],
             correct: 0
         },
@@ -958,7 +958,7 @@ const questionsDB = {
             correct: 0
         },
         {
-            question: "Vem var den första spillearen att vinna över 100 miljoner dollar enbart från prispengar?",
+            question: "Vem var den första spelaren att vinna över 100 miljoner dollar enbart från prispengar?",
             answers: ["Novak Djokovic", "Roger Federer", "Rafael Nadal", "Andy Murray"],
             correct: 0
         },
@@ -968,7 +968,7 @@ const questionsDB = {
             correct: 0
         },
         {
-            question: "Vem var den första spillearen att använda lead tape för racket-anpassning?",
+            question: "Vem var den första spelaren att använda lead tape för racket-anpassning?",
             answers: ["Pancho Gonzales", "Ken Rosewall", "Lew Hoad", "Tony Trabert"],
             correct: 0
         },
@@ -978,7 +978,7 @@ const questionsDB = {
             correct: 1
         },
         {
-            question: "Vem var den första spillearen att vinna över 300 weeks som världsetta i två olika epoker?",
+            question: "Vem var den första spelaren att vinna över 300 weeks som världsetta i två olika epoker?",
             answers: ["Jimmy Connors", "Ivan Lendl", "Pete Sampras", "Roger Federer"],
             correct: 3
         },
@@ -988,7 +988,7 @@ const questionsDB = {
             correct: 1
         },
         {
-            question: "Vem var den första spillearen att använda cross-court serve strategy systematiskt?",
+            question: "Vem var den första spelaren att använda cross-court serve strategy systematiskt?",
             answers: ["Bill Tilden", "René Lacoste", "Henri Cochet", "Jean Borotra"],
             correct: 0
         },
@@ -998,7 +998,7 @@ const questionsDB = {
             correct: 0
         },
         {
-            question: "Vem var den första spillearen att vinna över 1000 tiebreaks i karriären?",
+            question: "Vem var den första spelaren att vinna över 1000 tiebreaks i karriären?",
             answers: ["John McEnroe", "Jimmy Connors", "Ivan Lendl", "Roger Federer"],
             correct: 3
         },
@@ -1008,7 +1008,7 @@ const questionsDB = {
             correct: 0
         },
         {
-            question: "Vem var den första spillearen att designa sitt eget tennisracket från grunden?",
+            question: "Vem var den första spelaren att designa sitt eget tennisracket från grunden?",
             answers: ["René Lacoste", "Bill Tilden", "Fred Perry", "Gottfried von Cramm"],
             correct: 0
         }
