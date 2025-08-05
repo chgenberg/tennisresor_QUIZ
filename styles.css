@@ -342,6 +342,8 @@ body {
 .tennis-logo {
     width: 100px;
     height: 100px;
+    min-width: 100px;
+    min-height: 100px;
     background: linear-gradient(135deg, #c5e35b 0%, #7cb342 100%);
     border-radius: 50%;
     display: flex;
@@ -356,6 +358,7 @@ body {
     overflow: hidden;
     border: 3px solid var(--white);
     animation: bounce-slow 3s ease-in-out infinite;
+    flex-shrink: 0;
 }
 
 .tennis-logo i {
@@ -1358,115 +1361,443 @@ body {
 
 @media (max-width: 600px) {
     .container {
-        padding: 5px;
+        padding: 0;
+        height: 100vh;
+        height: 100dvh; /* Dynamic viewport height for mobile */
     }
     
     .screen {
-        border-radius: 10px;
+        border-radius: 0;
         width: 100%;
         height: 100vh;
+        height: 100dvh;
         max-height: none;
     }
     
+    /* Hero screen mobile */
     .hero-content {
-        padding: 25px 20px;
+        padding: 20px 15px;
+    }
+    
+    .hero-badge {
+        font-size: 0.7rem;
+        padding: 6px 12px;
+        margin-bottom: 15px;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
     }
     
     .hero-features {
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: row;
+        gap: 20px;
         margin-bottom: 25px;
+        justify-content: center;
     }
     
-    #quiz-screen {
-        padding: 20px;
+    .feature-item {
+        min-width: auto;
     }
     
-    .quiz-header {
+    .feature-item i {
+        font-size: 1.3rem;
+    }
+    
+    .feature-item span {
+        font-size: 0.75rem;
+    }
+    
+    .hero-cta-button {
+        padding: 14px 25px;
+        font-size: 1rem;
+    }
+    
+    .hero-disclaimer {
+        font-size: 0.75rem;
+        margin-top: 10px;
+    }
+    
+    /* Welcome screen mobile */
+    #welcome-screen {
         flex-direction: column;
-        gap: 12px;
-        margin-bottom: 15px;
+        overflow: hidden;
     }
     
-    .progress-container {
-        max-width: 100%;
-    }
-    
-    .welcome-left, .results-left {
-        min-height: 150px;
+    .welcome-left {
+        min-height: 140px;
+        max-height: 140px;
         padding: 20px;
-    }
-    
-    .welcome-right, .results-right {
-        padding: 20px;
+        flex-shrink: 0;
     }
     
     .tennis-logo {
-        width: 80px;
-        height: 80px;
-        margin-bottom: 15px;
+        width: 60px;
+        height: 60px;
+        min-width: 60px;
+        min-height: 60px;
+        margin-bottom: 10px;
     }
     
     .tennis-logo i {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+    
+    .main-title {
+        font-size: 1.3rem;
+        margin-bottom: 5px;
+    }
+    
+    .subtitle {
+        font-size: 0.75rem;
+        display: none; /* Hide subtitle on mobile to save space */
+    }
+    
+    .welcome-right {
+        flex: 1;
+        padding: 15px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .form-header {
+        margin-bottom: 15px;
+    }
+    
+    .form-header h2 {
+        font-size: 1.2rem;
+    }
+    
+    .form-header p {
+        font-size: 0.8rem;
+    }
+    
+    .input-group {
+        margin-bottom: 15px;
+    }
+    
+    .input-group label {
+        font-size: 0.75rem;
+        margin-bottom: 4px;
+    }
+    
+    .input-group input[type="email"] {
+        padding: 10px 35px 10px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .difficulty-selector {
+        margin-bottom: 15px;
+    }
+    
+    .difficulty-selector h3 {
+        font-size: 0.75rem;
+        margin-bottom: 8px;
+    }
+    
+    .difficulty-options {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+    }
+    
+    .option-card {
+        padding: 8px;
+    }
+    
+    .option-card i {
+        font-size: 1.2rem;
+        margin-bottom: 4px;
+    }
+    
+    .option-card span {
+        font-size: 0.8rem;
     }
     
     .option-card p {
         display: none;
     }
     
-    .newsletter-form {
-        flex-direction: column;
-        gap: 10px;
+    .privacy-consent {
+        margin: 15px 0;
     }
     
+    .checkbox-label {
+        font-size: 0.7rem;
+    }
+    
+    .start-btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+    
+    /* Quiz screen mobile */
+    #quiz-screen {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    
+    .quiz-header {
+        flex-direction: row;
+        gap: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        flex-shrink: 0;
+    }
+    
+    .progress-container {
+        max-width: 100%;
+    }
+    
+    .progress-bar {
+        height: 6px;
+        margin-bottom: 5px;
+    }
+    
+    .progress-text {
+        font-size: 0.75rem;
+    }
+    
+    .difficulty-badge {
+        padding: 6px 12px;
+        font-size: 0.7rem;
+    }
+    
+    .question-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    
+    .question-number {
+        font-size: 0.7rem;
+        margin-bottom: 8px;
+    }
+    
+    .question-text {
+        font-size: 1rem;
+        margin-bottom: 15px;
+        flex-shrink: 0;
+    }
+    
+    .answers-container {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin-bottom: 15px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        flex: 1;
+    }
+    
+    .answer-option {
+        padding: 12px 15px;
+        font-size: 0.85rem;
+        line-height: 1.2;
+    }
+    
+    .next-btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+        margin-top: 10px;
+    }
+    
+    /* Results screen mobile */
+    #results-screen {
+        flex-direction: column;
+        overflow: hidden;
+    }
+    
+    .results-left {
+        min-height: 150px;
+        max-height: 150px;
+        padding: 20px;
+        flex-shrink: 0;
+    }
+    
+    #trophy-icon {
+        font-size: 2.5rem;
+    }
+    
+    .score-circle {
+        width: 100px;
+        height: 100px;
+    }
+    
+    #final-score {
+        font-size: 2rem;
+    }
+    
+    .score-total {
+        font-size: 0.9rem;
+    }
+    
+    .results-right {
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .results-title {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+    
+    .score-percentage {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+    }
+    
+    .score-message {
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+    }
+    
+    .score-message p {
+        margin: 5px 0;
+    }
+    
+    .difficulty-completed {
+        font-size: 0.8rem;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .share-btn, .play-again-btn {
+        width: 100%;
+        padding: 10px 15px;
+        font-size: 0.85rem;
+    }
+    
+    /* Newsletter form mobile */
+    .mailchimp-section {
+        padding: 20px;
+        margin-top: 20px;
+    }
+    
+    .mailchimp-section h3 {
+        font-size: 1rem;
+        margin-bottom: 6px;
+    }
+    
+    .mailchimp-section p {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .newsletter-form input[type="email"] {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .newsletter-form button {
+        padding: 10px 15px;
+        font-size: 0.85rem;
+    }
+    
+    /* Tiebreaker mobile */
     .tiebreaker-input-wrapper {
         flex-direction: column;
+        gap: 8px;
     }
     
     .tiebreaker-input {
         font-size: 1rem;
+        padding: 12px 15px;
     }
     
     .submit-tiebreaker-btn {
         width: 100%;
-    }
-}
-
-/* Extra compact for very small screens */
-@media (max-height: 600px) and (orientation: landscape) {
-    .screen {
-        max-height: 100vh;
-        height: 100vh;
+        padding: 12px 20px;
+        font-size: 0.9rem;
     }
     
-    .hero-content {
+    .tiebreaker-feedback {
+        margin-top: 15px;
+    }
+    
+    .correct-feedback, .incorrect-feedback {
+        padding: 12px 15px;
+        font-size: 0.85rem;
+    }
+    
+    /* Modal mobile */
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+        max-height: 90vh;
+    }
+    
+    .modal-header {
+        padding: 15px 20px;
+    }
+    
+    .modal-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    .modal-body {
         padding: 20px;
     }
     
-    .hero-title {
-        font-size: 2rem;
+    .modal-body h4 {
+        font-size: 0.95rem;
         margin-bottom: 10px;
+    }
+    
+    .modal-body p, .modal-body li {
+        font-size: 0.85rem;
+    }
+    
+    .modal-footer {
+        padding: 12px 20px;
+    }
+    
+    .close-modal-btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 375px) {
+    .hero-title {
+        font-size: 1.5rem;
     }
     
     .hero-subtitle {
-        margin-bottom: 20px;
+        font-size: 0.85rem;
     }
     
     .hero-features {
-        margin-bottom: 20px;
         gap: 15px;
     }
     
-    .welcome-left, .results-left {
-        min-height: 120px;
-        padding: 15px;
+    .feature-item span {
+        font-size: 0.7rem;
     }
     
     .tennis-logo {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 10px;
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        min-height: 50px;
     }
     
     .tennis-logo i {
@@ -1474,42 +1805,14 @@ body {
     }
     
     .main-title {
-        font-size: 1.4rem;
-        margin-bottom: 8px;
+        font-size: 1.1rem;
     }
     
-    .subtitle {
-        font-size: 0.8rem;
-    }
-    
-    .form-header {
-        margin-bottom: 15px;
-    }
-    
-    .difficulty-selector, .input-group, .privacy-consent {
-        margin-bottom: 15px;
-    }
-    
-    .option-card {
-        padding: 8px;
-    }
-    
-    .answer-option {
-        padding: 10px 12px;
-        font-size: 0.85rem;
+    .form-header h2 {
+        font-size: 1.1rem;
     }
     
     .question-text {
-        font-size: 1rem;
-        margin-bottom: 15px;
-    }
-    
-    #quiz-screen {
-        padding: 15px 20px;
-    }
-    
-    .quiz-header {
-        margin-bottom: 10px;
-        padding-bottom: 10px;
+        font-size: 0.9rem;
     }
 } 
