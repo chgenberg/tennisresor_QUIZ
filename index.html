@@ -139,11 +139,23 @@
         <div id="quiz-screen" class="screen">
             <div class="quiz-container">
                 <div class="quiz-header">
-                    <div class="progress-container">
-                        <div class="progress-bar">
-                            <div class="progress-fill"></div>
+                    <div class="header-left">
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress-fill"></div>
+                            </div>
+                            <span class="progress-text">Fråga <span id="current-question">1</span> av <span id="total-questions">10</span></span>
                         </div>
-                        <span class="progress-text">Fråga <span id="current-question">1</span> av <span id="total-questions">10</span></span>
+                        <div class="score-tracker">
+                            <div class="score-item correct-score">
+                                <i class="fas fa-check-circle"></i>
+                                <span id="correct-count">0</span>
+                            </div>
+                            <div class="score-item incorrect-score">
+                                <i class="fas fa-times-circle"></i>
+                                <span id="incorrect-count">0</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="difficulty-badge">
                         <span id="current-difficulty">Lätt</span>

@@ -7,6 +7,7 @@ class TennisQuiz {
         this.currentQuestions = [];
         this.currentQuestionIndex = 0;
         this.score = 0;
+        this.incorrectCount = 0;
         this.totalQuestions = 15;
         this.userAnswers = [];
         this.timePerQuestion = 30000; // 30 seconds
@@ -197,7 +198,12 @@ class TennisQuiz {
         // Reset quiz state
         this.currentQuestionIndex = 0;
         this.score = 0;
+        this.incorrectCount = 0;
         this.userAnswers = [];
+        
+        // Reset score tracker display
+        document.getElementById('correct-count').textContent = '0';
+        document.getElementById('incorrect-count').textContent = '0';
         
         // Show quiz screen
         this.showScreen('quiz-screen');
@@ -350,11 +356,14 @@ class TennisQuiz {
         
         if (isCorrect) {
             this.score++;
+            this.updateScoreTracker('correct');
             // Show success with green styling
             inputEl.style.borderColor = '#22c55e';
             inputEl.style.backgroundColor = '#f0fdf4';
             submitBtn.style.background = 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)';
         } else {
+            this.incorrectCount++;
+            this.updateScoreTracker('incorrect');
             // Show error with red styling
             inputEl.style.borderColor = '#ef4444';
             inputEl.style.backgroundColor = '#fef2f2';
@@ -447,13 +456,35 @@ class TennisQuiz {
             }
         });
         
-        // Update score
+        // Update score and tracker
         if (selectedIndex === question.correct) {
             this.score++;
+            this.updateScoreTracker('correct');
+        } else {
+            this.incorrectCount++;
+            this.updateScoreTracker('incorrect');
         }
     }
 
 
+
+    updateScoreTracker(type) {
+        const correctEl = document.getElementById('correct-count');
+        const incorrectEl = document.getElementById('incorrect-count');
+        
+        // Update counts
+        correctEl.textContent = this.score;
+        incorrectEl.textContent = this.incorrectCount;
+        
+        // Add animation
+        const scoreItem = type === 'correct' ? 
+            correctEl.parentElement : incorrectEl.parentElement;
+        
+        scoreItem.classList.add('updated');
+        setTimeout(() => {
+            scoreItem.classList.remove('updated');
+        }, 300);
+    }
 
     startQuestionTimer() {
         // Optional: Add timer functionality
@@ -677,6 +708,7 @@ class TennisQuiz {
         // Reset all state
         this.currentQuestionIndex = 0;
         this.score = 0;
+        this.incorrectCount = 0;
         this.userAnswers = [];
         this.selectedDifficulty = null;
         this.userEmail = '';

@@ -526,12 +526,19 @@ body {
   background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
 }
 
-/* Progress Section - Left side */
+/* Header Left Section */
+.header-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Progress Section */
 .progress-container {
   display: flex;
   align-items: center;
   gap: 1rem;
-  flex: 1;
 }
 
 .progress-bar {
@@ -558,6 +565,59 @@ body {
   color: var(--text-dark);
   font-weight: 600;
   white-space: nowrap;
+}
+
+/* Score Tracker - New! */
+.score-tracker {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.score-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.score-item i {
+  font-size: 1.1rem;
+}
+
+.correct-score {
+  background: rgba(34, 197, 94, 0.1);
+  color: #16a34a;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.correct-score i {
+  color: #22c55e;
+}
+
+.incorrect-score {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.incorrect-score i {
+  color: #ef4444;
+}
+
+/* Score animation */
+@keyframes scoreUpdate {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.score-item.updated {
+  animation: scoreUpdate 0.3s ease;
 }
 
 /* Difficulty Badge - Premium style */
@@ -1403,9 +1463,13 @@ html, body {
     border-radius: 10px;
   }
   
+  .header-left {
+    order: 2;
+  }
+  
   .progress-container {
     justify-content: center;
-    order: 2;
+    order: 1;
   }
   
   .progress-bar {
@@ -1415,10 +1479,16 @@ html, body {
   
   .difficulty-badge {
     text-align: center;
-    order: 1;
+    order: 3;
     align-self: center;
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
+  }
+  
+  .score-tracker {
+    order: 4;
+    justify-content: center;
+    margin-top: 1rem;
   }
   
   /* Question Container Mobile */
