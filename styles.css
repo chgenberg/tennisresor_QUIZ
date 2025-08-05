@@ -1190,3 +1190,42 @@ body {
   border-radius: 0 !important;
   box-shadow: none !important;
 }
+
+/* === KILL ALL PADDINGS / MAX-WIDTHS (ABSOLUT SISTA) === */
+html, body {
+  margin:0!important;
+  padding:0!important;
+}
+
+.container {
+  display:block!important;        /* slopa centrerande flex */
+}
+
+#hero-screen, #welcome-screen,
+#quiz-screen, #results-screen {
+  width:100%!important;
+  height:auto!important;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin:0!important;
+  padding:2rem !important; /* Lägg till lite padding inuti för att undvika att texten klistras mot kanten */
+  border-radius:0!important;
+  box-shadow:none!important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.hero-content, .welcome-content,
+.quiz-container, .results-container {
+  width:100%!important;
+  max-width:1200px!important; /* Behåll en max-bredd för läsbarhet */
+  padding:0!important;
+}
+
+/* ta bort ev. vit spalt till vänster i frågelayouten */
+.question-container {
+  margin:0 0 2rem 0 !important;
+  border-radius:20px !important;
+  padding: 2rem !important;
+}
