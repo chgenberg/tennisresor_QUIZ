@@ -69,10 +69,13 @@ class TennisQuiz {
             this.shareOnFacebook();
         });
 
-        // Newsletter form
+        // Newsletter form - temporarily disabled
         document.getElementById('newsletter-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            this.subscribeToNewsletter();
+            // this.subscribeToNewsletter();
+            // Show success message without actually subscribing
+            document.getElementById('mailchimp-signup').style.display = 'none';
+            alert('Tack! Newsletter-funktionen kommer snart tillbaka.');
         });
 
         // Difficulty selection visual feedback
@@ -186,10 +189,10 @@ class TennisQuiz {
         this.userEmail = document.getElementById('email').value.trim();
         this.selectedDifficulty = document.querySelector('input[name="difficulty"]:checked').value;
         
-        // Subscribe to Mailchimp if consent given (handled securely via backend)
-        if (document.getElementById('privacy-consent').checked) {
-            await this.subscribeEmailToMailchimp(this.userEmail);
-        }
+        // Newsletter signup temporarily disabled - can be re-enabled later
+        // if (document.getElementById('privacy-consent').checked) {
+        //     await this.subscribeEmailToMailchimp(this.userEmail);
+        // }
         
         // Generate random questions for selected difficulty
         this.generateQuestions();
@@ -631,8 +634,8 @@ class TennisQuiz {
             if (response.ok) {
                 console.log('Result submitted successfully');
                 
-                // Update Mailchimp with quiz results (handled securely via backend)
-                await this.updateMailchimpTags(result);
+                // Mailchimp integration temporarily disabled
+                // await this.updateMailchimpTags(result);
             }
         } catch (error) {
             console.error('Failed to submit result:', error);

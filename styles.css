@@ -833,6 +833,11 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+/* Temporarily hide newsletter signup */
+#mailchimp-signup {
+  display: none !important;
+}
+
 .results-container {
   width: 100%;
   max-width: 1200px;
