@@ -577,50 +577,47 @@ body {
 .answers-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2px;
+  gap: 0.75rem;
 }
 
-.answer-btn {
-  padding: 1rem;
-  border: 2px solid #e9ecef;
-  border-radius: 0px;
+.answer-option {
+  padding: 1.2rem;
+  border: 2px solid #dee2e6;
+  border-radius: 6px;
   background-color: white;
   cursor: pointer;
-  transition: all 0.15s ease;
-  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
   font-weight: 500;
   text-align: center;
   color: var(--text-dark);
-  box-shadow: none;
-  position: relative;
-  overflow: hidden;
-  min-height: 60px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  min-height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.answer-btn:hover {
-  background-color: var(--primary-color);
-  color: white;
+.answer-option:hover {
+  background-color: var(--background-light);
   border-color: var(--primary-color);
-  transform: none;
-  box-shadow: none;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(28, 56, 70, 0.12);
 }
 
-.answer-btn.correct {
+.answer-option.correct {
   background-color: var(--success-color);
   color: white;
   border-color: var(--success-color);
 }
 
-.answer-btn.incorrect {
+.answer-option.incorrect {
   background-color: var(--error-color);
   color: white;
   border-color: var(--error-color);
 }
 
-.answer-btn:disabled {
+.answer-option:disabled {
   cursor: not-allowed;
   opacity: 0.8;
 }
