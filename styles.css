@@ -1167,3 +1167,22 @@ body {
     padding: 20px;
   }
 }
+
+/* =============================
+   FINAL OVERRIDES – ensure full-width layout
+   ============================= */
+.container {
+  width: 100vw !important;
+  max-width: none !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+.screen {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
