@@ -898,12 +898,14 @@ body {
 /* Score Display */
 .score-display {
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .score-circle {
   display: inline-flex;
   align-items: baseline;
   margin-bottom: 0.5rem;
+  justify-content: center;
 }
 
 .final-score {
