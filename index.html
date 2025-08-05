@@ -137,30 +137,32 @@
 
         <!-- Quiz Screen -->
         <div id="quiz-screen" class="screen">
-            <div class="quiz-header">
-                <div class="progress-container">
-                    <div class="progress-bar">
-                        <div class="progress-fill"></div>
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <span class="progress-text">Fråga <span id="current-question">1</span> av <span id="total-questions">10</span></span>
                     </div>
-                    <span class="progress-text">Fråga <span id="current-question">1</span> av <span id="total-questions">10</span></span>
-                </div>
-                <div class="difficulty-badge">
-                    <span id="current-difficulty">Lätt</span>
-                </div>
-            </div>
-            
-            <div class="question-container">
-                <div class="question-number">Fråga <span id="question-num">1</span></div>
-                <h2 id="question-text" class="question-text"></h2>
-                
-                <div id="answers-container" class="answers-container">
-                    <!-- Answers will be dynamically inserted here -->
+                    <div class="difficulty-badge">
+                        <span id="current-difficulty">Lätt</span>
+                    </div>
                 </div>
                 
-                <button id="next-btn" class="next-btn" style="display: none;">
-                    Nästa fråga
-                    <i class="fas fa-arrow-right"></i>
-                </button>
+                <div class="question-container">
+                    <div class="question-number">Fråga <span id="question-num">1</span></div>
+                    <h2 id="question-text" class="question-text"></h2>
+                    
+                    <div id="answers-container" class="answers-container">
+                        <!-- Answers will be dynamically inserted here -->
+                    </div>
+                    
+                    <button id="next-question" class="next-btn" style="display: none;">
+                        Nästa fråga
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
             </div>
         </div>
 
