@@ -61,7 +61,8 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(express.static(path.join(__dirname), {
     maxAge: process.env.NODE_ENV === 'production' ? '1d' : '0',
     etag: true,
-    lastModified: true
+    lastModified: true,
+    index: false
 }));
 
 // Serve Public directory for images
@@ -339,14 +340,41 @@ app.get('/api/debug/mailchimp', (req, res) => {
 
 // Main route - serve the quiz
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    // Helper: decide mobile vs desktop
+    const ua = req.headers['user-agent'] || '';
+    const viewOverride = req.query.view;
+    const envForce = (process.env.FORCE_VIEW || '').toLowerCase(); // 'mobile' | 'desktop' | ''
+    const isMobileUA = /Mobile|Android|iPhone|iPad|iPod|IEMobile|Windows Phone|BlackBerry|Opera Mini/i.test(ua);
+
+    let serveMobile;
+    if (viewOverride === 'mobile') serveMobile = true;
+    else if (viewOverride === 'desktop') serveMobile = false;
+    else if (envForce === 'mobile') serveMobile = true;
+    else if (envForce === 'desktop') serveMobile = false;
+    else serveMobile = isMobileUA;
+
+    const fileToServe = serveMobile ? 'index.mobile.html' : 'index.html';
+    res.sendFile(path.join(__dirname, fileToServe));
 });
 
-// Catch-all route - serve index.html for client-side routing
+// Catch-all route - serve correct index for client-side routing
 app.get('*', (req, res) => {
     // Only serve HTML for non-API routes
     if (!req.url.startsWith('/api/')) {
-        res.sendFile(path.join(__dirname, 'index.html'));
+        const ua = req.headers['user-agent'] || '';
+        const viewOverride = req.query.view;
+        const envForce = (process.env.FORCE_VIEW || '').toLowerCase();
+        const isMobileUA = /Mobile|Android|iPhone|iPad|iPod|IEMobile|Windows Phone|BlackBerry|Opera Mini/i.test(ua);
+
+        let serveMobile;
+        if (viewOverride === 'mobile') serveMobile = true;
+        else if (viewOverride === 'desktop') serveMobile = false;
+        else if (envForce === 'mobile') serveMobile = true;
+        else if (envForce === 'desktop') serveMobile = false;
+        else serveMobile = isMobileUA;
+
+        const fileToServe = serveMobile ? 'index.mobile.html' : 'index.html';
+        res.sendFile(path.join(__dirname, fileToServe));
     } else {
         res.status(404).json({ error: 'API endpoint not found' });
     }

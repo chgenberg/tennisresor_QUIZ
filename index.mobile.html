@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Tennis Quiz (Mobil) - Tennisresor</title>
+    <link rel="stylesheet" href="styles.mobile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta property="og:title" content="Tennis Quiz - Testa dina kunskaper!">
+    <meta property="og:description" content="Utmana dig själv med vårt interaktiva tennisquiz från Tennisresor!">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#1c3846">
+</head>
+<body>
+    <div class="container">
+        <div id="hero-screen" class="screen hero-screen active">
+            <div class="hero-image-container">
+                <img src="Public/AndresJens.jpg" alt="Tennis experter" class="hero-image">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-tennis-ball"></i>
+                    <span>Tennisresor Quiz</span>
+                </div>
+                <h1 class="hero-title">Hur bra kan du tennis?</h1>
+                <p class="hero-subtitle">Testa din kunskap i vårt QUIZ och utmana dig själv!</p>
+                <button id="start-quiz-hero" class="hero-cta-button">
+                    <span class="button-text">Starta Quiz</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <p class="hero-disclaimer">Det tar bara 5 minuter!</p>
+            </div>
+        </div>
+
+        <div id="welcome-screen" class="screen">
+            <div class="welcome-left">
+                <div class="tennis-logo">
+                    <i class="fas fa-tennis-ball"></i>
+                </div>
+                <h1 class="main-title">Tennis Quiz</h1>
+                <p class="subtitle">Testa dina kunskaper om tennisvärlden och bli en riktig tennisexpert!</p>
+            </div>
+            <div class="welcome-right">
+                <form id="start-form" class="start-form">
+                    <div class="form-header">
+                        <h2>Börja ditt quiz</h2>
+                        <p>Välj svårighetsgrad och utmana dig själv!</p>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">E-postadress</label>
+                        <div class="input-wrapper">
+                            <input type="email" id="email" required placeholder="din@email.se">
+                            <i class="fas fa-envelope input-icon"></i>
+                        </div>
+                    </div>
+                    <div class="difficulty-selector">
+                        <h3>Välj svårighetsgrad</h3>
+                        <div class="difficulty-options">
+                            <label class="difficulty-option">
+                                <input type="radio" name="difficulty" value="easy" required>
+                                <div class="option-card easy">
+                                    <i class="fas fa-seedling"></i>
+                                    <span>Lätt</span>
+                                    <p>Grundläggande tennis</p>
+                                </div>
+                            </label>
+                            <label class="difficulty-option">
+                                <input type="radio" name="difficulty" value="medium" required>
+                                <div class="option-card medium">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Medel</span>
+                                    <p>Allmän tenniskultur</p>
+                                </div>
+                            </label>
+                            <label class="difficulty-option">
+                                <input type="radio" name="difficulty" value="hard" required>
+                                <div class="option-card hard">
+                                    <i class="fas fa-fire"></i>
+                                    <span>Svår</span>
+                                    <p>Avancerad kunskap</p>
+                                </div>
+                            </label>
+                            <label class="difficulty-option">
+                                <input type="radio" name="difficulty" value="expert" required>
+                                <div class="option-card expert">
+                                    <i class="fas fa-crown"></i>
+                                    <span>Expert</span>
+                                    <p>Tennisexpertens nivå</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="privacy-consent">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="privacy-consent" required>
+                            <span class="checkmark"></span>
+                            <span>Jag godkänner <a href="#" id="privacy-link">integritetsvillkoren</a> och vill få nyhetsbrev från Tennisresor</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="start-btn">
+                        <i class="fas fa-play"></i>
+                        Starta Quiz
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div id="quiz-screen" class="screen">
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <div class="header-left">
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress-fill"></div>
+                            </div>
+                            <span class="progress-text">Fråga <span id="current-question">1</span> av <span id="total-questions">10</span></span>
+                        </div>
+                        <div class="score-tracker">
+                            <div class="score-item correct-score">
+                                <i class="fas fa-check-circle"></i>
+                                <span id="correct-count">0</span>
+                            </div>
+                            <div class="score-item incorrect-score">
+                                <i class="fas fa-times-circle"></i>
+                                <span id="incorrect-count">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="difficulty-badge">
+                        <span id="current-difficulty">Lätt</span>
+                    </div>
+                </div>
+                <div class="question-container">
+                    <div class="question-number">Fråga <span id="question-num">1</span></div>
+                    <h2 id="question-text" class="question-text"></h2>
+                    <div id="answers-container" class="answers-container"></div>
+                    <button id="next-question" class="next-btn" style="display: none;">
+                        Nästa fråga
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="results-screen" class="screen">
+            <div class="results-container">
+                <div class="results-card">
+                    <div class="results-header">
+                        <i class="fas fa-trophy trophy-icon" id="trophy-icon"></i>
+                        <h2 class="results-title">Quiz Slutfört!</h2>
+                    </div>
+                    <div class="score-display">
+                        <div class="score-circle">
+                            <span id="final-score" class="final-score">0</span>
+                            <span class="score-total">/15</span>
+                        </div>
+                        <div class="score-percentage" id="score-percentage">0%</div>
+                    </div>
+                    <div class="score-details">
+                        <p class="score-message" id="score-message"></p>
+                        <div class="difficulty-badge-result">
+                            <span id="completed-difficulty"></span>
+                        </div>
+                    </div>
+                    <div class="share-section">
+                        <h3 class="share-title">🎾 Dela ditt resultat!</h3>
+                        <div class="share-buttons">
+                            <button id="share-facebook" class="share-btn facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                Facebook
+                            </button>
+                            <button id="share-whatsapp" class="share-btn whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                                WhatsApp
+                            </button>
+                            <button id="share-messenger" class="share-btn messenger">
+                                <i class="fab fa-facebook-messenger"></i>
+                                Messenger
+                            </button>
+                            <button id="share-copy" class="share-btn copy">
+                                <i class="fas fa-link"></i>
+                                Kopiera
+                            </button>
+                        </div>
+                    </div>
+                    <button id="play-again" class="play-again-btn">
+                        <i class="fas fa-play"></i>
+                        SPELA IGEN
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="privacy-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Integritetsvillkor</h3>
+                    <span class="close-modal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <h4>Hantering av personuppgifter</h4>
+                    <p>Vi samlar in din e-postadress för att:</p>
+                    <ul>
+                        <li>Skicka ditt quizresultat</li>
+                        <li>Informera om exklusiva erbjudanden från Tennisresor</li>
+                        <li>Bjuda in till tennisevent och resor</li>
+                        <li>Förbättra användarupplevelsen</li>
+                    </ul>
+                    <h4>Nyhetsbrev via Mailchimp</h4>
+                    <p>Vi använder Mailchimp för att hantera våra nyhetsbrev. Din e-postadress kommer att lagras säkert hos Mailchimp enligt deras integritetspolicy.</p>
+                    <h4>Dina rättigheter</h4>
+                    <p>Du har rätt att:</p>
+                    <ul>
+                        <li>Avregistrera dig från nyhetsbrevet när som helst</li>
+                        <li>Begära radering av dina uppgifter</li>
+                        <li>Få information om hur vi använder dina uppgifter</li>
+                    </ul>
+                    <p><strong>Vi delar aldrig dina uppgifter med tredje part utan ditt uttryckliga samtycke.</strong></p>
+                </div>
+                <div class="modal-footer">
+                    <button class="close-modal-btn">Stäng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

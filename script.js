@@ -19,7 +19,63 @@ class TennisQuiz {
         // No API keys or sensitive data in frontend code
         
         this.initializeEventListeners();
-        this.showScreen('hero-screen');
+        
+        // Prefer autostart for embed/Shopify flows. Only show hero if not autostarted.
+        const didAutostart = this.tryAutostartFromParams();
+        if (!didAutostart) {
+            this.showScreen('hero-screen');
+        }
+    }
+
+    // Parse query parameters and autostart if provided
+    tryAutostartFromParams() {
+        const params = new URLSearchParams(window.location.search);
+        const emailParam = params.get('email') || params.get('e');
+        const levelParamRaw = (params.get('level') || params.get('difficulty') || params.get('lvl') || '').toLowerCase();
+        const embedMode = params.get('embed') === '1' || params.has('shopify');
+        const autostart = params.get('autostart') === '1' || params.get('start') === '1' || (emailParam && levelParamRaw);
+        
+        const levelMap = {
+            'latt': 'easy', 'lätt': 'easy', 'easy': 'easy',
+            'medel': 'medium', 'medium': 'medium',
+            'svar': 'hard', 'svår': 'hard', 'hard': 'hard',
+            'expert': 'expert'
+        };
+        const mappedDifficulty = levelMap[levelParamRaw];
+        
+        if (autostart && emailParam && mappedDifficulty) {
+            this.startQuizWithParams(emailParam, mappedDifficulty);
+            return true;
+        }
+        
+        // If explicitly embedded but missing params, do not show hero flicker
+        // The host page should pass params; otherwise we keep default flow.
+        return false;
+    }
+
+    startQuizWithParams(email, difficulty) {
+        // Set internal state directly and start quiz flow
+        this.userEmail = String(email).trim();
+        this.selectedDifficulty = difficulty;
+        
+        // Prepare questions and UI
+        this.generateQuestions();
+        this.updateDifficultyDisplay();
+        
+        this.currentQuestionIndex = 0;
+        this.score = 0;
+        this.incorrectCount = 0;
+        this.userAnswers = [];
+        
+        // Reset score tracker display
+        const correctEl = document.getElementById('correct-count');
+        const incorrectEl = document.getElementById('incorrect-count');
+        if (correctEl) correctEl.textContent = '0';
+        if (incorrectEl) incorrectEl.textContent = '0';
+        
+        // Jump straight to quiz screen
+        this.showScreen('quiz-screen');
+        this.loadQuestion();
     }
 
     initializeEventListeners() {
@@ -318,7 +374,7 @@ class TennisQuiz {
                 <div class="tiebreaker-input-wrapper">
                     <input type="number" id="tiebreaker-answer" class="tiebreaker-input" 
                            placeholder="Skriv ditt svar här..." 
-                           autocomplete="off">
+                           autocomplete="off" inputmode="numeric" pattern="[0-9]*" enterkeyhint="done">
                     <button id="submit-tiebreaker" class="submit-tiebreaker">
                         <i class="fas fa-check"></i>
                         Svara
@@ -993,7 +1049,8 @@ document.addEventListener('DOMContentLoaded', () => {
 function addInteractiveElements() {
     // Add hero image parallax effect
     const heroImage = document.querySelector('.hero-image');
-    if (heroImage) {
+    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (heroImage && !isTouch) {
         document.addEventListener('mousemove', (e) => {
             const x = (e.clientX / window.innerWidth - 0.5) * 20;
             const y = (e.clientY / window.innerHeight - 0.5) * 20;

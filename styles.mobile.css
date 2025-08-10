@@ -1,0 +1,71 @@
+/* Mobile-first stylesheet for Tennis Quiz (mobile variant) */
+@import url('styles.css');
+
+/* Force mobile single-column layout and larger touch targets */
+html, body {
+  font-size: 16px;
+  background: #ffffff;
+  min-height: 100%;
+  min-height: 100dvh;
+}
+
+.container { padding: 0; }
+
+/* Simplify hero for mobile */
+.hero-image { opacity: 0.2; transform: none !important; }
+.hero-overlay { background-color: rgba(28, 56, 70, 0.75); }
+.hero-content { padding: 1.25rem; }
+.hero-title { font-size: 1.8rem; }
+.hero-subtitle { font-size: 1rem; opacity: 0.95; }
+.hero-cta-button { padding: 1rem 1.5rem; font-size: 1rem; border-radius: 12px; box-shadow: none; animation: none; }
+
+/* Welcome screen */
+.welcome-right { padding: 1rem; border-radius: 12px; box-shadow: none; }
+.start-form .input-wrapper input { height: 56px; font-size: 16px; }
+.checkbox-label { padding: 1rem; border-width: 2px; border-radius: 12px; }
+
+/* Difficulty options: clear cards, bigger spacing */
+.difficulty-options { grid-template-columns: 1fr; gap: 0.8rem; }
+.option-card { border-color: var(--primary-color); border-width: 2px; border-radius: 12px; padding: 1rem; }
+.option-card i { font-size: 1.2rem; }
+
+/* Start button */
+.start-btn { padding: 1.1rem 1.2rem; border-radius: 12px; font-size: 1.05rem; min-height: 56px; box-shadow: none; }
+
+/* Quiz screen */
+#quiz-screen { padding: 0.8rem; background: #f8f9fa; padding-bottom: calc(env(safe-area-inset-bottom) + 16px); }
+.quiz-header { padding: 1rem; border-radius: 10px; gap: 0.8rem; flex-direction: column; align-items: stretch; }
+.progress-bar { height: 6px; max-width: none; }
+.difficulty-badge { align-self: center; font-size: 0.8rem; }
+
+/* Answers: single column, large targets */
+.answers-container { grid-template-columns: 1fr !important; gap: 0.6rem; }
+.answer-option { min-height: 64px; padding: 0.9rem; border-radius: 10px; }
+
+/* Tiebreaker */
+.tiebreaker-input-wrapper { flex-direction: column; gap: 0.8rem; }
+.tiebreaker-input, .submit-tiebreaker { width: 100%; }
+
+/* Results */
+#results-screen { padding: 1rem; padding-bottom: calc(env(safe-area-inset-bottom) + 16px); }
+.results-card { padding: 1.5rem; border-radius: 16px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
+.final-score { font-size: 2.8rem; }
+.score-percentage { font-size: 1.6rem; }
+.share-buttons { grid-template-columns: 1fr; gap: 0.6rem; }
+.play-again-btn { padding: 1rem; border-radius: 12px; }
+
+/* Hide non-essential hero features on mobile variant */
+.hero-features { display: none !important; }
+
+/* Make modal more compact */
+.modal-content { width: 92%; max-width: 520px; border-radius: 16px; }
+
+/******** Reduced motion for users preferring it ********/
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* Ensure fast tap feedback */
+.answer-option, .start-btn, #next-question, .submit-tiebreaker, .share-btn, .play-again-btn { transition: transform 120ms ease, box-shadow 120ms ease; }
+.answer-option:active, .start-btn:active, #next-question:active, .submit-tiebreaker:active, .share-btn:active, .play-again-btn:active { transform: translateY(1px); }
+ 
