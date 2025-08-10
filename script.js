@@ -30,10 +30,10 @@ class TennisQuiz {
     // Parse query parameters and autostart if provided
     tryAutostartFromParams() {
         const params = new URLSearchParams(window.location.search);
-        const emailParam = params.get('email') || params.get('e');
+        const emailParam = params.get('email') || params.get('e') || '';
         const levelParamRaw = (params.get('level') || params.get('difficulty') || params.get('lvl') || '').toLowerCase();
         const embedMode = params.get('embed') === '1' || params.has('shopify');
-        const autostart = params.get('autostart') === '1' || params.get('start') === '1' || (emailParam && levelParamRaw);
+        const autostart = params.get('autostart') === '1' || params.get('start') === '1' || (!!emailParam && !!levelParamRaw);
         
         const levelMap = {
             'latt': 'easy', 'lätt': 'easy', 'easy': 'easy',
@@ -43,13 +43,12 @@ class TennisQuiz {
         };
         const mappedDifficulty = levelMap[levelParamRaw];
         
-        if (autostart && emailParam && mappedDifficulty) {
-            this.startQuizWithParams(emailParam, mappedDifficulty);
+        if (autostart) {
+            const difficultyToUse = mappedDifficulty || 'medium';
+            this.startQuizWithParams(emailParam, difficultyToUse);
             return true;
         }
         
-        // If explicitly embedded but missing params, do not show hero flicker
-        // The host page should pass params; otherwise we keep default flow.
         return false;
     }
 
