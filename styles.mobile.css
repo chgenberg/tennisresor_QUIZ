@@ -93,3 +93,18 @@ html, body {
 .embed-mode .input-icon { left: 12px !important; opacity: .7 !important; }
 .embed-mode .start-btn { height: 56px !important; border-radius: 16px !important; font-weight: 900 !important; letter-spacing: .2px !important; box-shadow: 0 12px 28px rgba(15,163,122,.25) !important; }
  
+/* Embed mobile: compact difficulty and hide extra text */
+.embed-mobile .welcome-left { display: none !important; }
+.embed-mobile #welcome-screen { display: flex !important; }
+.embed-mobile .difficulty-options { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+.embed-mobile .difficulty-option { padding: 12px !important; min-height: 88px !important; border-radius: 14px !important; border-width: 1px !important; }
+.embed-mobile .option-card { gap: 4px !important; }
+.embed-mobile .option-card span { font-size: 16px !important; font-weight: 800 !important; }
+.embed-mobile .option-card p { font-size: 12.5px !important; opacity: .8 !important; }
+
+/* Remove big hero title/subtitle inside app when embedded */
+.embed-mobile .main-title, .embed-mobile .subtitle { display: none !important; }
+
+/* Reduce container padding */
+.embed-mobile #quiz-screen { padding: 0.75rem !important; }
+ 
