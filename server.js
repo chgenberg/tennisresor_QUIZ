@@ -21,6 +21,7 @@ if (!MAILCHIMP_API_KEY || !MAILCHIMP_LIST_ID) {
 
 // Security middleware
 app.use(helmet({
+    frameguard: false, // allow embedding in Shopify (use CSP frame-ancestors instead)
     contentSecurityPolicy: {
         directives: {
             defaultSrc: ["'self'"],
@@ -31,12 +32,12 @@ app.use(helmet({
             imgSrc: ["'self'", "data:", "https:", "Public/"],
             frameSrc: ["https://www.facebook.com"],
             frameAncestors: [
-                "'self'", 
-                "https://*.myshopify.com", 
+                "'self'",
+                "https://*.myshopify.com",
                 "https://*.shopifypreview.com",
-                "https://www.tennisresor.net",
+                "https://*.shopify.com",
                 "https://tennisresor.net",
-                "https://*.shopify.com"
+                "https://www.tennisresor.net"
             ]
         }
     }

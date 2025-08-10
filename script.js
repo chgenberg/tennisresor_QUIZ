@@ -365,6 +365,9 @@ class TennisQuiz {
         
         // Start timer (optional)
         this.startQuestionTimer();
+
+        // Update height after DOM changes
+        this.postHeightToParent();
     }
 
     createTiebreakerInput(question) {
@@ -542,6 +545,9 @@ class TennisQuiz {
             this.incorrectCount++;
             this.updateScoreTracker('incorrect');
         }
+
+        // Height may change due to classes; notify parent
+        this.postHeightToParent();
     }
 
 
@@ -619,6 +625,17 @@ class TennisQuiz {
         
         // Log result to server
         this.logResult(result);
+
+        // Post to parent for host page actions
+        this.postResultToParent(result);
+    }
+
+    postResultToParent(result) {
+        try {
+            if (window.parent && window.parent !== window) {
+                window.parent.postMessage({ type: 'quiz:result', payload: result }, '*');
+            }
+        } catch (e) { /* ignore */ }
     }
 
     getScoreMessage(percentage) {
@@ -825,7 +842,23 @@ class TennisQuiz {
             
             // Scroll to top
             window.scrollTo(0, 0);
+
+            // Notify parent for auto-resize if embedded
+            this.postHeightToParent();
         }, 100);
+    }
+
+    postHeightToParent() {
+        try {
+            const height = Math.max(
+                document.documentElement.scrollHeight,
+                document.body.scrollHeight,
+                document.documentElement.clientHeight
+            );
+            if (window.parent && window.parent !== window) {
+                window.parent.postMessage({ type: 'quiz:height', height }, '*');
+            }
+        } catch (e) { /* ignore */ }
     }
 
     setupSocialSharing(percentage) {
