@@ -96,11 +96,11 @@ html, body {
 /* Embed mobile: compact difficulty and hide extra text */
 .embed-mobile .welcome-left { display: none !important; }
 .embed-mobile #welcome-screen { display: flex !important; }
-.embed-mobile .difficulty-options { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
-.embed-mobile .difficulty-option { padding: 12px !important; min-height: 88px !important; border-radius: 14px !important; border-width: 1px !important; }
-.embed-mobile .option-card { gap: 4px !important; }
-.embed-mobile .option-card span { font-size: 16px !important; font-weight: 800 !important; }
-.embed-mobile .option-card p { font-size: 12.5px !important; opacity: .8 !important; }
+.embed-mobile .difficulty-options { grid-template-columns: 1fr !important; gap: 10px !important; }
+.embed-mobile .difficulty-option { padding: 12px !important; min-height: 64px !important; border-radius: 12px !important; border-width: 1px !important; display: flex !important; align-items: center !important; justify-content: center !important; }
+.embed-mobile .option-card { gap: 2px !important; padding: 0 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; }
+.embed-mobile .option-card span { font-size: 17px !important; font-weight: 800 !important; letter-spacing: -0.01em; }
+.embed-mobile .option-card p { display: none !important; }
 
 /* Remove big hero title/subtitle inside app when embedded */
 .embed-mobile .main-title, .embed-mobile .subtitle { display: none !important; }
