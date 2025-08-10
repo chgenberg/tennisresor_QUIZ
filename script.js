@@ -34,6 +34,11 @@ class TennisQuiz {
         const levelParamRaw = (params.get('level') || params.get('difficulty') || params.get('lvl') || '').toLowerCase();
         const embedMode = params.get('embed') === '1' || params.has('shopify');
         const autostart = params.get('autostart') === '1' || params.get('start') === '1' || (!!emailParam && !!levelParamRaw);
+
+        // If embedded, add body class to simplify welcome UI
+        if (embedMode) {
+            document.body.classList.add('embed-mode');
+        }
         
         const levelMap = {
             'latt': 'easy', 'lätt': 'easy', 'easy': 'easy',
