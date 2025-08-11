@@ -14,17 +14,46 @@ class TennisQuiz {
         this.questionTimer = null;
         this.answerConfirmed = false;
         this.currentSelection = null;
+        this.isEmbedded = false;
         
         // Note: Mailchimp configuration is now handled securely on the backend
         // No API keys or sensitive data in frontend code
         
         this.initializeEventListeners();
         
-        // Prefer autostart for embed/Shopify flows. Only show hero if not autostarted.
         const didAutostart = this.tryAutostartFromParams();
         if (!didAutostart) {
-            this.showScreen('hero-screen');
+            // If embedded, go directly to welcome screen and post height
+            const params = new URLSearchParams(window.location.search);
+            const embedMode = params.get('embed') === '1' || params.has('shopify');
+            if (embedMode) {
+                this.isEmbedded = true;
+                this.showScreen('welcome-screen');
+                this.enableEmbedAutoResize();
+            } else {
+                this.showScreen('hero-screen');
+            }
+        } else {
+            // Autostart path: still enable auto-resize if embedded
+            const params = new URLSearchParams(window.location.search);
+            const embedMode = params.get('embed') === '1' || params.has('shopify');
+            if (embedMode) {
+                this.isEmbedded = true;
+                this.enableEmbedAutoResize();
+            }
         }
+    }
+
+    enableEmbedAutoResize() {
+        try {
+            // Initial post
+            this.postHeightToParent();
+            // Mutation observer
+            const observer = new MutationObserver(() => this.postHeightToParent());
+            observer.observe(document.body, { childList: true, subtree: true, attributes: true, characterData: true });
+            // Periodic fallback
+            this._embedResizeTimer = setInterval(() => this.postHeightToParent(), 700);
+        } catch (_) { /* ignore */ }
     }
 
     // Parse query parameters and autostart if provided
