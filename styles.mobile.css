@@ -108,3 +108,7 @@ html, body {
 /* Reduce container padding */
 .embed-mobile #quiz-screen { padding: 0.75rem !important; }
  
+/* Force scroll in embed to avoid clipped content */
+.embed-mode html, .embed-mode body, body.embed-mode { overflow: auto !important; -webkit-overflow-scrolling: touch !important; }
+.embed-mobile html, .embed-mobile body, body.embed-mobile { overflow: auto !important; -webkit-overflow-scrolling: touch !important; }
+ 
