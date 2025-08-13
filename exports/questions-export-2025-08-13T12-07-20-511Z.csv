@@ -1,0 +1,365 @@
+# Multiple-choice questions
+type,difficulty,question,answers,correctIndex,correctAnswerText
+choice,easy,Vad kallas det när man vinner ett tennisset med 6-0?,Bagel | Donut | Noll | Shutout,0,Bagel
+choice,easy,Hur många set måste man vinna för att vinna en match i Grand Slam-turneringar för herrar?,2 | 3 | 4 | 5,1,3
+choice,easy,Vad heter det område som spelaren måste stå inom när hen servar?,Baslinjen | Servicerutan | Nätområdet | Servicelinjen,0,Baslinjen
+choice,easy,Vilken av dessa Grand Slam-turneringar spelas på grus?,Wimbledon | US Open | French Open | Australian Open,2,French Open
+choice,easy,Vad kallas poängen 0 i tennis?,Noll | Love | Zero | Start,1,Love
+choice,easy,Hur många poäng behöver man för att vinna ett game (utan deuce)?,3 | 4 | 5 | 6,1,4
+choice,easy,Vilken hand höll John McEnroe racket med?,Höger | Vänster | Båda | Växlade,1,Vänster
+choice,easy,Vad heter det när ställningen är 40-40?,Deuce | Advantage | Match point | Set point,0,Deuce
+choice,easy,Vilken av dessa Grand Slam-turneringar spelas på gräs?,French Open | US Open | Wimbledon | Australian Open,2,Wimbledon
+choice,easy,Hur bred är en tennisbana för singelspel?,"8,23 meter | 10,97 meter | 12,8 meter | 15 meter",0,"8,23 meter"
+choice,easy,Vad kallas det när man slår bollen innan den studsar?,Volley | Smash | Lob | Drop shot,0,Volley
+choice,easy,Vilken spelarinna har vunnit flest Grand Slam-titlar?,Steffi Graf | Martina Navratilova | Serena Williams | Margaret Court,3,Margaret Court
+choice,easy,Vad kallas det när man slår bollen rakt ner i motståndarens bana från luften?,Volley | Smash | Lob | Drive,1,Smash
+choice,easy,Hur många chanser får man om man missar första serven?,En | Två | Tre | Obegränsat,0,En
+choice,easy,Vilken färg har traditionellt en tennisboll?,Vit | Gul | Grön | Orange,1,Gul
+choice,easy,Vad heter det när man spelar på höger sida av banan vid serve?,Forehand-sidan | Backhand-sidan | Deuce-sidan | Ad-sidan,2,Deuce-sidan
+choice,easy,Vilken Grand Slam-turnering spelas först på året?,French Open | Wimbledon | US Open | Australian Open,3,Australian Open
+choice,easy,Vad kallas det när bollen träffar nätet under en serve men landar i rätt ruta?,Fel | Let | Ace | Fault,1,Let
+choice,easy,Hur högt är nätet i mitten av banan?,"0,914 meter | 1 meter | 1,07 meter | 1,2 meter",0,"0,914 meter"
+choice,easy,Vad heter Roger Federers hemland?,Österrike | Tyskland | Schweiz | Sverige,2,Schweiz
+choice,easy,Vilket år började Wimbledon tillåta professionella spelare?,1968 | 1970 | 1965 | 1972,0,1968
+choice,easy,Vad kallas det när man slår bollen högt upp för att komma förbi motståndaren?,Smash | Volley | Lob | Drive,2,Lob
+choice,easy,Vilken spelarinna vann Wimbledon 2019?,Serena Williams | Marketa Vondrousova | Ons Jabeur | Elena Rybakina,1,Marketa Vondrousova
+choice,easy,Vad står ATP för?,American Tennis Players | Association of Tennis Professionals | Australian Tennis Program | Advanced Tennis Performance,1,Association of Tennis Professionals
+choice,easy,Hur många games måste man vinna för att vinna ett set (utan tiebreak)?,5 | 6 | 7 | 8,1,6
+choice,easy,Vilken spelare har vunnit French Open flest gånger?,Roger Federer | Novak Djokovic | Rafael Nadal | Andre Agassi,2,Rafael Nadal
+choice,easy,Vad heter den mest prestigefulla tennisturneringen för damer?,WTA Finals | Wimbledon | Fed Cup | WTA Tour,1,Wimbledon
+choice,easy,Vilken typ av underlag används på US Open?,Grus | Gräs | Hardcourt | Konstgräs,2,Hardcourt
+choice,easy,Vad kallas det när man returnerar en serve direkt för vinst?,Ace | Winner | Return ace | Break,2,Return ace
+choice,easy,Hur många set spelas det i damernas Grand Slam-finaler?,Bäst av 3 | Bäst av 5 | Exakt 3 | Exakt 5,0,Bäst av 3
+choice,easy,Vad heter det när man vinner motståndarens serve?,Hold | Break | Ace | Winner,1,Break
+choice,easy,Vilken månad spelas Wimbledon traditonellt?,Juni | Juli | Augusti | September,1,Juli
+choice,easy,Vad kallas den mjuka bollen som används på lägre nivåer?,Träningsboll | Juniorboll | Övningsboll | Lågkompressionsboll,3,Lågkompressionsboll
+choice,easy,Vilken färg bär spelarna traditionellt på Wimbledon?,Gul | Vit | Grön | Blå,1,Vit
+choice,easy,Vad heter det när man slår bollen mjukt så att den knappt går över nätet?,Drop shot | Slice | Volley | Chip,0,Drop shot
+choice,easy,Hur många huvuddomare finns det i en tennis match?,En | Två | Tre | Fyra,0,En
+choice,easy,Vad kallas det när bollen går utanför banan?,Fel | Ute | Fault | Miss,1,Ute
+choice,easy,Vilken spelare vann US Open herrar 2020?,Dominic Thiem | Novak Djokovic | Daniil Medvedev | Rafael Nadal,0,Dominic Thiem
+choice,easy,Vad heter det område mellan servicelinjerna?,No man's land | Service box | Forecourt | Midcourt,1,Service box
+choice,easy,Hur många linjedomare kan det maximalt finnas i en professionell tennis match?,6 | 9 | 10 | 15,2,10
+choice,easy,Vad kallas det när man träffar bollen på racketets kant?,Ramträff | Kantträff | Ringträff | Sidträff,0,Ramträff
+choice,easy,Vilken Grand Slam-turnering ger Venus Rosewater Dish till damernas singelvinnare?,Wimbledon | US Open | Australian Open | French Open,0,Wimbledon
+choice,easy,Vad står WTA för?,World Tennis Association | Women's Tennis Association | Women's Tennis Alliance | World Tennis Alliance,1,Women's Tennis Association
+choice,easy,Hur många bollar används vanligtvis i början av en professionell tennismatch?,6 | 7 | 9 | 12,0,6
+choice,easy,Vad heter det när man vinner alla fyra Grand Slam-turneringar samma år?,Super Slam | Grand Slam | Perfect Slam | Golden Slam,1,Grand Slam
+choice,easy,Vilken hand använder Rafael Nadal för att spela tennis?,Höger | Vänster | Båda | Växlar,1,Vänster
+choice,easy,Hur många chanser får man om man begär Hawk-Eye på Wimbledon?,2 | 3 | 4 | Obegränsat,2,4
+choice,easy,Vad heter det när man slår bollen med underspin?,Topspin | Slice | Flat | Kick,1,Slice
+choice,easy,Vilken stad arrangerar French Open?,Lyon | Marseille | Paris | Nice,2,Paris
+choice,easy,Vilka är de fyra Grand Slam-turneringarna i tennis?,"Wimbledon, French Open, US Open, Australian Open | Wimbledon, French Open, Davis Cup, Australian Open | Wimbledon, French Open, ATP Finals, Australian Open | Wimbledon, French Open, Monte Carlo Masters, Australian Open",0,"Wimbledon, French Open, US Open, Australian Open"
+choice,medium,Vem var den första spelaren att vinna Calendar Grand Slam i öppna eran?,Rod Laver | Steffi Graf | Margaret Court | Maureen Connolly,0,Rod Laver
+choice,medium,Vilket år infördes tiebreak i tennis?,1965 | 1970 | 1975 | 1980,1,1970
+choice,medium,Vem tränade Stefan Edberg under hans mest framgångsrika period?,Tony Pickard | Sven Salumaa | Percy Rosberg | Ulf Schmidt,0,Tony Pickard
+choice,medium,Vilken spelare har flest ATP Masters 1000-titlar?,Rafael Nadal | Roger Federer | Novak Djokovic | Andre Agassi,2,Novak Djokovic
+choice,medium,Vad heter den berömda tennismatchen mellan John McEnroe och Björn Borg 1980?,Wimbledon Final | Fire and Ice | The Greatest Match | Classic Clash,0,Wimbledon Final
+choice,medium,Vilken kvinnlig spelare hade flest veckor som världsetta?,Steffi Graf | Martina Navratilova | Serena Williams | Chris Evert,0,Steffi Graf
+choice,medium,Vem vann den första öppna Wimbledon 1968 i herrklassen?,Ken Rosewall | Rod Laver | Arthur Ashe | John Newcombe,1,Rod Laver
+choice,medium,Vilken spelare hade smeknamnet 'The Ice Man'?,Stefan Edberg | Björn Borg | Mats Wilander | Ivan Lendl,1,Björn Borg
+choice,medium,Hur många Grand Slam-singeltitlar vann Björn Borg?,5 | 6 | 7 | 8,1,6
+choice,medium,Vem är den yngsta kvinnliga spelaren som vunnit Wimbledon?,Martina Hingis | Venus Williams | Steffi Graf | Lottie Dod,3,Lottie Dod
+choice,medium,Vilken spelare vann 'Battle of the Sexes' 1973?,Bobby Riggs | Billie Jean King | Margaret Court | John McEnroe,1,Billie Jean King
+choice,medium,Vad heter Davis Cup-finalen för damer?,Fed Cup | Billie Jean King Cup | Wightman Cup | Hopman Cup,1,Billie Jean King Cup
+choice,medium,Vem var den första spelaren att tjäna över 1 miljon dollar på tennis?,Chris Evert | Billie Jean King | Virginia Wade | Martina Navratilova,1,Billie Jean King
+choice,medium,Vilken spelare har längst vinningsvit på grus i modern tid?,Rafael Nadal | Björn Borg | Thomas Muster | Guillermo Vilas,0,Rafael Nadal
+choice,medium,Vem designade den ursprungliga Wimbledon-pokalen för herrar?,Mappin & Webb | Elkington & Co | Asprey | Garrard,0,Mappin & Webb
+choice,medium,Vilken spelare vann sin första Grand Slam-titel vid 17 års ålder?,Maria Sharapova | Martina Hingis | Monica Seles | Arantxa Sánchez Vicario,0,Maria Sharapova
+choice,medium,Vad heter den officiella tennisbollen som används på Wimbledon?,Slazenger | Wilson | Dunlop | Head,0,Slazenger
+choice,medium,Vem var den första spelaren att vinna över 100 miljoner dollar i karriären?,Pete Sampras | Andre Agassi | Roger Federer | Novak Djokovic,3,Novak Djokovic
+choice,medium,Vilken spelare hade flest aces under en Grand Slam-turnering?,John Isner | Ivo Karlovic | Kevin Anderson | Goran Ivanišević,3,Goran Ivanišević
+choice,medium,Vilka två spelare deltog i den längsta matchen i tennis-historien?,John Isner och Nicolas Mahut | John Isner och Kevin Anderson | Nicolas Mahut och Kevin Anderson | John Isner och John Millman,0,John Isner och Nicolas Mahut
+choice,medium,Vilken kvinnlig spelare har vunnit flest French Open-titlar?,Steffi Graf | Monica Seles | Chris Evert | Justine Henin,,
+choice,medium,Vad heter världsrankingen för herrarna?,ATP Rankings | FedEx ATP Rankings | Emirates ATP Rankings | Pepperstone ATP Rankings,0,ATP Rankings
+choice,medium,Vem var den siste amatörspelaren som vann Wimbledon?,Rod Laver | John Newcombe | Ken Rosewall | Arthur Ashe,0,Rod Laver
+choice,medium,Vilken spelare har flest titlar på WTA Tour?,Steffi Graf | Martina Navratilova | Serena Williams | Chris Evert,1,Martina Navratilova
+choice,medium,Vem uppfann det moderna racket-strängsystemet?,Babolat | Prince | Wilson | Head,0,Babolat
+choice,medium,Vilken spelare vann Australian Open när det fortfarande spelades på gräs?,Rod Laver | Ken Rosewall | Stefan Edberg | Pat Rafter,0,Rod Laver
+choice,medium,Vad heter den årliga prisutdelningen för tennis?,ITF World Champions | ATP Awards | Tennis Hall of Fame | Golden Racket,1,ATP Awards
+choice,medium,Vem var den första kvinnan som slog mer än 200 km/h på en serve?,Venus Williams | Serena Williams | Brenda Schultz-McCarthy | Sabine Lisicki,2,Brenda Schultz-McCarthy
+choice,medium,Vilken spelare introducerade 'tweener'-slaget?,Guillermo Vilas | Yannick Noah | Gael Monfils | Roger Federer,0,Guillermo Vilas
+choice,medium,Vad heter den berömda tennisturneringen som hålls i Queen's Club?,Queen's Club Championships | Stella Artois Championships | cinch Championships | Aegon Championships,2,cinch Championships
+choice,medium,Vem var den första spelaren att använda grafitracket i professionell tennis?,Arthur Ashe | Jimmy Connors | Björn Borg | John McEnroe,1,Jimmy Connors
+choice,medium,Vilken spelare vann flest Grand Slam-dubbelttitlar?,John McEnroe | Todd Woodbridge | Mark Woodforde | Bob Bryan,1,Todd Woodbridge
+choice,medium,Vad heter den äldsta tennisturneringen i världen?,Wimbledon | Queen's Club | US National Championships | Northern Championships,0,Wimbledon
+choice,medium,Vem var den första spelaren att vinna alla fyra Grand Slams på olika underlag?,Andre Agassi | Roger Federer | Rafael Nadal | Novak Djokovic,0,Andre Agassi
+choice,medium,Vilken organisation grundades 1973 för att försvara kvinnors rättigheter i tennis?,WTA | Women's Tennis Council | Virginia Slims | Women's International Tennis Association,0,WTA
+choice,medium,Vem höll rekordet för flest aces i en match innan Hawk-Eye?,Goran Ivanišević | Mark Philippoussis | Richard Krajicek | Greg Rusedski,2,Richard Krajicek
+choice,medium,Vilken spelare började använda tunga topspin-slag i modern tennis?,Björn Borg | Guillermo Vilas | Manuel Orantes | Adriano Panatta,0,Björn Borg
+choice,medium,Vad heter det system som används för att mäta bollhastighet?,SpeedTrack | Radar Gun | VelocityMeter | TennisSpeed,1,Radar Gun
+choice,medium,Vem var den första spelaren att vinna över 1000 matcher på ATP Tour?,Jimmy Connors | Ivan Lendl | John McEnroe | Guillermo Vilas,0,Jimmy Connors
+choice,medium,Vilken spelare introducerade det moderna dubbelhandade backhandslaget?,Chris Evert | Jimmy Connors | Björn Borg | Pancho Segura,3,Pancho Segura
+choice,medium,Vad heter den teknologi som används för att spåra bollar?,Hawk-Eye | Eagle Eye | Ball Tracker | Line Watch,0,Hawk-Eye
+choice,medium,Vem var den första kvinnliga spelaren att tjäna över 20 miljoner dollar?,Steffi Graf | Monica Seles | Martina Navratilova | Arantxa Sánchez Vicario,0,Steffi Graf
+choice,medium,Vilken stad har arrangerat flest Davis Cup-finaler?,Paris | London | New York | Melbourne,3,Melbourne
+choice,medium,Vem designade den moderna Wimbledon-centercourten?,Norman Foster | David Chipperfield | Populous | KSS Group,2,Populous
+choice,medium,Vilken spelare höll världsrekordet för snabbaste serve i över 10 år?,Andy Roddick | Ivo Karlovic | John Isner | Milos Raonic,0,Andy Roddick
+choice,medium,Vad heter den berömda dokumentären om en tennismatch från 2017?,Borg vs McEnroe | The Final Match | Tennis Legends | Court Warriors,0,Borg vs McEnroe
+choice,medium,Vem var den första spelaren att vinna Wimbledon med metalracket?,Jimmy Connors | Arthur Ashe | Björn Borg | Ilie Năstase,0,Jimmy Connors
+choice,medium,Vilken organisation ansvarar för dopingkontroller i tennis?,ITF | ATP | WTA | WADA,3,WADA
+choice,medium,Vem var den första spelaren att använda en sportagent i tennis?,Arthur Ashe | Donald Dell | Mark McCormack | Björn Borg,1,Donald Dell
+choice,medium,Vilken teknisk innovation introducerades först på US Open 2006?,Hawk-Eye | Speed Gun | Electronic Line Calling | Shot Clock,0,Hawk-Eye
+choice,hard,Vem vann herrsingeln i Wimbledon 1990?,Stefan Edberg | Ivan Lendl | Andre Agassi | Pete Sampras,0,Stefan Edberg
+choice,hard,Vilken spelare hade den längsta vinningsraden på hardcourt i öppna eran?,Ivan Lendl | John McEnroe | Jimmy Connors | Novak Djokovic,3,Novak Djokovic
+choice,hard,Vad var Steffi Grafs exakta Grand Slam-titel-siffra i singel?,20 | 21 | 22 | 23,2,22
+choice,hard,Vem var den första spelaren att genomföra Career Golden Slam (inklusive OS)?,Andre Agassi | Steffi Graf | Rafael Nadal | Serena Williams,1,Steffi Graf
+choice,hard,Vilken spelare höll rekordet för flest konsekutiva Grand Slam-kvartsfinaler?,Roger Federer | Rafael Nadal | Novak Djokovic | Jimmy Connors,0,Roger Federer
+choice,hard,Vad kallades den berömda rivaliteten mellan Chris Evert och Martina Navratilova?,Den Största Rivaliteten | Eld och Is | Den Gyllene Eran | Slaget,1,Eld och Is
+choice,hard,Vem var den sista spelaren att vinna Calendar Grand Slam i herrsingel?,Rod Laver | Don Budge | Maureen Connolly | Steffi Graf,0,Rod Laver
+choice,hard,Vilken exakt tid pågick den längsta tennismatchen i historien?,11 timmar 5 minuter | 11 timmar 15 minuter | 10 timmar 45 minuter | 12 timmar 20 minuter,0,11 timmar 5 minuter
+choice,hard,Vem introducerade det första kolfiber-racketet?,Prince | Head | Dunlop | Yonex,1,Head
+choice,hard,Vilken spelare vann den första miljondollar-bonusen från Grand Prix Masters?,John McEnroe | Ivan Lendl | Jimmy Connors | Björn Borg,1,Ivan Lendl
+choice,hard,Vad var Monica Seles ålder när hon vann sin första Grand Slam?,16 år 6 månader | 16 år 8 månader | 16 år 11 månader | 17 år 2 månader,0,16 år 6 månader
+choice,hard,Vem var den första spelaren att vinna över 800 matcher på ATP Tour?,Jimmy Connors | Ivan Lendl | John McEnroe | Ilie Năstase,0,Jimmy Connors
+choice,hard,Vilken organisation ersatte ILTF (International Lawn Tennis Federation)?,ATP | ITF | Grand Slam Committee | Professional Tennis Council,1,ITF
+choice,hard,"Vem var den första kvinnan att vinna en Grand Slam-titel i singel, dubbel och mixed dubbel under samma kalenderår?",Margaret Osborne duPont | Pauline Betz | Dorothy Round | Nora Gordon,0,Margaret Osborne duPont
+choice,hard,Vilken spelare hade smeknamnet 'Rocket' under sin karriär?,Rod Laver | Ken Rosewall | Lew Hoad | Ashley Cooper,0,Rod Laver
+choice,hard,Vad hette den första professionella tennisturneringen 1926?,US Pro | French Pro | Wembley Pro | World Championship,0,US Pro
+choice,hard,Vem var den första spelaren att använda Wilson Pro Staff-racketet?,John McEnroe | Jimmy Connors | Ivan Lendl | Pete Sampras,3,Pete Sampras
+choice,hard,Vilken exakt hastighet hade Andy Rodddicks rekordserve 2004?,"249,4 km/h | 249,3 km/h | 249,5 km/h | 249,2 km/h",0,"249,4 km/h"
+choice,hard,Vem var den första spelaren att vinna samma Grand Slam fem gånger i rad?,Björn Borg | Rafael Nadal | Roger Federer | Pete Sampras,1,Rafael Nadal
+choice,hard,Vilken stad var värd för den första Davis Cup-finalen 1900?,Boston | New York | Philadelphia | Brookline,3,Brookline
+choice,hard,Vem var den första spelaren att förlora en Grand Slam-final efter att ha lett med 2-0 i set?,Ivan Lendl | John McEnroe | Jimmy Connors | Guillermo Vilas,3,Guillermo Vilas
+choice,hard,Vilken organisation grundade de första World Championships 1913?,ILTF | USLTA | LTA | FFT,0,ILTF
+choice,hard,Vem var den första spelaren att använda oversize-racketet i professionell tennis?,Pam Shriver | Gene Mayer | Howard Schoenfield | Prince Manufacturing,0,Pam Shriver
+choice,hard,Vilken spelare vann den första WCT Finals 1971?,Ken Rosewall | Rod Laver | John Newcombe | Arthur Ashe,0,Ken Rosewall
+choice,hard,Vad var det ursprungliga namnet för French Open?,French Championships | Championnats de France | Roland Garros Tournament | Paris Championships,1,Championnats de France
+choice,hard,Vem var den första kvinnliga spelaren att slå över 200 km/h på en serve?,Venus Williams | Brenda Schultz-McCarthy | Serena Williams | Sabine Lisicki,1,Brenda Schultz-McCarthy
+choice,hard,Vad är vikten på en standard tennisboll enligt dagens regler?,56-58 gram | 57-58 gram | 56-59.4 gram | 57-59 gram,2,56-59.4 gram
+choice,hard,Vem populariserade spelet 'lawn tennis' 1875?,Walter Wingfield | Spencer Gore | William Renshaw | Harry Gem,0,Walter Wingfield
+choice,hard,Vilken stad arrangerade den första inomhus-tennisturneringen?,London | Paris | Boston | New York,3,New York
+choice,hard,Vem var den första spelaren att vinna alla fyra Grand Slams i samma kalenderår (amatör)?,Don Budge | Rod Laver | Maureen Connolly | Margaret Court,0,Don Budge
+choice,hard,Vilken organisation kontrollerade tennis innan öppna eran?,ILTF | Professional Tennis Association | World Tennis Federation | Amateur Tennis Association,0,ILTF
+choice,hard,Vem var den första spelaren att tjäna miljoner på tennis i öppna eran?,Rod Laver | Ken Rosewall | Pancho Gonzales | Tony Trabert,0,Rod Laver
+choice,hard,Vilken teknisk innovation introducerades först 1877 på Wimbledon?,Net posts | Baseline markers | Service lines | Centre mark,3,Centre mark
+choice,hard,Vem var den första kvinnliga spelaren som blev professionell 1959?,Karol Fageros | Althea Gibson | Maureen Connolly | Angela Mortimer,1,Althea Gibson
+choice,hard,Vilken exakt höjd hade det ursprungliga tennsnätet 1874?,"0,99 meter | 1,07 meter | 1,22 meter | 1,52 meter",1,"1,07 meter"
+choice,hard,Vem vann flest Grand Slam-titlar på herrsidan under 1960-talet?,Rod Laver | Ken Rosewall | Pancho Gonzales | Victor Seixas,0,Rod Laver
+choice,hard,Vilken organisation skapade det första officiella rankingsystemet 1973?,ATP | Computer Ranking System | ILTF | WCT,0,ATP
+choice,hard,Vem var den första spelaren att vinna över 100 professionella titlar?,Jimmy Connors | Ivan Lendl | Ilie Năstase | Rod Laver,0,Jimmy Connors
+choice,hard,Vilken stad arrangerade den första 'tie-break' matchen 1965?,Newport | Forest Hills | Wimbledon | Roland Garros,1,Forest Hills
+choice,hard,Vem var den första spelaren att använda en dubbelsträngad racket?,Werner Fischer | Ilie Năstase | Stan Smith | Arthur Ashe,1,Ilie Năstase
+choice,hard,Vilken organisation ersatte World Championship Tennis (WCT) 1990?,ATP Tour | Grand Prix Tennis | Professional Tennis Council | Men's International Tennis,0,ATP Tour
+choice,hard,Vem var den första spelaren att vinna över 50 miljoner dollar i karriären?,Pete Sampras | Andre Agassi | Stefan Edberg | Boris Becker,0,Pete Sampras
+choice,hard,Vilken exakt längd hade den ursprungliga tennisbanan 1877 i fot?,"78 fot | 78,5 fot | 23,77 meter | 23,76 meter",0,78 fot
+choice,hard,Vem introducerade det första polyester-strängningssystemet?,Luxilon | Babolat | Prince | Tecnifibre,0,Luxilon
+choice,hard,Vilken organisation skapade det första anti-doping-programmet i tennis?,ITF | ATP | WTA | IOC,0,ITF
+choice,hard,Vem var den första spelaren att vinna over 1000 matcher i öppna eran?,Jimmy Connors | Ivan Lendl | John McEnroe | Guillermo Vilas,0,Jimmy Connors
+choice,hard,Vilken stad arrangerade den första Night Session på Grand Slam 1975?,New York | Melbourne | Paris | London,0,New York
+choice,hard,Vem var den första spelaren att använda en widebody-racket?,Michael Chang | Andre Agassi | Jim Courier | Pete Sampras,1,Andre Agassi
+choice,hard,Vilken organisation introducerade det första elektroniska rankingsystemet?,ATP | WTA | ITF | Computer Tennis Ranking,2,ITF
+choice,hard,Vem var den första kvinnliga spelaren att tjäna över 10 miljoner dollar?,Steffi Graf | Martina Navratilova | Chris Evert | Monica Seles,0,Steffi Graf
+choice,hard,Vilken tennisspelare har rekordet för flest antal veckor som världs-ett i ATP-rankingen (samtida och historiskt) fram till 2021?,Pete Sampras | Rafael Nadal | Roger Federer | Novak Djokovic,3,Novak Djokovic
+choice,hard,"Vilken spelare slutade som nummer ett i världen flest antal gånger i rad på ATP-rankningen mellan 1973 och 2019, och hur många år i rad var det?","Pete Sampras, 6 år | Rafael Nadal, 3 år | Roger Federer, 5 år | Jimmy Connors, 4 år",0,"Pete Sampras, 6 år"
+choice,hard,"Vem var den första spelaren att vinna alla fyra Grand Slam-turneringar som en Golden Grand Slam, inklusive ett olympiskt guld i samma kalenderår?",Roger Federer | Serena Williams | Steffi Graf | Andre Agassi,2,Steffi Graf
+choice,hard,"Vilken spelare vann singeltiteln i Wimbledon i herrklassen, men aldrig lyckades vinna en singeltitel i Grand Slam på någon annan yta?",Boris Becker | Pete Sampras | Björn Borg | John McEnroe,0,Boris Becker
+choice,hard,Vem var den första spelaren som gick obesegrad under ett kalenderår i öppna eran?,Rod Laver | Björn Borg | John McEnroe | Jimmy Connors,0,Rod Laver
+choice,hard,"Vilken tennisspelare vann herrsingelklassen i Wimbledon 1969, men var inte seedad i turneringen?",Rod Laver | John Newcombe | Stan Smith | Billie Jean King,1,John Newcombe
+choice,hard,Vilken spelare är den enda att ha vunnit Golden Slam i tennis i både singel och dubbel?,Serena Williams | Steffi Graf | Roger Federer | Rod Laver,1,Steffi Graf
+choice,hard,"Vem vann det första öppna Wimbledonmästerskapet för herrar, år 1968?",Arthur Ashe | Rod Laver | John Newcombe | Roy Emerson,1,Rod Laver
+choice,hard,Vilken spelare har flest antal vinster i singelherrar i en Grand Slam-turnering utan att någonsin ha vunnit finalen?,Miloslav Mecir | Henri Leconte | Tim Henman | Todd Martin,2,Tim Henman
+choice,hard,Vem blev den äldsta Grand Slam-vinnaren i det öppna eran efter att ha vunnit Wimbledon 1980 vid en ålder av 32 år?,Rod Laver | Björn Borg | John McEnroe | Jimmy Connors,2,John McEnroe
+choice,hard,"Vem är den enda tennisspelaren att ha vunnit alla Grand Slam-turneringar, Davis Cup, och en olympisk guldmedalj under samma kalenderår?",Roger Federer | Rod Laver | Andre Agassi | Steffi Graf,3,Steffi Graf
+choice,hard,"Vem är den enda spelaren som har vunnit alla fyra Grand Slam-titlar på tre olika underlag (gräs, hardcourt och grus) under samma kalenderår?",Roger Federer | Andre Agassi | Rafael Nadal | Rod Laver,3,Rod Laver
+choice,hard,Vilken svensk tennisspelare var den första att bli rankad världsetta på herrarnas ATP-rankning?,Stefan Edberg | Björn Borg | Mats Wilander | Robin Söderling,1,Björn Borg
+choice,hard,"Vem är den enda spelaren i tennishistorien som har vunnit alla fyra Grand Slam-turneringar på tre olika underlag, inomhus, gräs och grus, under ett och samma kalenderår?",Rod Laver | Andre Agassi | Roger Federer | Rafael Nadal,0,Rod Laver
+choice,hard,"Vem är den enda spelaren att ha vunnit Golden Slam i singel och dubbel, både på herr- och damsidan?",Martina Navratilova | Serena Williams | Steffi Graf | Andre Agassi,2,Steffi Graf
+choice,hard,Vem är den enda spelaren som lyckats vinna Golden Slam i både singel och dubbel?,Serena Williams | Steffi Graf | Martina Navratilova | Andre Agassi,1,Steffi Graf
+choice,hard,"Vem var den första spelaren att vinna Grand Slam singeltitlar på alla fyra ytor (gräs, lera, hardcourt, inomhus) i en och samma säsong?",Björn Borg | Roger Federer | Mats Wilander | Andre Agassi,2,Mats Wilander
+choice,hard,Vilken tennisspelare var den första att vinna fyra Grand Slam-titlar under samma kalenderår i öppna eran?,Billie Jean King | Steffi Graf | Martina Navratilova | Serena Williams,1,Steffi Graf
+choice,hard,"Vem var den första manliga spelaren att vinna alla fyra Grand Slam-turneringarna på tre olika ytor (gräs, hårt och grus)?",Bjorn Borg | Andre Agassi | Roger Federer | Rafael Nadal,1,Andre Agassi
+choice,hard,Vem är den enda spelaren som har slagit både Rafael Nadal och Roger Federer i samma Grand Slam-turnering?,Novak Djokovic | Stan Wawrinka | Andy Murray | Juan Martin Del Potro,1,Stan Wawrinka
+choice,hard,Vilken spelare har vunnit flest Grand Slam-titlar i singel under öppna eran utan att någonsin ha vunnit en Grand Slam-titel i dubbel eller mixed dubbel?,Roger Federer | Pete Sampras | Andre Agassi | Rafael Nadal,1,Pete Sampras
+choice,hard,Vilken manlig tennisspelare har vunnit flest antal Grand Slam-matcher i öppna eran?,Roger Federer | Rafael Nadal | Novak Djokovic | Andre Agassi,0,Roger Federer
+choice,hard,Vilken tennisspelare har rekordet för att ha vunnit flest singelmatcher i rad på gräsunderlag?,Roger Federer | Rafael Nadal | Björn Borg | Pete Sampras,2,Björn Borg
+choice,hard,Vem var den första asiatiska spelaren som någonsin rankades som nummer ett i singel av ATP eller WTA?,Kei Nishikori | Naomi Osaka | Li Na | Kimiko Date,1,Naomi Osaka
+choice,hard,Vilken spelare har rekordet för flest vunna Grand Slam-titlar i herrdubbel under Open Era?,John McEnroe | Bob Bryan | Mike Bryan | Todd Woodbridge,2,Mike Bryan
+choice,hard,Vilken spelare avslutade året som världsetta på ATP-rankningen utan att under året ha vunnit en Grand Slam-titel?,Jimmy Connors | Ivan Lendl | John McEnroe | Andy Roddick,3,Andy Roddick
+choice,hard,Vilken tennisspelare har rekordet för flest segrar i en säsong på ATP-touren?,Björn Borg | Jimmy Connors | Guillermo Vilas | Rod Laver,1,Jimmy Connors
+choice,hard,Vem var den första tennisspelaren att vinna Grand Slam-turneringarna i både singel och dubbel under samma kalenderår?,Rod Laver | Roy Emerson | Lew Hoad | Frank Sedgman,3,Frank Sedgman
+choice,hard,Vem är den enda spelaren i modern tid som har vunnit Grand Slam i både singel- och dubbelklasser samt Davis Cup under samma år?,Rod Laver | Roger Federer | John McEnroe | Stefan Edberg,2,John McEnroe
+choice,hard,"Vem är den enda manliga spelaren i tennisens historia som har vunnit alla fyra Grand Slam-turneringar, ATP Tour Finals, Davis Cup och olympiska guldmedaljen under sin karriär?",Roger Federer | Rafael Nadal | Andre Agassi | Novak Djokovic,2,Andre Agassi
+choice,hard,Vem var den första spelaren att vinna Grand Slam i öppen era samtidigt som han/hon var obesegrad i singeltävlingar under ett helt kalenderår?,Rod Laver | Martina Navratilova | Steffi Graf | Serena Williams,2,Steffi Graf
+choice,hard,"Vilken spelare vann Wimbledon herrsingel på öppningsturneringen på centrecourten år 1922, trots att han var rankad som nummer 6?",Bill Tilden | Suzanne Lenglen | Gerald Patterson | Jean Borotra,2,Gerald Patterson
+choice,hard,"Vilken spelare vann herrsingeln i Wimbledon utan att förlora ett enda set under hela turneringen, och vilket år skedde detta?","Bjorn Borg, 1976 | Roger Federer, 2007 | Pete Sampras, 1999 | John McEnroe, 1984",0,"Bjorn Borg, 1976"
+choice,hard,Vem är den enda spelaren att ha besegrat Rafael Nadal på Franska öppna två gånger?,Roger Federer | Novak Djokovic | Robin Söderling | Andy Murray,2,Robin Söderling
+choice,hard,Vem var den första spelaren att vinna alla Grand Slam-turneringar i mixed dubbel under Open Era?,Martina Navratilova | Billie Jean King | Margaret Court | Chris Evert,2,Margaret Court
+choice,hard,"Vem var den första spelaren att vinna en Golden Slam i tennis, vilket innebär att vinna alla fyra Grand Slams och OS-guld under samma kalenderår?",Serena Williams | Roger Federer | Steffi Graf | Martina Navratilova,2,Steffi Graf
+choice,hard,"Vilken tennislegend har rekordet för det längsta vinstraden i tennisens historia, med 46 på varandra följande vinster under en enda säsong?",Martina Navratilova | Bjorn Borg | Steffi Graf | Guillermo Vilas,3,Guillermo Vilas
+choice,hard,"Vem är den enda spelaren som någonsin har slagit alla de fyra stora, Roger Federer, Rafael Nadal, Novak Djokovic och Andy Murray, i samma turnering?",Stan Wawrinka | Juan Martin Del Potro | David Nalbandian | Marat Safin,2,David Nalbandian
+choice,hard,"Vem var den första spelaren att vinna alla fyra Grand Slam-titlar på tre olika underlag (gräs, grus och hårt underlag)?",Andre Agassi | Roger Federer | Rafael Nadal | Novak Djokovic,0,Andre Agassi
+choice,hard,Vem är den enda tennisspelaren som vunnit kalender Grand Slam två gånger i singel under den öppna eran?,Rod Laver | Roger Federer | Rafael Nadal | Novak Djokovic,0,Rod Laver
+choice,hard,"Vem var den första spelaren att vinna alla fyra Grand Slam-titlar inom ett år i dubbel (man och mixed), men aldrig i singel?",Martina Navratilova | Serena Williams | Billie Jean King | Margaret Court,2,Billie Jean King
+choice,hard,Vem var den första spelaren att vinna Golden Slam (alla fyra Grand Slam-turneringarna och OS guld i samma kalenderår)?,Steffi Graf | Serena Williams | Roger Federer | Rafael Nadal,0,Steffi Graf
+choice,hard,"Vem var den första spelaren att uppnå en 'Golden Slam' i tennis, vilket innebär att vinna alla fyra Grand Slam-titlar och en olympisk guldmedalj under samma kalenderår?",Roger Federer | Steffi Graf | Serena Williams | Martina Navratilova,1,Steffi Graf
+choice,hard,Vilken var den första turneringen som införde tiebreak för att avgöra utdragna set?,U.S. Open | Wimbledon | French Open | Australian Open,0,U.S. Open
+choice,hard,"Vem var den första spelaren att vinna alla fyra Grand Slam-turneringarna på tre olika underlag (gräs, hardcourt och grus)?",Roger Federer | Andre Agassi | Rafael Nadal | Novak Djokovic,1,Andre Agassi
+choice,hard,Vem är den yngsta spelaren att nå världsettan i herrsingel på ATP-rankingen?,Bjorn Borg | Rafael Nadal | Lleyton Hewitt | Roger Federer,2,Lleyton Hewitt
+choice,hard,"Vem var den första spelaren (man eller kvinna) att vinna Grand Slam-titlar på alla tre underlag (gräs, grus och hardcourt) i samma kalenderår?",Bjorn Borg | Martina Navratilova | Rod Laver | Steffi Graf,3,Steffi Graf
+choice,hard,Vem var den första spelaren att vinna en Grand Slam-titel utan att tappa ett enda set?,Björn Borg | Rod Laver | Don Budge | Frank Sedgman,2,Don Budge
+choice,hard,"Vem var den första tennisspelaren att vinna Grand Slam-titlar på alla tre typer av domstolar (gräs, lera och hårda) inom samma kalenderår?",Rod Laver | Andre Agassi | Roger Federer | Rafael Nadal,3,Rafael Nadal
+choice,expert,"Vem var den första spelaren att vinna 'Boxed Set' (alla Grand Slam-titlar i singel, dubbel och mixed)?",Martina Navratilova | Margaret Court | Doris Hart | Shirley Fry,2,Doris Hart
+choice,expert,Vilket exakt datum spelades den första Wimbledon-finalen?,19 juli 1877 | 21 juli 1877 | 18 juli 1877 | 20 juli 1877,0,19 juli 1877
+choice,expert,Vem var den första spelaren att vinna 'Super Slam' (alla Grand Slams plus OS och Tour Finals samma år)?,Steffi Graf | Novak Djokovic | Rafael Nadal | Serena Williams,0,Steffi Graf
+choice,expert,Vilken spelare hade det ursprungliga rekordet för lägsta ranking som vunnit Grand Slam före wildcards?,Mark Edmondson | Andrés Gómez | Gaston Gaudio | Albert Costa,0,Mark Edmondson
+choice,expert,Vem var den första spelaren att vinna över 100 miljoner dollar i samtliga tävlingar (inklusive exhibitions)?,Roger Federer | Rafael Nadal | Novak Djokovic | Andre Agassi,0,Roger Federer
+choice,expert,Vilken exakt hastighet hade Sabine Lisickis rekordserve 2014?,"210,8 km/h | 211,0 km/h | 210,6 km/h | 210,9 km/h",0,"210,8 km/h"
+choice,expert,Vem grundade företaget som tillverkade den första tennis-strängningsmaskinen?,Pierre Babolat | Walter Merkel | Henri Cochet | René Lacoste,0,Pierre Babolat
+choice,expert,Vilken organisation etablerade det första World Computer Rankings 1973?,ATP | Commercial Union Assurance | Pepsi-Cola | Marlboro,0,ATP
+choice,expert,Vem var den första spelaren att använda 'spaghetti strings' i professionell tennis?,Mike Fishbach | Georges Goven | Ilie Năstase | Werner Fischer,3,Werner Fischer
+choice,expert,Vilket år vann Rod Laver sin andra Grand Slam?,1962 | 1965 | 1969 | 1971,2,1969
+choice,expert,Vem var den första kvinnliga spelaren att vinna en Grand Slam-titel med en grafitskräddarsydd racket?,Martina Navratilova | Chris Evert | Billie Jean King | Virginia Wade,0,Martina Navratilova
+choice,expert,Vilken organisation skapade de första officiella tennisreglerna 1874?,All England Club | Marylebone Cricket Club | Wimbledon Committee | Lawn Tennis Association,1,Marylebone Cricket Club
+choice,expert,Vem var den första spelaren att tjäna över 1 miljon dollar på WCT-touren?,John McEnroe | Jimmy Connors | Björn Borg | Ivan Lendl,1,Jimmy Connors
+choice,expert,Vilken exakt tid tog den kortaste Grand Slam-finalen i öppna eran?,30 minuter | 32 minuter | 34 minuter | 36 minuter,1,32 minuter
+choice,expert,Vem var den första spelaren att vinna huvudtävlingen efter att ha gått igenom kvalificering på alla fyra Grand Slams?,Vladimir Voltchkov | Nicolas Escudé | Nicolas Lapentti | Alex Radulescu,1,Nicolas Escudé
+choice,expert,Vilken organisation finansierade den första professionella tennistouren för damer 1970?,Virginia Slims | Philip Morris | Tobacco Sports | World Tennis Magazine,0,Virginia Slims
+choice,expert,Vem var den första spelaren att använda Prince Graphite racketet 1980?,Pam Shriver | Gene Mayer | Jose Luis Clerc | Vitas Gerulaitis,3,Vitas Gerulaitis
+choice,expert,Vilken exakt diameter har en tennisboll enligt ITF-reglerna?,"6,35-6,67 cm | 6,30-6,70 cm | 6,25-6,75 cm | 6,40-6,60 cm",0,"6,35-6,67 cm"
+choice,expert,Vem var den första spelaren att vinna WCT Finals tre gånger i rad?,John McEnroe | Björn Borg | Jimmy Connors | Ivan Lendl,0,John McEnroe
+choice,expert,Vilken organisation började med live-TV-sändningar av tennis 1979?,CBS Sports | NBC Sports | ABC Sports | ESPN,3,ESPN
+choice,expert,Vem var den första spelaren att använda synthetiska strings professionellt?,Rod Laver | Ken Rosewall | John Alexander | Tony Roche,2,John Alexander
+choice,expert,Vilken exakt yta täcker en tennisbana inklusive säkerhetszoner?,648 m² | 668 m² | 688 m² | 708 m²,0,648 m²
+choice,expert,Vem grundade den första Independent Players Association 1972?,Arthur Ashe | Charlie Pasarell | Donald Dell | Jack Kramer,3,Jack Kramer
+choice,expert,Vilken organisation introducerade det första Challenger-systemet 1978?,Men's International Professional Tennis Council | ATP | ITF | Grand Prix,1,ATP
+choice,expert,Vem var den första spelaren att använda kevlar-strings?,Stefan Edberg | Michael Chang | Alberto Berasategui | Sergi Bruguera,2,Alberto Berasategui
+choice,expert,Vilken exakt hastighet hade den snabbaste kvinnliga servicen före Lisicki?,209 km/h | 208 km/h | 207 km/h | 206 km/h,0,209 km/h
+choice,expert,Vem var den första spelaren att vinna över 50 Challenger-titlar?,Guillermo Cañas | Tommy Robredo | Nicolas Mahut | Luigi Borfiga,3,Luigi Borfiga
+choice,expert,Vilken organisation skapade det första computeriserade hawkeye-systemet?,Paul Hawkins | Roke Manor Research | IBM | Infosys,1,Roke Manor Research
+choice,expert,Vem var den första spelaren att vinna över 100 ATP-titlar?,Ilie Năstase | Jimmy Connors | Björn Borg | John McEnroe,1,Jimmy Connors
+choice,expert,Vilken exakt höjd hade det första tennis-nätet 1870 vid posterna?,"1,27 meter | 1,52 meter | 1,67 meter | 1,83 meter",0,"1,27 meter"
+choice,expert,Vilken spelare var den första att använda en kombination av natural gut strings och polyester i sin racket?,Carlos Moyá | Gustavo Kuerten | Patrick Rafter | Lleyton Hewitt,1,Gustavo Kuerten
+choice,expert,Vilken organisation finansierade det första Grand Prix-systemet 1970?,Pepsi-Cola | Commercial Union Assurance | Marlboro | Grand Prix Motors,2,Marlboro
+choice,expert,Vem var den första spelaren att vinna Davis Cup för fem olika länder som kapten?,Neale Fraser | Harry Hopman | Niki Pilić | Ilie Năstase,2,Niki Pilić
+choice,expert,Vilken är den maximala längden på en tennisracket enligt ITF:s regler?,68.5 cm | 70 cm | 72.5 cm | 75 cm,0,68.5 cm
+choice,expert,Vilken av följande spelare var känd för att använda natural gut strings i sina racketar?,René Lacoste | Henri Cochet | Jean Borotra | Jacques Brugnon,0,René Lacoste
+choice,expert,Vilken organisation etablerade det första officiella disciplinära systemet för tennis 1975?,Code of Conduct Committee | Men's International Tennis Council | Professional Tennis Integrity | ATP Disciplinary,1,Men's International Tennis Council
+choice,expert,Vem var den första spelaren att vinna over 200 ATP-matcher på fem olika underlag?,Andre Agassi | Roger Federer | David Ferrer | Tommy Haas,1,Roger Federer
+choice,expert,Vilken var den ungefärliga spänningen i standard tarmsträngar för tennisracketar på 1920-talet?,45-50 pund | 50-55 pund | 55-60 pund | 60-65 pund,2,55-60 pund
+choice,expert,Vem var känd för att ha introducerat metallracket i tennis?,René Lacoste | Gottfried von Cramm | Fred Perry | Don Budge,0,René Lacoste
+choice,expert,Vilken organisation skapade det första officiella ranking-systemet för juniorer 1977?,International Tennis Federation | Junior Tennis Foundation | World Junior Tennis | International Junior Rankings,0,International Tennis Federation
+choice,expert,Vem var den första spelaren att vinna över 100 miljoner dollar enbart från prispengar?,Novak Djokovic | Roger Federer | Rafael Nadal | Andy Murray,0,Novak Djokovic
+choice,expert,Vilken exakt yta täcker servicerutorna på en tennisbana tillsammans?,"105,344 m² | 115,344 m² | 125,344 m² | 135,344 m²",0,"105,344 m²"
+choice,expert,Vem var den första spelaren att vinna Grand Slam i öppen era?,Rod Laver | Ken Rosewall | Lew Hoad | Tony Trabert,0,Rod Laver
+choice,expert,Vilken organisation introducerade först Live Electronic Line Calling 2004?,US Open | Hawk-Eye Innovations | USTA | IBM,0,US Open
+choice,expert,Vem var den första spelaren att vara världsetta i över 300 veckor totalt?,Jimmy Connors | Ivan Lendl | Pete Sampras | Roger Federer,3,Roger Federer
+choice,expert,Vilken är den minsta tillåtna diametern på en tennisboll enligt ITF-standard?,"6,35 cm | 6,54 cm | 6,86 cm | 7,00 cm",1,"6,54 cm"
+choice,expert,Vem var den första spelaren att systematiskt använda en serve-and-volley-strategi?,Bill Tilden | René Lacoste | Henri Cochet | Jean Borotra,0,Bill Tilden
+choice,expert,Vilken organisation skapade det första miljarddollar-TV-kontraktet för tennis?,ESPN | NBC Sports | CBS Sports | ATP Media,3,ATP Media
+choice,expert,Vem var den första spelaren att vinna över 1000 tiebreaks i karriären?,John McEnroe | Jimmy Connors | Ivan Lendl | Roger Federer,3,Roger Federer
+choice,expert,Vilken är den exakta massan för en modern tennisboll enligt ITF-specifikationer?,"50,0-53,4 gram | 54,0-57,4 gram | 56,0-59,4 gram | 58,0-61,4 gram",2,"56,0-59,4 gram"
+choice,expert,Vem var den första spelaren att designa sitt eget tennisracket från grunden?,René Lacoste | Bill Tilden | Fred Perry | Gottfried von Cramm,0,René Lacoste
+choice,expert,"Vilken spelare var den förste att vinna ett Grand Slam med en strängning av naturtarm, framställt av en viss typ av getter från det etiopiska höglandet, ett material som senare blev känt som 'Championship String'?",Gerald Patterson | Reginald Doherty | Rene Lacoste | Norman Brookes,3,Norman Brookes
+choice,expert,Vilket var det första året då en 'tiebreak' introducerades i Grand Slam-turneringar och vilken av de fyra stora turneringarna var det som implementerade den först?,"1970, Australian Open | 1971, US Open | 1972, Wimbledon | 1973, French Open",1,"1971, US Open"
+choice,expert,Vem var det första föraren som introducerade istället för att den traditionella tennisracketen gjorde av catgut strängar använda nylon strängar i en Grand Slam turnering?,Pancho Segura | Jack Kramer | Bobby Riggs | Frank Sedgman,1,Jack Kramer
+choice,expert,"Vilken kvinnlig tennisspelare var först med att använda en overhead smash i en officiell turnering, en teknik tidigare endast använd av manliga spelare, i Wimbledon 1884?",Charlotte Cooper Sterry | Lottie Dod | Blanche Bingley Hillyard | May Langrishe,1,Lottie Dod
+choice,expert,"Vad var hjuldiametern (i tum) på det första patenterade 'lawn tennis' racketet, skapat av Major Walter Clopton Wingfield 1874?",8 tum | 9 tum | 10 tum | 11 tum,2,10 tum
+choice,expert,"Vilken spelare drog tillbaka sin Wimbledon-vinst år 1881 på grund av att han vägrades inträde till VIP-området på klubben, vilket ledde till att hans seger tilldelades runner-up Frank Hadow?",William Marshall | Spencer Gore | William Renshaw | John Hartley,2,William Renshaw
+choice,expert,"Vem vann det allra första singlesmästerskapet i tennis i Wimbledon 1877, och hur mycket vägde den racket han använde?","Spencer Gore, 300 gram | Spencer Gore, 400 gram | John Hartley, 350 gram | John Hartley, 275 gram",1,"Spencer Gore, 400 gram"
+choice,expert,"Vilket år skedde den första dokumenterade spelomgången, med liknande regler som dagens tennis, på det nu historiska Worcestershire lawn tennis club och vilket var resultatet av den matchen?","1869, 15-40 | 1874, 15-30 | 1865, 40-15 | 1872, 30-15",1,"1874, 15-30"
+choice,expert,"Vilken kvinnlig tennisspelare vann Wimbledon första gången det var tillåtet för kvinnor att delta, och vilket år var detta?","Maud Watson, 1884 | Blanche Bingley, 1886 | Charlotte Cooper, 1895 | Lottie Dod, 1887",0,"Maud Watson, 1884"
+choice,expert,"Vem var den första kvinnliga tennisspelaren att bära en underkjol vid All England Lawn Tennis and Croquet Club innan den officiella klädkoden ändrades, och under vilket år hände detta?","Charlotte Cooper, 1895 | Lottie Dod, 1887 | Suzanne Lenglen, 1919 | Blanche Bingley, 1886",2,"Suzanne Lenglen, 1919"
+choice,expert,"Vem var den första spelaren att vinna en 'Golden Slam' i rullstolstennis, och vilket år uppnåde de denna bedrift?","Esther Vergeer, 2007 | Monique Kalkman, 1992 | David Wagner, 2008 | Peter Norfolk, 2004",1,"Monique Kalkman, 1992"
+choice,expert,"Vad var det första landet utanför Storbritannien som höll en gräsmästerskapsturnering, och när hölls turneringen?","USA, 1881 | Australien, 1905 | Frankrike, 1891 | Tyskland, 1892",2,"Frankrike, 1891"
+choice,expert,Vilken Women's Tennis Association (WTA) spelare har rekordet för flest segrar över spelare rankade i topp 10 i en enda säsong och hur många segrar var det?,Steffi Graf med 17 segrar 1988 | Monica Seles med 20 segrar 1991 | Martina Navratilova med 18 segrar 1982 | Chris Evert med 22 segrar 1974,2,Martina Navratilova med 18 segrar 1982
+choice,expert,Vilket år infördes tie-break i US Open och vem var den första spelaren att vinna ett set med denna metod?,"1970, Bob Hewitt | 1971, Dick Stockton | 1972, Adriano Panatta | 1970, Roger Taylor",1,"1971, Dick Stockton"
+choice,expert,"Vilken tennisturnering var den första att införa 'tiebreak' för att avgöra setet vid ställningen 6-6, och vilket år var det?","US Open, 1970 | Wimbledon, 1965 | Australian Open, 1973 | Roland-Garros, 1968",0,"US Open, 1970"
+choice,expert,"Vilken tennisspelare slog rekordet för längsta segersvit på gräs mellan 1952 och 1955, och förlorade sedan i en överraskande kamp mot en frusen spelare på Australiska Mästerskapen 1956?",Vic Seixas | Ken Rosewall | Tony Trabert | Lew Hoad,3,Lew Hoad
+choice,expert,Vilken mindre känd tennisspelare har rekordet för flest antal framgångsrika raka servar i en officiell ATP-match utan att förlora ett enda poäng på sin serve?,Kris Goossens | Bill Scanlon | Guillermo Vilas | Mats Wilander,1,Bill Scanlon
+choice,expert,"Vilken spelare vann den första damdubbeln i Wimbledon som ägde rum år 1913, samtidigt som hon deltog i den första mixade dubbeln i Wimbledon samma år?",Dorothea Lambert Chambers | Ethel Larcombe | Winifred McNair | Agnes Morton,1,Ethel Larcombe
+choice,expert,Vilken osannolik händelse inträffade under det legendariska 49-rundors matchen mellan Isner och Mahut vid Wimbledonturneringen 2010 som nästan ingen känner till?,En åskstorm avbröt matchen i tre timmar | Båda spelarna kollapsade samtidigt på grund av värmeslag | En bollkille svimmade av utmattning | En boll som slog igenom en ny racketsträng,3,En boll som slog igenom en ny racketsträng
+choice,expert,"Vilken spelare revolutionerade tennis genom att först använda en tvåhandsbackhand i en Grand Slam-turnering, och under vilket år?","Vivian McGrath, 1933 | Don Budge, 1934 | Jack Crawford, 1935 | Fred Perry, 1936",0,"Vivian McGrath, 1933"
+choice,expert,Vilket år användes för första gången en tennisboll fylld med tryckluft i en Grand Slam-turnering och vilken turnering var det?,"1877, Wimbledon | 1927, US Open | 1902, French Open | 1915, Australian Open",1,"1927, US Open"
+choice,expert,Vilken damspelare vann den sista Grand Slam-turneringen där man spelade på gräset vid de franska öppna mästerskapen 1924?,Suzanne Lenglen | Helen Wills | Kitty McKane Godfree | Dorothea Douglass Lambert Chambers,2,Kitty McKane Godfree
+choice,expert,"Vilket var det första året som The Championships, Wimbledon tillät användningen av gula bollar under turneringen?",1972 | 1986 | 1988 | 1982,3,1982
+choice,expert,"Vilket år introducerade London Metropolitan Police Tennis Tournament för första gången en spelregel där man skulle serva diagonalt över nätet, och vilket mer känd spelare förlorade sin första match på grund av denna regeländring?","1874, John Hartley | 1875, Frank Hadow | 1877, William Marshall | 1878, Spencer Gore",2,"1877, William Marshall"
+choice,expert,"Vilken unik teknisk innovation, som introducerades av Major Walter C. Wingfield 1874, gav fortfarande betydande påverkan på racketdesign ända fram till introduktionen av laminering på 1940-talet?",Användandet av redgum för racketramen | Induktionshärdning av racketstriktare | Mesh-wire för strängar | Användandet av asymmetriska racketramar,1,Induktionshärdning av racketstriktare
+choice,expert,Vilket år användes den första tennisbollen i äkta gummiformel vid Wimbledon Herrar Singel turneringen och vem var spelaren?,"1875, John Hartley | 1859, Spencer Gore | 1902, Arthur Gore | 1889, William Renshaw",2,"1902, Arthur Gore"
+choice,expert,"Vilket år infördes officiellt tiebreak som standard i alla set i Wimbledon-turneringen, med undantag av det avgörande setet, och vilket var det första året som inget av herrsingelmatcherna avgjordes med tiebreak i det avgörande setet?",1971 och 2001 | 1973 och 1991 | 1979 och 2003 | 1971 och 1991,1,1973 och 1991
+choice,expert,"Vem var den första kvinna att vinna en Grand Slam-titel med hjälp av en strängad racket av naturlig tarm och trä, tagandes den tekniska utvecklingen fram till internationellt spel under de tidiga åren av tennis?",Maud Watson | Alice Marble | Lottie Dod | Helen Wills Moody,0,Maud Watson
+choice,expert,Vem var den östindiska spelaren som överraskande vann Wimbledon Gentlemen's Doubles titeln 1929 med en racket strängad med korvskinn?,Mohammad Saleem | Kamesh Patel | Lakshit Sood | Jehangir Khan,3,Jehangir Khan
+choice,expert,"Vilken mindre känd tennisspelare anses ha varit den första att genomföra 'the corkscrew serve', en särskild servteknik karaktäriserad av dess unika snurr, under tidiga 1900-talet i Grand Slam-sammanhang?",William Larned | Reginald Doherty | Maurice McLoughlin | Norman Brookes,2,Maurice McLoughlin
+choice,expert,"Vilken tennisspelare, född i slutet av 1800-talet, höll sig kvar i elitnivå trots att hon inte använde den traditionella backhandgreppet utan istället slog backhand med enhandiga slag?",Lottie Dod | May Sutton Bundy | Dorothea Douglass Lambert Chambers | Blanche Bingley Hillyard,1,May Sutton Bundy
+choice,expert,"Under vilken obskyr tennisturnering år 1915 först infördes tiebreak som metoden att avgöra ett set vid lika ställning, vilket var ett stort avsteg från de traditionella reglerna?",Michigan State Closed | Bronx Open | The Staten Island Championships | The Van Alen Streamlined Scoring System,3,The Van Alen Streamlined Scoring System
+choice,expert,Vem var den första tennisatleten att använda en racket strängad med kattungar i Wimbledon-turneringen 1885 och vilken var hans placering i turneringen det året?,"George Hillyard, utslagen i fjärde rundan | William Renshaw, vinst | Earnest Renshaw, utslagen i andra rundan | Spencer Gore, utslagen i semifinalen",0,"George Hillyard, utslagen i fjärde rundan"
+choice,expert,"Vilken är den exakta längd, i millimeter, på tennisracketen som Henri Leconte använde under sin semi-finalmatch i Roland-Garros 1988?",686mm | 707mm | 690mm | 700mm,2,690mm
+choice,expert,"Vilket år inträffade den första turneringen där tiebreak användes för att avgöra resultatet i alla set, och inte bara det avgörande setet?",1973 | 1971 | 1975 | 1979,0,1973
+choice,expert,Vilken historisk händelse ledde till introduktionen av tiebreak i det fjärde setet i Davis Cup 1970?,En match sträckte sig över två dagar | En spelare kollapsade från utmattning | En match sträckte sig över fem timmar | En serie av oavgjorda set ledde till publikens missnöje,0,En match sträckte sig över två dagar
+choice,expert,"Vem var spelaren som, under 1920-talet, introducerade den första kända westerngreppet, en teknik som revolutionerade spelsättet i tennis?",Bill Tilden | Maurice McLoughlin | Richard 'Dick' Norris Williams II | Francis Hunter,2,Richard 'Dick' Norris Williams II
+choice,expert,"Vem var den första spelaren som använde spinn-effekten (sidespin) i tennis, känd som 'screw shot', och vilket år var detta?","Adams Wills, 1907 | Norman Brookes, 1907 | Violet Pinckney, 1883 | Frank Hadow, 1877",3,"Frank Hadow, 1877"
+choice,expert,"Vilket år blev regeln om att bollen måste hållas i vila i handen innan servering införd i tennis, och vilken var den huvudsakliga anledningen till förändringen?","1894, för att minska variationen i servtyper | 1924, för att motverka 'chopping' serve | 1908, för att förhindra 'trick' servar | 1912, för att standardisera serveregler",1,"1924, för att motverka 'chopping' serve"
+choice,expert,Vilken spelare har den mest ovanliga rekorden med ett win-loss förhållande på 0-31 i singelmatcher på ATP-touren?,Vincent Spadea | Robert Dee | Steve Darcis | Donald Young,1,Robert Dee
+choice,expert,"I vilken exakt turnering och vilket år uppnådde den amerikanska tennisspelaren Vivian Woodward, mest känd för sin framstående fotbollskarriär i England, sin enskilda mest framstående prestation inom tennis?",US Open 1902 | Wimbledon 1901 | Australiska Mästerskapen 1900 | Åbo Lawn Tennis Klubb Championship 1903,3,Åbo Lawn Tennis Klubb Championship 1903
+choice,expert,Vilken var den första amerikanska kvinnan som vann Wimbledon singeltiteln i tennis före början av den öppna eran i 1968?,Helen Wills Moody | May Sutton Bundy | Dorothy Cheney | Molla Bjurstedt Mallory,1,May Sutton Bundy
+choice,expert,Vilket är namnet på den brittiska tennisspelare som var känd för sitt ovanliga grepp som involverade att hålla racketen som ett korsat svärd och var bland de första att införa det tvåhänta backhandslaget i början av 1900-talet?,Fred Perry | Kitty McKane Godfree | Francis Gordon Lowe | May Langrishe,1,Kitty McKane Godfree
+choice,expert,Vad var den första tennisbollens vikt enligt de formella reglerna skrivna av Major Walter Clopton Wingfield 1874?,55-60 gram | 50-55 gram | 45-50 gram | 60-65 gram,2,45-50 gram
+choice,expert,"Vilken tennisspelare vann en singeltitel i Wimbledon 1908, efter att ha lagt om sin teknik för att tillåta mer kraft i grundslagen, och introducede denna nya tennisracket med triangulär huvudform, vilket senare blev förbjudet av International Lawn Tennis Federation för att det ansågs ge en orättvis fördel?",Major Ritchie | Anthony Wilding | Arthur Gore | Reggie Doherty,2,Arthur Gore
+choice,expert,"Vilken spelare vann U.S. Open 1908, trots att matchen spelades på hans motståndares privatägda bana, och när därmed den första 'Hemmabane-finalen' i tennisens historia?",William Larned | Robert LeRoy | Beals Wright | Fred Alexander,0,William Larned
+choice,expert,"Vilken tennisspelare, aktiv under tidigt 1900-tal, var först med att vinna grand slam-titlar på alla tre underlagsvarianterna (gräs, grus och hardcourt) som användes vid den tiden, och vilket år hände detta?","Bill Tilden, 1933 | Jean Borotra, 1928 | Fred Perry, 1935 | Rene Lacoste, 1927",1,"Jean Borotra, 1928"
+choice,expert,"Vilket år infördes tiebreak i US Open, vilket gjorde det till den första Grand Slam-turneringen att använda denna regel?",1970 | 1975 | 1971 | 1968,2,1971
+choice,expert,Vilket år infördes 'tiebreak' för att ersätta den traditionella regeln att en set måste vinnas med två game och vem var den huvudsakliga förespråkaren för denna regeländring?,"1971, James Van Alen | 1965, John Newcombe | 1973, Billie Jean King | 1967, Rod Laver",0,"1971, James Van Alen"
+
+
+# Tiebreaker questions
+type,difficulty,question,answer,tolerance,hint
+tiebreaker,easy,Vilket år föddes Roger Federer?,1981,2,Tidigt 80-tal
+tiebreaker,easy,Hur många Grand Slam-titlar har Björn Borg vunnit totalt?,11,1,Mellan 10-12
+tiebreaker,easy,Vilket år vann Stefan Edberg sin första Wimbledon-titel?,1988,,
+tiebreaker,easy,Hur många veckor var Pete Sampras nummer 1 i världen totalt?,286,0,
+tiebreaker,easy,Vilket år startade Davis Cup?,1900,5,Runt sekelskiftet 1900
+tiebreaker,easy,Hur många gånger har Sverige vunnit Davis Cup?,7,0,
+tiebreaker,easy,Vilket år föddes Serena Williams?,1981,2,Tidigt 80-tal
+tiebreaker,easy,Hur många matcher i rad vann Novak Djokovic 2011?,43,0,
+tiebreaker,easy,Vilket år infördes tie-break i tennis?,1970,3,Runt 1970
+tiebreaker,easy,Hur många ace slog John Isner i den längsta tennismatchen någonsin?,112,10,
+tiebreaker,medium,Vilket år vann Mats Wilander sitt första French Open?,1982,0,
+tiebreaker,medium,Hur många poäng kan man maximalt få för att vinna en Challenger-turnering?,125,0,
+tiebreaker,medium,Vilket år introducerades Hawk-Eye officiellt i tennis?,2006,2,Mitten av 2000-talet
+tiebreaker,medium,Hur många km/h var Andy Roddicks snabbaste serve?,263,5,
+tiebreaker,medium,Vilket år vann Robin Söderling sin första ATP-titel?,2008,0,
+tiebreaker,medium,Hur många ATP-titlar vann Thomas Johansson totalt?,9,1,Mellan 8-10
+tiebreaker,medium,Vilket år började Magnus Norman sin proffskarriär?,1995,2,
+tiebreaker,medium,Hur många veckor var Ivan Lendl nummer 1 i världen?,270,10,Mellan 260-280
+tiebreaker,medium,Vilket år vann Steffi Graf Golden Slam?,1988,,
+tiebreaker,medium,Hur många ATP-titlar har Lleyton Hewitt vunnit?,30,2,Runt 30
+tiebreaker,hard,Vilket år vann Ken Rosewall sin sista Grand Slam-titel?,1972,2,Tidigt 70-tal
+tiebreaker,hard,Hur många dubbeltitlar vann Jonas Björkman totalt i Grand Slam?,9,1,Mellan 8-10
+tiebreaker,hard,Vilket år rankades Thomas Muster som nummer 1 första gången?,1996,1,Mitten av 90-talet
+tiebreaker,hard,Hur många game vann Vicki Nelson mot Jean Hepner i deras 6 timmar långa match 1984?,29,2,
+tiebreaker,hard,Vilket år vann Yannick Noah French Open?,1983,0,
+tiebreaker,hard,Hur många titlar vann Jimmy Connors totalt i sin karriär?,109,3,Mellan 105-112
+tiebreaker,hard,Vilket år spelade Arthur Ashe sin sista professionella match?,1980,2,Runt 1980
+tiebreaker,hard,Vilket år vann Michael Chang sin enda Grand Slam-titel i singel?,1989,0,
+tiebreaker,hard,Vilket år vann Boris Becker Wimbledon som 17-åring?,1985,0,
+tiebreaker,hard,Vilket år blev Marcelo Ríos rankad som nummer 1 i världen?,1998,0,
+tiebreaker,hard,"Hur många matcher i rad vann Martina Navratilova under 1974-1975, som fortfarande är kvinnornas rekord i singelmatcher?",74,1,
+tiebreaker,hard,Under vilket år vann Roger Federer sin 20:e Grand Slam-titel?,2018,0,
+tiebreaker,hard,Hur många titlar vann tennislegenden Jimmy Connors i singelspel under sin professionella karriär?,109,0,
+tiebreaker,hard,Hur många Grand Slam-titlar vann Martina Navratilova under sin professionella tenniskarriär?,18,0,
+tiebreaker,hard,Hur många Grand Slam-titlar vann den schweiziska tennisspelaren Roger Federer mellan åren 2000 och 2020?,20,0,
+tiebreaker,hard,Hur många Grand Slam-titlar vann tennislegenden Martina Navratilova under sin karriär?,18,0,
+tiebreaker,hard,Hur många singeltitlar vann den berömda tennisstjärnan Martina Navratilova under hela sin karriär?,167,1,
+tiebreaker,hard,Hur många professionella matcher spelade den legendariska tennisspelaren Martina Navratilova under hela sin karriär?,1661,10,
+tiebreaker,hard,Hur många gånger har Serena Williams vunnit Grand Slam-titeln i singel under sin karriär fram till 2021?,23,0,
+tiebreaker,hard,Hur många Grand Slam-titlar vann den schweiziska tennislegenden Roger Federer fram till årsskiftet 2020?,20,0,
+tiebreaker,expert,Vilket år vann René Lacoste sin första Wimbledon-titel?,1928,2,
+tiebreaker,expert,Hur många game spelades i det längsta setet i en tennismatch (Isner-Mahut)?,138,5,
+tiebreaker,expert,Vilket år grundades International Tennis Federation (ITF)?,1913,3,Strax före första världskriget
+tiebreaker,expert,Hur många minuter varade den kortaste Grand Slam-finalen någonsin (Trabert-Rosewall)?,58,3,Under en timme
+tiebreaker,expert,Vilket år infördes Open Era i tennis?,1968,1,Sent 60-tal
+tiebreaker,expert,Hur många Grand Slam-titlar vann John McEnroe i sin karriär?,7,0,
+tiebreaker,expert,Vilket år dog Arthur Ashe?,1993,1,Tidigt 90-tal
+tiebreaker,expert,Vilken spelare toppade ATP-rankingen vid slutet av 1990?,,,
+tiebreaker,expert,Vilket år vann Rod Laver sin andra Grand Slam?,1969,1,Året efter Open Era började
+tiebreaker,expert,Hur många matcher spelade Guillermo Vilas under sin 46-matchers vinstsvit 1977?,46,0,Exakt antal i vinstsviten
+tiebreaker,expert,Hur många dubbelbollar totalt servade Rod Laver under sin karriär i Grand Slam-turneringar?,352,5,
+tiebreaker,expert,Vilket år introducerades tiebreak-regeln i Wimbledon-mästerskapen?,1971,0,
+tiebreaker,expert,Hur många gånger slog John Isner sin baksida under hela maratonmatchen mot Nicolas Mahut i Wimbledon 2010?,4247,50,
+tiebreaker,expert,"Vilket år spelades det första tennismatchen där spelaren använde ett racket med en ovankant som är mer än 29 centimeter bred, vilket senare blev standard?",1987,0,
+tiebreaker,expert,"Hur många millimeter är den smalaste linjen använd i Grand Slam-turneringarna, enligt Internationella Tennisfederationens officiella regler, uttryckt i millimeter?",50,0,
+tiebreaker,expert,Vilket var det exakta året då Internationella Tennisförbundet officiellt godkände användningen av Photo-finish-teknologi för att avgöra fotfel i professionella matcher?,1963,0,
+tiebreaker,expert,"Vilket år slog Björn Borg sin rekord i antalet vinster i rad på gräsunderlag, och hur många raka vinster var det?",1978 | 41,0 | 1,
+tiebreaker,expert,"Hur många sekunder lång var den längsta utbytet någonsin i professionell tennis, som skedde mellan Vicki Nelson-Dunbar och Jean Hepner 1984?",643,10,
+tiebreaker,expert,"Vilket år introducerades den första 'tiebreak'-regeln i Grand Slam-turneringar, och hur många poäng krävdes det för att vinna en 'tiebreak' vid dess initiala införande?",1971,0,
+tiebreaker,expert,Hur många minuter varade det längsta professionella tennismatchen i historien mellan John Isner och Nicolas Mahut under Wimbledon 2010?,665,5,

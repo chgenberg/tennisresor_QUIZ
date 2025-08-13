@@ -2,6 +2,10 @@ const OpenAI = require('openai');
 const fs = require('fs');
 const { questionsDB, tiebreakerQuestions } = require('./questions.js');
 
+// Modell kan anges via CLI: --model=gpt-5-mini eller via env OPENAI_MODEL. Default: gpt-5-mini
+const argModel = (process.argv.find(a => a.startsWith('--model=')) || '').split('=')[1];
+const MODEL = argModel || process.env.OPENAI_MODEL || 'gpt-5-mini';
+
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY
 });
@@ -39,7 +43,7 @@ RÄTT: 2 (för alternativ 3, 0-indexerat)`;
 
     try {
         const completion = await openai.chat.completions.create({
-            model: "gpt-4",
+            model: MODEL,
             messages: [
                 {
                     role: "system", 
@@ -51,7 +55,7 @@ RÄTT: 2 (för alternativ 3, 0-indexerat)`;
                 }
             ],
             max_tokens: 800,
-            temperature: 0.1
+            temperature: 0
         });
 
         return completion.choices[0].message.content;
@@ -84,7 +88,7 @@ FÖRSLAG: [om korrigering behövs, ge korrigerad version]`;
 
     try {
         const completion = await openai.chat.completions.create({
-            model: "gpt-4",
+            model: MODEL,
             messages: [
                 {
                     role: "system",
@@ -96,7 +100,7 @@ FÖRSLAG: [om korrigering behövs, ge korrigerad version]`;
                 }
             ],
             max_tokens: 600,
-            temperature: 0.1
+            temperature: 0
         });
 
         return completion.choices[0].message.content;
@@ -107,7 +111,7 @@ FÖRSLAG: [om korrigering behövs, ge korrigerad version]`;
 }
 
 async function verifyAllQuestions() {
-    console.log('🎾 Startar granskning av alla tennisfrågor med OpenAI...\n');
+    console.log(`🎾 Startar granskning av alla tennisfrågor med OpenAI (modell: ${MODEL})...\n`);
     
     if (!process.env.OPENAI_API_KEY) {
         console.error('❌ OPENAI_API_KEY environment variable är inte satt!');
