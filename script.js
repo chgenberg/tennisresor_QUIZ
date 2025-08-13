@@ -473,6 +473,15 @@ class TennisQuiz {
         // Start timer (optional)
         this.startQuestionTimer();
 
+        // Auto-scroll to top for mobile/embed when new question loads
+        if (this.isEmbedded || window.innerWidth <= 768) {
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }, 100);
+        }
+
         // Update height after DOM changes
         this.postHeightToParent();
     }
@@ -938,21 +947,23 @@ class TennisQuiz {
             screen.classList.remove('active');
         });
         
-        // Show selected screen with delay for animation
-        setTimeout(() => {
-            const targetScreen = document.getElementById(screenId);
-            if (targetScreen) {
-                targetScreen.classList.add('active');
+        // Show target screen
+        const targetScreen = document.getElementById(screenId);
+        if (targetScreen) {
+            targetScreen.classList.add('active');
+            
+            // Auto-scroll to top in embed mode when showing quiz screen
+            if (this.isEmbedded && (screenId === 'quiz-screen' || screenId === 'welcome-screen')) {
+                setTimeout(() => {
+                    window.scrollTo(0, 0);
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                }, 50);
             }
             
-            this.currentScreen = screenId;
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
-
             // Notify parent for auto-resize if embedded
             this.postHeightToParent();
-        }, 100);
+        }
     }
 
     postHeightToParent() {

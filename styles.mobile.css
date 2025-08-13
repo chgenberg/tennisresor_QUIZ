@@ -157,4 +157,139 @@ html, body {
   transform: translateY(0) !important;
   box-shadow: 0 8px 20px rgba(34,197,94,.25) !important;
 }
+
+/* FIX: Quiz screen scroll och layout för embed mobile */
+.embed-mobile #quiz-screen,
+.embed-mode #quiz-screen {
+  padding: 12px !important;
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Säkerställ att quiz-content tar upp rätt plats */
+.embed-mobile .quiz-content,
+.embed-mode .quiz-content {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  padding-top: 8px !important;
+}
+
+/* Quiz header kompakt men tydlig */
+.embed-mobile .quiz-header,
+.embed-mode .quiz-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 100 !important;
+  background: white !important;
+  margin: -12px -12px 0 -12px !important;
+  padding: 16px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+}
+
+/* Question card förbättringar */
+.embed-mobile .question-card,
+.embed-mode .question-card {
+  background: white !important;
+  padding: 20px 16px !important;
+  border-radius: 16px !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+  margin-bottom: 12px !important;
+}
+
+.embed-mobile .question-text,
+.embed-mode .question-text {
+  font-size: 18px !important;
+  line-height: 1.5 !important;
+  color: #1c3846 !important;
+  margin-bottom: 20px !important;
+}
+
+/* Svarsalternativ - tydligare och mer touch-vänliga */
+.embed-mobile .answers-container,
+.embed-mode .answers-container {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.embed-mobile .answer-option,
+.embed-mode .answer-option {
+  min-height: 60px !important;
+  padding: 16px !important;
+  font-size: 16px !important;
+  border: 2px solid #e0e0e0 !important;
+  background: white !important;
+  transition: all 0.2s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  line-height: 1.3 !important;
+}
+
+.embed-mobile .answer-option:active,
+.embed-mode .answer-option:active {
+  transform: scale(0.98) !important;
+  background: #f5f5f5 !important;
+}
+
+/* Next button alltid synlig */
+.embed-mobile #next-question,
+.embed-mode #next-question {
+  position: fixed !important;
+  bottom: calc(env(safe-area-inset-bottom) + 20px) !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 200 !important;
+  min-width: 200px !important;
+  padding: 16px 32px !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
+}
+
+/* Progress bar mer synlig */
+.embed-mobile .progress-bar,
+.embed-mode .progress-bar {
+  height: 8px !important;
+  background: #e0e0e0 !important;
+  border-radius: 4px !important;
+  overflow: hidden !important;
+}
+
+.embed-mobile .progress-fill,
+.embed-mode .progress-fill {
+  background: linear-gradient(90deg, #22c55e 0%, #0fa37a 100%) !important;
+  height: 100% !important;
+  transition: width 0.3s ease !important;
+}
+
+/* Timer och poäng mer diskreta */
+.embed-mobile .timer,
+.embed-mobile .score,
+.embed-mode .timer,
+.embed-mode .score {
+  font-size: 14px !important;
+  opacity: 0.8 !important;
+}
+
+/* Auto-scroll till toppen vid ny fråga */
+.embed-mobile .screen.active,
+.embed-mode .screen.active {
+  scroll-behavior: auto !important;
+}
+
+/* Förhindra overflow på body i embed */
+.embed-mobile,
+.embed-mode,
+body.embed-mobile,
+body.embed-mode {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  overscroll-behavior: contain !important;
+}
  
