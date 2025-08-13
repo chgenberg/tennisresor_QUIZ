@@ -38,7 +38,11 @@ async function verifyQuestion(question, answers, correctIndex, difficulty) {
 
         return completion.choices[0].message.content;
     } catch (error) {
-        console.error(`Fel vid granskning av fråga: ${error.message}`);
+        console.error(`Fel vid granskning av fråga: ${error.message || ''}`);
+        if (error.status) console.error('Status:', error.status);
+        if (error.response && error.response.data) {
+            try { console.error('Response:', JSON.stringify(error.response.data, null, 2)); } catch (_) {}
+        }
         return null;
     }
 }
@@ -57,7 +61,11 @@ async function verifyTiebreakerQuestion(question, answer, tolerance, difficulty)
 
         return completion.choices[0].message.content;
     } catch (error) {
-        console.error(`Fel vid granskning av utslagsfråga: ${error.message}`);
+        console.error(`Fel vid granskning av utslagsfråga: ${error.message || ''}`);
+        if (error.status) console.error('Status:', error.status);
+        if (error.response && error.response.data) {
+            try { console.error('Response:', JSON.stringify(error.response.data, null, 2)); } catch (_) {}
+        }
         return null;
     }
 }

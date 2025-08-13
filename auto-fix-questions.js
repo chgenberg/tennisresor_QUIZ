@@ -90,7 +90,7 @@ async function fixSingleQuestion(correction) {
         const completion = await openai.chat.completions.create(withTokenLimit(base, 700));
         const response = completion.choices[0].message.content.trim();
         try { return JSON.parse(response); } catch { console.error(`   ❌ Kunde inte parsa JSON svar: ${response}`); return null; }
-    } catch (error) { console.error(`   ❌ API fel: ${error.message}`); return null; }
+    } catch (error) { console.error(`   ❌ API fel: ${error.message || ''}`); if (error.status) console.error('   Status:', error.status); if (error.response && error.response.data) { try { console.error('   Response:', JSON.stringify(error.response.data, null, 2)); } catch(_) {} } return null; }
 }
 
 function baseParams(messages) {
