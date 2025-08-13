@@ -136,13 +136,27 @@ class TennisQuiz {
         // Defensive: also bind click on .start-btn to ensure host CSS/JS doesn't block
         const startBtn = document.querySelector('.start-btn');
         if (startBtn) {
-            ['click','touchstart'].forEach(ev => {
-                startBtn.addEventListener(ev, (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    this.startQuiz();
-                }, true);
-            });
+            // Bind the startQuiz method directly with proper context
+            const boundStartQuiz = () => {
+                // Check if difficulty is selected
+                const difficulty = document.querySelector('input[name="difficulty"]:checked');
+                if (!difficulty) {
+                    this.showNotification('Vänligen välj en svårighetsgrad', 'error');
+                    return;
+                }
+                // Call startQuiz directly
+                this.startQuiz();
+            };
+            
+            // Add multiple event listeners to ensure it works
+            startBtn.addEventListener('click', boundStartQuiz);
+            startBtn.addEventListener('touchend', boundStartQuiz);
+            
+            // Also add a capturing listener to catch events before they can be stopped
+            startBtn.addEventListener('click', (e) => {
+                e.stopImmediatePropagation();
+                boundStartQuiz();
+            }, true);
         }
 
         // Privacy policy modal
