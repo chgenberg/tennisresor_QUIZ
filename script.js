@@ -533,47 +533,59 @@ class TennisQuiz {
     }
 
     checkTiebreakerAnswer(userAnswer, question) {
-        const correctAnswer = question.answer;
-        const tolerance = question.tolerance;
-        const isCorrect = Math.abs(userAnswer - correctAnswer) <= tolerance;
+        // Normalisera korrekt svar och tolerans
+        const rawAnswer = question.answer;
+        const rawTolerance = question.tolerance;
+        const correctAnswer = Array.isArray(rawAnswer) ? Number(rawAnswer[0]) : Number(rawAnswer);
+        const tolerance = Array.isArray(rawTolerance)
+            ? (Number.isFinite(Number(rawTolerance[0])) ? Number(rawTolerance[0]) : 0)
+            : (Number.isFinite(Number(rawTolerance)) ? Number(rawTolerance) : 0);
+        
+        const isCorrect = Math.abs(Number(userAnswer) - correctAnswer) <= tolerance;
         
         // Disable input
-        document.getElementById('tiebreaker-answer').disabled = true;
-        document.getElementById('submit-tiebreaker').disabled = true;
-        
-        // Update score and visual feedback
         const inputEl = document.getElementById('tiebreaker-answer');
         const submitBtn = document.getElementById('submit-tiebreaker');
+        if (inputEl) inputEl.disabled = true;
+        if (submitBtn) submitBtn.disabled = true;
         
+        // Update score and visual feedback
         if (isCorrect) {
             this.score++;
             this.updateScoreTracker('correct');
-            // Show success with green styling
-            inputEl.style.borderColor = '#22c55e';
-            inputEl.style.backgroundColor = '#f0fdf4';
-            submitBtn.style.background = 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)';
+            if (inputEl) {
+                inputEl.style.borderColor = '#22c55e';
+                inputEl.style.backgroundColor = '#f0fdf4';
+            }
+            if (submitBtn) submitBtn.style.background = 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)';
         } else {
             this.incorrectCount++;
             this.updateScoreTracker('incorrect');
-            // Show error with red styling
-            inputEl.style.borderColor = '#ef4444';
-            inputEl.style.backgroundColor = '#fef2f2';
-            submitBtn.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
+            if (inputEl) {
+                inputEl.style.borderColor = '#ef4444';
+                inputEl.style.backgroundColor = '#fef2f2';
+            }
+            if (submitBtn) submitBtn.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
         }
         
-        // Store answer
+        // Spara svar
         this.userAnswers[this.currentQuestionIndex] = {
-            selectedAnswer: userAnswer,
+            selectedAnswer: Number(userAnswer),
             correct: isCorrect,
             question: question.question,
             correctAnswer: correctAnswer,
             isTiebreaker: true
         };
         
-        // Show next button after delay
+        // Visa Next-knapp efter kort fördröjning (auto-advance i embed)
         setTimeout(() => {
-            document.getElementById('next-question').style.display = 'block';
-        }, 2000);
+            const nextEl = document.getElementById('next-question');
+            if (nextEl) nextEl.style.display = 'block';
+            if (this.isEmbedded) {
+                this.nextQuestion();
+            }
+            this.postHeightToParent();
+        }, 1000);
     }
 
     updateProgress() {
