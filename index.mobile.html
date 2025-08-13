@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Tennis Quiz (Mobil) - Tennisresor</title>
-    <link rel="stylesheet" href="styles.mobile.css?v=9">
+    <link rel="stylesheet" href="styles.mobile.css?v=10">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <meta property="og:title" content="Tennis Quiz - Testa dina kunskaper!">
     <meta property="og:description" content="Utmana dig själv med vårt interaktiva tennisquiz från Tennisresor!">
     <meta property="og:type" content="website">
-    <meta name="theme-color" content="#1c3846">
+    <meta name="theme-color" content="#3b82f6">
 </head>
 <body class="embed-mode embed-mobile">
     <div class="container">
@@ -141,49 +141,89 @@
 
         <div id="results-screen" class="screen">
             <div class="results-container">
-                <div class="results-card">
+                <div class="results-card animated">
                     <div class="results-header">
-                        <i class="fas fa-trophy trophy-icon" id="trophy-icon"></i>
-                        <h2 class="results-title">Quiz Slutfört!</h2>
-                    </div>
-                    <div class="score-display">
-                        <div class="score-circle">
-                            <span id="final-score" class="final-score">0</span>
-                            <span class="score-total">/15</span>
+                        <div class="trophy-container">
+                            <i class="fas fa-trophy trophy-icon animated" id="trophy-icon"></i>
+                            <div class="confetti-container" id="confetti"></div>
                         </div>
-                        <div class="score-percentage" id="score-percentage">0%</div>
+                        <h2 class="results-title animated">Quiz Slutfört!</h2>
                     </div>
-                    <div class="score-details">
+                    
+                    <div class="score-display animated">
+                        <div class="score-circle">
+                            <svg class="score-ring" viewBox="0 0 120 120">
+                                <circle class="score-ring-bg" cx="60" cy="60" r="54" />
+                                <circle class="score-ring-fill" cx="60" cy="60" r="54" id="score-ring" />
+                            </svg>
+                            <div class="score-text">
+                                <span id="final-score" class="final-score">0</span>
+                                <span class="score-total">/15</span>
+                            </div>
+                        </div>
+                        <div class="score-percentage animated" id="score-percentage">0%</div>
+                    </div>
+                    
+                    <div class="score-details animated">
                         <p class="score-message" id="score-message"></p>
                         <div class="difficulty-badge-result">
+                            <i class="fas fa-layer-group"></i>
                             <span id="completed-difficulty"></span>
                         </div>
+                        
+                        <div class="achievement-badges" id="achievement-badges">
+                            <!-- Dynamically added based on performance -->
+                        </div>
                     </div>
-                    <div class="share-section">
+                    
+                    <div class="share-section animated">
                         <h3 class="share-title">🎾 Dela ditt resultat!</h3>
                         <div class="share-buttons">
                             <button id="share-facebook" class="share-btn facebook">
                                 <i class="fab fa-facebook-f"></i>
-                                Facebook
+                                <span>Facebook</span>
+                            </button>
+                            <button id="share-twitter" class="share-btn twitter">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
                             </button>
                             <button id="share-whatsapp" class="share-btn whatsapp">
                                 <i class="fab fa-whatsapp"></i>
-                                WhatsApp
+                                <span>WhatsApp</span>
                             </button>
                             <button id="share-messenger" class="share-btn messenger">
                                 <i class="fab fa-facebook-messenger"></i>
-                                Messenger
+                                <span>Messenger</span>
+                            </button>
+                            <button id="share-instagram" class="share-btn instagram">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </button>
+                            <button id="share-linkedin" class="share-btn linkedin">
+                                <i class="fab fa-linkedin-in"></i>
+                                <span>LinkedIn</span>
+                            </button>
+                            <button id="share-email" class="share-btn email">
+                                <i class="fas fa-envelope"></i>
+                                <span>E-post</span>
                             </button>
                             <button id="share-copy" class="share-btn copy">
                                 <i class="fas fa-link"></i>
-                                Kopiera
+                                <span>Kopiera länk</span>
                             </button>
                         </div>
                     </div>
-                    <button id="play-again" class="play-again-btn">
-                        <i class="fas fa-play"></i>
-                        SPELA IGEN
-                    </button>
+                    
+                    <div class="action-buttons animated">
+                        <button id="play-again" class="play-again-btn primary">
+                            <i class="fas fa-redo"></i>
+                            <span>SPELA IGEN</span>
+                        </button>
+                        <button id="try-harder" class="play-again-btn secondary">
+                            <i class="fas fa-chart-line"></i>
+                            <span>PROVA SVÅRARE NIVÅ</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -222,6 +262,6 @@
     </div>
 
     <script src="questions.js"></script>
-    <script src="script.js?v=20"></script>
+    <script src="script.js?v=21"></script>
 </body>
 </html> 

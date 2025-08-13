@@ -574,31 +574,33 @@ class TennisQuiz {
         };
 
         // Visa tydlig feedback med korrekt svar
-        try {
-            const container = document.querySelector('.tiebreaker-container');
-            if (container) {
-                const old = container.querySelector('.tiebreaker-feedback');
-                if (old) old.remove();
-                const feedback = document.createElement('div');
-                feedback.className = `tiebreaker-feedback ${isCorrect ? 'ok' : 'bad'}`;
-                const toleranceText = tolerance > 0 ? ` (±${tolerance})` : '';
-                feedback.innerHTML = isCorrect
-                    ? `Rätt! Ditt svar: <strong>${Number(userAnswer)}</strong>. Korrekt svar: <strong>${correctAnswer}</strong>${toleranceText}.`
-                    : `Fel. Ditt svar: <strong>${Number(userAnswer)}</strong>. Rätt svar är: <strong>${correctAnswer}</strong>${toleranceText}.`;
-                container.appendChild(feedback);
-            }
-            this.postHeightToParent();
-        } catch (_) { /* ignore */ }
+        const tiebreakerContainer = document.querySelector('.tiebreaker-container');
+        if (tiebreakerContainer) {
+            const feedbackDiv = document.createElement('div');
+            feedbackDiv.className = `tiebreaker-result ${isCorrect ? 'correct' : 'incorrect'}`;
+            feedbackDiv.innerHTML = `
+                <div class="result-icon">
+                    <i class="fas fa-${isCorrect ? 'check-circle' : 'times-circle'}"></i>
+                </div>
+                <h3>${isCorrect ? 'Rätt svar!' : 'Fel svar!'}</h3>
+                <p>Ditt svar: <strong>${userAnswer}</strong></p>
+                <p>Rätt svar: <strong>${correctAnswer}</strong></p>
+                ${tolerance > 0 ? `<p class="tolerance-info">Tolerans: ±${tolerance}</p>` : ''}
+            `;
+            tiebreakerContainer.appendChild(feedbackDiv);
+            
+            // Add "Show Results" button
+            const showResultsBtn = document.createElement('button');
+            showResultsBtn.className = 'show-results-btn';
+            showResultsBtn.innerHTML = '<i class="fas fa-trophy"></i> Visa resultat';
+            showResultsBtn.addEventListener('click', () => {
+                this.showResults();
+            });
+            tiebreakerContainer.appendChild(showResultsBtn);
+        }
         
-        // Visa Next-knapp efter kort fördröjning (auto-advance i embed)
-        setTimeout(() => {
-            const nextEl = document.getElementById('next-question');
-            if (nextEl) nextEl.style.display = 'block';
-            if (this.isEmbedded) {
-                this.nextQuestion();
-            }
-            this.postHeightToParent();
-        }, 1000);
+        // Remove the automatic next/results call
+        // setTimeout(() => this.showResults(), 1500);
     }
 
     updateProgress() {
@@ -730,25 +732,66 @@ class TennisQuiz {
     showResults() {
         const percentage = Math.round((this.score / this.totalQuestions) * 100);
         
-        document.getElementById('final-score').textContent = `${this.score}/${this.totalQuestions}`;
+        document.getElementById('final-score').textContent = this.score;
         document.getElementById('score-percentage').textContent = `${percentage}%`;
-        document.getElementById('completed-difficulty').textContent = 
-            this.selectedDifficulty.charAt(0).toUpperCase() + this.selectedDifficulty.slice(1);
+        
+        const difficultyText = {
+            'easy': 'Lätt',
+            'medium': 'Medel',
+            'hard': 'Svår',
+            'expert': 'Expert'
+        }[this.selectedDifficulty] || this.selectedDifficulty;
+        
+        document.getElementById('completed-difficulty').textContent = difficultyText;
+        
+        // Animate score ring
+        const scoreRing = document.getElementById('score-ring');
+        if (scoreRing) {
+            const circumference = 2 * Math.PI * 54; // radius = 54
+            const offset = circumference - (percentage / 100) * circumference;
+            scoreRing.style.strokeDashoffset = offset;
+            
+            // Color based on score
+            if (percentage >= 90) {
+                scoreRing.style.stroke = '#FFD700'; // Gold
+            } else if (percentage >= 70) {
+                scoreRing.style.stroke = '#C0C0C0'; // Silver
+            } else if (percentage >= 50) {
+                scoreRing.style.stroke = '#CD7F32'; // Bronze
+            } else {
+                scoreRing.style.stroke = '#22c55e'; // Green
+            }
+        }
         
         // Show trophy animation based on score
         const trophyIcon = document.getElementById('trophy-icon');
         if (percentage >= 90) {
-            trophyIcon.className = 'fas fa-trophy';
+            trophyIcon.className = 'fas fa-trophy trophy-icon animated';
             trophyIcon.style.color = '#FFD700';
+            this.createConfetti();
         } else if (percentage >= 70) {
-            trophyIcon.className = 'fas fa-medal';
+            trophyIcon.className = 'fas fa-medal trophy-icon animated';
             trophyIcon.style.color = '#C0C0C0';
         } else if (percentage >= 50) {
-            trophyIcon.className = 'fas fa-award';
+            trophyIcon.className = 'fas fa-award trophy-icon animated';
             trophyIcon.style.color = '#CD7F32';
         } else {
-            trophyIcon.className = 'fas fa-thumbs-up';
-            trophyIcon.style.color = '#7cb342';
+            trophyIcon.className = 'fas fa-star trophy-icon animated';
+            trophyIcon.style.color = '#22c55e';
+        }
+        
+        // Add achievement badges
+        const badgesContainer = document.getElementById('achievement-badges');
+        if (badgesContainer) {
+            badgesContainer.innerHTML = '';
+            const badges = this.getAchievementBadges(percentage);
+            badges.forEach((badge, index) => {
+                const badgeEl = document.createElement('div');
+                badgeEl.className = 'achievement-badge';
+                badgeEl.style.animationDelay = `${0.6 + index * 0.1}s`;
+                badgeEl.innerHTML = `<i class="${badge.icon}"></i> ${badge.text}`;
+                badgesContainer.appendChild(badgeEl);
+            });
         }
         
         // Update score message with links
@@ -757,6 +800,9 @@ class TennisQuiz {
         
         // Setup sharing functionality
         this.setupSocialSharing(percentage);
+        
+        // Setup action buttons
+        this.setupActionButtons();
         
         this.showScreen('results-screen');
         
@@ -775,6 +821,75 @@ class TennisQuiz {
 
         // Post to parent for host page actions
         this.postResultToParent(result);
+    }
+
+    createConfetti() {
+        const container = document.getElementById('confetti');
+        if (!container) return;
+        
+        const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#ffd93d', '#6bcf7f', '#e056fd'];
+        
+        for (let i = 0; i < 30; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.left = Math.random() * 100 + 'px';
+            confetti.style.animationDelay = Math.random() * 1 + 's';
+            confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            container.appendChild(confetti);
+        }
+    }
+
+    getAchievementBadges(percentage) {
+        const badges = [];
+        
+        if (percentage === 100) {
+            badges.push({ icon: 'fas fa-crown', text: 'Perfekt!' });
+        }
+        if (percentage >= 90) {
+            badges.push({ icon: 'fas fa-fire', text: 'På eld!' });
+        }
+        if (this.selectedDifficulty === 'expert' && percentage >= 70) {
+            badges.push({ icon: 'fas fa-brain', text: 'Expert' });
+        }
+        if (this.score >= 13) {
+            badges.push({ icon: 'fas fa-rocket', text: 'Tennismästare' });
+        }
+        
+        return badges;
+    }
+
+    setupActionButtons() {
+        const playAgainBtn = document.getElementById('play-again');
+        const tryHarderBtn = document.getElementById('try-harder');
+        
+        if (playAgainBtn) {
+            playAgainBtn.replaceWith(playAgainBtn.cloneNode(true));
+            const newPlayAgain = document.getElementById('play-again');
+            newPlayAgain.addEventListener('click', () => {
+                window.location.reload();
+            });
+        }
+        
+        if (tryHarderBtn) {
+            tryHarderBtn.replaceWith(tryHarderBtn.cloneNode(true));
+            const newTryHarder = document.getElementById('try-harder');
+            
+            // Determine next difficulty
+            const difficulties = ['easy', 'medium', 'hard', 'expert'];
+            const currentIndex = difficulties.indexOf(this.selectedDifficulty);
+            const nextDifficulty = difficulties[Math.min(currentIndex + 1, difficulties.length - 1)];
+            
+            if (currentIndex === difficulties.length - 1) {
+                newTryHarder.style.display = 'none';
+            } else {
+                newTryHarder.addEventListener('click', () => {
+                    const params = new URLSearchParams(window.location.search);
+                    params.set('level', nextDifficulty);
+                    window.location.search = params.toString();
+                });
+            }
+        }
     }
 
     postResultToParent(result) {
@@ -1011,137 +1126,138 @@ class TennisQuiz {
     }
 
     setupSocialSharing(percentage) {
-        const difficultyNames = {
-            easy: 'Lätt',
-            medium: 'Medel', 
-            hard: 'Svår',
-            expert: 'Expert'
-        };
-        const baseMessage = `Jag fick ${this.score}/${this.totalQuestions} rätt (${percentage}%) i Tennisresor.net QUIZ på ${difficultyNames[this.selectedDifficulty]} nivå! 🎾`;
-        const encouragement = "Hur många rätt får du? Testa ditt tennis-kunnande! 💪";
-        const url = "https://www.tennisresor.net";
-
-        const sharePayload = {
-            title: 'Tennisresor – Quiz',
-            text: `${baseMessage}\n\n${encouragement}`,
-            url
-        };
-
-        // Create sharing buttons if they don't exist
-        this.createSharingButtons();
-
-        // Generic Web Share API handler
-        const tryWebShare = async () => {
-            if (navigator.share) {
-                try { await navigator.share(sharePayload); return true; } catch (_) { return false; }
-            }
-            return false;
-        };
-
-        // Facebook
-        const facebookBtn = document.getElementById('share-facebook');
-        if (facebookBtn) {
-            facebookBtn.onclick = async (e) => {
-                e.preventDefault();
-                if (await tryWebShare()) return;
-                const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(baseMessage + ' ' + encouragement)}`;
-                window.open(facebookUrl, '_blank', 'width=600,height=400');
-            };
-        }
-
-        // WhatsApp
-        const whatsappBtn = document.getElementById('share-whatsapp');
-        if (whatsappBtn) {
-            whatsappBtn.onclick = async (e) => {
-                e.preventDefault();
-                if (await tryWebShare()) return;
-                const whatsappMessage = `${baseMessage}\n\n${encouragement}\n\n${url}`;
-                const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappMessage)}`;
-                window.open(whatsappUrl, '_blank');
-            };
-        }
-
-        // Messenger
-        const messengerBtn = document.getElementById('share-messenger');
-        if (messengerBtn) {
-            messengerBtn.onclick = async (e) => {
-                e.preventDefault();
-                if (await tryWebShare()) return;
-                const messengerText = `${baseMessage}\n\n${encouragement}\n\n${url}`;
-                const messengerUrl = `https://m.me/?text=${encodeURIComponent(messengerText)}`;
-                window.open(messengerUrl, '_blank');
-            };
-        }
-
-        // Copy link
-        const copyBtn = document.getElementById('copy-link') || document.getElementById('share-copy');
-        if (copyBtn) {
-            copyBtn.onclick = async (e) => {
-                e.preventDefault();
-                const textToCopy = `${baseMessage}\n\n${encouragement}\n\n${url}`;
-                if (navigator.clipboard?.writeText) {
-                    await navigator.clipboard.writeText(textToCopy);
-                } else {
-                    const ta = document.createElement('textarea');
-                    ta.value = textToCopy; document.body.appendChild(ta); ta.select();
-                    document.execCommand('copy'); document.body.removeChild(ta);
+        const shareText = `Jag fick ${this.score}/${this.totalQuestions} rätt (${percentage}%) på Tennisresors quiz på ${this.selectedDifficulty === 'easy' ? 'lätt' : this.selectedDifficulty === 'medium' ? 'medel' : this.selectedDifficulty === 'hard' ? 'svår' : 'expert'} nivå! 🎾`;
+        const shareUrl = window.location.href.split('?')[0];
+        
+        // Try native share first if available
+        if (navigator.share) {
+            const shareNative = async (platform) => {
+                try {
+                    await navigator.share({
+                        title: 'Tennisresors Quiz',
+                        text: shareText,
+                        url: shareUrl
+                    });
+                } catch (err) {
+                    // Fallback to platform-specific
+                    this.shareToPlatform(platform, shareText, shareUrl);
                 }
-                this.showCopyFeedback(copyBtn);
             };
-        }
-    }
-    
-    createSharingButtons() {
-        const actionButtons = document.querySelector('.action-buttons');
-        if (!actionButtons) return;
-        
-        // Remove old buttons except play again
-        const existingShares = actionButtons.querySelectorAll('.share-btn');
-        existingShares.forEach(btn => btn.remove());
-        
-        // Create new sharing section
-        const sharingSection = document.createElement('div');
-        sharingSection.className = 'sharing-section';
-        sharingSection.innerHTML = `
-            <h4 class="sharing-title">🎾 Dela ditt resultat!</h4>
-            <div class="sharing-buttons">
-                <button id="share-facebook" class="share-btn facebook-btn">
-                    <i class="fab fa-facebook-f"></i>
-                    <span>Facebook</span>
-                </button>
-                <button id="share-whatsapp" class="share-btn whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i>
-                    <span>WhatsApp</span>
-                </button>
-                <button id="share-messenger" class="share-btn messenger-btn">
-                    <i class="fab fa-facebook-messenger"></i>
-                    <span>Messenger</span>
-                </button>
-                <button id="copy-link" class="share-btn copy-btn">
-                    <i class="fas fa-link"></i>
-                    <span>Kopiera</span>
-                </button>
-            </div>
-        `;
-        
-        // Insert before play again button
-        const playAgainBtn = actionButtons.querySelector('.play-again-btn');
-        if (playAgainBtn) {
-            actionButtons.insertBefore(sharingSection, playAgainBtn);
+            
+            // Add native share to all buttons
+            document.querySelectorAll('.share-btn').forEach(btn => {
+                const platform = btn.id.replace('share-', '');
+                btn.addEventListener('click', () => shareNative(platform));
+            });
         } else {
-            actionButtons.appendChild(sharingSection);
+            // Desktop/fallback sharing
+            document.getElementById('share-facebook')?.addEventListener('click', () => {
+                this.shareToPlatform('facebook', shareText, shareUrl);
+            });
+            
+            document.getElementById('share-twitter')?.addEventListener('click', () => {
+                this.shareToPlatform('twitter', shareText, shareUrl);
+            });
+            
+            document.getElementById('share-whatsapp')?.addEventListener('click', () => {
+                this.shareToPlatform('whatsapp', shareText, shareUrl);
+            });
+            
+            document.getElementById('share-messenger')?.addEventListener('click', () => {
+                this.shareToPlatform('messenger', shareText, shareUrl);
+            });
+            
+            document.getElementById('share-instagram')?.addEventListener('click', () => {
+                this.shareToPlatform('instagram', shareText, shareUrl);
+            });
+            
+            document.getElementById('share-linkedin')?.addEventListener('click', () => {
+                this.shareToPlatform('linkedin', shareText, shareUrl);
+            });
+            
+            document.getElementById('share-email')?.addEventListener('click', () => {
+                this.shareToPlatform('email', shareText, shareUrl);
+            });
+            
+            document.getElementById('share-copy')?.addEventListener('click', () => {
+                this.copyToClipboard(`${shareText}\n${shareUrl}`);
+            });
         }
     }
     
-    showCopyFeedback(button) {
-        const originalContent = button.innerHTML;
-        button.innerHTML = '<i class="fas fa-check"></i><span>Kopierat!</span>';
-        button.style.background = 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)';
+    shareToPlatform(platform, text, url) {
+        const encodedText = encodeURIComponent(text);
+        const encodedUrl = encodeURIComponent(url);
         
-        setTimeout(() => {
-            button.innerHTML = originalContent;
-            button.style.background = '';
-        }, 2000);
+        let shareLink = '';
+        
+        switch(platform) {
+            case 'facebook':
+                shareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`;
+                break;
+            case 'twitter':
+                shareLink = `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`;
+                break;
+            case 'whatsapp':
+                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                shareLink = isMobile 
+                    ? `whatsapp://send?text=${encodedText}%20${encodedUrl}`
+                    : `https://web.whatsapp.com/send?text=${encodedText}%20${encodedUrl}`;
+                break;
+            case 'messenger':
+                shareLink = `fb-messenger://share?link=${encodedUrl}`;
+                // Fallback for desktop
+                if (!/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+                    shareLink = `https://www.facebook.com/dialog/send?link=${encodedUrl}&app_id=YOUR_APP_ID&redirect_uri=${encodedUrl}`;
+                }
+                break;
+            case 'instagram':
+                // Instagram doesn't support direct URL sharing, copy to clipboard instead
+                this.copyToClipboard(`${text}\n${url}`, 'Text kopierad! Klistra in i Instagram.');
+                return;
+            case 'linkedin':
+                shareLink = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
+                break;
+            case 'email':
+                const subject = encodeURIComponent('Kolla in mitt resultat på Tennisresors Quiz!');
+                shareLink = `mailto:?subject=${subject}&body=${encodedText}%0A%0A${encodedUrl}`;
+                break;
+            case 'copy':
+                this.copyToClipboard(`${text}\n${url}`);
+                return;
+        }
+        
+        if (shareLink) {
+            window.open(shareLink, '_blank', 'width=600,height=400');
+        }
+    }
+    
+    copyToClipboard(text, message = 'Länk kopierad!') {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(() => {
+                this.showNotification(message, 'success');
+            }).catch(() => {
+                this.fallbackCopyToClipboard(text);
+            });
+        } else {
+            this.fallbackCopyToClipboard(text);
+        }
+    }
+    
+    fallbackCopyToClipboard(text) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            this.showNotification('Länk kopierad!', 'success');
+        } catch (err) {
+            this.showNotification('Kunde inte kopiera länken', 'error');
+        }
+        document.body.removeChild(textArea);
     }
 
     async logResult(result) {
