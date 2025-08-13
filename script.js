@@ -269,7 +269,7 @@ class TennisQuiz {
         const difficulty = document.querySelector('input[name="difficulty"]:checked');
 
         // Embed mode or when email/consent fields are not present: only difficulty required
-        if (this.isEmbedded || !document.getElementById('email')) {
+        if (!document.getElementById('email')) {
             if (!difficulty) {
                 this.showNotification('Vänligen välj en svårighetsgrad', 'error');
                 return false;
@@ -358,10 +358,10 @@ class TennisQuiz {
         this.userEmail = emailEl ? emailEl.value.trim() : '';
         this.selectedDifficulty = document.querySelector('input[name="difficulty"]:checked').value;
         
-        // Newsletter signup temporarily disabled - can be re-enabled later
-        // if (document.getElementById('privacy-consent').checked) {
-        //     await this.subscribeEmailToMailchimp(this.userEmail);
-        // }
+        // Prenumerera via Mailchimp om samtycke är ikryssat
+        if (document.getElementById('privacy-consent')?.checked) {
+            await this.subscribeEmailToMailchimp(this.userEmail);
+        }
         
         // Generate random questions for selected difficulty
         this.generateQuestions();

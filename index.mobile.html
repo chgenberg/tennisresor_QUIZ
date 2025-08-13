@@ -45,8 +45,15 @@
             <div class="welcome-right">
                 <form id="start-form" class="start-form">
                     <div class="form-header">
-                        <h2>Välj svårighetsgrad</h2>
-                        <p>Starta direkt – endast nivå krävs</p>
+                        <h2>Börja ditt quiz</h2>
+                        <p>Ange e‑post och välj svårighetsgrad</p>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">E‑postadress</label>
+                        <div class="input-wrapper">
+                            <input type="email" id="email" required placeholder="din@email.se">
+                            <i class="fas fa-envelope input-icon"></i>
+                        </div>
                     </div>
                     <div class="difficulty-selector">
                         <div class="difficulty-options">
@@ -79,6 +86,13 @@
                                 </div>
                             </label>
                         </div>
+                    </div>
+                    <div class="privacy-consent">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="privacy-consent" required>
+                            <span class="checkmark"></span>
+                            <span>Jag godkänner integritetsvillkoren och att få nyhetsbrev från Tennisresor</span>
+                        </label>
                     </div>
                     <button type="submit" class="start-btn">
                         <i class="fas fa-play"></i>
