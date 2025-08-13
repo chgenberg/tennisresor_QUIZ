@@ -194,6 +194,11 @@ class TennisQuiz {
         selectedCard.classList.add('selected');
         
         this.selectedDifficulty = difficulty;
+
+        // Auto-start in embed mode to avoid Start button clicks being blocked by hosts
+        if (this.isEmbedded) {
+            setTimeout(() => this.startQuizWithParams('', difficulty), 50);
+        }
     }
 
     showPrivacyModal() {
