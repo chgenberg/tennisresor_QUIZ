@@ -10,6 +10,13 @@ const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY
 });
 
+function withTokenLimit(baseParams, limit) {
+    if ((MODEL || '').startsWith('gpt-5')) {
+        return { ...baseParams, max_completion_tokens: limit };
+    }
+    return { ...baseParams, max_tokens: limit };
+}
+
 async function verifyQuestion(question, answers, correctIndex, difficulty) {
     const prompt = `Du är en tennisexpert och språkgranskare. Granska denna tennisfråga noggrant:
 
@@ -42,21 +49,17 @@ SVAR: ["Alt 1", "Alt 2", "Alt 3", "Alt 4"]
 RÄTT: 2 (för alternativ 3, 0-indexerat)`;
 
     try {
-        const completion = await openai.chat.completions.create({
+        const base = {
             model: MODEL,
             messages: [
-                {
-                    role: "system", 
-                    content: "Du är en professionell tennisexpert och språkgranskare som granskar quiz-frågor för korrekt svenska och tennisfakta."
-                },
-                {
-                    role: "user",
-                    content: prompt
-                }
+                { role: "system", content: "Du är en professionell tennisexpert och språkgranskare som granskar quiz-frågor för korrekt svenska och tennisfakta." },
+                { role: "user", content: prompt }
             ],
-            max_tokens: 800,
             temperature: 0
-        });
+        };
+        const completion = await openai.chat.completions.create(
+            withTokenLimit(base, 800)
+        );
 
         return completion.choices[0].message.content;
     } catch (error) {
@@ -87,21 +90,17 @@ TOLERANS: [kommentar om toleransen]
 FÖRSLAG: [om korrigering behövs, ge korrigerad version]`;
 
     try {
-        const completion = await openai.chat.completions.create({
+        const base = {
             model: MODEL,
             messages: [
-                {
-                    role: "system",
-                    content: "Du är en professionell tennisexpert som granskar utslagsfrågor för tennis-quiz."
-                },
-                {
-                    role: "user", 
-                    content: prompt
-                }
+                { role: "system", content: "Du är en professionell tennisexpert som granskar utslagsfrågor för tennis-quiz." },
+                { role: "user", content: prompt }
             ],
-            max_tokens: 600,
             temperature: 0
-        });
+        };
+        const completion = await openai.chat.completions.create(
+            withTokenLimit(base, 600)
+        );
 
         return completion.choices[0].message.content;
     } catch (error) {
@@ -119,40 +118,19 @@ async function verifyAllQuestions() {
         return;
     }
 
-    const results = {
-        total: 0,
-        needsCorrection: 0,
-        errors: 0,
-        corrections: []
-    };
+    const results = { total: 0, needsCorrection: 0, errors: 0, corrections: [] };
 
-    // Granska vanliga frågor
     for (const [difficulty, questions] of Object.entries(questionsDB)) {
         console.log(`\n📊 Granskar ${difficulty.toUpperCase()} (${questions.length} frågor):`);
-        
         for (let i = 0; i < questions.length; i++) {
             const q = questions[i];
             results.total++;
-            
             console.log(`  Fråga ${i + 1}/${questions.length}: Granskar...`);
-            
-            const verification = await verifyQuestion(
-                q.question, 
-                q.answers, 
-                q.correct, 
-                difficulty
-            );
-            
+            const verification = await verifyQuestion(q.question, q.answers, q.correct, difficulty);
             if (verification) {
                 if (verification.includes('STATUS: KORRIGERA')) {
                     results.needsCorrection++;
-                    results.corrections.push({
-                        type: 'regular',
-                        difficulty,
-                        index: i,
-                        original: q,
-                        verification
-                    });
+                    results.corrections.push({ type: 'regular', difficulty, index: i, original: q, verification });
                     console.log(`    ⚠️  Behöver korrigering`);
                 } else {
                     console.log(`    ✅ OK`);
@@ -161,40 +139,22 @@ async function verifyAllQuestions() {
                 results.errors++;
                 console.log(`    ❌ Fel vid granskning`);
             }
-            
-            // Kort paus för att undvika rate limiting
-            await new Promise(resolve => setTimeout(resolve, 500));
+            await new Promise(r => setTimeout(r, 500));
         }
     }
 
-    // Granska utslagsfrågor
     console.log('\n🎯 Granskar UTSLAGSFRÅGOR:');
     for (const [difficulty, questions] of Object.entries(tiebreakerQuestions)) {
         console.log(`\n📊 Granskar ${difficulty.toUpperCase()} utslagsfrågor (${questions.length} frågor):`);
-        
         for (let i = 0; i < questions.length; i++) {
             const q = questions[i];
             results.total++;
-            
             console.log(`  Utslagsfråga ${i + 1}/${questions.length}: Granskar...`);
-            
-            const verification = await verifyTiebreakerQuestion(
-                q.question,
-                q.answer,
-                q.tolerance,
-                difficulty
-            );
-            
+            const verification = await verifyTiebreakerQuestion(q.question, q.answer, q.tolerance, difficulty);
             if (verification) {
                 if (verification.includes('STATUS: KORRIGERA')) {
                     results.needsCorrection++;
-                    results.corrections.push({
-                        type: 'tiebreaker',
-                        difficulty,
-                        index: i,
-                        original: q,
-                        verification
-                    });
+                    results.corrections.push({ type: 'tiebreaker', difficulty, index: i, original: q, verification });
                     console.log(`    ⚠️  Behöver korrigering`);
                 } else {
                     console.log(`    ✅ OK`);
@@ -203,16 +163,13 @@ async function verifyAllQuestions() {
                 results.errors++;
                 console.log(`    ❌ Fel vid granskning`);
             }
-            
-            await new Promise(resolve => setTimeout(resolve, 500));
+            await new Promise(r => setTimeout(r, 500));
         }
     }
 
-    // Spara resultat
     const reportFile = `question-verification-report-${Date.now()}.json`;
     fs.writeFileSync(reportFile, JSON.stringify(results, null, 2));
 
-    // Sammanfattning
     console.log('\n' + '='.repeat(60));
     console.log('📋 GRANSKNINGSRAPPORT:');
     console.log('='.repeat(60));
@@ -225,7 +182,6 @@ async function verifyAllQuestions() {
     if (results.needsCorrection > 0) {
         console.log('\n🔧 FRÅGOR SOM BEHÖVER KORRIGERING:');
         console.log('-'.repeat(40));
-        
         results.corrections.forEach((correction, index) => {
             console.log(`\n${index + 1}. ${correction.type.toUpperCase()} - ${correction.difficulty.toUpperCase()} #${correction.index + 1}`);
             console.log(`Fråga: "${correction.original.question}"`);
@@ -238,7 +194,6 @@ async function verifyAllQuestions() {
     console.log('\n🎾 Granskning klar!');
 }
 
-// Kör granskning om detta script körs direkt
 if (require.main === module) {
     verifyAllQuestions().catch(console.error);
 }

@@ -7,9 +7,14 @@ const argModel = (process.argv.find(a => a.startsWith('--model=')) || '').split(
 const MODEL = argModel || process.env.OPENAI_MODEL || 'gpt-5';
 const argReport = (process.argv.find(a => a.startsWith('--report=')) || '').split('=')[1];
 
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY
-});
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
+function withTokenLimit(baseParams, limit) {
+    if ((MODEL || '').startsWith('gpt-5')) {
+        return { ...baseParams, max_completion_tokens: limit };
+    }
+    return { ...baseParams, max_tokens: limit };
+}
 
 function findLatestReport() {
     const files = fs.readdirSync(process.cwd())
@@ -21,72 +26,38 @@ function findLatestReport() {
 
 async function autoFixQuestions() {
     console.log(`🤖 Startar automatisk korrigering med OpenAI (modell: ${MODEL})...\n`);
-    
-    if (!process.env.OPENAI_API_KEY) {
-        console.error('❌ OPENAI_API_KEY environment variable är inte satt!');
-        return;
-    }
+    if (!process.env.OPENAI_API_KEY) { console.error('❌ OPENAI_API_KEY environment variable är inte satt!'); return; }
 
-    // Läs rapporten
     const reportFile = argReport || findLatestReport();
-    if (!reportFile || !fs.existsSync(reportFile)) {
-        console.error('❌ Kan inte hitta rapportfil. Kör först verifieringen eller ange --report=...');
-        return;
-    }
+    if (!reportFile || !fs.existsSync(reportFile)) { console.error('❌ Kan inte hitta rapportfil. Kör först verifieringen eller ange --report=...'); return; }
     console.log('📄 Använder rapport:', reportFile);
 
     const report = JSON.parse(fs.readFileSync(reportFile, 'utf8'));
-    if (!report.corrections || !report.corrections.length) {
-        console.log('✅ Inga korrigeringar att applicera.');
-        return;
-    }
+    if (!report.corrections || !report.corrections.length) { console.log('✅ Inga korrigeringar att applicera.'); return; }
     console.log(`📊 Hittade ${report.corrections.length} frågor som behöver korrigering\n`);
 
-    // Läs nuvarande frågor
     const questionsData = fs.readFileSync('questions.js', 'utf8');
-    
-    // Skapa backup
     const backupFile = `questions-backup-${Date.now()}.js`;
     fs.writeFileSync(backupFile, questionsData);
     console.log(`💾 Backup skapad: ${backupFile}\n`);
 
-    let fixedCount = 0;
-    let failedCount = 0;
-    const fixedQuestions = [];
+    let fixedCount = 0, failedCount = 0; const fixedQuestions = [];
 
     for (let i = 0; i < report.corrections.length; i++) {
         const correction = report.corrections[i];
         console.log(`🔧 Fixar ${i + 1}/${report.corrections.length}: ${correction.type} - ${correction.difficulty} #${correction.index + 1}`);
-        
         try {
             const fixed = await fixSingleQuestion(correction);
-            if (fixed) {
-                fixedQuestions.push({ ...correction, fixed });
-                fixedCount++;
-                console.log(`   ✅ Fixad!`);
-            } else {
-                failedCount++;
-                console.log(`   ❌ Kunde inte fixa`);
-            }
-        } catch (error) {
-            failedCount++;
-            console.error(`   ❌ Fel: ${error.message}`);
-        }
-        
-        // Kort paus
-        await new Promise(resolve => setTimeout(resolve, 300));
+            if (fixed) { fixedQuestions.push({ ...correction, fixed }); fixedCount++; console.log('   ✅ Fixad!'); }
+            else { failedCount++; console.log('   ❌ Kunde inte fixa'); }
+        } catch (error) { failedCount++; console.error(`   ❌ Fel: ${error.message}`); }
+        await new Promise(r => setTimeout(r, 300));
     }
 
-    // Applicera alla fixar
     console.log('\n🔨 Applicerar alla korrigeringar...');
     const newQuestionsFile = await applyAllFixes(fixedQuestions);
-    
-    if (newQuestionsFile) {
-        fs.writeFileSync('questions.js', newQuestionsFile);
-        console.log('✅ Alla korrigeringar tillämpade!');
-    }
+    if (newQuestionsFile) { fs.writeFileSync('questions.js', newQuestionsFile); console.log('✅ Alla korrigeringar tillämpade!'); }
 
-    // Sammanfattning
     console.log('\n' + '='.repeat(60));
     console.log('🎉 AUTOMATISK KORRIGERING SLUTFÖRD!');
     console.log('='.repeat(60));
@@ -94,16 +65,8 @@ async function autoFixQuestions() {
     console.log(`❌ Misslyckades: ${failedCount}`);
     console.log(`💾 Backup sparad som: ${backupFile}`);
     console.log(`📄 Nya frågor sparade i: questions.js`);
-    
-    // Spara rapport över fixar
-    const fixReport = {
-        timestamp: new Date().toISOString(),
-        model: MODEL,
-        totalFixed: fixedCount,
-        totalFailed: failedCount,
-        fixes: fixedQuestions
-    };
-    
+
+    const fixReport = { timestamp: new Date().toISOString(), model: MODEL, totalFixed: fixedCount, totalFailed: failedCount, fixes: fixedQuestions };
     const fixReportFile = `auto-fix-report-${Date.now()}.json`;
     fs.writeFileSync(fixReportFile, JSON.stringify(fixReport, null, 2));
     console.log(`📋 Fix-rapport sparad: ${fixReportFile}`);
@@ -141,55 +104,18 @@ VIKTIGT:
 - Svara ENDAST med JSON, inget annat text`;
 
     try {
-        const completion = await openai.chat.completions.create({
-            model: MODEL,
-            messages: [
-                {
-                    role: "system",
-                    content: "Du är en tennisexpert som korrigerar quiz-frågor. Svara endast med giltigt JSON."
-                },
-                {
-                    role: "user",
-                    content: prompt
-                }
-            ],
-            max_tokens: 700,
-            temperature: 0
-        });
-
+        const base = { model: MODEL, messages: [ { role: 'system', content: 'Du är en tennisexpert som korrigerar quiz-frågor. Svara endast med giltigt JSON.' }, { role: 'user', content: prompt } ], temperature: 0 };
+        const completion = await openai.chat.completions.create(withTokenLimit(base, 700));
         const response = completion.choices[0].message.content.trim();
-        
-        // Försök parsa JSON
-        try {
-            const fixedQuestion = JSON.parse(response);
-            return fixedQuestion;
-        } catch (parseError) {
-            console.error(`   ❌ Kunde inte parsa JSON svar: ${response}`);
-            return null;
-        }
-        
-    } catch (error) {
-        console.error(`   ❌ API fel: ${error.message}`);
-        return null;
-    }
+        try { return JSON.parse(response); } catch { console.error(`   ❌ Kunde inte parsa JSON svar: ${response}`); return null; }
+    } catch (error) { console.error(`   ❌ API fel: ${error.message}`); return null; }
 }
 
 async function applyAllFixes(fixedQuestions) {
     try {
-        // Läs nuvarande questions.js
         delete require.cache[require.resolve('./questions.js')];
         const { questionsDB, tiebreakerQuestions } = require('./questions.js');
-        
-        // Applicera alla fixar
-        fixedQuestions.forEach(fix => {
-            if (fix.type === 'regular') {
-                questionsDB[fix.difficulty][fix.index] = fix.fixed;
-            } else if (fix.type === 'tiebreaker') {
-                tiebreakerQuestions[fix.difficulty][fix.index] = fix.fixed;
-            }
-        });
-
-        // Generera ny fil
+        fixedQuestions.forEach(fix => { if (fix.type === 'regular') questionsDB[fix.difficulty][fix.index] = fix.fixed; else if (fix.type === 'tiebreaker') tiebreakerQuestions[fix.difficulty][fix.index] = fix.fixed; });
         const newFile = `// Tennis Quiz Questions Database - Auto-korrigerad ${new Date().toISOString()}
 const questionsDB = ${JSON.stringify(questionsDB, null, 4)};
 
@@ -200,18 +126,10 @@ const tiebreakerQuestions = ${JSON.stringify(tiebreakerQuestions, null, 4)};
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { questionsDB, tiebreakerQuestions };
 }`;
-
         return newFile;
-        
-    } catch (error) {
-        console.error('❌ Fel vid applicering av fixar:', error.message);
-        return null;
-    }
+    } catch (error) { console.error('❌ Fel vid applicering av fixar:', error.message); return null; }
 }
 
-// Kör auto-fix
-if (require.main === module) {
-    autoFixQuestions().catch(console.error);
-}
+if (require.main === module) { autoFixQuestions().catch(console.error); }
 
 module.exports = { autoFixQuestions }; 
