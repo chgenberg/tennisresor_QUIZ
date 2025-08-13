@@ -207,6 +207,15 @@ class TennisQuiz {
         const difficulty = document.querySelector('input[name="difficulty"]:checked');
         const privacy = document.getElementById('privacy-consent').checked;
 
+        // In embed mode (Shopify), only difficulty is required
+        if (this.isEmbedded) {
+            if (!difficulty) {
+                this.showNotification('Vänligen välj en svårighetsgrad', 'error');
+                return false;
+            }
+            return true;
+        }
+
         if (!email || !this.isValidEmail(email)) {
             this.showNotification('Vänligen ange en giltig e-postadress', 'error');
             return false;
