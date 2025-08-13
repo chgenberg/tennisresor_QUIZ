@@ -63,7 +63,7 @@ class TennisQuiz {
         const levelParamRaw = (params.get('level') || params.get('difficulty') || params.get('lvl') || '').toLowerCase();
         const embedMode = params.get('embed') === '1' || params.has('shopify');
         const viewParam = (params.get('view') || '').toLowerCase();
-        const autostart = params.get('autostart') === '1' || params.get('start') === '1' || (!!emailParam && !!levelParamRaw);
+        const autostartFlag = params.get('autostart') === '1' || params.get('start') === '1';
 
         // If embedded, add body class to simplify welcome UI
         if (embedMode) {
@@ -72,7 +72,6 @@ class TennisQuiz {
                 document.body.classList.add('embed-mobile');
             }
         }
-        // Fallback: if body already has embed-mode class, treat as embedded
         if (document.body.classList.contains('embed-mode')) {
             this.isEmbedded = true;
         }
@@ -84,13 +83,19 @@ class TennisQuiz {
             'expert': 'expert'
         };
         const mappedDifficulty = levelMap[levelParamRaw];
-        
-        if (autostart) {
-            const difficultyToUse = mappedDifficulty || 'medium';
-            this.startQuizWithParams(emailParam, difficultyToUse);
-            return true;
+
+        // Only prefill fields; do not auto-start
+        const emailInput = document.getElementById('email');
+        if (emailInput && emailParam) {
+            emailInput.value = emailParam;
         }
-        
+        if (mappedDifficulty) {
+            const radio = document.querySelector(`input[name="difficulty"][value="${mappedDifficulty}"]`);
+            if (radio) {
+                radio.checked = true;
+                this.updateDifficultySelection(mappedDifficulty);
+            }
+        }
         return false;
     }
 
@@ -233,26 +238,17 @@ class TennisQuiz {
         });
     }
 
-    updateDifficultySelection(difficulty) {
-        // Remove previous selections
-        document.querySelectorAll('.option-card').forEach(card => {
-            card.classList.remove('selected');
-        });
-        
-        // Add selection to current choice
-        const selectedCard = document.querySelector(`input[value="${difficulty}"]`).nextElementSibling;
-        selectedCard.classList.add('selected');
-        
-        this.selectedDifficulty = difficulty;
-
-        // Auto-start in embed mode to avoid Start button clicks being blocked by hosts
-        if (this.isEmbedded) {
-            setTimeout(() => this.startQuizWithParams('', difficulty), 50);
-        } else {
-            // Ensure Start button becomes enabled when difficulty chosen
-            const startBtnEl = document.querySelector('.start-btn');
-            if (startBtnEl) startBtnEl.disabled = false;
+    updateDifficultySelection(difficulty) { // Called when a difficulty radio is changed
+        document.querySelectorAll('.option-card').forEach(card => card.classList.remove('selected'));
+        const selectedRadio = document.querySelector(`input[name="difficulty"][value="${difficulty}"]`);
+        if (selectedRadio) {
+            selectedRadio.nextElementSibling.classList.add('selected');
         }
+        this.selectedDifficulty = difficulty; // Update internal state
+
+        // Do NOT auto-start; require Start button and consent/email
+        const startBtnEl = document.querySelector('.start-btn');
+        if (startBtnEl) startBtnEl.disabled = false;
     }
 
     showPrivacyModal() {
