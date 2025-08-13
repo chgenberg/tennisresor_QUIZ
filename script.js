@@ -121,9 +121,12 @@ class TennisQuiz {
 
     initializeEventListeners() {
         // Hero CTA button
-        document.getElementById('start-quiz-hero').addEventListener('click', () => {
-            this.showScreen('welcome-screen');
-        });
+        const heroBtn = document.getElementById('start-quiz-hero');
+        if (heroBtn) {
+            heroBtn.addEventListener('click', () => {
+                this.showScreen('welcome-screen');
+            });
+        }
 
         // Start form submission
         document.getElementById('start-form').addEventListener('submit', (e) => {
@@ -143,10 +146,13 @@ class TennisQuiz {
         }
 
         // Privacy policy modal
-        document.getElementById('privacy-link').addEventListener('click', (e) => {
-            e.preventDefault();
-            this.showPrivacyModal();
-        });
+        const privacyLink = document.getElementById('privacy-link');
+        if (privacyLink) {
+            privacyLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.showPrivacyModal();
+            });
+        }
 
         // Modal close events
         document.querySelectorAll('.close-modal, .close-modal-btn').forEach(element => {
@@ -156,35 +162,48 @@ class TennisQuiz {
         });
 
         // Close modal when clicking outside
-        document.getElementById('privacy-modal').addEventListener('click', (e) => {
-            if (e.target.id === 'privacy-modal') {
-                this.hidePrivacyModal();
-            }
-        });
+        const privacyModal = document.getElementById('privacy-modal');
+        if (privacyModal) {
+            privacyModal.addEventListener('click', (e) => {
+                if (e.target.id === 'privacy-modal') {
+                    this.hidePrivacyModal();
+                }
+            });
+        }
 
         // Next button
-        document.getElementById('next-question').addEventListener('click', () => {
-            this.nextQuestion();
-        });
+        const nextBtn = document.getElementById('next-question');
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                this.nextQuestion();
+            });
+        }
 
         // Play again button
-        document.getElementById('play-again').addEventListener('click', () => {
-            this.resetQuiz();
-        });
+        const playAgain = document.getElementById('play-again');
+        if (playAgain) {
+            playAgain.addEventListener('click', () => {
+                this.resetQuiz();
+            });
+        }
 
         // Facebook share button
-        document.getElementById('share-facebook').addEventListener('click', () => {
-            this.shareOnFacebook();
-        });
+        const shareFb = document.getElementById('share-facebook');
+        if (shareFb) {
+            shareFb.addEventListener('click', () => {
+                this.shareOnFacebook();
+            });
+        }
 
-        // Newsletter form - temporarily disabled
-        document.getElementById('newsletter-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            // this.subscribeToNewsletter();
-            // Show success message without actually subscribing
-            document.getElementById('mailchimp-signup').style.display = 'none';
-            alert('Tack! Newsletter-funktionen kommer snart tillbaka.');
-        });
+        // Newsletter form - temporarily disabled (guard if exists)
+        const newsletterForm = document.getElementById('newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                document.getElementById('mailchimp-signup').style.display = 'none';
+                alert('Tack! Newsletter-funktionen kommer snart tillbaka.');
+            });
+        }
 
         // Difficulty selection visual feedback
         document.querySelectorAll('input[name="difficulty"]').forEach(radio => {
