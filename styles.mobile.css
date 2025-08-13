@@ -48,70 +48,43 @@ html, body {
 
 /* Results */
 #results-screen { padding: 1rem; padding-bottom: calc(env(safe-area-inset-bottom) + 16px); }
-.results-card { padding: 1.5rem; border-radius: 16px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
-.final-score { font-size: 2.8rem; }
-.score-percentage { font-size: 1.6rem; }
-.share-buttons { grid-template-columns: 1fr; gap: 0.6rem; }
-.play-again-btn { padding: 1rem; border-radius: 12px; }
 
-/* Hide non-essential hero features on mobile variant */
-.hero-features { display: none !important; }
+/* Embed mode overrides: single-column ultra-compact difficulty tiles */
+.embed-mode .container, .embed-mobile .container { height: auto !important; min-height: 100vh !important; }
+.embed-mode .screen, .embed-mobile .screen { height: auto !important; min-height: 100vh !important; }
+.embed-mode .screen.active, .embed-mobile .screen.active { display: block !important; }
 
-/* Make modal more compact */
-.modal-content { width: 92%; max-width: 520px; border-radius: 16px; }
+/* Remove inner scrolling on quiz screen to avoid double scroll */
+.embed-mode #quiz-screen, .embed-mobile #quiz-screen { overflow: visible !important; padding-bottom: calc(96px + env(safe-area-inset-bottom)) !important; }
 
-/******** Reduced motion for users preferring it ********/
-@media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
-}
+/* Disable sticky header to avoid overlay issues in some themes */
+.embed-mode .quiz-header, .embed-mobile .quiz-header { position: static !important; top: auto !important; box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important; margin: 0 !important; }
 
-/* Ensure fast tap feedback */
-.answer-option, .start-btn, #next-question, .submit-tiebreaker, .share-btn, .play-again-btn { transition: transform 120ms ease, box-shadow 120ms ease; }
-.answer-option:active, .start-btn:active, #next-question:active, .submit-tiebreaker:active, .share-btn:active, .play-again-btn:active { transform: translateY(1px); }
- 
-/* Embed mode: simplify welcome UI */
-.embed-mode #hero-screen { display: none !important; }
-.embed-mode #welcome-screen { display: flex !important; }
-.embed-mode .welcome-left { display: none !important; }
-.embed-mode .welcome-right { padding: 0 !important; background: transparent !important; box-shadow: none !important; }
-.embed-mode .start-form { padding: 0 !important; background: transparent !important; }
+/* Make question content clear and uncluttered */
+.embed-mobile .question-card, .embed-mode .question-card { background: white !important; padding: 16px !important; border-radius: 14px !important; box-shadow: 0 2px 10px rgba(0,0,0,0.06) !important; }
+.embed-mobile .question-text, .embed-mode .question-text { font-size: 18px !important; line-height: 1.5 !important; color: #1c3846 !important; margin-bottom: 14px !important; }
 
-/* Polished difficulty cards for embed */
-.embed-mode .difficulty-options { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
-.embed-mode .difficulty-option { border: 1.5px solid #d7e1de !important; border-radius: 16px !important; background: linear-gradient(180deg,#f9fbfb 0%, #f6faf9 100%) !important; padding: 16px !important; }
-.embed-mode .option-card { border: none !important; background: transparent !important; padding: 0 !important; gap: 6px !important; }
-.embed-mode .option-card span { font-weight: 800 !important; font-size: 18px !important; letter-spacing: -0.01em; color: var(--text-dark); }
-.embed-mode .option-card p { font-size: 13.5px !important; color: #5a6f6c !important; }
-.embed-mode .difficulty-option:hover { box-shadow: 0 8px 24px rgba(2,34,29,.06) !important; transform: translateY(-1px); border-color: #cbd8d4 !important; }
-.embed-mode .difficulty-option input[type="radio"]:checked + .option-card { background: transparent !important; }
-.embed-mode .difficulty-option input[type="radio"]:checked + .option-card span { color: var(--primary-color) !important; }
-.embed-mode .difficulty-option:has(input[type="radio"]:checked) { border-color: var(--primary-color) !important; box-shadow: 0 0 0 4px rgba(28,56,70,.12) !important; background: linear-gradient(180deg,#eef6f9 0%,#e7f3f7 100%) !important; }
+/* Answers: ensure column layout */
+.embed-mobile .answers-container, .embed-mode .answers-container { display: flex !important; flex-direction: column !important; gap: 10px !important; }
+.embed-mobile .answer-option, .embed-mode .answer-option { min-height: 56px !important; padding: 14px !important; font-size: 16px !important; border: 1px solid #e5e7eb !important; background: #fff !important; border-radius: 12px !important; }
 
-/* Form styling */
-.embed-mode .input-group { margin: 10px 0 12px !important; }
-.embed-mode .input-wrapper input { height: 54px !important; padding: 14px 14px 14px 40px !important; border-radius: 14px !important; border: 1px solid #d7e1de !important; }
-.embed-mode .input-icon { left: 12px !important; opacity: .7 !important; }
-.embed-mode .start-btn { height: 56px !important; border-radius: 16px !important; font-weight: 900 !important; letter-spacing: .2px !important; box-shadow: 0 12px 28px rgba(15,163,122,.25) !important; }
- 
-/* Embed mobile: compact difficulty and hide extra text */
-.embed-mobile .welcome-left { display: none !important; }
-.embed-mobile #welcome-screen { display: flex !important; }
-.embed-mobile .difficulty-options { grid-template-columns: 1fr !important; gap: 10px !important; }
-.embed-mobile .difficulty-option { padding: 12px !important; min-height: 64px !important; border-radius: 12px !important; border-width: 1px !important; display: flex !important; align-items: center !important; justify-content: center !important; }
-.embed-mobile .option-card { gap: 2px !important; padding: 0 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; }
-.embed-mobile .option-card span { font-size: 17px !important; font-weight: 800 !important; letter-spacing: -0.01em; }
-.embed-mobile .option-card p { display: none !important; }
+/* Keep next button reachable */
+.embed-mobile #next-question, .embed-mode #next-question { position: fixed !important; bottom: calc(env(safe-area-inset-bottom) + 16px) !important; left: 50% !important; transform: translateX(-50%) !important; z-index: 300 !important; min-width: 220px !important; padding: 14px 22px !important; font-size: 17px !important; font-weight: 800 !important; border-radius: 999px !important; }
+
+/* Progress bar */
+.embed-mobile .progress-bar, .embed-mode .progress-bar { height: 8px !important; background: #e5e7eb !important; border-radius: 4px !important; overflow: hidden !important; }
+.embed-mobile .progress-fill, .embed-mode .progress-fill { background: linear-gradient(90deg, #22c55e 0%, #0fa37a 100%) !important; height: 100% !important; transition: width 0.3s ease !important; }
+
+/* Footer spacing inside quiz to avoid overlap */
+.embed-mobile .quiz-container, .embed-mode .quiz-container { padding-bottom: 96px !important; }
 
 /* Remove big hero title/subtitle inside app when embedded */
 .embed-mobile .main-title, .embed-mobile .subtitle { display: none !important; }
 
-/* Reduce container padding */
-.embed-mobile #quiz-screen { padding: 0.75rem !important; }
- 
 /* Force scroll in embed to avoid clipped content */
 .embed-mode html, .embed-mode body, body.embed-mode { overflow: auto !important; -webkit-overflow-scrolling: touch !important; }
 .embed-mobile html, .embed-mobile body, body.embed-mobile { overflow: auto !important; -webkit-overflow-scrolling: touch !important; }
- 
+
 /* --- Improved difficulty buttons interaction (hover/active/focus) --- */
 .embed-mobile .difficulty-option,
 .embed-mode .difficulty-option {
@@ -156,140 +129,5 @@ html, body {
 .embed-mode .start-btn:active {
   transform: translateY(0) !important;
   box-shadow: 0 8px 20px rgba(34,197,94,.25) !important;
-}
-
-/* FIX: Quiz screen scroll och layout för embed mobile */
-.embed-mobile #quiz-screen,
-.embed-mode #quiz-screen {
-  padding: 12px !important;
-  min-height: 100vh !important;
-  display: flex !important;
-  flex-direction: column !important;
-}
-
-/* Säkerställ att quiz-content tar upp rätt plats */
-.embed-mobile .quiz-content,
-.embed-mode .quiz-content {
-  flex: 1 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 16px !important;
-  padding-top: 8px !important;
-}
-
-/* Quiz header kompakt men tydlig */
-.embed-mobile .quiz-header,
-.embed-mode .quiz-header {
-  position: sticky !important;
-  top: 0 !important;
-  z-index: 100 !important;
-  background: white !important;
-  margin: -12px -12px 0 -12px !important;
-  padding: 16px !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
-}
-
-/* Question card förbättringar */
-.embed-mobile .question-card,
-.embed-mode .question-card {
-  background: white !important;
-  padding: 20px 16px !important;
-  border-radius: 16px !important;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
-  margin-bottom: 12px !important;
-}
-
-.embed-mobile .question-text,
-.embed-mode .question-text {
-  font-size: 18px !important;
-  line-height: 1.5 !important;
-  color: #1c3846 !important;
-  margin-bottom: 20px !important;
-}
-
-/* Svarsalternativ - tydligare och mer touch-vänliga */
-.embed-mobile .answers-container,
-.embed-mode .answers-container {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 10px !important;
-}
-
-.embed-mobile .answer-option,
-.embed-mode .answer-option {
-  min-height: 60px !important;
-  padding: 16px !important;
-  font-size: 16px !important;
-  border: 2px solid #e0e0e0 !important;
-  background: white !important;
-  transition: all 0.2s ease !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
-  line-height: 1.3 !important;
-}
-
-.embed-mobile .answer-option:active,
-.embed-mode .answer-option:active {
-  transform: scale(0.98) !important;
-  background: #f5f5f5 !important;
-}
-
-/* Next button alltid synlig */
-.embed-mobile #next-question,
-.embed-mode #next-question {
-  position: fixed !important;
-  bottom: calc(env(safe-area-inset-bottom) + 20px) !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  z-index: 200 !important;
-  min-width: 200px !important;
-  padding: 16px 32px !important;
-  font-size: 18px !important;
-  font-weight: 700 !important;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
-}
-
-/* Progress bar mer synlig */
-.embed-mobile .progress-bar,
-.embed-mode .progress-bar {
-  height: 8px !important;
-  background: #e0e0e0 !important;
-  border-radius: 4px !important;
-  overflow: hidden !important;
-}
-
-.embed-mobile .progress-fill,
-.embed-mode .progress-fill {
-  background: linear-gradient(90deg, #22c55e 0%, #0fa37a 100%) !important;
-  height: 100% !important;
-  transition: width 0.3s ease !important;
-}
-
-/* Timer och poäng mer diskreta */
-.embed-mobile .timer,
-.embed-mobile .score,
-.embed-mode .timer,
-.embed-mode .score {
-  font-size: 14px !important;
-  opacity: 0.8 !important;
-}
-
-/* Auto-scroll till toppen vid ny fråga */
-.embed-mobile .screen.active,
-.embed-mode .screen.active {
-  scroll-behavior: auto !important;
-}
-
-/* Förhindra overflow på body i embed */
-.embed-mobile,
-.embed-mode,
-body.embed-mobile,
-body.embed-mode {
-  overflow-x: hidden !important;
-  overflow-y: auto !important;
-  -webkit-overflow-scrolling: touch !important;
-  overscroll-behavior: contain !important;
 }
  
