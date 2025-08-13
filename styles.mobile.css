@@ -112,3 +112,49 @@ html, body {
 .embed-mode html, .embed-mode body, body.embed-mode { overflow: auto !important; -webkit-overflow-scrolling: touch !important; }
 .embed-mobile html, .embed-mobile body, body.embed-mobile { overflow: auto !important; -webkit-overflow-scrolling: touch !important; }
  
+/* --- Improved difficulty buttons interaction (hover/active/focus) --- */
+.embed-mobile .difficulty-option,
+.embed-mode .difficulty-option {
+  transition: transform 120ms ease, box-shadow 200ms ease, border-color 200ms ease, background-color 200ms ease;
+  cursor: pointer !important;
+}
+
+.embed-mobile .difficulty-option:hover,
+.embed-mode .difficulty-option:hover {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 6px 18px rgba(28,56,70,.18) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Selected state */
+.embed-mobile .difficulty-option:has(input[type="radio"]:checked),
+.embed-mode .difficulty-option:has(input[type="radio"]:checked) {
+  border-color: var(--primary-color) !important;
+  background: linear-gradient(180deg,#eef6f9 0%, #e7f3f7 100%) !important;
+  box-shadow: 0 0 0 4px rgba(28,56,70,.12) !important;
+}
+
+/* Keyboard focus for accessibility */
+.embed-mobile .difficulty-option:focus-within,
+.embed-mode .difficulty-option:focus-within {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(28,56,70,.22) !important;
+}
+
+/* Start button hover/active polish */
+.embed-mobile .start-btn,
+.embed-mode .start-btn {
+  transition: transform 120ms ease, box-shadow 200ms ease, background 200ms ease !important;
+}
+.embed-mobile .start-btn:hover,
+.embed-mode .start-btn:hover {
+  background: linear-gradient(135deg, #1db954 0%, var(--success-color) 100%) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 12px 28px rgba(34,197,94,.35) !important;
+}
+.embed-mobile .start-btn:active,
+.embed-mode .start-btn:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 8px 20px rgba(34,197,94,.25) !important;
+}
+ 
