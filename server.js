@@ -339,43 +339,16 @@ app.get('/api/debug/mailchimp', (req, res) => {
     });
 });
 
-// Main route - serve the quiz
+// Main route - serve the quiz (mobile-only)
 app.get('/', (req, res) => {
-    // Helper: decide mobile vs desktop
-    const ua = req.headers['user-agent'] || '';
-    const viewOverride = req.query.view;
-    const envForce = (process.env.FORCE_VIEW || '').toLowerCase(); // 'mobile' | 'desktop' | ''
-    const isMobileUA = /Mobile|Android|iPhone|iPad|iPod|IEMobile|Windows Phone|BlackBerry|Opera Mini/i.test(ua);
-
-    let serveMobile;
-    if (viewOverride === 'mobile') serveMobile = true;
-    else if (viewOverride === 'desktop') serveMobile = false;
-    else if (envForce === 'mobile') serveMobile = true;
-    else if (envForce === 'desktop') serveMobile = false;
-    else serveMobile = isMobileUA;
-
-    const fileToServe = serveMobile ? 'index.mobile.html' : 'index.html';
-    res.sendFile(path.join(__dirname, fileToServe));
+    res.sendFile(path.join(__dirname, 'index.mobile.html'));
 });
 
-// Catch-all route - serve correct index for client-side routing
+// Catch-all route - serve correct index for client-side routing (mobile-only)
 app.get('*', (req, res) => {
     // Only serve HTML for non-API routes
     if (!req.url.startsWith('/api/')) {
-        const ua = req.headers['user-agent'] || '';
-        const viewOverride = req.query.view;
-        const envForce = (process.env.FORCE_VIEW || '').toLowerCase();
-        const isMobileUA = /Mobile|Android|iPhone|iPad|iPod|IEMobile|Windows Phone|BlackBerry|Opera Mini/i.test(ua);
-
-        let serveMobile;
-        if (viewOverride === 'mobile') serveMobile = true;
-        else if (viewOverride === 'desktop') serveMobile = false;
-        else if (envForce === 'mobile') serveMobile = true;
-        else if (envForce === 'desktop') serveMobile = false;
-        else serveMobile = isMobileUA;
-
-        const fileToServe = serveMobile ? 'index.mobile.html' : 'index.html';
-        res.sendFile(path.join(__dirname, fileToServe));
+        res.sendFile(path.join(__dirname, 'index.mobile.html'));
     } else {
         res.status(404).json({ error: 'API endpoint not found' });
     }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Tennis Quiz (Mobil) - Tennisresor</title>
-    <link rel="stylesheet" href="styles.mobile.css?v=5">
+    <link rel="stylesheet" href="styles.mobile.css?v=6">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <meta property="og:title" content="Tennis Quiz - Testa dina kunskaper!">
@@ -12,9 +12,9 @@
     <meta property="og:type" content="website">
     <meta name="theme-color" content="#1c3846">
 </head>
-<body>
+<body class="embed-mode embed-mobile">
     <div class="container">
-        <div id="hero-screen" class="screen hero-screen active">
+        <div id="hero-screen" class="screen hero-screen">
             <div class="hero-image-container">
                 <img src="Public/AndresJens.jpg" alt="Tennis experter" class="hero-image">
                 <div class="hero-overlay"></div>
@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <div id="welcome-screen" class="screen">
+        <div id="welcome-screen" class="screen active">
             <div class="welcome-left">
                 <div class="tennis-logo">
                     <i class="fas fa-tennis-ball"></i>
@@ -63,7 +63,6 @@
                                 <div class="option-card easy">
                                     <i class="fas fa-seedling"></i>
                                     <span>Lätt</span>
-                                    <p>Grundläggande tennis</p>
                                 </div>
                             </label>
                             <label class="difficulty-option">
@@ -71,7 +70,6 @@
                                 <div class="option-card medium">
                                     <i class="fas fa-chart-line"></i>
                                     <span>Medel</span>
-                                    <p>Allmän tenniskultur</p>
                                 </div>
                             </label>
                             <label class="difficulty-option">
@@ -79,7 +77,6 @@
                                 <div class="option-card hard">
                                     <i class="fas fa-fire"></i>
                                     <span>Svår</span>
-                                    <p>Avancerad kunskap</p>
                                 </div>
                             </label>
                             <label class="difficulty-option">
@@ -87,7 +84,6 @@
                                 <div class="option-card expert">
                                     <i class="fas fa-crown"></i>
                                     <span>Expert</span>
-                                    <p>Tennisexpertens nivå</p>
                                 </div>
                             </label>
                         </div>
