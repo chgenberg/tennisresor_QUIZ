@@ -131,3 +131,31 @@ html, body {
   box-shadow: 0 8px 20px rgba(34,197,94,.25) !important;
 }
  
+/* Answer state colors override for embed/mobile */
+.embed-mobile .answer-option.correct,
+.embed-mode .answer-option.correct {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+}
+.embed-mobile .answer-option.incorrect,
+.embed-mode .answer-option.incorrect {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+}
+/* Remove any overlays/pseudos when marked */
+.embed-mobile .answer-option.correct::before,
+.embed-mode .answer-option.correct::before,
+.embed-mobile .answer-option.incorrect::before,
+.embed-mode .answer-option.incorrect::before {
+  opacity: 0 !important;
+  display: none !important;
+}
+/* Prevent re-click and keep full opacity after reveal */
+.embed-mobile .answer-option.disabled,
+.embed-mode .answer-option.disabled {
+  pointer-events: none !important;
+  opacity: 1 !important;
+}
+ 
