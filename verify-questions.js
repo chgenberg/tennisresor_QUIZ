@@ -17,46 +17,21 @@ function withTokenLimit(baseParams, limit) {
     return { ...baseParams, max_tokens: limit };
 }
 
+function baseParams(messages) {
+    if ((MODEL || '').startsWith('gpt-5')) {
+        return { model: MODEL, messages };
+    }
+    return { model: MODEL, messages, temperature: 0 };
+}
+
 async function verifyQuestion(question, answers, correctIndex, difficulty) {
-    const prompt = `Du är en tennisexpert och språkgranskare. Granska denna tennisfråga noggrant:
-
-FRÅGA: "${question}"
-SVARSALTERNATIV: 
-1. ${answers[0]}
-2. ${answers[1]} 
-3. ${answers[2]}
-4. ${answers[3]}
-
-MARKERAT RÄTT SVAR: ${answers[correctIndex]} (alternativ ${correctIndex + 1})
-SVÅRIGHETSGRAD: ${difficulty}
-
-Kontrollera:
-1. SVENSKA GRAMMATIK - Är frågan och svaren korrekt svenska?
-2. FAKTAKORREKTHET - Är det markerade svaret verkligen rätt?
-3. SVÅRIGHETSGRAD - Passar frågan för nivån "${difficulty}"?
-4. SVARSALTERNATIV - Är alla alternativ trovärdiga distraktorer?
-
-Svara ENDAST med följande format:
-STATUS: [OK/KORRIGERA]
-SVENSKA: [kommentar om språket]
-FAKTA: [kommentar om riktigheten] 
-SVÅRIGHETSGRAD: [kommentar om nivån]
-FÖRSLAG: [om korrigering behövs, ge korrigerad version]
-
-Exempel på korrigering:
-FRÅGA: "Korrigerad fråga här?"
-SVAR: ["Alt 1", "Alt 2", "Alt 3", "Alt 4"]
-RÄTT: 2 (för alternativ 3, 0-indexerat)`;
+    const prompt = `Du är en tennisexpert och språkgranskare. Granska denna tennisfråga noggrant:\n\nFRÅGA: "${question}"\nSVARSALTERNATIV: \n1. ${answers[0]}\n2. ${answers[1]} \n3. ${answers[2]}\n4. ${answers[3]}\n\nMARKERAT RÄTT SVAR: ${answers[correctIndex]} (alternativ ${correctIndex + 1})\nSVÅRIGHETSGRAD: ${difficulty}\n\nKontrollera:\n1. SVENSKA GRAMMATIK - Är frågan och svaren korrekt svenska?\n2. FAKTAKORREKTHET - Är det markerade svaret verkligen rätt?\n3. SVÅRIGHETSGRAD - Passar frågan för nivån "${difficulty}"?\n4. SVARSALTERNATIV - Är alla alternativ trovärdiga distraktorer?\n\nSvara ENDAST med följande format:\nSTATUS: [OK/KORRIGERA]\nSVENSKA: [kommentar om språket]\nFAKTA: [kommentar om riktigheten] \nSVÅRIGHETSGRAD: [kommentar om nivån]\nFÖRSLAG: [om korrigering behövs, ge korrigerad version]\n\nExempel på korrigering:\nFRÅGA: "Korrigerad fråga här?"\nSVAR: ["Alt 1", "Alt 2", "Alt 3", "Alt 4"]\nRÄTT: 2 (för alternativ 3, 0-indexerat)`;
 
     try {
-        const base = {
-            model: MODEL,
-            messages: [
-                { role: "system", content: "Du är en professionell tennisexpert och språkgranskare som granskar quiz-frågor för korrekt svenska och tennisfakta." },
-                { role: "user", content: prompt }
-            ],
-            temperature: 0
-        };
+        const base = baseParams([
+            { role: "system", content: "Du är en professionell tennisexpert och språkgranskare som granskar quiz-frågor för korrekt svenska och tennisfakta." },
+            { role: "user", content: prompt }
+        ]);
         const completion = await openai.chat.completions.create(
             withTokenLimit(base, 800)
         );
@@ -69,35 +44,13 @@ RÄTT: 2 (för alternativ 3, 0-indexerat)`;
 }
 
 async function verifyTiebreakerQuestion(question, answer, tolerance, difficulty) {
-    const prompt = `Du är en tennisexpert och språkgranskare. Granska denna utslagsfråga:
-
-FRÅGA: "${question}"
-RÄTT SVAR: ${answer}
-TOLERANS: ±${tolerance}
-SVÅRIGHETSGRAD: ${difficulty}
-
-Kontrollera:
-1. SVENSKA GRAMMATIK - Är frågan korrekt svenska?
-2. FAKTAKORREKTHET - Är svaret ${answer} korrekt?
-3. TOLERANS - Är ±${tolerance} rimlig tolerans?
-4. SVÅRIGHETSGRAD - Passar frågan för nivån "${difficulty}"?
-
-Svara ENDAST med följande format:
-STATUS: [OK/KORRIGERA]
-SVENSKA: [kommentar om språket]
-FAKTA: [kommentar om riktigheten]
-TOLERANS: [kommentar om toleransen]
-FÖRSLAG: [om korrigering behövs, ge korrigerad version]`;
+    const prompt = `Du är en tennisexpert och språkgranskare. Granska denna utslagsfråga:\n\nFRÅGA: "${question}"\nRÄTT SVAR: ${answer}\nTOLERANS: ±${tolerance}\nSVÅRIGHETSGRAD: ${difficulty}\n\nKontrollera:\n1. SVENSKA GRAMMATIK - Är frågan korrekt svenska?\n2. FAKTAKORREKTHET - Är svaret ${answer} korrekt?\n3. TOLERANS - Är ±${tolerance} rimlig tolerans?\n4. SVÅRIGHETSGRAD - Passar frågan för nivån "${difficulty}"?\n\nSvara ENDAST med följande format:\nSTATUS: [OK/KORRIGERA]\nSVENSKA: [kommentar om språket]\nFAKTA: [kommentar om riktigheten]\nTOLERANS: [kommentar om toleransen]\nFÖRSLAG: [om korrigering behövs, ge korrigerad version]`;
 
     try {
-        const base = {
-            model: MODEL,
-            messages: [
-                { role: "system", content: "Du är en professionell tennisexpert som granskar utslagsfrågor för tennis-quiz." },
-                { role: "user", content: prompt }
-            ],
-            temperature: 0
-        };
+        const base = baseParams([
+            { role: "system", content: "Du är en professionell tennisexpert som granskar utslagsfrågor för tennis-quiz." },
+            { role: "user", content: prompt }
+        ]);
         const completion = await openai.chat.completions.create(
             withTokenLimit(base, 600)
         );

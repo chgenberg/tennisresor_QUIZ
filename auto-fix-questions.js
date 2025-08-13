@@ -16,6 +16,13 @@ function withTokenLimit(baseParams, limit) {
     return { ...baseParams, max_tokens: limit };
 }
 
+function baseParams(messages) {
+    if ((MODEL || '').startsWith('gpt-5')) {
+        return { model: MODEL, messages };
+    }
+    return { model: MODEL, messages, temperature: 0 };
+}
+
 function findLatestReport() {
     const files = fs.readdirSync(process.cwd())
         .filter(f => f.startsWith('question-verification-report-') && f.endsWith('.json'))
@@ -73,42 +80,24 @@ async function autoFixQuestions() {
 }
 
 async function fixSingleQuestion(correction) {
-    const prompt = `Du är en expert på att korrigera tennis quiz-frågor. Här är en fråga som behöver korrigering:
-
-URSPRUNGLIG FRÅGA:
-${JSON.stringify(correction.original, null, 2)}
-
-GRANSKNING FRÅN TIDIGARE:
-${correction.verification}
-
-UPPGIFT: Skapa en korrigerad version av frågan baserat på granskningens FÖRSLAG-sektion.
-
-Svara ENDAST med giltigt JSON i detta exakta format:
-{
-  "question": "Den korrigerade frågan här",
-  "answers": ["Svar 1", "Svar 2", "Svar 3", "Svar 4"],
-  "correct": 0
-}
-
-ELLER för tiebreaker-frågor:
-{
-  "question": "Den korrigerade frågan här", 
-  "answer": 123,
-  "tolerance": 2
-}
-
-VIKTIGT: 
-- Använd korrekt svenska
-- Se till att fakta stämmer
-- Behåll samma svårighetsgrad
-- Svara ENDAST med JSON, inget annat text`;
+    const prompt = `Du är en expert på att korrigera tennis quiz-frågor. Här är en fråga som behöver korrigering:\n\nURSPRUNGLIG FRÅGA:\n${JSON.stringify(correction.original, null, 2)}\n\nGRANSKNING FRÅN TIDIGARE:\n${correction.verification}\n\nUPPGIFT: Skapa en korrigerad version av frågan baserat på granskningens FÖRSLAG-sektion.\n\nSvara ENDAST med giltigt JSON i detta exakta format:\n{\n  "question": "Den korrigerade frågan här",\n  "answers": ["Svar 1", "Svar 2", "Svar 3", "Svar 4"],\n  "correct": 0\n}\n\nELLER för tiebreaker-frågor:\n{\n  "question": "Den korrigerade frågan här", \n  "answer": 123,\n  "tolerance": 2\n}\n\nVIKTIGT: \n- Använd korrekt svenska\n- Se till att fakta stämmer\n- Behåll samma svårighetsgrad\n- Svara ENDAST med JSON, inget annat text`;
 
     try {
-        const base = { model: MODEL, messages: [ { role: 'system', content: 'Du är en tennisexpert som korrigerar quiz-frågor. Svara endast med giltigt JSON.' }, { role: 'user', content: prompt } ], temperature: 0 };
+        const base = baseParams([
+            { role: 'system', content: 'Du är en tennisexpert som korrigerar quiz-frågor. Svara endast med giltigt JSON.' },
+            { role: 'user', content: prompt }
+        ]);
         const completion = await openai.chat.completions.create(withTokenLimit(base, 700));
         const response = completion.choices[0].message.content.trim();
         try { return JSON.parse(response); } catch { console.error(`   ❌ Kunde inte parsa JSON svar: ${response}`); return null; }
     } catch (error) { console.error(`   ❌ API fel: ${error.message}`); return null; }
+}
+
+function baseParams(messages) {
+    if ((MODEL || '').startsWith('gpt-5')) {
+        return { model: MODEL, messages };
+    }
+    return { model: MODEL, messages, temperature: 0 };
 }
 
 async function applyAllFixes(fixedQuestions) {
@@ -116,16 +105,7 @@ async function applyAllFixes(fixedQuestions) {
         delete require.cache[require.resolve('./questions.js')];
         const { questionsDB, tiebreakerQuestions } = require('./questions.js');
         fixedQuestions.forEach(fix => { if (fix.type === 'regular') questionsDB[fix.difficulty][fix.index] = fix.fixed; else if (fix.type === 'tiebreaker') tiebreakerQuestions[fix.difficulty][fix.index] = fix.fixed; });
-        const newFile = `// Tennis Quiz Questions Database - Auto-korrigerad ${new Date().toISOString()}
-const questionsDB = ${JSON.stringify(questionsDB, null, 4)};
-
-// Tiebreaker questions (guess year/number) - one random will be selected for each quiz
-const tiebreakerQuestions = ${JSON.stringify(tiebreakerQuestions, null, 4)};
-
-// Export for use in main script
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { questionsDB, tiebreakerQuestions };
-}`;
+        const newFile = `// Tennis Quiz Questions Database - Auto-korrigerad ${new Date().toISOString()}\nconst questionsDB = ${JSON.stringify(questionsDB, null, 4)};\n\n// Tiebreaker questions (guess year/number) - one random will be selected for each quiz\nconst tiebreakerQuestions = ${JSON.stringify(tiebreakerQuestions, null, 4)};\n\n// Export for use in main script\nif (typeof module !== 'undefined' && module.exports) {\n    module.exports = { questionsDB, tiebreakerQuestions };\n}`;
         return newFile;
     } catch (error) { console.error('❌ Fel vid applicering av fixar:', error.message); return null; }
 }
