@@ -1,12 +1,26 @@
 const OpenAI = require('openai');
 const fs = require('fs');
+const path = require('path');
+
+// CLI: --model=gpt-5  --report=question-verification-report-*.json
+const argModel = (process.argv.find(a => a.startsWith('--model=')) || '').split('=')[1];
+const MODEL = argModel || process.env.OPENAI_MODEL || 'gpt-5';
+const argReport = (process.argv.find(a => a.startsWith('--report=')) || '').split('=')[1];
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY
 });
 
+function findLatestReport() {
+    const files = fs.readdirSync(process.cwd())
+        .filter(f => f.startsWith('question-verification-report-') && f.endsWith('.json'))
+        .map(f => ({ f, t: fs.statSync(path.join(process.cwd(), f)).mtimeMs }))
+        .sort((a,b) => b.t - a.t);
+    return files.length ? files[0].f : null;
+}
+
 async function autoFixQuestions() {
-    console.log('🤖 Startar automatisk korrigering av alla frågor med GPT...\n');
+    console.log(`🤖 Startar automatisk korrigering med OpenAI (modell: ${MODEL})...\n`);
     
     if (!process.env.OPENAI_API_KEY) {
         console.error('❌ OPENAI_API_KEY environment variable är inte satt!');
@@ -14,13 +28,18 @@ async function autoFixQuestions() {
     }
 
     // Läs rapporten
-    const reportFile = 'question-verification-report-1754400900667.json';
-    if (!fs.existsSync(reportFile)) {
-        console.error('❌ Kan inte hitta rapporten:', reportFile);
+    const reportFile = argReport || findLatestReport();
+    if (!reportFile || !fs.existsSync(reportFile)) {
+        console.error('❌ Kan inte hitta rapportfil. Kör först verifieringen eller ange --report=...');
         return;
     }
+    console.log('📄 Använder rapport:', reportFile);
 
     const report = JSON.parse(fs.readFileSync(reportFile, 'utf8'));
+    if (!report.corrections || !report.corrections.length) {
+        console.log('✅ Inga korrigeringar att applicera.');
+        return;
+    }
     console.log(`📊 Hittade ${report.corrections.length} frågor som behöver korrigering\n`);
 
     // Läs nuvarande frågor
@@ -42,10 +61,7 @@ async function autoFixQuestions() {
         try {
             const fixed = await fixSingleQuestion(correction);
             if (fixed) {
-                fixedQuestions.push({
-                    ...correction,
-                    fixed: fixed
-                });
+                fixedQuestions.push({ ...correction, fixed });
                 fixedCount++;
                 console.log(`   ✅ Fixad!`);
             } else {
@@ -82,6 +98,7 @@ async function autoFixQuestions() {
     // Spara rapport över fixar
     const fixReport = {
         timestamp: new Date().toISOString(),
+        model: MODEL,
         totalFixed: fixedCount,
         totalFailed: failedCount,
         fixes: fixedQuestions
@@ -125,7 +142,7 @@ VIKTIGT:
 
     try {
         const completion = await openai.chat.completions.create({
-            model: "gpt-4",
+            model: MODEL,
             messages: [
                 {
                     role: "system",
@@ -136,8 +153,8 @@ VIKTIGT:
                     content: prompt
                 }
             ],
-            max_tokens: 500,
-            temperature: 0.1
+            max_tokens: 700,
+            temperature: 0
         });
 
         const response = completion.choices[0].message.content.trim();
@@ -160,6 +177,7 @@ VIKTIGT:
 async function applyAllFixes(fixedQuestions) {
     try {
         // Läs nuvarande questions.js
+        delete require.cache[require.resolve('./questions.js')];
         const { questionsDB, tiebreakerQuestions } = require('./questions.js');
         
         // Applicera alla fixar

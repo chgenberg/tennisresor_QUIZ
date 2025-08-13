@@ -9,7 +9,9 @@
     "verify-questions": "node verify-questions.js",
     "export:questions": "node export-questions.js",
     "build": "echo 'No build step required'",
-    "test": "echo 'No tests specified'"
+    "test": "echo 'No tests specified'",
+    "verify:questions": "node verify-questions.js --model=gpt-5",
+    "fix:questions": "node auto-fix-questions.js --model=gpt-5"
   },
   "keywords": [
     "tennis",
