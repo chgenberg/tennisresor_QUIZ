@@ -72,6 +72,10 @@ class TennisQuiz {
                 document.body.classList.add('embed-mobile');
             }
         }
+        // Fallback: if body already has embed-mode class, treat as embedded
+        if (document.body.classList.contains('embed-mode')) {
+            this.isEmbedded = true;
+        }
         
         const levelMap = {
             'latt': 'easy', 'lätt': 'easy', 'easy': 'easy',
