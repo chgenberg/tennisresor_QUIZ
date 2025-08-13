@@ -130,6 +130,17 @@ class TennisQuiz {
             e.preventDefault();
             this.startQuiz();
         });
+        // Defensive: also bind click on .start-btn to ensure host CSS/JS doesn't block
+        const startBtn = document.querySelector('.start-btn');
+        if (startBtn) {
+            ['click','touchstart'].forEach(ev => {
+                startBtn.addEventListener(ev, (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    this.startQuiz();
+                }, true);
+            });
+        }
 
         // Privacy policy modal
         document.getElementById('privacy-link').addEventListener('click', (e) => {
@@ -198,6 +209,10 @@ class TennisQuiz {
         // Auto-start in embed mode to avoid Start button clicks being blocked by hosts
         if (this.isEmbedded) {
             setTimeout(() => this.startQuizWithParams('', difficulty), 50);
+        } else {
+            // Ensure Start button becomes enabled when difficulty chosen
+            const startBtnEl = document.querySelector('.start-btn');
+            if (startBtnEl) startBtnEl.disabled = false;
         }
     }
 
@@ -300,7 +315,8 @@ class TennisQuiz {
             return;
         }
 
-        this.userEmail = document.getElementById('email').value.trim();
+        const emailEl = document.getElementById('email');
+        this.userEmail = emailEl ? emailEl.value.trim() : '';
         this.selectedDifficulty = document.querySelector('input[name="difficulty"]:checked').value;
         
         // Newsletter signup temporarily disabled - can be re-enabled later
