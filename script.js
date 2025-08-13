@@ -576,6 +576,23 @@ class TennisQuiz {
             correctAnswer: correctAnswer,
             isTiebreaker: true
         };
+
+        // Visa tydlig feedback med korrekt svar
+        try {
+            const container = document.querySelector('.tiebreaker-container');
+            if (container) {
+                const old = container.querySelector('.tiebreaker-feedback');
+                if (old) old.remove();
+                const feedback = document.createElement('div');
+                feedback.className = `tiebreaker-feedback ${isCorrect ? 'ok' : 'bad'}`;
+                const toleranceText = tolerance > 0 ? ` (±${tolerance})` : '';
+                feedback.innerHTML = isCorrect
+                    ? `Rätt! Ditt svar: <strong>${Number(userAnswer)}</strong>. Korrekt svar: <strong>${correctAnswer}</strong>${toleranceText}.`
+                    : `Fel. Ditt svar: <strong>${Number(userAnswer)}</strong>. Rätt svar är: <strong>${correctAnswer}</strong>${toleranceText}.`;
+                container.appendChild(feedback);
+            }
+            this.postHeightToParent();
+        } catch (_) { /* ignore */ }
         
         // Visa Next-knapp efter kort fördröjning (auto-advance i embed)
         setTimeout(() => {

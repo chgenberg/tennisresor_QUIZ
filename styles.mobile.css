@@ -159,3 +159,7 @@ html, body {
   opacity: 1 !important;
 }
  
+.tiebreaker-feedback { margin-top: 12px; padding: 12px; border-radius: 12px; font-size: 15px; }
+.tiebreaker-feedback.ok { background: #f0fdf4; color:#166534; border:1px solid #bbf7d0; }
+.tiebreaker-feedback.bad { background: #fef2f2; color:#7f1d1d; border:1px solid #fecaca; }
+ 
