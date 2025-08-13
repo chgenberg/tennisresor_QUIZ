@@ -212,18 +212,21 @@ class TennisQuiz {
     }
 
     validateForm() {
-        const email = document.getElementById('email').value.trim();
         const difficulty = document.querySelector('input[name="difficulty"]:checked');
-        const privacy = document.getElementById('privacy-consent').checked;
 
-        // In embed mode (Shopify), only difficulty is required
-        if (this.isEmbedded) {
+        // Embed mode or when email/consent fields are not present: only difficulty required
+        if (this.isEmbedded || !document.getElementById('email')) {
             if (!difficulty) {
                 this.showNotification('Vänligen välj en svårighetsgrad', 'error');
                 return false;
             }
             return true;
         }
+
+        const emailInput = document.getElementById('email');
+        const privacyEl = document.getElementById('privacy-consent');
+        const email = emailInput ? emailInput.value.trim() : '';
+        const privacy = privacyEl ? privacyEl.checked : false;
 
         if (!email || !this.isValidEmail(email)) {
             this.showNotification('Vänligen ange en giltig e-postadress', 'error');
