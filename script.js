@@ -289,7 +289,7 @@ class TennisQuiz {
         }
 
         if (!privacy) {
-            this.showNotification('Du måste godkänna integritetsvillkoren för att fortsätta', 'error');
+            this.showNotification('Du måste godkänna integritetspolicyn för att fortsätta', 'error');
             return false;
         }
 
