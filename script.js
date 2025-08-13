@@ -196,15 +196,21 @@ class TennisQuiz {
         // Play again button
         const playAgain = document.getElementById('play-again');
         if (playAgain) {
-            playAgain.addEventListener('click', () => {
+            const onPlayAgain = (e) => {
+                if (e) { e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation(); }
                 this.resetQuiz();
+            };
+            ['click','touchstart','pointerup'].forEach((ev) => {
+                playAgain.addEventListener(ev, onPlayAgain, true);
+                playAgain.addEventListener(ev, onPlayAgain, false);
             });
         }
 
         // Facebook share button
         const shareFb = document.getElementById('share-facebook');
         if (shareFb) {
-            shareFb.addEventListener('click', () => {
+            shareFb.addEventListener('click', (e) => {
+                e.preventDefault();
                 this.shareOnFacebook();
             });
         }
@@ -986,62 +992,76 @@ class TennisQuiz {
             hard: 'Svår',
             expert: 'Expert'
         };
-        
         const baseMessage = `Jag fick ${this.score}/${this.totalQuestions} rätt (${percentage}%) i Tennisresor.net QUIZ på ${difficultyNames[this.selectedDifficulty]} nivå! 🎾`;
         const encouragement = "Hur många rätt får du? Testa ditt tennis-kunnande! 💪";
         const url = "https://www.tennisresor.net";
-        
+
+        const sharePayload = {
+            title: 'Tennisresor – Quiz',
+            text: `${baseMessage}\n\n${encouragement}`,
+            url
+        };
+
         // Create sharing buttons if they don't exist
         this.createSharingButtons();
-        
-        // Facebook sharing
+
+        // Generic Web Share API handler
+        const tryWebShare = async () => {
+            if (navigator.share) {
+                try { await navigator.share(sharePayload); return true; } catch (_) { return false; }
+            }
+            return false;
+        };
+
+        // Facebook
         const facebookBtn = document.getElementById('share-facebook');
         if (facebookBtn) {
-            facebookBtn.onclick = () => {
+            facebookBtn.onclick = async (e) => {
+                e.preventDefault();
+                if (await tryWebShare()) return;
                 const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(baseMessage + ' ' + encouragement)}`;
                 window.open(facebookUrl, '_blank', 'width=600,height=400');
             };
         }
-        
-        // WhatsApp sharing
+
+        // WhatsApp
         const whatsappBtn = document.getElementById('share-whatsapp');
         if (whatsappBtn) {
-            whatsappBtn.onclick = () => {
+            whatsappBtn.onclick = async (e) => {
+                e.preventDefault();
+                if (await tryWebShare()) return;
                 const whatsappMessage = `${baseMessage}\n\n${encouragement}\n\n${url}`;
                 const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappMessage)}`;
                 window.open(whatsappUrl, '_blank');
             };
         }
-        
-        // Messenger sharing
+
+        // Messenger
         const messengerBtn = document.getElementById('share-messenger');
         if (messengerBtn) {
-            messengerBtn.onclick = () => {
-                const messengerUrl = `https://m.me/?text=${encodeURIComponent(baseMessage + '\n\n' + encouragement + '\n\n' + url)}`;
+            messengerBtn.onclick = async (e) => {
+                e.preventDefault();
+                if (await tryWebShare()) return;
+                const messengerText = `${baseMessage}\n\n${encouragement}\n\n${url}`;
+                const messengerUrl = `https://m.me/?text=${encodeURIComponent(messengerText)}`;
                 window.open(messengerUrl, '_blank');
             };
         }
-        
-        // Copy link functionality
-        const copyBtn = document.getElementById('copy-link');
+
+        // Copy link
+        const copyBtn = document.getElementById('copy-link') || document.getElementById('share-copy');
         if (copyBtn) {
-            copyBtn.onclick = () => {
+            copyBtn.onclick = async (e) => {
+                e.preventDefault();
                 const textToCopy = `${baseMessage}\n\n${encouragement}\n\n${url}`;
-                
-                if (navigator.clipboard) {
-                    navigator.clipboard.writeText(textToCopy).then(() => {
-                        this.showCopyFeedback(copyBtn);
-                    });
+                if (navigator.clipboard?.writeText) {
+                    await navigator.clipboard.writeText(textToCopy);
                 } else {
-                    // Fallback for older browsers
-                    const textArea = document.createElement('textarea');
-                    textArea.value = textToCopy;
-                    document.body.appendChild(textArea);
-                    textArea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(textArea);
-                    this.showCopyFeedback(copyBtn);
+                    const ta = document.createElement('textarea');
+                    ta.value = textToCopy; document.body.appendChild(ta); ta.select();
+                    document.execCommand('copy'); document.body.removeChild(ta);
                 }
+                this.showCopyFeedback(copyBtn);
             };
         }
     }
