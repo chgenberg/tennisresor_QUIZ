@@ -225,7 +225,7 @@ const questionsDB = {
             "question": "Vilken spelarinna vann Wimbledon 2019?",
             "answers": [
                 "Serena Williams",
-                "Marketa Vondrousova",
+                "Simona Halep",
                 "Ons Jabeur",
                 "Elena Rybakina"
             ],
